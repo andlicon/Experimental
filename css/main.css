@@ -1,0 +1,236 @@
+@charset "UTF-8";
+/*VARIABLES*/
+:root {
+  --negro: #393939;
+  /* Tipografía */
+  --tipo-principal: Helvetica, Arial, sans-serif;
+  --tipo-secundaria: Verdana;
+}
+
+/* Modo oscuro */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --negro: #393939;
+  }
+}
+/*reset */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  vertical-align: baseline;
+}
+
+/* Imagenes */
+img, picture, video, iframe, figure {
+  max-width: 100%;
+  width: 100%;
+  display: block;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center center;
+  object-position: center center;
+}
+
+/* reset hipervínculos */
+a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  font-size: inherit;
+}
+
+/* hipervinculos dentro de parrafos se comportan igual*/
+p a {
+  display: inline;
+}
+
+/* reset li*/
+li {
+  list-style-type: none;
+}
+
+/*scroll suave*/
+html {
+  scroll-behavior: smooth;
+}
+
+/*Etiquetas de texto*/
+h1, h2, h3, h4, h5, h6, p, span, a, strong, blockquote, i, b, u, em {
+  font-size: 1em;
+  font-weight: inherit;
+  font-style: inherit;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* pseudoelementos de quote */
+blockquote:before, blockquote:after, q:before, q:after {
+  content: "";
+  content: none;
+}
+
+/* teexto seleccionable */
+::-moz-selection {
+  background-color: var(--negro);
+  color: var(--blanco);
+}
+
+::selection {
+  background-color: var(--negro);
+  color: var(--blanco);
+}
+
+/* Tipografía y formulario*/
+form, input, textarea, select, button, label {
+  font-family: inherit;
+  font-size: inherit;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  background-color: transparent;
+  color: inherit;
+  display: block;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* tablas */
+table, tr, td {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* SVG */
+svg {
+  width: 100%;
+  display: block;
+  fill: currentColor;
+}
+
+/* Tipografía */
+body {
+  min-height: 100vh;
+  font-size: 100%;
+  font-family: var(--tipo-principal);
+  color: var(--negro);
+  line-height: 1.4em;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  font-smooth: always;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.body-login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.login {
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "titulo" "imagen" "cuerpo";
+  -ms-grid-rows: 5em 1em 1fr 1em 8em;
+  grid-template-rows: 5em 1fr 8em;
+  gap: 1em;
+}
+
+.login__titulo {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: titulo;
+}
+
+.login__imagen {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: imagen;
+}
+
+.login__formulario {
+  -ms-grid-row: 5;
+  -ms-grid-column: 1;
+  grid-area: cuerpo;
+}
+
+.login__formulario {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.login {
+  --width: 20em;
+  --height: 40em;
+  width: var(--width);
+  height: var(--height);
+  border-radius: 3em;
+  padding: 2em;
+  background-color: red;
+}
+@media screen and (min-width: 1024px) {
+  .login {
+    --width: 40em;
+    --height: 45em;
+  }
+}
+
+.login__titulo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  font-size: 2em;
+  font-weight: 900;
+  line-height: 1em;
+}
+
+.formulario {
+  background-color: grey;
+}
+
+.formulario__input {
+  width: 80%;
+  height: 2em;
+  border-radius: 25em;
+  padding: 1em;
+  background-color: white;
+}
+
+.formulario__boton {
+  width: 5em;
+  height: 1.5em;
+  background-color: white;
+}
