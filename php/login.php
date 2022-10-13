@@ -19,10 +19,14 @@
             </div>
         </div>
         <form class="login__formulario formulario">
-            <input class="formulario__input" type="text" placeholder="usuario">
-            <input class="formulario__input" type="password" placeholder="contraseña">
-            <button class="formulario__boton">Entrar</button>
+            <input class="formulario__input" type="text" placeholder="usuario" name="usuario" required>
+            <input class="formulario__input" type="password" placeholder="contraseña" name="contrasena" require>
+            <input class="formulario__boton" type="submit" name="enviar" value="Enviar">
         </form>
     </div>
 </body>
 </html>
+
+<?php
+    include("comprobarLogin.php");
+?>
