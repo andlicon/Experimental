@@ -1,31 +1,26 @@
 <?php
-    include('IConexion.php');
+    include_once('IDAO.php');
 
-    class BaseDeDatos implements IConexion {
-        private static $conexion;
-        private static $host = '127.0.0.1:3306';
-        private $usuario;
-        private $contrasena;
+    //Esta es una fachada que tendra informacion referente a la base de datos.
+    class BaseDeDatos {
+        //ENCAPSULAR TODO ESTO
+        //ENCAPSULAR TODO ESTO
+        //ENCAPSULAR TODO ESTO
+        //ENCAPSULAR TODO ESTO
+        protected $host;
+        protected $driver;
+        protected $bd;
+        protected $usuario;
+        protected $contrasena;
 
-        function __construct($usuario, $contrasena) {
+        public function __construct($host, $driver, $bd, $usuario, $contrasena) {
+            $this->host = $host;
+            $this->driver = $driver;
+            $this->bd = $bd;
             $this->usuario = $usuario;
             $this->contrasena = $contrasena;
-            self::$conexion = null;
         }
 
-        function conectar() {
-            $host = '127.0.0.1:3306';
-            $dbname = 'Experimental';
-    
-            try {
-                self::$conexion = new PDO('mysql:host='.self::$host.';dbname='.$dbname, $this->usuario, $this->contrasena);
-            }
-            catch(PDOException $e) {
-                echo 'error a la hora de conectar a la base de datos '.$e;
-            }
-    
-            return self::$conexion;
-        }
+        
     }
-
 ?>

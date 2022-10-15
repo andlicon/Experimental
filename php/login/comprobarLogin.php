@@ -1,18 +1,17 @@
 <?php
-    include("../conexion/BaseDeDatos.php");
+    include('../instancias/Usuario.php');
+    //PROBANDO
+    include('../conexion/UsuarioDAO.php');
 
     if(isset($_REQUEST['enviar'])) {
         //combinacion usuario y contrasena introducida por el usuario
         $usuarioInput =  $_REQUEST['usuario'];
-        $contrasenaInput = $_REQUEST['contrasena'];
-        
-        //Aca se debe extraer la contra y usuario de la base de datos   
-        $baseDeDatos = new BaseDeDatos("login","logger");
-        $baseDeDatos->conectar();
-        $usuario = 'admin';
-        $contrasena = 'admin';
+        $contrasenaInput = $_REQUEST['contrasena']; 
 
-        if($usuario===$usuarioInput && $contrasena===$contrasenaInput) {
+        $usuarioDAO = new UsuarioDAO();
+        $usuario = $usuarioDAO->getInstancia($usuarioInput);
+
+        if($usuarioInput===$usuario->getNombre() && $contrasenaInput===$usuario->getContrasena()) {
             header("Location: /index.php");
         }
         else {
