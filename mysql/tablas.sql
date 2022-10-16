@@ -44,19 +44,94 @@ INSERT INTO usuario (nombre, contrasena, id_tipo_usuario)
 
 DROP TABLE usuario;
 
-CREATE VIEW v_usuarios AS 
-	SELECT 
-		USUARIO.id				AS 'id',
-		USUARIO.nombre			AS 'usuario',
-		USUARIO.contrasena		AS 'contrasena',
-		TIPO.nombre				AS 'tipo',
-		TIPO.permisos			AS 'permiso'
-	FROM usuario		USUARIO
-	JOIN tipo_usuario	TIPO
-	ON (USUARIO.id_tipo_usuario = TIPO.id);
-
-SELECT * FROM v_usuarios;
-
-DROP VIEW v_usuarios;
-
 SELECT * FROM usuario WHERE nombre ='admin';
+
+/*tablas para enviar correos*/
+CREATE TABLE contacto
+(
+	id 		int			UNSIGNED 	 	NOT NULL 	UNIQUE		AUTO_INCREMENT,
+    correo 	varchar(30) 				NOT NULL	UNIQUE,
+    
+    CONSTRAINT pk_contacto PRIMARY KEY(id)
+);
+
+INSERT INTO contacto(correo)
+	VALUES ('andresjzabalac@hotmail.com');
+INSERT INTO contacto(correo)
+	VALUES ('daydelv@hotmail.com');
+INSERT INTO contacto(correo)
+	values ('andygaby@hotmail.com');
+INSERT INTO contacto(correo)
+	values ('josePerez@hotmail.com');
+
+SELECT * FROM contacto;
+
+CREATE TABLE representante
+(
+	cedula 		varchar(12)						NOT NULL 	UNIQUE,
+    nombre		varchar(20)						NOT NULL,
+    apellido 	varchar(20)						NOT NULL,
+    id_contacto	int					UNSIGNED 	NOT NULL 	UNIQUE,
+    
+    /*RESTRICCIONES*/
+		/*Primary key*/
+    CONSTRAINT pk_representante 
+		PRIMARY KEY(cedula),
+		/*Foreign key, HACIA TABLA CONTACTO*/
+    CONSTRAINT fk_representante_contacto 
+		FOREIGN KEY (id_contacto) REFERENCES contacto(id)
+);
+
+INSERT INTO representante(cedula, nombre, apellido, id_contacto)
+	VALUES('v-26520327', 'Andrés', 'Zabala', 1);
+INSERT INTO representante(cedula, nombre, apellido, id_contacto)
+	VALUES('v-26000000', 'Andrea', 'Zabala', 3);
+INSERT INTO representante(cedula, nombre, apellido, id_contacto)
+	VALUES('v-8499579', 'Daisy', 'Cedeno', 2);
+INSERT INTO representante(cedula, nombre, apellido, id_contacto)
+	VALUES('v-8', 'Jose', 'Perez', 4);
+    
+CREATE TABLE estudiante_representante
+(
+	id				INT 			UNSIGNED 	NOT NULL 	AUTO_INCREMENT,
+    cedula 			varchar(12)					NOT NULL 	UNIQUE,
+    
+    /*RESTRICCIONES*/
+		/*Primary key*/
+    CONSTRAINT pk_estudiante_representante
+		PRIMARY KEY (id),
+	/*Foreign key, HACIA TABLA CONTACTO*/
+    CONSTRAINT fk_esturepre_representante 
+		FOREIGN KEY (cedula) REFERENCES representante(cedula)
+);    
+
+SELECT * FROM estudiante_representante;
+
+INSERT INTO estudiante_representante (cedula)
+	VALUES ('v-8499579');
+
+CREATE TABLE estudiante
+(
+	id					int 			UNSIGNED 	NOT NULL 	AUTO_INCREMENT,
+    nombre				varchar(20)					NOT NULL,
+    apellido 			varchar(20)					NOT NULL,
+    fecha_naci			date						NOT NULL,
+    id_estu_repre		int				UNSIGNED	NOT NULL,
+    
+    /*RESTRICCIONES*/
+		/*Primary key*/
+    CONSTRAINT pk_estudiante
+		PRIMARY KEY (id),
+        /*foreign key HACIA estudiante_representante*/
+	CONSTRAINT fk_estudiante_esturepre
+		FOREIGN KEY (id_estu_repre) REFERENCES estudiante_representante(id)
+);
+
+INSERT INTO estudiante 	(nombre, 		apellido, 	fecha_naci, 	id_estu_repre)
+	VALUES				('Andresito', 	'Zabala',	'1998/11/14',	2);
+INSERT INTO estudiante 	(nombre, 		apellido, 	fecha_naci, 	id_estu_repre)
+	VALUES				('Andreita', 	'Zabala',	'1990/11/14',	2);
+INSERT INTO estudiante 	(nombre, 		apellido, 	fecha_naci, 	id_estu_repre)
+	VALUES				('Pepito', 		'Rodriguez','2010/10/10',	2);
+    
+DROP TABLE estudiante;

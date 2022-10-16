@@ -2,9 +2,17 @@
     include_once('IDAO.php');
     include_once('BaseDeDatos.php');
 
+    /*
+        Implementación de la interfaz Data Access Object para el caso particular de 
+        las instancias "usuario"
+    */
     class UsuarioDAO extends BaseDeDatos implements IDAO {
+        //Conexion a la base de datos, es un objeto PDO
         private $conexion;
 
+        /*
+            Constructor, crea un acceso a la base de dato.
+        */
         public function __construct() {
             parent::__construct('127.0.0.1:3306', 'mysql', 'Experimental', 'login', 'logger');
             $this->conexion = new PDO("$this->driver:host=$this->host;dbname=$this->bd", $this->usuario, $this->contrasena);

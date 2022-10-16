@@ -1,3 +1,6 @@
+/*
+    El formulario esta siendo empleado en este proyecto para 
+*/
 .formulario {
     position: relative;
 
@@ -30,4 +33,85 @@
 
 .formulario__alerta--activo{
     display: block;
+}
+
+.grande {
+    height: 100%;
+}
+
+.formulario--express {
+    $width: (
+        "telefono"  : 25em,
+        "pc"        : 45em
+    );
+    $height: (
+        "telefono"  : 20em,
+        "pc"        : 25em
+    );
+
+    --width: #{map-get($width, "telefono")};
+    --height: #{map-get($height, "telefono")};
+
+    @media screen and (min-width : 1024px) {
+        --width: #{map-get($width, "pc")};
+        --height: #{map-get($height, "pc")};
+    }
+
+    width: var(--width);
+    height: var(--height);
+    //tamano
+    $width: var(--width)/2;
+    $height: var(--height)/2;
+    //Posicionamiento
+    display: absolute;
+    top: calc(50% - #{$height});
+    left: calc(50% - #{$width});
+
+    & h2 {
+        background-color: red;
+    }
+    & form {
+        background-color: blue;
+    }
+    & .formulario__output {
+        background: purple;
+    }
+    & .formulario__contenedor-botones {
+        background-color: yellow;
+    }
+}
+
+
+.formulario__titulo {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+
+    font-weight: 900;
+    font-size: 2em;
+    text-align: center;
+}
+
+.formulario__input--horizontal {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+.formulario__select {
+    // width: 3em;
+    // height: 2em;
+
+    display: flex;
+    justify-items: center;
+    align-items: center;
+
+    // padding-left: 0.57em;
+    // margin: 0 0.5em;
+
+    // border: 2px solid black;
+    // outline: 1px solid white;
+
+    background: white;
 }

@@ -192,6 +192,30 @@ body {
   left: 0;
 }
 
+.div--centrador {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.formulario--express {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr 1.15em 4em 1.15em 4em 1.15em 4em;
+  grid-template-rows: 1fr 4em 4em 4em;
+  gap: 1.15em;
+}
+
 .login {
   --width: 20em;
   --height: 40em;
@@ -224,6 +248,9 @@ body {
   line-height: 1em;
 }
 
+/*
+    El formulario esta siendo empleado en este proyecto para 
+*/
 .formulario {
   position: relative;
   background-color: grey;
@@ -252,4 +279,98 @@ body {
 
 .formulario__alerta--activo {
   display: block;
+}
+
+.grande {
+  height: 100%;
+}
+
+.formulario--express {
+  --width: 25em;
+  --height: 20em;
+  width: var(--width);
+  height: var(--height);
+  display: absolute;
+  top: calc(50% - var(--height)/2);
+  left: calc(50% - var(--width)/2);
+}
+@media screen and (min-width: 1024px) {
+  .formulario--express {
+    --width: 45em;
+    --height: 25em;
+  }
+}
+.formulario--express h2 {
+  background-color: red;
+}
+.formulario--express form {
+  background-color: blue;
+}
+.formulario--express .formulario__output {
+  background: purple;
+}
+.formulario--express .formulario__contenedor-botones {
+  background-color: yellow;
+}
+
+.formulario__titulo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: 900;
+  font-size: 2em;
+  text-align: center;
+}
+
+.formulario__input--horizontal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.formulario__select {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: white;
+}
+
+.selector {
+  width: 2.5em;
+  height: 2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  text-align: center;
+  background: white;
+}
+
+.selector--margen {
+  margin: 0 0.7em;
 }
