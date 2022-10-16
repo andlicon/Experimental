@@ -8,6 +8,12 @@
     align-items: center;
 }
 
+$login-row: (
+        "titulo"      : 5em,
+        "imagen"      : 1fr,
+        "cuerpo"      : 8em
+    );
+
 .login {
     display: grid;
     grid-template-areas: 
@@ -15,9 +21,9 @@
                 'imagen'
                 'cuerpo';
     grid-template-rows: 
-                5em
-                1fr
-                8em;
+                map-get($login-row, "titulo")
+                map-get($login-row, "imagen")
+                map-get($login-row, "cuerpo");
     gap: 1em;
 }
 
@@ -38,4 +44,12 @@
     flex-flow: column nowrap;
     justify-content: space-evenly;
     align-items: center;
+}
+
+.formulario__alerta {
+    display: block;
+    position: absolute;
+
+    bottom: map-get($login-row, "cuerpo");
+    left: 0;
 }

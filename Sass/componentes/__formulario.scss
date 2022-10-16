@@ -1,6 +1,6 @@
-
-
 .formulario {
+    position: relative;
+
     background-color: grey;
 }
 
@@ -17,4 +17,17 @@
     width: 5em;
     height: 1.5em;
     background-color: white;
+}
+
+.formulario__alerta {
+    display: none;
+    position: absolute;
+    
+    left: 0;
+    
+    background: black;
+}
+
+.formulario__alerta--activo{
+    display: block;
 }

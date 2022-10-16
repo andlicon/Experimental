@@ -185,6 +185,13 @@ body {
           align-items: center;
 }
 
+.formulario__alerta {
+  display: block;
+  position: absolute;
+  bottom: 8em;
+  left: 0;
+}
+
 .login {
   --width: 20em;
   --height: 40em;
@@ -218,6 +225,7 @@ body {
 }
 
 .formulario {
+  position: relative;
   background-color: grey;
 }
 
@@ -233,4 +241,15 @@ body {
   width: 5em;
   height: 1.5em;
   background-color: white;
+}
+
+.formulario__alerta {
+  display: none;
+  position: absolute;
+  left: 0;
+  background: black;
+}
+
+.formulario__alerta--activo {
+  display: block;
 }
