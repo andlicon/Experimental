@@ -1,7 +1,7 @@
 <?php
     include('../instancias/Usuario.php');
     include('../conexion/UsuarioDAO.php');
-    include('../formulario/Alerta.php');
+    include_once('../formulario/Alerta.php');
 
     /*
         Al precionar el botón con name="login", se comprobara en la base de dato
@@ -22,14 +22,8 @@
             }
         }
         catch(Exception $e) {   //De no existir combinacion usuario/contrasena
-            //crea un div que alerte al usuario
-
-            echo 
-                "<script>
-                    var div = document.getElementById('alerta');
-                    div.innerHTML= 'Combinación contraseña/clave errónea';
-                    div.classList.add('formulario__alerta--activo');
-                </script>";
+            $mensaje = 'usuario incorrecto';
+            alerta($mensaje);
         }
     }
 ?>
