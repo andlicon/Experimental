@@ -1,5 +1,5 @@
 <?php
     interface IDAO {
-        public function getInstancia($id);
+        public function getInstancia(array $parametros);
     }
 ?>

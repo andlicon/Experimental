@@ -1,22 +1,27 @@
 <?php
     include('../instancias/Usuario.php');
-    //PROBANDO
     include('../conexion/UsuarioDAO.php');
 
-    if(isset($_REQUEST['enviar'])) {
-        //combinacion usuario y contrasena introducida por el usuario
+    /*
+        Al precionar el botón con name="login", se comprobara en la base de dato
+        si existe una combinación usuario/contrasena, de no existir creara un div
+    */
+    if(isset($_REQUEST['login'])) {
+        //combinacion usuario y contrasena introducida en el formulario
         $usuarioInput =  $_REQUEST['usuario'];
         $contrasenaInput = $_REQUEST['contrasena']; 
 
-        $usuarioDAO = new UsuarioDAO();
-        $usuario = $usuarioDAO->getInstancia($usuarioInput);
-
-        if($usuarioInput===$usuario->getNombre() && $contrasenaInput===$usuario->getContrasena()) {
-            header("Location: /index.php");
+        try {   //Extraer informacion de la base de datos
+            $usuarioDAO = new UsuarioDAO();
+            $usuario = $usuarioDAO->getInstancia(array($usuarioInput));
+    
+            //Se compara la combinación del formulario con la combinación de la base de datos.
+            if($usuarioInput===$usuario->getNombre() && $contrasenaInput===$usuario->getContrasena()) {
+                header("Location: /index.php");
+            }
         }
-        else {
-            //aca pondre lo que debe hccer mi programa de introducir
-            //usuario y contrasena incorrecta 
+        catch(Exception $e) {
+            echo $e;
         }
     }
 ?>
