@@ -22,8 +22,9 @@
         /*
             Busca usuarios en la base de datos, comparando los nombres.
 
-            @param $nombre - Es una array que solo debe contener el nombre del usuario
+            @param array $nombre - Es una array que solo debe contener el nombre del usuario
             @thrown Exception - Arroja Exception de no existir una combinación usuario/cliente
+            @return Usuario es un transfer object 
         */
         public function getInstancia(array $nombre) {
             $consulta = "SELECT * 
@@ -37,7 +38,9 @@
                 throw new Exception('No existe combinación usuario/contrasena');
             }
 
-            return $usuario = new Usuario($registro['nombre'], $registro['contrasena']);
+            $nombre = $registro['nombre'];
+            $contrasena = $registro['contrasena'];
+            return $usuario = new Usuario($nombre, $contrasena);
         }
     }
 ?>
