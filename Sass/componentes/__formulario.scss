@@ -62,6 +62,8 @@
     //tamano
     $width: var(--width)/2;
     $height: var(--height)/2;
+
+    padding: 1em;
     //Posicionamiento
     display: absolute;
     top: calc(50% - #{$height});
@@ -97,21 +99,11 @@
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
+    gap: 0.2em;
 }
 
-.formulario__select {
-    // width: 3em;
-    // height: 2em;
-
+.formulario__contenedor-botones {
     display: flex;
-    justify-items: center;
-    align-items: center;
-
-    // padding-left: 0.57em;
-    // margin: 0 0.5em;
-
-    // border: 2px solid black;
-    // outline: 1px solid white;
-
-    background: white;
+    flex-flow: row nowrap;
+    justify-content: space-between;
 }

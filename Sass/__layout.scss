@@ -63,10 +63,9 @@ $login-row: (
 
 .formulario--express {
     $row: (
-        "titulo"    : 1fr,
-        "select"    : 4em,
-        "output"    : 4em,
-        "botones"   : 4em,
+        "titulo"    : 3em,
+        "select"    : 3em,
+        "output"    : 1fr,
     );
 
     display: grid;
@@ -76,4 +75,12 @@ $login-row: (
                 map-get($row, "output")
                 map-get($row, "botones");
     gap: 1.15em;
+}
+
+
+.output {
+    display: flex;
+    flex-flow: column nowrap;
+
+    background-color: white;
 }

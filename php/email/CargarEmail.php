@@ -13,16 +13,27 @@
     <div class="formulario formulario--express" method="POST">
         <h2 class="formulario__titulo">Representantes</h2>
         <form class="formulario__input--horizontal" action="">
-            <label for="selector">Nacionalidad</label>
-            <select class="selector selector--margen" id="selector">
+            <label for="selector" class="formulario__label">Nacionalidad:</label>
+            <select class="selector" id="selector">
                 <option class="selector__option">V</option>
                 <option class="selector__option">E</option>
             </select>
-            <label for="cedula">cedula</label>
+            <label for="cedula" class="formulario__label">Cedula:</label>
             <input type="text" class="formulario__input" id="cedula" onkeypress='return (event.charCode >= 48 && event.charCode <= 57)' required>
         </form>
-        <div class="formulario__output">
-            SOY UN OUTPUT
+        <div class="output">
+            <div class="output__linea">
+                Cedula:
+            </div>
+            <div class="output__linea">
+                Nombre:
+            </div>
+            <div class="output__linea">
+                Apellido:
+            </div>
+            <div class="output__linea">
+                Correo:
+            </div>
         </div>
         <div class="formulario__contenedor-botones">
             <button class="formulario__boton">Cargar</button>

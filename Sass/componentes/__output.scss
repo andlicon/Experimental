@@ -1,0 +1,12 @@
+.output {
+    display: flex;
+    flex-flow: column nowrap;
+
+    background-color: white;
+}
+
+.output__linea {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 1em;
+}

@@ -211,9 +211,20 @@ body {
 .formulario--express {
   display: -ms-grid;
   display: grid;
-  -ms-grid-rows: 1fr 1.15em 4em 1.15em 4em 1.15em 4em;
-  grid-template-rows: 1fr 4em 4em 4em;
+  -ms-grid-rows: 3em 1.15em 3em 1.15em 1fr;
+  grid-template-rows: 3em 3em 1fr;
   gap: 1.15em;
+}
+
+.output {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  background-color: white;
 }
 
 .login {
@@ -290,6 +301,7 @@ body {
   --height: 20em;
   width: var(--width);
   height: var(--height);
+  padding: 1em;
   display: absolute;
   top: calc(50% - var(--height)/2);
   left: calc(50% - var(--width)/2);
@@ -343,17 +355,20 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  gap: 0.2em;
 }
 
-.formulario__select {
+.formulario__contenedor-botones {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  justify-items: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background: white;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .selector {
@@ -371,6 +386,24 @@ body {
   background: white;
 }
 
-.selector--margen {
-  margin: 0 0.7em;
+.output {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  background-color: white;
+}
+
+.output__linea {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  gap: 1em;
 }
