@@ -4,6 +4,10 @@
     include_once('../formulario/Alerta.php');
     include_once('../general/crearCedula.php');
 
+    // include_once('../general/crearCedula.php');
+/*
+    consulta única instancia para Representante
+*/
     if( isset($_POST['buscar']) ) {
         //Cedula introducida por el usuario
         $cedula = crearCedula();
@@ -11,17 +15,12 @@
         try {   //Extraer informacion de la base de datos
             $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
             $representanteDAO = new RepresentanteDAO($bd);
-            //Esto lo quiero hacer mejor
-            //$representante = $representanteDAO->getInstancia(array($cedula));
-            $representante = $representanteDAO->getTodos();
+            $representante = $representanteDAO->getInstancia(array($cedula));
+            //YA ACÁ TENGO AL REPRESENTANTE, VER QUÉ HACER CON ESO.
         }
         catch(Exception $mensaje) {  
             alerta($mensaje);
         }
-    }
-
-    function botonRepresentante(IDAO $idao) {
-        
     }
 ?>
 

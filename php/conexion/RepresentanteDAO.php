@@ -38,13 +38,12 @@
 
             $representante = null;
             $registro = $registros[0];
-            if ($representante) {
+            if ($registro) {
                 $cedula = $registro ['cedula'];
                 $nombre = $registro ['nombre'];
                 $apellido = $registro ['apellido'];
                 $correo = $registro ['correo'];
 
-                // echo "$cedula $nombre $apellido $correo";
                 $representante = new Representante($cedula, $nombre, $apellido, $correo);
             }
 
