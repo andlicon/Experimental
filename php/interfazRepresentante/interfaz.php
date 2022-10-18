@@ -22,5 +22,6 @@
 </html>
 
 <?php
-    include_once('botonBuscar.php');
+    include_once('consultarInstanciaRep.php');
+    include_once('consultarTodosRep.php');
 ?>

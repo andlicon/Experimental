@@ -15,10 +15,11 @@
     <div class="interfaz interfaz--main interfaz--visible">
         <h2 class="interfaz__titulo">Representante</h2>
         
-        <button class="interfaz__boton" onClick="displayInterfaz(1)">Consultar</button>
-        <button class="interfaz__boton" onClick="displayInterfaz(2)">Cargar</button>
-        <button class="interfaz__boton" onClick="displayInterfaz(3)">Modificar</button>
-        <button class="interfaz__boton" onClick="displayInterfaz(4)">Eliminar</button>
+        <button class="interfaz__boton" onClick="displayInterfaz(1)">Consultar por cedula</button>
+        <button class="interfaz__boton" onClick="displayInterfaz(2)">Consultar todos</button>
+        <button class="interfaz__boton" onClick="displayInterfaz(3)">Cargar</button>
+        <button class="interfaz__boton" onClick="displayInterfaz(4)">Modificar</button>
+        <button class="interfaz__boton" onClick="displayInterfaz(5)">Eliminar</button>
     </div>
 
     <!-- Interfaz para consultar por un representante-->
@@ -30,7 +31,12 @@
         </select>
         <label for="cedula" class="formulario__label">Cedula:</label>
         <input type="text" class="formulario__input" id="cedula" name="cedula" required onkeypress='return (event.charCode >= 48 && event.charCode <= 57)' required>
-        <input type="submit" class="formulario__boton" value="buscar" name="buscar">
+        <input type="submit" class="formulario__boton" value="consultar" name="consultarInstancia">
+        <button class="formulario__boton" onClick="displayInterfaz(0)">Volver</button>
+    </form>
+
+    <form class="interfaz interfaz--invisible" method="POST">
+        <input type="submit" class="formulario__boton" value="consultar" name="consultarTodos">
         <button class="formulario__boton" onClick="displayInterfaz(0)">Volver</button>
     </form>
 </body>
@@ -39,5 +45,6 @@
 </html>
 
 <?php
-    include_once('botonBuscar.php');
+    include_once('consultarInstanciaRep.php');
+    include_once('consultarTodosRep.php');
 ?>
