@@ -43,7 +43,21 @@
             $correo = $registro['correo'];
             echo $correo;
 
-            return new Representante($cedula, $nombre, $apellido, $correo);;
+            return new Representante($cedula, $nombre, $apellido, $correo);
+        }
+
+        public function getTodos() {
+            $consulta = "SELECT * 
+                        FROM v_representantes;";
+            $resultado = $this->conexion->prepare($consulta);
+            $resultado->execute();
+
+            $representantes = fletchAll();
+
+            if($representantes) {
+                //RECORRER TODOS LOS REGISTROS
+            }
+
         }
     }
     
