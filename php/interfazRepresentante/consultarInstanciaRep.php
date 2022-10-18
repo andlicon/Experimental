@@ -6,7 +6,7 @@
 /*
     consulta única instancia para Representante
 */
-    if( isset($_POST['consultaInstancia']) ) {
+    if( isset($_POST['consultarInstancia']) ) {
         //Cedula introducida por el usuario
         $cedula = crearCedula();
 
@@ -14,8 +14,11 @@
             $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
             $representanteDAO = new RepresentanteDAO($bd);
             $representante = $representanteDAO->getInstancia(array($cedula));
-            //YA ACÁ TENGO AL REPRESENTANTE, VER QUÉ HACER CON ESO.
+
             echo $representante->getCedula();
+
+            $serialize = serialize(array($representante));
+            header("Location: resultadoConsultaRep.php?representantes=".urlencode($serialize));
         }
         catch(Exception $mensaje) {  
             alerta($mensaje);

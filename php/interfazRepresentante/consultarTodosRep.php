@@ -10,7 +10,8 @@
             $representanteDAO = new RepresentanteDAO($bd);
             $representantes = $representanteDAO->getTodos();
 
-            //REPRESENTANTES ES UN ARREGLO DE REPRESENTANTES, VER QUÉ HACER CON ESO
+            $serialize = serialize($representantes);
+            header("Location: resultadoConsultaRep.php?representantes=".urlencode($serialize));
         }
         catch(Exception $mensaje) {  
             alerta($mensaje);
