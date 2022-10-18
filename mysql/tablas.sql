@@ -135,3 +135,7 @@ INSERT INTO estudiante 	(nombre, 		apellido, 	fecha_naci, 	id_estu_repre)
 	VALUES				('Pepito', 		'Rodriguez','2010/10/10',	2);
     
 DROP TABLE estudiante;
+
+SELECT *
+FROM representante
+WHERE cedula = 'V-26520327';

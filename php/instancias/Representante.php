@@ -13,7 +13,7 @@
             @param $apellido    apellido del representante
             @param $correo      correo del representante
         */
-        public function construct($cedula, $nombre, $apellido, $correo) {
+        public function __construct($cedula, $nombre, $apellido, $correo) {
             $this->cedula = $cedula;
             $this->nombre = $nombre;
             $this->apellido = $apellido;

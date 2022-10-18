@@ -61,22 +61,24 @@ $login-row: (
     align-items: center;
 }
 
-.formulario--express {
+.interfaz {
     $row: (
-        "titulo"    : 3em,
-        "select"    : 3em,
-        "output"    : 1fr,
+         "titulo"    : 3em,
+         "select"    : 3em,
+         "output"    : 1fr,
     );
 
     display: grid;
+    grid-template-columns: 
+                    1fr
+                    1fr;
     grid-template-rows:
                 map-get($row, "titulo")
                 map-get($row, "select")
                 map-get($row, "output")
                 map-get($row, "botones");
     gap: 1.15em;
-}
-
+}  
 
 .output {
     display: flex;

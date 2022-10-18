@@ -1,4 +1,5 @@
 <?php
+    include_once('../instancias/Usuario.php');
     include_once('IDAO.php');
     include_once('BaseDeDatos.php');
 

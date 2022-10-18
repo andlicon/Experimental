@@ -1,6 +1,7 @@
 <?php
     include_once('IDAO.php');
     include_once('BaseDeDatos.php');
+    include_once('../instancias/Representante.php');
 
     /*
         Implementacion del Data Access Object para los representantes
@@ -9,7 +10,7 @@
         private $conexion;
 
         public function __construct() {
-            parent::__construct('127.0.0.1:3306', 'mysql', 'Experimental', 'login', 'logger');
+            parent::__construct('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
             $this->conexion = new PDO("$this->driver:host=$this->host;dbname=$this->bd", $this->usuario, $this->contrasena);
         }
 
@@ -34,10 +35,15 @@
             }
 
             $cedula = $registro['cedula'];
+            echo $cedula;
             $nombre = $registro['nombre'];
+            echo $nombre;
             $apellido = $registro['apellido'];
+            echo $apellido;
             $correo = $registro['correo'];
-            return $representante= new Representante($cedula, $nombre, $apellido, $correo);
+            echo $correo;
+
+            return new Representante($cedula, $nombre, $apellido, $correo);;
         }
     }
     

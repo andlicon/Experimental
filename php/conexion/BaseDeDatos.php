@@ -1,6 +1,4 @@
 <?php
-    include_once('IDAO.php');
-
     //Esta es una fachada que tendra informacion referente a la base de datos.
     class BaseDeDatos {
         //ENCAPSULAR TODO ESTO

@@ -19,7 +19,7 @@
             </div>
         </div>
         <form class="login__formulario formulario" method="POST">
-            <div class="formulario__alerta" id="alerta">AAA</div>
+            <div class="formulario__alerta" id="alerta"></div>
             <input class="formulario__input" type="text" placeholder="usuario" name="usuario" required>
             <input class="formulario__input" type="password" placeholder="contraseña" name="contrasena" require>
             <input class="formulario__boton" type="submit" name="login" value="Enviar">
