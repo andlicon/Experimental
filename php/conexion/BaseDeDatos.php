@@ -37,10 +37,17 @@
 
             @return Array que representa a todos los resultados
         */
-        public function consultar($consulta, array $parametros) {
+        public function consultar($consulta, $parametros) {
             $resultado = $this->conexion->prepare($consulta);
-            $resultado->execute($parametros);
-            $registros = $resultado->fetch();
+
+            if($parametros) {
+                $resultado->execute($parametros);
+            }
+            else {
+                $resultado->execute();
+            }
+
+            $registros = $resultado->fetchAll();
 
             return $registros;
         }

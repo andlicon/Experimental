@@ -22,5 +22,5 @@
 </html>
 
 <?php
-    include('botonBuscar.php');
+    include_once('botonBuscar.php');
 ?>

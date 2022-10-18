@@ -21,38 +21,69 @@
 
             @trown Exception No existe el representante
 
-            @return Representante es un transfer object 
+            @return <ul>
+                        <li>De existir registro: instancia de representante</li>
+                        <li>De no existir registro: NULL</li>
+                    </ul>
         */
         public function getInstancia(array $cedula) {
             $consulta = "SELECT * 
                         FROM v_representantes
                         WHERE cedula=?";
-            $representante = $this->bd->consultar($consulta, $cedula);
+            $registros = $this->bd->consultar($consulta, $cedula);
             
-            if(!is_array($representante)) {
+            if(empty($registros)) {
                 throw new Exception('No existe el representante con dicha cedula');
             }
 
-            $cedula = $representante['cedula'];
-            $nombre = $representante['nombre'];
-            $apellido = $representante['apellido'];
-            $correo = $representante['correo'];
+            $representante = null;
+            $registro = $registros[0];
+            if ($representante) {
+                $cedula = $registro ['cedula'];
+                $nombre = $registro ['nombre'];
+                $apellido = $registro ['apellido'];
+                $correo = $registro ['correo'];
 
-            return new Representante($cedula, $nombre, $apellido, $correo);
+                // echo "$cedula $nombre $apellido $correo";
+                $representante = new Representante($cedula, $nombre, $apellido, $correo);
+            }
+
+            return $representante;
         }
 
+        /*
+            Consulta por todos los registros de representantes
+
+            @thrown Exception - Arroja error de no existir registros.
+
+            @return <ul>
+                        <li>De existir registro: Array de Representantes</li>
+                        <li>De no existir registro: NULL</li>
+                    </ul>
+        */
         public function getTodos() {
             $consulta = "SELECT * 
                          FROM v_representantes;";
-             $resultado = $this->conexion->prepare($consulta);
-             $resultado->execute();
+             $registros = $this->bd->consultar($consulta, null);
 
-            $representantes = fletchAll();
+             if(empty($registros)) {
+                throw new Exception('No existen registros de Representante');
+            }
+            
+            $representantes = [];
+            for($i=0; $i<count($registros); $i++) {
+                $representante = $registros[$i];
 
-             if($representantes) {
-                //  RECORRER TODOS LOS REGISTROS
-             }
+                $cedula = $representante['cedula'];
+                $nombre = $representante['nombre'];
+                $apellido = $representante['apellido'];
+                $correo = $representante['correo'];
+                $rep = new Representante($cedula, $nombre, $apellido, $correo);
 
+                $representantes[] = $rep;
+            }
+            
+            return $representantes;
          }
     }
     
