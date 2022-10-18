@@ -6,12 +6,11 @@
     /*
         Implementacion del Data Access Object para los representantes
     */
-    class RepresentanteDAO extends BaseDeDatos implements IDAO {
-        private $conexion;
+    class RepresentanteDAO implements IDAO {
+        private BaseDeDatos $bd;
 
-        public function __construct() {
-            parent::__construct('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
-            $this->conexion = new PDO("$this->driver:host=$this->host;dbname=$this->bd", $this->usuario, $this->contrasena);
+        public function __construct(BaseDeDatos $bd) {
+            $this->bd = $bd;
         }
 
         /*
@@ -19,46 +18,42 @@
 
             @param  array $cedula arreglo que unicamente debe contener la cedula del representante, si trae mas
                     variables, entonces arrojara error
+
             @trown Exception No existe el representante
+
             @return Representante es un transfer object 
         */
         public function getInstancia(array $cedula) {
             $consulta = "SELECT * 
                         FROM v_representantes
                         WHERE cedula=?";
-            $resultado = $this->conexion->prepare($consulta);
-            $resultado->execute($cedula);
-            $registro = $resultado->fetch();
+            $representante = $this->bd->consultar($consulta, $cedula);
             
-            if(!is_array($registro)) {
+            if(!is_array($representante)) {
                 throw new Exception('No existe el representante con dicha cedula');
             }
 
-            $cedula = $registro['cedula'];
-            echo $cedula;
-            $nombre = $registro['nombre'];
-            echo $nombre;
-            $apellido = $registro['apellido'];
-            echo $apellido;
-            $correo = $registro['correo'];
-            echo $correo;
+            $cedula = $representante['cedula'];
+            $nombre = $representante['nombre'];
+            $apellido = $representante['apellido'];
+            $correo = $representante['correo'];
 
             return new Representante($cedula, $nombre, $apellido, $correo);
         }
 
         public function getTodos() {
             $consulta = "SELECT * 
-                        FROM v_representantes;";
-            $resultado = $this->conexion->prepare($consulta);
-            $resultado->execute();
+                         FROM v_representantes;";
+             $resultado = $this->conexion->prepare($consulta);
+             $resultado->execute();
 
             $representantes = fletchAll();
 
-            if($representantes) {
-                //RECORRER TODOS LOS REGISTROS
-            }
+             if($representantes) {
+                //  RECORRER TODOS LOS REGISTROS
+             }
 
-        }
+         }
     }
     
 ?>

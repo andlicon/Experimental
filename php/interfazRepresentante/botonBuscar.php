@@ -12,12 +12,12 @@
         $cedula = $inputNacionalidad.$inputCedula;
 
         try {   //Extraer informacion de la base de datos
-            $representanteDAO = new RepresentanteDAO();
+            $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
+            $representanteDAO = new RepresentanteDAO($bd);
             $representante = $representanteDAO->getInstancia(array($cedula));
-            return $representante;
+            echo 'cedula'.$representante->getCedula();
         }
-        catch(Exception $e) {  
-            $representante = 'no existe el representante';
+        catch(Exception $mensaje) {  
             alerta($mensaje);
         }
     }

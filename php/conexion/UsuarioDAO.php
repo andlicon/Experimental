@@ -7,16 +7,13 @@
         Implementación de la interfaz Data Access Object para el caso particular de 
         las instancias "usuario"
     */
-    class UsuarioDAO extends BaseDeDatos implements IDAO {
-        //Conexion a la base de datos, es un objeto PDO
-        private $conexion;
-
+    class UsuarioDAO implements IDAO {
+        private BaseDeDatos $bd;
         /*
             Constructor, crea un acceso a la base de dato.
         */
-        public function __construct() {
-            parent::__construct('127.0.0.1:3306', 'mysql', 'Experimental', 'login', 'logger');
-            $this->conexion = new PDO("$this->driver:host=$this->host;dbname=$this->bd", $this->usuario, $this->contrasena);
+        public function __construct(BaseDeDatos $bd) {
+            $this->bd = $bd;
         }
 
 
@@ -31,9 +28,7 @@
             $consulta = "SELECT * 
                         FROM usuario 
                         WHERE nombre=?";
-            $resultado = $this->conexion->prepare($consulta);
-            $resultado->execute($nombre);
-            $registro = $resultado->fetch();
+            $registro = $this->bd->consultar($consulta, $nombre);
             
             if(!is_array($registro)) {
                 throw new Exception('No existe combinación usuario/contrasena');
