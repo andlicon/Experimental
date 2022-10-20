@@ -26,8 +26,8 @@
         */
         public function getInstancia(array $nombre) {
             $consulta = "SELECT * 
-                        FROM usuario
-                        WHERE nombre=?";
+                        FROM v_usuarios
+                        WHERE usuario=?";
             $registro = $this->bd->consultar($consulta, $nombre);
 
             if(!is_array($registro)) {
@@ -37,7 +37,7 @@
             $usuario = null;
             if($registro) {
                 $registro = $registro[0];
-                $usuario = $registro['nombre'];
+                $usuario = $registro['usuario'];
                 $contrasena = $registro['contrasena'];
                 $usuario = new Usuario($usuario, $contrasena, '', '');
             }
@@ -45,7 +45,9 @@
             return $usuario;
         }
 
-
+        /*
+            Retorna a todos los usuarios existentes dentro de la base de datos
+        */
         public function getTodos() {
             $consulta = "SELECT * 
                          FROM v_usuarios";
@@ -57,18 +59,22 @@
             
             $usuarios = [];
             for($i=0; $i<count($registros); $i++) {
-                $usuario = $registros[$i];
+                $registro = $registros[$i];
 
                 $usuario = $registro['usuario'];
                 $contrasena = $registro['contrasena'];
                 $tipoUsuario = $registro['tipo'];
                 $permiso = $registro['permiso'];
-                $us = new Usuario($cedula, $nombre, $tipoUsuario, $permiso);
+                $us = new Usuario($usuario, $contrasena, $tipoUsuario, $permiso);
 
                 $usuarios[] = $us;
             }
             
             return $usuarios;
+        }
+
+        public function cargar($objeto) {
+
         }
     }
 ?>

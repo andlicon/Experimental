@@ -13,6 +13,7 @@
         $usuarioInput =  $_POST['usuario'];
         $contrasenaInput = $_POST['contrasena']; 
 
+        $usuario = null;
         try {   //Extraer informacion de la base de datos
             try {
                 $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
@@ -22,12 +23,12 @@
             catch (Exception $e) {
                 echo $e;
             }
-    
+
             //Se compara la combinación del formulario con la combinación de la base de datos.
             if($usuario) {
                 if($usuarioInput===$usuario->getNombre() && $contrasenaInput===$usuario->getContrasena()) {
-                    header("Location: /index.php");
-                }
+                 header("Location: /index.php");
+                 }
             }
         }
         catch(Exception $e) {   //De no existir combinacion usuario/contrasena
