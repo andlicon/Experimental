@@ -91,6 +91,7 @@
          public function cargar($representante) {
             $insert = "INSERT INTO representante (cedula, nombre, apellido, id_contacto)
                        VALUES                    (?,      ?,      ?,        ?)";
+            $bd->prepare($representante);
             
          }
     }

@@ -55,7 +55,9 @@
         <label for="apellido-cargar">Apellido</label>
         <input id="apellido-cargar" class="apellido-cargar" type="text" required>
         <label for="correo-cargar">Correo</label>
-        <input id="correo-cargar" name="correo-cargar" type="text" required>
+        <input type="text" id="correo-cargar" name="correo-cargar" required>
+        <label for="telefono-cargar">Telefono</label>
+        <input type="text" id="telefono-cargar" name="telefono-cargar">
         <input type="submit" class="formulario__boton" value="cargar" name="cargar">
         <button class="formulario__boton" onClick="displayInterfaz(0)">Volver</button>
     </form>

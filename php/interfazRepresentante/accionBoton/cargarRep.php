@@ -7,11 +7,15 @@
     consulta única instancia para Representante
 */
     if( isset($_POST['cargar']) ) {
-        //Cedula introducida por el usuario
+        //tabla persona
         $cedula = crearCedula('nacionalidad-cargar', 'cedula-cargar');
         $nombre = $_POST['nombre-cargar'];
         $apellido = $_POST['cedula-cargar'];
+        //tabla contacto
         $correo = $_POST['correo-cargar'];
+        //contacto adicional
+        $telefono = $_POST['telefono-cargar'];
+
 
 
         try {   //Extraer informacion de la base de datos
