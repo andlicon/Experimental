@@ -14,9 +14,14 @@
         $contrasenaInput = $_POST['contrasena']; 
 
         try {   //Extraer informacion de la base de datos
-            $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'login', 'logger');
-            $usuarioDAO = new UsuarioDAO($bd);
-            $usuario = $usuarioDAO->getInstancia(array($usuarioInput));
+            try {
+                $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
+                $usuarioDAO = new UsuarioDAO($bd);
+                $usuario = $usuarioDAO->getInstancia(array($usuarioInput));
+            }
+            catch (Exception $e) {
+                echo $e;
+            }
     
             //Se compara la combinación del formulario con la combinación de la base de datos.
             if($usuario) {

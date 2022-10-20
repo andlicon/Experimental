@@ -26,17 +26,49 @@
         */
         public function getInstancia(array $nombre) {
             $consulta = "SELECT * 
-                        FROM usuario 
+                        FROM usuario
                         WHERE nombre=?";
             $registro = $this->bd->consultar($consulta, $nombre);
-            
+
             if(!is_array($registro)) {
                 throw new Exception('No existe combinación usuario/contrasena');
             }
+            
+            $usuario = null;
+            if($registro) {
+                $registro = $registro[0];
+                $usuario = $registro['nombre'];
+                $contrasena = $registro['contrasena'];
+                $usuario = new Usuario($usuario, $contrasena, '', '');
+            }
 
-            $nombre = $registro['nombre'];
-            $contrasena = $registro['contrasena'];
-            return $usuario = new Usuario($nombre, $contrasena);
+            return $usuario;
+        }
+
+
+        public function getTodos() {
+            $consulta = "SELECT * 
+                         FROM v_usuarios";
+             $registros = $this->bd->consultar($consulta, null);
+
+             if(empty($registros)) {
+                throw new Exception('No existen registros de Representante');
+            }
+            
+            $usuarios = [];
+            for($i=0; $i<count($registros); $i++) {
+                $usuario = $registros[$i];
+
+                $usuario = $registro['usuario'];
+                $contrasena = $registro['contrasena'];
+                $tipoUsuario = $registro['tipo'];
+                $permiso = $registro['permiso'];
+                $us = new Usuario($cedula, $nombre, $tipoUsuario, $permiso);
+
+                $usuarios[] = $us;
+            }
+            
+            return $usuarios;
         }
     }
 ?>

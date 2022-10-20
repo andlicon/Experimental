@@ -5,6 +5,8 @@
 
     /*
         Implementacion del Data Access Object para los representantes
+
+        Todo esto se hace en base a la vista "v_representante_contacto" esta retorna todos los contactos, ya sea de tlf o de correo electornico
     */
     class RepresentanteDAO implements IDAO {
         private BaseDeDatos $bd;
@@ -28,7 +30,7 @@
         */
         public function getInstancia(array $cedula) {
             $consulta = "SELECT * 
-                        FROM v_representantes
+                        FROM v_representante_contacto
                         WHERE cedula=?";
             $registros = $this->bd->consultar($consulta, $cedula);
             
@@ -39,10 +41,10 @@
             $representante = null;
             $registro = $registros[0];
             if ($registro) {
-                $cedula = $registro ['cedula'];
-                $nombre = $registro ['nombre'];
-                $apellido = $registro ['apellido'];
-                $correo = $registro ['correo'];
+                $cedula = $registro['cedula'];
+                $nombre = $registro['nombre'];
+                $apellido = $registro['apellido'];
+                $correo = $registro['contacto'];
 
                 $representante = new Representante($cedula, $nombre, $apellido, $correo);
             }
@@ -62,7 +64,7 @@
         */
         public function getTodos() {
             $consulta = "SELECT * 
-                         FROM v_representantes;";
+                         FROM v_representante_contacto;";
              $registros = $this->bd->consultar($consulta, null);
 
              if(empty($registros)) {
@@ -76,7 +78,7 @@
                 $cedula = $representante['cedula'];
                 $nombre = $representante['nombre'];
                 $apellido = $representante['apellido'];
-                $correo = $representante['correo'];
+                $correo = $representante['contacto'];
                 $rep = new Representante($cedula, $nombre, $apellido, $correo);
 
                 $representantes[] = $rep;
