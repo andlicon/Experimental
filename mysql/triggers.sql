@@ -10,3 +10,4 @@ BEGIN
    VALUES (NEW.cedula);
 END; $$
 
+DROP TRIGGER t_representante;

@@ -6,26 +6,22 @@
 /*
     consulta única instancia para Representante
 */
-    if( isset($_POST['consultarInstancia']) ) {
+    if( isset($_POST['cargar']) ) {
         //Cedula introducida por el usuario
-        $cedula = crearCedula();
+        $cedula = crearCedula('nacionalidad-cargar', 'cedula-cargar');
+        $nombre = $_POST['nombre-cargar'];
+        $apellido = $_POST['cedula-cargar'];
+        $correo = $_POST['correo-cargar'];
+
 
         try {   //Extraer informacion de la base de datos
             $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
             $representanteDAO = new RepresentanteDAO($bd);
-            $representante = $representanteDAO->getInstancia(array($cedula));
 
-            echo $representante->getCedula();
-
-            $serialize = serialize(array($representante));
-            header("Location: resultadoConsultaRep.php?representantes=".urlencode($serialize));
+            
         }
         catch(Exception $mensaje) {  
             alerta($mensaje);
         }
     }
 ?>
-
-
-
-

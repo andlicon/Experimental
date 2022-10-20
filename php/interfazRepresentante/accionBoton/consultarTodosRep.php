@@ -10,8 +10,9 @@
             $representanteDAO = new RepresentanteDAO($bd);
             $representantes = $representanteDAO->getTodos();
 
+            //Serializar el objeto para poderlo pasar a la vista resultado
             $serialize = serialize($representantes);
-            header("Location: resultadoConsultaRep.php?representantes=".urlencode($serialize));
+            header("Location: resultadoView.php?representantes=".urlencode($serialize));
         }
         catch(Exception $mensaje) {  
             alerta($mensaje);

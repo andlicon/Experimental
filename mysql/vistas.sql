@@ -14,34 +14,71 @@ SELECT * FROM v_usuarios;
 
 DROP VIEW v_usuarios;
 
-CREATE VIEW v_representantes AS
-	SELECT 	R.cedula,
-			R.nombre,
-			R.apellido,
-			C.correo
-	FROM representante R
-	JOIN contacto C
-	ON (R.id_contacto = C.id)
-    ORDER BY R.nombre ASC,  R.apellido ASC;
+/*
+	TODOS LOS CONTACTOS DE CUALQUIER PERSONA DENTRO DE LA BASE DE DATOS
+*/
+CREATE VIEW v_persona_contacto AS
+	SELECT 	p.cedula,
+			p.nombre,
+			p.apellido,
+			tc.descripcion,
+			c.contacto
+	FROM persona p
+	JOIN contacto c
+	ON (p.cedula = c.cedula)
+	JOIN tipo_contacto tc
+	ON (c.id_tipo=tc.id);
 
+SELECT * FROM v_persona_contacto;
+
+/*
+	NOMBRE, CEDULA Y APELLIDO DE TODOS LOS REPRESENTANTES DENTRO DEL INSTITUTO
+*/
+CREATE VIEW v_representantes AS
+		SELECT 	r.id,
+				p.cedula,
+				p.nombre,
+				p.apellido
+		FROM representante r
+		JOIN persona p
+		ON (p.cedula = r.cedula_representante);
+        
 SELECT * FROM v_representantes;
 
-DROP VIEW v_representantes;
+/*
+	INFORMACIÓN Y CONTACTO DE TODOS LOS REPRESENTANTES
+*/
 
+CREATE VIEW v_representante_contacto AS
+	SELECT 	r.id,
+			p.cedula,
+            p.nombre,
+            p.apellido,
+            tc.descripcion,
+            c.contacto
+	FROM  persona p
+	JOIN representante r
+	ON (p.cedula = r.cedula_representante)
+    JOIN contacto c
+	ON (p.cedula = c.cedula)
+	JOIN tipo_contacto tc
+	ON (c.id_tipo=tc.id);
+
+SELECT * from v_representante_contacto;
+
+/*
+	MUESTRA TOPDA LA INFORMACION REFERENTE A LOS ESTUDIANTES Y ASI COMO LA CEDULA DE SU PADRE, PARA PODER CONECTARLO
+*/
 CREATE view v_estudiantes AS
-	SELECT 	E.id			AS 	'estId',
-			E.nombre		AS	'estNom',
-            E.apellido		AS	'estApell',
-            E.fecha_naci	AS	'estFech',
-            ER.id			AS	'estRepreId',
-            R.cedula		AS	'repCedu',
-            R.nombre		AS	'repNom',
-            R.apellido		AS	'repApe'
-	FROM estudiante E
-    JOIN estudiante_representante ER
-		ON (E.id = ER.id)
-	JOIN v_representantes R
-		ON (ER.cedula = R.cedula)
-	ORDER BY E.id;
-    
+	SELECT 	e.id,
+			e.nombre,
+            e.apellido,
+            e.cedula,
+            e.fecha_nacimiento,
+            e.id_representante,
+            r.cedula_representante
+	FROM estudiante e
+	JOIN representante r
+	ON (e.id_representante = r.id);
+
 SELECT * FROM v_estudiantes;

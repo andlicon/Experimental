@@ -13,12 +13,14 @@
 </head>
 <body>
     <?php
+        //Esta view a juro debe recibir un array serializado de representantes, 
         $serialize = $_GET['representantes'];
         $representantes = unserialize($serialize);
 
         for($i=0; $i<count($representantes); $i++) {
             $representante = $representantes[$i];
-            echo $representante->getCedula().'';
+            echo 'cedula: '.$representante->getCedula().' nombre: '.$representante->getNombre().' 
+            apellido: '.$representante->getApellido().' correo'.$representante->getCorreo().'<br>';
         }
     ?>
 </body>
