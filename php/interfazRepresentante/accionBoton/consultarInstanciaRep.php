@@ -17,7 +17,7 @@
 
             //Serializar el objeto representante para poderlo enviar a la view resultado
             $serialize = serialize(array($representante));
-            header("Location: resultadoView.php?representantes=".urlencode($serialize));
+            header("Location: RepresentanteView.php?representantes=".urlencode($serialize));
         }
         catch(Exception $mensaje) {  
             alerta($mensaje);

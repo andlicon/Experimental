@@ -1,96 +1,67 @@
 <!DOCTYPE html>
-<html lang="en" class="interfaz-contenedor">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <script src="displayInterfaz.js" type="text/javascript"></script>
+    <title>Representante</title>
 
-    <title>Padre-Responsable</title>
-
-    <link rel="stylesheet" href="/css/main.css">
+    <!-- <link rel="stylesheet" href="/css/main.css"> -->
 </head>
-<body class="div--centrador">
-    <div class="interfaz interfaz--main interfaz--visible">
-        <h2 class="interfaz__titulo">Representante</h2>
+<body>
+    <h2>Titulo</h2>
+    <div class="output">
+        <?php
+        include_once('../instancias/Representante.php');
         
-        <button class="interfaz__boton" onClick="displayInterfaz(1)">Consultar por cedula</button>
-        <button class="interfaz__boton" onClick="displayInterfaz(2)">Consultar todos</button>
-        <button class="interfaz__boton" onClick="displayInterfaz(3)">Cargar</button>
-        <button class="interfaz__boton" onClick="displayInterfaz(4)">Modificar</button>
-        <button class="interfaz__boton" onClick="displayInterfaz(5)">Eliminar</button>
+        if( isset($_GET['representantes']) ) {
+            $serialize = $_GET['representantes'];
+            
+            if($serialize) {
+                $representantes = unserialize($serialize);
+
+                for($i=0; $i<count($representantes); $i++) {
+                    $representante = $representantes[$i];
+                    echo 'cedula: '.$representante->getCedula().' nombre: '.$representante->getNombre().' 
+                    apellido: '.$representante->getApellido().' correo'.$representante->getCorreo().'<br>';
+                }
+            }
+        }
+    ?>
+        <!-- imprimir a los representantes serializados -->
     </div>
-
-    <!-- Interfaz para consultar por un representante-->
-    <form class="interfaz interfaz--invisible" method="POST">
-        <label for="selector_nacionalidad_consulta" class="formulario__label">Nacionalidad:</label>
-        <select class="selector" id="selector_nacionalidad_consulta" name="nacionalidad-consulta">
-            <option selected class="selector__option">V-</option>
-            <option class="selector__option">E-</option>
-        </select>
-        <label for="cedula_consulta" class="formulario__label">Cedula:</label>
-        <input type="text" class="formulario__input" id="cedula_consulta" name="cedula-consulta" required onkeypress='return (event.charCode >= 48 && event.charCode <= 57)' required>
-        <input type="submit" class="formulario__boton" value="consultar" name="consultarInstancia">
-        <button class="formulario__boton" onClick="displayInterfaz(0)">Volver</button>
-    </form>
-
-    <!-- Interfaz para consultar por TODOS los representantes -->
-    <form class="interfaz interfaz--invisible" method="POST">
-        <input type="submit" class="formulario__boton" value="consultar" name="consultarTodos">
-        <button class="formulario__boton" onClick="displayInterfaz(0)">Volver</button>
-    </form>
-
-    <!-- Interfaz para cargar un representante a la base de dato  -->
-    <form class="interfaz interfaz--invisible" method="POST">
-        <label for="selector-nacionalidad-cargar" class="formulario__label">Nacionalidad:</label>
-        <select class="selector" id="selector-nacionalidad-cargar" name="nacionalidad-cargar" required>
-            <option selected class="selector__option">V-</option>
-            <option class="selector__option">E-</option>
-        </select>
-        <label for="cedula-cargar" class="formulario__label">Cedula:</label>
-        <input type="text" class="formulario__input" id="cedula-cargar" name="cedula-cargar" required onkeypress='return (event.charCode >= 48 && event.charCode <= 57)' required>
-        <label for="nombre-cargar">Nombre</label>
-        <input id="nombre-cargar" name="nombre-cargar" type="text" required>
-        <label for="apellido-cargar">Apellido</label>
-        <input id="apellido-cargar" class="apellido-cargar" type="text" required>
-        <label for="correo-cargar">Correo</label>
-        <input type="text" id="correo-cargar" name="correo-cargar" required>
-        <label for="telefono-cargar">Telefono</label>
-        <input type="text" id="telefono-cargar" name="telefono-cargar">
-        <input type="submit" class="formulario__boton" value="cargar" name="cargar">
-        <button class="formulario__boton" onClick="displayInterfaz(0)">Volver</button>
-    </form>
-
-     <!-- Interfaz para modificar un representante a la base de dato  -->
-     <!-- ACA SE TENDRA 2 FORMULARIOS, UNO PARA CONSULTAR POR CEDULA, COMO EN LA PASADA.
-     Y OTRA PARA MODIFICAR, SERA IGUAL A LA DE CARGAR -->
-     <form class="interfaz interfaz--invisible" method="POST">
-        <label for="selector-nacionalidad-modificar" class="formulario__label">Nacionalidad:</label>
-        <select class="selector" id="selector-nacionalidad-modificar" name="nacionalidad-modificar" required>
-            <option selected class="selector__option">V-</option>
-            <option class="selector__option">E-</option>
-        </select>
-        <label for="cedula-modificar" class="formulario__label">Cedula:</label>
-        <input type="text" class="formulario__input" id="cedula-modificar" name="cedula-modificar" required onkeypress='return (event.charCode >= 48 && event.charCode <= 57)' required>
-        <label for="nombre-modificar">Nombre</label>
-        <input id="nombre-modificar" name="nombre-modificar" type="text" required>
-        <label for="apellido-modificar">Apellido</label>
-        <input id="apellido-modificar" class="apellido-modificar" type="text" required>
-        <label for="correo-modificar">Correo</label>
-        <input type="text" id="correo-modificar" name="correo-modificar" required>
-        <label for="telefono-modificar">Telefono</label>
-        <input type="text" id="telefono-modificar" name="telefono-modificar">
-        <input type="submit" class="formulario__boton" value="modificar" name="modificar">
-        <button class="formulario__boton" onClick="displayInterfaz(0)">Volver</button>
-    </form>
-</body>
-</html>
+    <div class="atributos">
+        <form action="" method="POST">
+            <label for="nacionalidadInput">Nacionalidad</label>
+            <select name="nacionalidadInput" id="nacionalidadInput" required>
+                <option value="V-">V-</option>
+                <option value="E-">E-</option>
+            </select>
+            <label for="cedulaInput">Cedula</label>
+            <input type="text" id="cedulaInput" name="cedulaInput" required>
+            <label for="nombreInput">Nombre</label>
+            <input type="text" id="nombreInput" name="nombreInput" required>
+            <label for="apellidoInput">Apellido</label>
+            <input type="text" id="apellidoInput" name="apellidoInput" required>
+            <label for="correoInput">Correo</label>
+            <input type="text" id="correoInput" name="correoInput" required>
+            <label for="telefonoInput">Telefono (opcional)</label>
+            <input type="text" id="telefonoInput" name="telefonoInput">
+        </form>
+    </div>
+    <div class="botones">
+        <form action="" method="POST">
+            <button name="consultar">consultar</button>
+            <button name="cargar">cargar</button>
+            <button name="modificar">modificar</button>
+            <button name="eliminar">eliminar</button>
+            <button name="actualizar">actualizar</button>
+        </form>
+    </div>
 </body>
 </html>
 
 <?php
-    include_once('accionBoton/consultarInstanciaRep.php');
-    include_once('accionBoton/consultarTodosRep.php');
-    include_once('accionBoton/cargarRep.php');
+    include('accionBoton/consultarTodosRep.php');
 ?>
