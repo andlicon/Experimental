@@ -28,7 +28,7 @@
             $consulta = "SELECT * 
                         FROM v_usuarios
                         WHERE usuario=?";
-            $registro = $this->bd->consultar($consulta, $nombre);
+            $registro = $this->bd->sql($consulta, $nombre);
 
             if(!is_array($registro)) {
                 throw new Exception('No existe combinación usuario/contrasena');
@@ -51,7 +51,7 @@
         public function getTodos() {
             $consulta = "SELECT * 
                          FROM v_usuarios";
-             $registros = $this->bd->consultar($consulta, null);
+             $registros = $this->bd->sql($consulta, null);
 
              if(empty($registros)) {
                 throw new Exception('No existen registros de Representante');

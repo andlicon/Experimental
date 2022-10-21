@@ -37,7 +37,7 @@
 
             @return Array que representa a todos los resultados
         */
-        public function consultar($consulta, $parametros) {
+        public function sql($consulta, $parametros) {
             $resultado = $this->conexion->prepare($consulta);
 
             if($parametros) {
@@ -51,5 +51,6 @@
 
             return $registros;
         }
+
     }
 ?>

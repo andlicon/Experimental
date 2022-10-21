@@ -61,6 +61,29 @@
         <input type="submit" class="formulario__boton" value="cargar" name="cargar">
         <button class="formulario__boton" onClick="displayInterfaz(0)">Volver</button>
     </form>
+
+     <!-- Interfaz para modificar un representante a la base de dato  -->
+     <!-- ACA SE TENDRA 2 FORMULARIOS, UNO PARA CONSULTAR POR CEDULA, COMO EN LA PASADA.
+     Y OTRA PARA MODIFICAR, SERA IGUAL A LA DE CARGAR -->
+     <form class="interfaz interfaz--invisible" method="POST">
+        <label for="selector-nacionalidad-modificar" class="formulario__label">Nacionalidad:</label>
+        <select class="selector" id="selector-nacionalidad-modificar" name="nacionalidad-modificar" required>
+            <option selected class="selector__option">V-</option>
+            <option class="selector__option">E-</option>
+        </select>
+        <label for="cedula-modificar" class="formulario__label">Cedula:</label>
+        <input type="text" class="formulario__input" id="cedula-modificar" name="cedula-modificar" required onkeypress='return (event.charCode >= 48 && event.charCode <= 57)' required>
+        <label for="nombre-modificar">Nombre</label>
+        <input id="nombre-modificar" name="nombre-modificar" type="text" required>
+        <label for="apellido-modificar">Apellido</label>
+        <input id="apellido-modificar" class="apellido-modificar" type="text" required>
+        <label for="correo-modificar">Correo</label>
+        <input type="text" id="correo-modificar" name="correo-modificar" required>
+        <label for="telefono-modificar">Telefono</label>
+        <input type="text" id="telefono-modificar" name="telefono-modificar">
+        <input type="submit" class="formulario__boton" value="modificar" name="modificar">
+        <button class="formulario__boton" onClick="displayInterfaz(0)">Volver</button>
+    </form>
 </body>
 </html>
 </body>

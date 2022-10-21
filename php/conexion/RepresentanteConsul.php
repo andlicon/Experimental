@@ -4,11 +4,15 @@
     include_once('../instancias/Representante.php');
 
     /*
-        Implementacion del Data Access Object para los representantes
+        Esta clase es un "consultor", junta las tablas:
+                                                        *representante
+                                                        *persona
+                                                        *contacto
+                                                        *tipo_contacto
 
         Todo esto se hace en base a la vista "v_representante_contacto" esta retorna todos los contactos, ya sea de tlf o de correo electornico
     */
-    class RepresentanteDAO implements IDAO {
+    class RepresentanteConsul implements IConsultor {
         private BaseDeDatos $bd;
 
         public function __construct(BaseDeDatos $bd) {
@@ -32,7 +36,7 @@
             $consulta = "SELECT * 
                         FROM v_representante_contacto
                         WHERE cedula=?";
-            $registros = $this->bd->consultar($consulta, $cedula);
+            $registros = $this->bd->sql($consulta, $cedula);
             
             if(empty($registros)) {
                 throw new Exception('No existe el representante con dicha cedula');
@@ -65,7 +69,7 @@
         public function getTodos() {
             $consulta = "SELECT * 
                          FROM v_representante_contacto;";
-             $registros = $this->bd->consultar($consulta, null);
+             $registros = $this->bd->sql($consulta, null);
 
              if(empty($registros)) {
                 throw new Exception('No existen registros de Representante');
@@ -87,13 +91,6 @@
             return $representantes;
          }
 
-
-         public function cargar($representante) {
-            $insert = "INSERT INTO representante (cedula, nombre, apellido, id_contacto)
-                       VALUES                    (?,      ?,      ?,        ?)";
-            $bd->prepare($representante);
-            
-         }
     }
     
 ?>
