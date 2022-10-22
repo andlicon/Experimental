@@ -12,7 +12,7 @@
 
             //Serializar el objeto para poderlo pasar a la vista resultado
             $serialize = serialize($representanteConsul);
-            echo 'a';
+            
             header("Location: representanteView.php?representantes=".urlencode($serialize));
         }
         catch(Exception $mensaje) {  

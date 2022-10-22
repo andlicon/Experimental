@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+    
+<?php
+    include('accionBoton/consultarTodosRep.php');
+?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,25 +16,69 @@
 <body>
     <h2>Titulo</h2>
     <div class="output">
-        <?php
-        include_once('../instancias/Representante.php');
-        
-        if( isset($_GET['representantes']) ) {
-            $serialize = $_GET['representantes'];
-            
-            if($serialize) {
-                $representantes = unserialize($serialize);
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                       cedula 
+                    </th>
+                    <th>
+                       nombre 
+                    </th>
+                    <th>
+                       apellido
+                    </th>
+                    <th>
+                       tipo contacto 
+                    </th>
+                    <th>
+                       contacto 
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                    include_once('../instancias/Representante.php');
 
-                for($i=0; $i<count($representantes); $i++) {
-                    $representante = $representantes[$i];
-                    echo 'cedula: '.$representante->getCedula().' nombre: '.$representante->getNombre().' 
-                    apellido: '.$representante->getApellido().' correo'.$representante->getCorreo().'<br>';
-                }
-            }
-        }
-    ?>
-        <!-- imprimir a los representantes serializados -->
-    </div>
+                    if( isset($_GET['representantes']) ) {
+                        $serialize = $_GET['representantes'];
+                    
+                        if($serialize) {
+                            $representantes = unserialize($serialize);
+                        
+                            for($i=0; $i<count($representantes); $i++) {
+                                $representante = $representantes[$i];
+
+                                $cedula = $representante->getCedula();
+                                $nombre = $representante->getNombre();
+                                $apellido = $representante->getApellido();
+                                $tipoContacto = 'correo';
+                                $contacto = $representante->getCorreo();
+
+                                echo "  <tr>
+                                            <td>
+                                                $cedula
+                                            </td>
+                                            <td>
+                                                $nombre
+                                            </td>
+                                            <td>
+                                                $apellido
+                                            </td>
+                                            <td>
+                                                $tipoContacto
+                                            </td>
+                                            <td>
+                                                $contacto
+                                            </td>
+                                        </tr>";
+                            }
+                        }
+                    }
+                ?>
+            </tbody>
+        </table>
+    </div> 
     <div class="atributos">
         <form action="" method="POST">
             <label for="nacionalidadInput">Nacionalidad</label>
@@ -61,7 +109,3 @@
     </div>
 </body>
 </html>
-
-<?php
-    include('accionBoton/consultarTodosRep.php');
-?>
