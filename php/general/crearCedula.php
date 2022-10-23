@@ -1,8 +1,8 @@
 <?php 
-    function crearCedula($nameNacionalidad, $nameCedula) {
-        $inputNacionalidad = $_POST[$nameNacionalidad];
-        $inputCedula =  $_POST[$nameCedula];
-        $cedula = $inputNacionalidad.$inputCedula;
+    function crearCedula() {
+        $nacionalidad = $_POST['nacionalidadInput'];
+        $cedula = $_POST['cedulaInput'];
+        $cedula = $nacionalidad.$cedula;
         return $cedula;
     }
 ?>

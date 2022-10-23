@@ -10,7 +10,7 @@
 
             //Serializar el objeto para poderlo pasar a la vista resultado
             $serialize = serialize($representanteConsul);
-            header("Location: modificarRepView.php?representantes=".urlencode($serialize));
+            header("Location: RepresentanteView.php?representantes=".urlencode($serialize));
         }
         catch(Exception $mensaje) {  
             alerta($mensaje);
