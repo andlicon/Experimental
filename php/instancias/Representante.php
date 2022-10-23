@@ -3,17 +3,19 @@
         private $cedula;        //Cedula del representante
         private $nombre;        //noombre del representante
         private $apellido;      //apellido del representante
-        private $correo;        //correo del representante
+        private $tipoContacto;  //tipo de contacto
+        private $contacto;      //correo del representante
 
         /*
             Crea una instancia representante asignando todos sus atributos.
 
-            @param $cedula      cedula del representante
-            @param $nombre      nombre del representante
-            @param $apellido    apellido del representante
-            @param $correo      correo del representante
+            @param $cedula          cedula del representante
+            @param $nombre          nombre del representante
+            @param $apellido        apellido del representante
+            @param $tipoContacto    tipo de contacto (tlf o correo)
+            @param $contacto        contacto del representante
         */
-        public function __construct($cedula, $nombre, $apellido, $correo) {
+        public function __construct($cedula, $nombre, $apellido, $contacto) {
             $this->cedula = $cedula;
             $this->nombre = $nombre;
             $this->apellido = $apellido;
@@ -58,16 +60,32 @@
             $this->apellido = $apellido;
         }
         /*
-            @return correo del representante
+            retorna el tipo de contacto.
+
+            @return tipo de contacto
         */
-        public function getCorreo() {
-            return $this->correo;
+        public function getTipoContacto() {
+            return $this->tipoContacto;
         }
         /*
-            @param $correo - es el nuevo correo del usuario
+            Asigna un nuevo tipo de contacto
+
+            @param $tipoContacto es el nuevo tipo de contacto
         */
-        public function setCorreo($correo) {
-            $this->correo = $correo;
+        public function setTipoContacto($tipoContacto) {
+            $this->tipoContacto = $tipoContacto;
+        }
+        /*
+            @return contacto del representante
+        */
+        public function getContacto() {
+            return $this->contacto;
+        }
+        /*
+            @param $contacto - es el nuevo contacto del usuario
+        */
+        public function setContacto($contacto) {
+            $this->contacto = $contacto;
         }
     }
 ?>
