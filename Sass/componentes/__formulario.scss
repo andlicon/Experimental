@@ -38,28 +38,3 @@
 .grande {
     height: 100%;
 }
-
-
-.formulario__titulo {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    align-items: center;
-
-    font-weight: 900;
-    // font-size: 2em;
-    text-align: center;
-}
-
-.formulario__input--horizontal {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    gap: 0.2em;
-}
-
-.formulario__contenedor-botones {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-}
