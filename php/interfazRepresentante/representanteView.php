@@ -24,7 +24,6 @@
         
             if($serialize) {
                 $mensaje = unserialize($serialize);
-
                 echo 
                     '<div class="output__mensaje">'.
                         $mensaje->getKeyInput().' '.$mensaje->getMotivo().' '.$mensaje->getMensaje().
