@@ -13,7 +13,7 @@
 
     <title>Representante</title>
 
-    <!-- <link rel="stylesheet" href="/css/main.css"> -->
+    <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
     <?php
@@ -34,19 +34,19 @@
         <thead>
             <tr>
                 <th>
-                   cedula 
+                   Cedula 
                 </th>
                 <th>
-                   nombre 
+                   Nombre 
                 </th>
                 <th>
-                   apellido
+                   Apellido
                 </th>
                 <th>
-                   tipo contacto 
+                   Tipo contacto 
                 </th>
                 <th>
-                   contacto 
+                   Contacto 
                 </th>
             </tr>
         </thead>
