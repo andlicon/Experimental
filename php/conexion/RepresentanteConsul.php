@@ -48,8 +48,8 @@
                 $cedula = $registro['cedula'];
                 $nombre = $registro['nombre'];
                 $apellido = $registro['apellido'];
-                $tipoContacto = $representante['descripcion'];
-                $contacto = $representante['contacto'];
+                $tipoContacto = $registro['descripcion'];
+                $contacto = $registro['contacto'];
 
                 $representante = new Representante($cedula, $nombre, $apellido, $tipoContacto, $contacto);
             }

@@ -6,6 +6,13 @@
     include('accionBoton/consultarInstanciaRep.php');
     include('accionBoton/cargarRep.php');
 ?>
+
+<?php
+
+    if( isset($_REQUEST["modificar"]) ) {
+        $cb = $_REQUEST['check'];
+    }
+?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -35,6 +42,7 @@
     <div class="output">
         <table class="output__tabla">
             <colgroup> 
+                <col class="output__col--seleccion">
                 <col class="output__col--cedula">
                 <col class="output__col--nombre">
                 <col class="output__col--apellido">
@@ -43,6 +51,9 @@
             </colgroup>
             <thead class="output__header">
                 <tr class="output__renglon">
+                    <th class="output__celda output__celda--header">
+                       Seleccionar
+                    </th>
                     <th class="output__celda output__celda--header">
                        Cedula 
                     </th>
@@ -77,7 +88,10 @@
                                 $tipoContacto = $representante->getTipoContacto();
                                 $contacto = $representante->getContacto();
 
-                                echo "  <tr class=\"output__renglon\">
+                                echo "  <tr>
+                                            <td class=\"output__celda\">
+                                                <input type=\"checkbox\" name=\"check[]\" value=\"".($i+1)."\" id=\"cb".($i+1)."\">
+                                            </td>
                                             <td class=\"output__celda\">
                                                 $cedula
                                             </td>
@@ -129,3 +143,15 @@
     </div>
 </body>
 </html>
+
+<script>
+    function seleccionar(renglon, id) {
+        if($("#cb"+id).attr("checked" == "checked")) {
+            $("#cb"+id).removeAttr("checked");
+        }
+        else {
+            $("#cb"+id).attr("checked", "true");
+            $("#cb"+id).prop("checked", "true");
+        }
+    }
+</script>
