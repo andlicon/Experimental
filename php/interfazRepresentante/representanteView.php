@@ -15,7 +15,7 @@
 
     <link rel="stylesheet" href="/css/main.css">
 </head>
-<body>
+<body class="consulta">
     <?php
         include_once('../formulario/Mensaje.php');
 
@@ -29,7 +29,7 @@
             }
         }
     ?>
-    <h2 class="titulo">Titulo</h2>
+    <h2 class="consulta__titulo">Titulo</h2>
     <div class="output">
         <table class="output__tabla">
             <thead class="output__header">
@@ -66,7 +66,7 @@
                                 $nombre = $representante->getNombre();
                                 $apellido = $representante->getApellido();
                                 $tipoContacto = 'correo';
-                                $contacto = $representante->getCorreo();
+                                $contacto = $representante->getContacto();
                                 echo "  <tr class=\"output__renglon\">
                                             <td class=\"output__celda\">
                                                 $cedula
@@ -74,7 +74,7 @@
                                             <td class=\"output__celda\">
                                                 $nombre
                                             </td>
-                                            <td>
+                                            <td class=\"output__celda\">
                                                 $apellido
                                             </td>
                                             <td class=\"output__celda\">

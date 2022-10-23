@@ -2,11 +2,15 @@
     display: flex;
     flex-flow: column nowrap;
 
-    background-color: white;
+    background-color: grey;
 }
 
-.output__linea {
-    display: flex;
-    flex-flow: row nowrap;
-    gap: 1em;
+.output__tabla {
+    height: 100%;
+
+    border: 1px solid black;
+}
+
+.output__celda {
+    border: 1px solid black;
 }

@@ -126,6 +126,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+h2 {
+  font-size: 2em;
+  text-align: center;
+}
+
 .body-login {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -190,6 +195,14 @@ body {
   position: absolute;
   bottom: 8em;
   left: 0;
+}
+
+.consulta {
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "header" "output" "input";
+  -ms-grid-rows: 5em 1fr 0.5fr;
+  grid-template-rows: 5em 1fr 0.5fr;
 }
 
 .login {
@@ -269,16 +282,14 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-flow: column nowrap;
           flex-flow: column nowrap;
-  background-color: white;
+  background-color: grey;
 }
 
-.output__linea {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row nowrap;
-          flex-flow: row nowrap;
-  gap: 1em;
+.output__tabla {
+  height: 100%;
+  border: 1px solid black;
+}
+
+.output__celda {
+  border: 1px solid black;
 }

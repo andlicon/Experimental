@@ -3,13 +3,17 @@
     include_once('../conexion/RepresentanteConsul.php');
     include_once('../formulario/Alerta.php');
     include_once('../general/crearCedula.php');
-/*
-    consulta única instancia para Representante
-*/
+    include_once('../general/comprobarInput.php');
+
+    /*
+        consulta única instancia para Representante
+    */
+    $pagina = "Location: RepresentanteView.php";
+
     if( isset($_POST['consultar']) ) {
         //Cedula introducida por el usuario
-        $nacionalidadInput = $_POST['nacionalidadInput'];
-        $cedulaInput = $_POST['cedulaInput'];
+        $nacionalidadInput = comprobarInput('nacionalidadInput', 'Se debe introducir una nacionalidad valida', $pagina);
+        $cedulaInput = comprobarInput('cedulaInput', 'Se debe introducir un numero de cedula valido', $pagina);
         $cedula = crearCedula($nacionalidadInput, $cedulaInput);
 
         try {   //Extraer informacion de la base de datos
@@ -19,7 +23,7 @@
             
             //Serializar el objeto representante para poderlo enviar a la view resultado
             $serialize = serialize(array($representante));
-            header("Location: RepresentanteView.php?representantes=".urlencode($serialize));
+            header("$pagina?representantes=".urlencode($serialize));
         }
         catch(Exception $mensaje) {  
             alerta($mensaje);
