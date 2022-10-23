@@ -15,11 +15,12 @@
             @param $tipoContacto    tipo de contacto (tlf o correo)
             @param $contacto        contacto del representante
         */
-        public function __construct($cedula, $nombre, $apellido, $contacto) {
+        public function __construct($cedula, $nombre, $apellido, $tipoContacto, $contacto) {
             $this->cedula = $cedula;
             $this->nombre = $nombre;
             $this->apellido = $apellido;
-            $this->correo = $correo;
+            $this->tipoContacto = $tipoContacto;
+            $this->contacto = $contacto;
         }
 
         //GETTERS y SETTERS

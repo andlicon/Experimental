@@ -74,8 +74,9 @@
                                 $cedula = $representante->getCedula();
                                 $nombre = $representante->getNombre();
                                 $apellido = $representante->getApellido();
-                                $tipoContacto = 'correo';
+                                $tipoContacto = $representante->getTipoContacto();
                                 $contacto = $representante->getContacto();
+
                                 echo "  <tr class=\"output__renglon\">
                                             <td class=\"output__celda\">
                                                 $cedula
