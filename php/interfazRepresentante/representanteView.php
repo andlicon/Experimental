@@ -29,89 +29,92 @@
             }
         }
     ?>
-    <h2>Titulo</h2>
-    <table class="output">
-        <thead>
-            <tr>
-                <th>
-                   Cedula 
-                </th>
-                <th>
-                   Nombre 
-                </th>
-                <th>
-                   Apellido
-                </th>
-                <th>
-                   Tipo contacto 
-                </th>
-                <th>
-                   Contacto 
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-                include_once('../instancias/Representante.php');
-                if( isset($_GET['representantes']) ) {
-                    $serialize = $_GET['representantes'];
-                
-                    if($serialize) {
-                        $representantes = unserialize($serialize);
+    <h2 class="titulo">Titulo</h2>
+    <div class="output">
+        <table class="output__tabla">
+            <thead class="output__header">
+                <tr class="output__renglon">
+                    <th class="output__celda">
+                       Cedula 
+                    </th>
+                    <th class="output__celda">
+                       Nombre 
+                    </th>
+                    <th class="output__celda">
+                       Apellido
+                    </th>
+                    <th class="output__celda">
+                       Tipo contacto 
+                    </th>
+                    <th class="output__celda">
+                       Contacto 
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="output__body">
+                <?php
+                    include_once('../instancias/Representante.php');
+                    if( isset($_GET['representantes']) ) {
+                        $serialize = $_GET['representantes'];
                     
-                        for($i=0; $i<count($representantes); $i++) {
-                            $representante = $representantes[$i];
-                            $cedula = $representante->getCedula();
-                            $nombre = $representante->getNombre();
-                            $apellido = $representante->getApellido();
-                            $tipoContacto = 'correo';
-                            $contacto = $representante->getCorreo();
-                            echo "  <tr>
-                                        <td>
-                                            $cedula
-                                        </td>
-                                        <td>
-                                            $nombre
-                                        </td>
-                                        <td>
-                                            $apellido
-                                        </td>
-                                        <td>
-                                            $tipoContacto
-                                        </td>
-                                        <td>
-                                            $contacto
-                                        </td>
-                                    </tr>";
+                        if($serialize) {
+                            $representantes = unserialize($serialize);
+                        
+                            for($i=0; $i<count($representantes); $i++) {
+                                $representante = $representantes[$i];
+                                $cedula = $representante->getCedula();
+                                $nombre = $representante->getNombre();
+                                $apellido = $representante->getApellido();
+                                $tipoContacto = 'correo';
+                                $contacto = $representante->getCorreo();
+                                echo "  <tr class=\"output__renglon\">
+                                            <td class=\"output__celda\">
+                                                $cedula
+                                            </td>
+                                            <td class=\"output__celda\">
+                                                $nombre
+                                            </td>
+                                            <td>
+                                                $apellido
+                                            </td>
+                                            <td class=\"output__celda\">
+                                                $tipoContacto
+                                            </td>
+                                            <td class=\"output__celda\">
+                                                $contacto
+                                            </td>
+                                        </tr>";
+                            }
                         }
                     }
-                }
-            ?>
-        </tbody>
-    </table>
-    <div class="atributos">
-        <form action="" method="POST">
-            <label for="nacionalidadInput">Nacionalidad</label>
-            <select name="nacionalidadInput" id="nacionalidadInput">
-                <option value="V-">V-</option>
-                <option value="E-">E-</option>
+                ?>
+            </tbody>
+        </table>
+    </div>
+    <div class="input">
+        <form action="" method="POST" class="input__form">
+            <!-- inputs -->
+            <label for="nacionalidadInput" class="input__label">Nacionalidad</label>
+            <select name="nacionalidadInput" id="nacionalidadInput" class="input__select">
+                <option value="V-" class="input__select">V-</option>
+                <option value="E-" class="input__select">E-</option>
             </select>
-            <label for="cedulaInput">Cedula</label>
-            <input type="text" id="cedulaInput" name="cedulaInput">
-            <label for="nombreInput">Nombre</label>
-            <input type="text" id="nombreInput" name="nombreInput">
-            <label for="apellidoInput">Apellido</label>
-            <input type="text" id="apellidoInput" name="apellidoInput">
-            <label for="correoInput">Correo</label>
-            <input type="text" id="correoInput" name="correoInput">
-            <label for="telefonoInput">Telefono (opcional)</label>
-            <input type="text" id="telefonoInput" name="telefonoInput">
+            <label for="cedulaInput" class="input__label">Cedula</label>
+            <input type="text" id="cedulaInput" name="cedulaInput" class="input__input input__input--texto">
+            <label for="nombreInput" class="input__label">Nombre</label>
+            <input type="text" id="nombreInput" name="nombreInput" class="input__input input__input--texto">
+            <label for="apellidoInput" class="input__label">Apellido</label>
+            <input type="text" id="apellidoInput" name="apellidoInput" class="input__input input__input--texto">
+            <label for="correoInput" class="input__label">Correo</label>
+            <input type="text" id="correoInput" name="correoInput" class="input__input input__input--texto">
+            <label for="telefonoInput" class="input__label">Telefono (opcional)</label>
+            <input type="text" id="telefonoInput" name="telefonoInput" class="input__input input__input--texto">
             <!-- botones -->
-            <button name="consultar">consultar</button>
-            <button name="cargar">cargar</button>
-            <button name="modificar">modificar</button>
-            <button name="eliminar">eliminar</button>
-            <button name="actualizar">actualizar</button>
+            <button name="consultar" class="boton">consultar</button>
+            <button name="cargar" class="boton">cargar</button>
+            <button name="modificar" class="boton">modificar</button>
+            <button name="eliminar" class="boton">eliminar</button>
+            <button name="actualizar" class="boton">actualizar</button>
         </form>
     </div>
 </body>
