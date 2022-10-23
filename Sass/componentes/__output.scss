@@ -12,5 +12,19 @@
 }
 
 .output__celda {
+
     border: 1px solid black;
+    text-align: left;
+}
+
+.output__celda--header {
+    text-align: center;
+}
+
+.output__col--cedula {
+    width: 6.3em;
+}
+
+.output__mensaje {
+    display: absolute;
 }

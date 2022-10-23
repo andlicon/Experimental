@@ -11,7 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Representante</title>
+    <title>Gestionar representantes</title>
 
     <link rel="stylesheet" href="/css/main.css">
 </head>
@@ -25,28 +25,38 @@
             if($serialize) {
                 $mensaje = unserialize($serialize);
 
-                echo $mensaje->getKeyInput().' '.$mensaje->getMotivo().' '.$mensaje->getMensaje();
+                echo 
+                    '<div class="output__mensaje">'.
+                        $mensaje->getKeyInput().' '.$mensaje->getMotivo().' '.$mensaje->getMensaje().
+                    '</div>';
             }
         }
     ?>
     <h2 class="consulta__titulo">Titulo</h2>
     <div class="output">
         <table class="output__tabla">
+            <colgroup> 
+                <col class="output__col--cedula">
+                <col class="output__col--nombre">
+                <col class="output__col--apellido">
+                <col class="output__col--tipo">
+                <col class="output__col--contacto">
+            </colgroup>
             <thead class="output__header">
                 <tr class="output__renglon">
-                    <th class="output__celda">
+                    <th class="output__celda output__celda--header">
                        Cedula 
                     </th>
-                    <th class="output__celda">
+                    <th class="output__celda output__celda--header">
                        Nombre 
                     </th>
-                    <th class="output__celda">
+                    <th class="output__celda output__celda--header">
                        Apellido
                     </th>
-                    <th class="output__celda">
+                    <th class="output__celda output__celda--header">
                        Tipo contacto 
                     </th>
-                    <th class="output__celda">
+                    <th class="output__celda output__celda--header">
                        Contacto 
                     </th>
                 </tr>
