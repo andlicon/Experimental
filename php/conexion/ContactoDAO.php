@@ -1,6 +1,6 @@
 <?php 
      include_once ('IDAO.php');
-     include_once ('../Instancia/Contacto.php');
+     include_once ('../Instancias/Contacto.php');
 
      class ContactoDAO implements IDAO {
         private BaseDeDatos $bd;
@@ -67,7 +67,5 @@
             $this->bd->sql($insert, $parametros);
         }
 
-
-        
     }
 ?>
