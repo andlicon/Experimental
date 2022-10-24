@@ -48,7 +48,7 @@
                 $contactoDAO->modificar(array($cont, $cedula, $tipoContacto));
             }
 
-            $mensaje = new Mensaje(null, true, 'se ha exitado con exito el representante');
+            $mensaje = new Mensaje(null, true, 'se ha modificado con exito el representante');
             $serialize = serialize($mensaje);
             header("$pag?mensaje=".urlencode($serialize));
         }

@@ -8,6 +8,6 @@
     interface IModificador {
         public function cargar($parametros);
         public function modificar($parametros);
-        // public function eliminar();
+        // public function eliminar($parametros);
     }
 ?>

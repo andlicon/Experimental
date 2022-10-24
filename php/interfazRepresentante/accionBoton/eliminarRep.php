@@ -1,4 +1,6 @@
 <?php
+    $pag = 'Location: RepresentanteView.php';
+
     if( isset($_POST['eliminar']) ) {
         $nacionalidadInput = comprobarInput('nacionalidadInput', 'Se debe introducir una nacionalidad valida', $pagina);
         $cedulaInput = comprobarInput('cedulaInput', 'Se debe introducir un numero de cedula valido', $pagina);
@@ -13,6 +15,11 @@
             //borrar representante
             //borrar persona
             //borrar contacto
+
+
+            $mensaje = new Mensaje(null, true, 'se ha eliminado con exito el representante');
+            $serialize = serialize($mensaje);
+            header("$pag?mensaje=".urlencode($serialize));
         }
         catch(Exception $mensaje) {  
             alerta($mensaje);

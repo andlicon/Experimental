@@ -3,7 +3,6 @@
     include_once('../instancias/Representante.php');
     include_once('../conexion/PersonaDAO.php');
     include_once('../conexion/ContactoDAO.php');
-    include_once('../conexion/RepresentanteModif.php');
     //Funciones
     include_once('../formulario/Alerta.php');
     include_once('../general/crearCedula.php');
