@@ -1,7 +1,7 @@
 <?php 
-     include_once ('IModificador.php');
+     include_once ('IDAO.php');
 
-     class ContactoModif implements IModificador {
+     class ContactoIDAO implements IDAO {
         private BaseDeDatos $bd;
 
         public function __construct(BaseDeDatos $bd) {
@@ -13,6 +13,8 @@
                        VALUES               (?,      ?,       ?)";
             $this->bd->sql($insert, $parametros);
         }
+
+        
         
     }
 ?>

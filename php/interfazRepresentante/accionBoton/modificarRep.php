@@ -19,16 +19,22 @@
             $representanteConsul = new RepresentanteConsul($bd);
             $representante= $representanteConsul->getInstancia(array($cedula));
 
+            //CONSULTAR POR PERSONA.
+            //CONSULTAR POR REPRESENTANTE ID.
+            //CONSULTAR POR TIPO DE CONTACTO
+            //CONSULTAR POR CONTACTO.
             $nombre = $nombre==null || $nombre==="" ? $representante->getNombre() : $nombre;
+            echo $nombre;
             $apellido = $apellido==null || $apellido==="" ? $representante->getApellido() : $apellido;
+            echo $apellido;
             
             // $ = $nombre==null || $nombre==="" ? $representante->getNombre() : $nombre;
             // $nombre = $nombre==null || $nombre==="" ? $representante->getNombre() : $nombre;
             // $nombre = $nombre==null || $nombre==="" ? $representante->getNombre() : $nombre;
 
             //Serializar el objeto para poderlo pasar a la vista resultado
-            $serialize = serialize($representanteConsul);
-            header("Location: RepresentanteView.php?representantes=".urlencode($serialize));
+            // $serialize = serialize($representanteConsul);
+            // header("Location: RepresentanteView.php?representantes=".urlencode($serialize));
         }
         catch(Exception $mensaje) {  
             alerta($mensaje);

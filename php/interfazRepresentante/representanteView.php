@@ -5,6 +5,7 @@
     include('accionBoton/consultarTodosRep.php');
     include('accionBoton/consultarInstanciaRep.php');
     include('accionBoton/cargarRep.php');
+    include('accionBoton/modificarRep.php');
 ?>
 
 <head>
