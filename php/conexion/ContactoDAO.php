@@ -33,7 +33,7 @@
                 $contactos[] = $cont;
             }
             
-            return $representantes;
+            return $contactos;
         }
         
         public function getTodos() {

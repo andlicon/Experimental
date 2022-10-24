@@ -4,7 +4,7 @@
        private $idTipo;
        private $contacto;
 
-        public function _constrct($cedula, $idTipo, $contacto) {
+        public function __construct($cedula, $idTipo, $contacto) {
             $this->cedula = $cedula;
             $this->idTipo = $idTipo;
             $this->contacto = $contacto;

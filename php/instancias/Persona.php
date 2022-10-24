@@ -4,7 +4,7 @@
         private $nombre;
         private $apellido;
 
-        public function _constrct($cedula, $nombre, $apellido) {
+        public function __construct($cedula, $nombre, $apellido) {
             $this->cedula = $cedula;
             $this->nombre = $nombre;
             $this->apellido = $apellido;

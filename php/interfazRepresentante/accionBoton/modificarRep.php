@@ -1,7 +1,4 @@
 <?php
-    //Este metodo lo que hara sera realizar una consulta
-    //cargar los valores a los inputs
-    //de presionar modificar, se hara la modificacion
     if( isset($_POST['modificar']) ) {
         //El unico input necesario para realizar esta operacion es la cedula del usuario a cambiar
         $nacionalidadInput = comprobarInput('nacionalidadInput', 'Se debe introducir una nacionalidad valida', $pagina);
@@ -16,21 +13,23 @@
 
         try {   //Extraer informacion de la base de datos
             $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
-            $representanteConsul = new RepresentanteConsul($bd);
-            $representante= $representanteConsul->getInstancia(array($cedula));
-
             //CONSULTAR POR PERSONA.
-            //CONSULTAR POR REPRESENTANTE ID.
-            //CONSULTAR POR TIPO DE CONTACTO
+            $personaDAO = new PersonaDAO($bd);
+            $persona = $personaDAO->getInstancia(array($cedula));       //Retorna una unica instancia
+
             //CONSULTAR POR CONTACTO.
-            $nombre = $nombre==null || $nombre==="" ? $representante->getNombre() : $nombre;
-            echo $nombre;
-            $apellido = $apellido==null || $apellido==="" ? $representante->getApellido() : $apellido;
-            echo $apellido;
+            $contactoDAO = new ContactoDAO($bd);
+            $contactos = $contactoDAO->getInstancia(array($cedula));    //Retorna un arreglo de contactos
+
+
+            //comparar en tabla persona si hay algun dato nuevo.
+                //Enviar a cargar los datos viejos junto a los nuevos.
+            //comparar en tabla contacto si hay algun dato nuevo. (CORREO)
+                //Enviar a cargar los datos viejos junto a los nuevos.
+
+            //De existir un cambio en telefono, realizar el cambio pertinente al id=2
             
-            // $ = $nombre==null || $nombre==="" ? $representante->getNombre() : $nombre;
-            // $nombre = $nombre==null || $nombre==="" ? $representante->getNombre() : $nombre;
-            // $nombre = $nombre==null || $nombre==="" ? $representante->getNombre() : $nombre;
+
 
             //Serializar el objeto para poderlo pasar a la vista resultado
             // $serialize = serialize($representanteConsul);

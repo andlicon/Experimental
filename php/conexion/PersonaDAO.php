@@ -1,5 +1,6 @@
 <?php
     include_once ('IDAO.php');
+    include_once('../instancias/Persona.php');
 
     class PersonaDAO implements IDAO {
         private $bd;
@@ -18,20 +19,17 @@
                 throw new Exception('No existe el representante con dicha cedula');
             }
 
-            $personas = [];
-            for($i=0; $i<count($registros); $i++) {
-                $persona = $registros[$i];
-
-                $cedula = $persona['cedula'];
-                $nombre = $persona['nombre'];
-                $apellido = $persona['apellido'];
+            $persona = null;
+            if(!empty($registros)) {
+                $renglon = $registros[0];
+                $cedula = $renglon['cedula'];
+                $nombre = $renglon['nombre'];
+                $apellido = $renglon['apellido'];
                 
                 $persona = new Persona($cedula, $nombre, $apellido);
-
-                $personas[] = $persona;
             }
-            
-            return $personas;
+
+            return $persona;
         }
         
         public function getTodos() {
