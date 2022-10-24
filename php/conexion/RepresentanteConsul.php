@@ -28,7 +28,7 @@
             @trown Exception No existe el representante
 
             @return <ul>
-                        <li>De existir registro: instancia de representante</li>
+                        <li>De existir registro: arreglo de representante</li>
                         <li>De no existir registro: NULL</li>
                     </ul>
         */
