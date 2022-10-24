@@ -7,12 +7,6 @@
     include('accionBoton/cargarRep.php');
 ?>
 
-<?php
-
-    if( isset($_REQUEST["modificar"]) ) {
-        $cb = $_REQUEST['check'];
-    }
-?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -90,9 +84,6 @@
 
                                 echo "  <tr>
                                             <td class=\"output__celda\">
-                                                <input type=\"checkbox\" name=\"check[]\" value=\"".($i+1)."\" id=\"cb".($i+1)."\">
-                                            </td>
-                                            <td class=\"output__celda\">
                                                 $cedula
                                             </td>
                                             <td class=\"output__celda\">
@@ -143,15 +134,3 @@
     </div>
 </body>
 </html>
-
-<script>
-    function seleccionar(renglon, id) {
-        if($("#cb"+id).attr("checked" == "checked")) {
-            $("#cb"+id).removeAttr("checked");
-        }
-        else {
-            $("#cb"+id).attr("checked", "true");
-            $("#cb"+id).prop("checked", "true");
-        }
-    }
-</script>

@@ -4,6 +4,8 @@
     include_once('../formulario/Alerta.php');
     include_once('../general/crearCedula.php');
 
+    $pagina = "Location: RepresentanteView.php";
+
     if( isset($_POST['actualizar']) ) {
         try {   //Extraer informacion de la base de datos
             $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
@@ -13,7 +15,7 @@
             //Serializar el objeto para poderlo pasar a la vista resultado
             $serialize = serialize($representanteConsul);
             
-            header("Location: representanteView.php?representantes=".urlencode($serialize));
+            header("$pagina?representantes=".urlencode($serialize));
         }
         catch(Exception $mensaje) {  
             alerta($mensaje);

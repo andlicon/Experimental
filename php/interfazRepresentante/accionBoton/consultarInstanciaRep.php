@@ -19,10 +19,10 @@
         try {   //Extraer informacion de la base de datos
             $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
             $representanteConsul = new RepresentanteConsul($bd);
+
             $representante = $representanteConsul->getInstancia(array($cedula));
 
-            //Serializar el objeto representante para poderlo enviar a la view resultado
-            $serialize = serialize(array($representante));
+            $serialize = serialize($representante);
             header("$pagina?representantes=".urlencode($serialize));
         }
         catch(Exception $mensaje) {  

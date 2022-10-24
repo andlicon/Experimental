@@ -37,25 +37,27 @@
                         FROM v_representante_contacto
                         WHERE cedula=?";
             $registros = $this->bd->sql($consulta, $cedula);
-            
+
             if(empty($registros)) {
                 throw new Exception('No existe el representante con dicha cedula');
             }
 
-            $representante = null;
-            $registro = $registros[0];
-            if ($registro) {
-                $cedula = $registro['cedula'];
-                $nombre = $registro['nombre'];
-                $apellido = $registro['apellido'];
-                $tipoContacto = $registro['descripcion'];
-                $contacto = $registro['contacto'];
+            $representantes = [];
+            for($i=0; $i<count($registros); $i++) {
+                $representante = $registros[$i];
 
-                $representante = new Representante($cedula, $nombre, $apellido, $tipoContacto, $contacto);
+                $cedula = $representante['cedula'];
+                $nombre = $representante['nombre'];
+                $apellido = $representante['apellido'];
+                $tipoContacto = $representante['descripcion'];
+                $contacto = $representante['contacto'];
+                $rep = new Representante($cedula, $nombre, $apellido, $tipoContacto, $contacto);
+
+                $representantes[] = $rep;
             }
-
-            return $representante;
-        }
+            
+            return $representantes;
+         }
 
         /*
             Consulta por todos los registros de representantes
