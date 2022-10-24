@@ -1,4 +1,8 @@
 <?php
+    include_once('../formulario/Mensaje.php');
+
+    $pag = 'Location: RepresentanteView.php';
+
     if( isset($_POST['modificar']) ) {
         //El unico input necesario para realizar esta operacion es la cedula del usuario a cambiar
         $nacionalidadInput = comprobarInput('nacionalidadInput', 'Se debe introducir una nacionalidad valida', $pagina);
@@ -13,27 +17,40 @@
 
         try {   //Extraer informacion de la base de datos
             $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
-            //CONSULTAR POR PERSONA.
+            
             $personaDAO = new PersonaDAO($bd);
             $persona = $personaDAO->getInstancia(array($cedula));       //Retorna una unica instancia
+            
+            //Verificando que tenga contenido, de no tener contenido, se asigna el de la bd
+            $nombre = $nombre=="" ? $persona->getNombre() : $nombre;
+            $apellido = $apellido=="" ? $persona->getApellido() : $apellido;
+            $personaDAO->modificar(array($nombre, $apellido, $cedula));
 
-            //CONSULTAR POR CONTACTO.
+            
             $contactoDAO = new ContactoDAO($bd);
             $contactos = $contactoDAO->getInstancia(array($cedula));    //Retorna un arreglo de contactos
 
+            //Verificando que tenga contenido, de no tener contenido, se asigna el de la bd
+            for($i=0; $i<count($contactos); $i++) {
+                $contacto = $contactos[$i];
+                $tipoContacto = $contacto->getIdTipo();
+                $cont = null;
 
-            //comparar en tabla persona si hay algun dato nuevo.
-                //Enviar a cargar los datos viejos junto a los nuevos.
-            //comparar en tabla contacto si hay algun dato nuevo. (CORREO)
-                //Enviar a cargar los datos viejos junto a los nuevos.
+                if($tipoContacto==1) { //correo
+                    $cont = $correo=="" ? $contacto->getContacto() : $correo;
+                    echo "correo";
+                }
+                elseif($tipoContacto==2) {
+                    $cont = $telefono=="" ? $contacto->getContacto() : $telefono;
+                    echo "telefono";
+                }
 
-            //De existir un cambio en telefono, realizar el cambio pertinente al id=2
-            
+                $contactoDAO->modificar(array($cont, $cedula, $tipoContacto));
+            }
 
-
-            //Serializar el objeto para poderlo pasar a la vista resultado
-            // $serialize = serialize($representanteConsul);
-            // header("Location: RepresentanteView.php?representantes=".urlencode($serialize));
+            $mensaje = new Mensaje(null, true, 'se ha exitado con exito el representante');
+            $serialize = serialize($mensaje);
+            header("$pag?mensaje=".urlencode($serialize));
         }
         catch(Exception $mensaje) {  
             alerta($mensaje);

@@ -63,5 +63,13 @@
             $this->bd->sql($insert, $parametros);
         }
 
+        public function modificar($parametros) {
+            $update =  "UPDATE persona
+                        SET nombre=?, 
+                            apellido=?
+                        WHERE cedula=?";
+            $this->bd->sql($update, $parametros);
+        }
+
     }
 ?>

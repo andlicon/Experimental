@@ -47,9 +47,6 @@
             <thead class="output__header">
                 <tr class="output__renglon">
                     <th class="output__celda output__celda--header">
-                       Seleccionar
-                    </th>
-                    <th class="output__celda output__celda--header">
                        Cedula 
                     </th>
                     <th class="output__celda output__celda--header">

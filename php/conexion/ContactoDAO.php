@@ -67,5 +67,12 @@
             $this->bd->sql($insert, $parametros);
         }
 
+        public function modificar($parametros) {
+            $update = " UPDATE contacto
+                        SET contacto=?
+                        WHERE cedula=? AND id_tipo=?;";
+            $this->bd->sql($update, $parametros);
+        }
+
     }
 ?>
