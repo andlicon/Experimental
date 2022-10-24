@@ -6,8 +6,8 @@
             * Eliminacion de datos de una base de datos cualquiera
     */
     interface IModificador {
-        public function cargar($objeto);
-        // public function modificar();
+        public function cargar($parametros);
+        public function modificar($parametros);
         // public function eliminar();
     }
 ?>

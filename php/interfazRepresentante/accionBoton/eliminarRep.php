@@ -1,5 +1,5 @@
 <?php
-    if( isset($_POST['modificar']) ) {
+    if( isset($_POST['eliminar']) ) {
         $nacionalidadInput = comprobarInput('nacionalidadInput', 'Se debe introducir una nacionalidad valida', $pagina);
         $cedulaInput = comprobarInput('cedulaInput', 'Se debe introducir un numero de cedula valido', $pagina);
 
@@ -10,7 +10,9 @@
             $representanteConsul = new RepresentanteConsul($bd);
             $representante= $representanteConsul->getInstancia(array($cedula));
             
-            
+            //borrar representante
+            //borrar persona
+            //borrar contacto
         }
         catch(Exception $mensaje) {  
             alerta($mensaje);
