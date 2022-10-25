@@ -61,20 +61,31 @@
             return $representantes;
         }
 
-        public function cargar($parametros) {
+        public function cantidadContactos(array $parametros) {
+            $consulta = "SELECT *
+                        FROM v_cantidad_contactos
+                        WHERE cedula=?";
+            $contactos = $this->bd->sql($consulta, $parametros);
+
+            $contacto = $contactos[0];
+            $cantidad = $contacto['cantidad'];
+            return $cantidad;
+        }
+
+        public function cargar(array $parametros) {
             $insert = "INSERT INTO contacto (cedula, id_tipo, contacto)
                        VALUES               (?,      ?,       ?)";
             $this->bd->sql($insert, $parametros);
         }
 
-        public function modificar($parametros) {
+        public function modificar(array $parametros) {
             $update = " UPDATE contacto
                         SET contacto=?
                         WHERE cedula=? AND id_tipo=?;";
             $this->bd->sql($update, $parametros);
         }
 
-        public function eliminar($parametros) {
+        public function eliminar(array $parametros) {
             $delete=   " DELETE FROM contacto
                         WHERE cedula=? AND id_tipo=?;";
             $this->bd->sql($delete, $parametros);

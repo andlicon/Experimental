@@ -3,7 +3,8 @@
         private $cedula;        //Cedula del representante
         private $nombre;        //noombre del representante
         private $apellido;      //apellido del representante
-        private $tipoContacto;  //tipo de contacto
+        private $idTipoContacto; //id del tipo contacto
+        private $tipoContacto;  //Descripcion de tipo de contacto
         private $contacto;      //correo del representante
 
         /*
@@ -15,10 +16,11 @@
             @param $tipoContacto    tipo de contacto (tlf o correo)
             @param $contacto        contacto del representante
         */
-        public function __construct($cedula, $nombre, $apellido, $tipoContacto, $contacto) {
+        public function __construct($cedula, $nombre, $apellido, $idTipoContacto, $tipoContacto, $contacto) {
             $this->cedula = $cedula;
             $this->nombre = $nombre;
             $this->apellido = $apellido;
+            $this->idTipoContacto = $idTipoContacto;
             $this->tipoContacto = $tipoContacto;
             $this->contacto = $contacto;
         }
@@ -87,6 +89,19 @@
         */
         public function setContacto($contacto) {
             $this->contacto = $contacto;
+        }
+
+         /*
+            @return id del tipo contacto
+        */
+        public function getidTipoContacto() {
+            return $this->idTipoContacto;
+        }
+        /*
+            @param $idTipoContacto - es el nuevo idTipoContacto
+        */
+        public function setidTipoContacto($idTipoContacto) {
+            $this->idTipoContacto = $idTipoContacto;
         }
     }
 ?>

@@ -83,12 +83,13 @@
                                 $cedula = $representante->getCedula();
                                 $nombre = $representante->getNombre();
                                 $apellido = $representante->getApellido();
+                                $idTipoContacto = $representante->getidTipoContacto();
                                 $tipoContacto = $representante->getTipoContacto();
                                 $contacto = $representante->getContacto();
 
                                 echo "  <tr>
                                             <td class=\"output__celda\">
-                                                <input type=\"checkbox\" name=\"check[]\" value=\"$cedula-$tipoContacto\" id=\"check$i\">
+                                                <input type=\"checkbox\" name=\"check[]\" value=\"$cedula,$idTipoContacto\" id=\"check$i\">
                                             </td>
                                             <td class=\"output__celda\">
                                                 $cedula

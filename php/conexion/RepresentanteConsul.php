@@ -49,9 +49,10 @@
                 $cedula = $representante['cedula'];
                 $nombre = $representante['nombre'];
                 $apellido = $representante['apellido'];
+                $idTipoContacto = $representante['id_tipo'];
                 $tipoContacto = $representante['descripcion'];
                 $contacto = $representante['contacto'];
-                $rep = new Representante($cedula, $nombre, $apellido, $tipoContacto, $contacto);
+                $rep = new Representante($cedula, $nombre, $apellido, $idTipoContacto, $tipoContacto, $contacto);
 
                 $representantes[] = $rep;
             }
@@ -85,9 +86,10 @@
                 $cedula = $representante['cedula'];
                 $nombre = $representante['nombre'];
                 $apellido = $representante['apellido'];
+                $idTipoContacto = $representante['id_tipo'];
                 $tipoContacto = $representante['descripcion'];
                 $contacto = $representante['contacto'];
-                $rep = new Representante($cedula, $nombre, $apellido, $tipoContacto, $contacto);
+                $rep = new Representante($cedula, $nombre, $apellido, $idTipoContacto, $tipoContacto, $contacto);
 
                 $representantes[] = $rep;
             }
