@@ -2,8 +2,8 @@
 <html lang="en">
     
 <?php
-    include('accionBoton/consultarTodosRep.php');
-    include('accionBoton/consultarInstanciaRep.php');
+    include('accionBoton/actualizarRep.php');
+    include('accionBoton/consultarRep.php');
     include('accionBoton/cargarRep.php');
     include('accionBoton/modificarRep.php');
 
