@@ -1,6 +1,7 @@
 <?php
     include_once('../instancias/Representante.php');
     include_once('../conexion/RepresentanteConsul.php');
+    include_once('../acciones/Consultar.php');
     include_once('../formulario/Alerta.php');
     include_once('../general/crearCedula.php');
     include_once('../general/comprobarInput.php');
@@ -9,6 +10,7 @@
         consulta única instancia para Representante
     */
     $pagina = "Location: RepresentanteView.php";
+    $objSerializar = "representantes";
 
     if( isset($_POST['consultar']) ) {
         //Cedula introducida por el usuario
@@ -20,13 +22,11 @@
             $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
             $representanteConsul = new RepresentanteConsul($bd);
 
-            $representante = $representanteConsul->getInstancia(array($cedula));
-
-            $serialize = serialize($representante);
-            header("$pagina?representantes=".urlencode($serialize));
+            $consultor = new Consultar($representanteConsul, $pagina, $objSerializar);
+            $consultor->consultar(array($cedula));
         }
-        catch(Exception $mensaje) {  
-            alerta($mensaje);
+        catch(Exception $e) {  
+            alerta($e);
         }
     }
 ?>
