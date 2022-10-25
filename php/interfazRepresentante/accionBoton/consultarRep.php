@@ -9,10 +9,10 @@
     /*
         consulta única instancia para Representante
     */
-    $pagina = "Location: RepresentanteView.php";
-    $objSerializar = "representantes";
-
     if( isset($_POST['consultar']) ) {
+        $pagina = "Location: RepresentanteView.php";
+        $objSerializar = "representantes";
+        
         //Cedula introducida por el usuario
         $nacionalidadInput = comprobarInput('nacionalidadInput', 'Se debe introducir una nacionalidad valida', $pagina);
         $cedulaInput = comprobarInput('cedulaInput', 'Se debe introducir un numero de cedula valido', $pagina);
