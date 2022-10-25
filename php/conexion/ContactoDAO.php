@@ -74,7 +74,7 @@
             $this->bd->sql($update, $parametros);
         }
 
-        public function eliminar() {
+        public function eliminar($parametros) {
             $delete=   " DELETE FROM contacto
                         WHERE cedula=? AND id_tipo=?;";
             $this->bd->sql($delete, $parametros);
