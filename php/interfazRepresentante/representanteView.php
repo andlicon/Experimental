@@ -6,10 +6,7 @@
     include('accionBoton/consultarRep.php');
     include('accionBoton/cargarRep.php');
     include('accionBoton/modificarRep.php');
-
-    if( isset($_POST['eliminar']) ) {
-        echo count($_POST['check']);
-    }
+    include('accionBoton/eliminarRep.php');
 ?>
 
 <head>
@@ -91,7 +88,7 @@
 
                                 echo "  <tr>
                                             <td class=\"output__celda\">
-                                                <input type=\"checkbox\" name=\"check[]\" value=\"check$i\" id=\"check$i\">
+                                                <input type=\"checkbox\" name=\"check[]\" value=\"$cedula-$tipoContacto\" id=\"check$i\">
                                             </td>
                                             <td class=\"output__celda\">
                                                 $cedula
