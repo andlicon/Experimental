@@ -6,6 +6,10 @@
     include('accionBoton/consultarInstanciaRep.php');
     include('accionBoton/cargarRep.php');
     include('accionBoton/modificarRep.php');
+
+    if( isset($_POST['eliminar']) ) {
+        echo count($_POST['check']);
+    }
 ?>
 
 <head>
@@ -27,15 +31,17 @@
             if($serialize) {
                 $mensaje = unserialize($serialize);
                 echo 
-                    '<div class="output__mensaje">'.
+                    '<div class="output__mensaje" name="hola">'.
                         $mensaje->getKeyInput().' '.$mensaje->getMotivo().' '.$mensaje->getMensaje().
                     '</div>';
             }
         }
     ?>
     <h2 class="consulta__titulo">Titulo</h2>
-    <div class="output">
-        <table class="output__tabla">
+    <div class="input">
+        <form action="" method="POST" class="input__form">
+            <!-- output seleccionable -->
+            <table class="output__tabla">
             <colgroup> 
                 <col class="output__col--seleccion">
                 <col class="output__col--cedula">
@@ -46,6 +52,9 @@
             </colgroup>
             <thead class="output__header">
                 <tr class="output__renglon">
+                    <th class="output__celda output__celda--header">
+                       Seleccionar 
+                    </th>
                     <th class="output__celda output__celda--header">
                        Cedula 
                     </th>
@@ -82,6 +91,9 @@
 
                                 echo "  <tr>
                                             <td class=\"output__celda\">
+                                                <input type=\"checkbox\" name=\"check[]\" value=\"check$i\" id=\"check$i\">
+                                            </td>
+                                            <td class=\"output__celda\">
                                                 $cedula
                                             </td>
                                             <td class=\"output__celda\">
@@ -103,9 +115,6 @@
                 ?>
             </tbody>
         </table>
-    </div>
-    <div class="input">
-        <form action="" method="POST" class="input__form">
             <!-- inputs -->
             <label for="nacionalidadInput" class="input__label">Nacionalidad</label>
             <select name="nacionalidadInput" id="nacionalidadInput" class="input__select">
