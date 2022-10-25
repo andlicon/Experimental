@@ -3,6 +3,7 @@
     include_once('../instancias/Representante.php');
     include_once('../conexion/PersonaDAO.php');
     include_once('../conexion/ContactoDAO.php');
+    include_once('../conexion/RepresentanteModif.php');
     //Funciones
     include_once('../formulario/Alerta.php');
     include_once('../general/crearCedula.php');
@@ -34,7 +35,7 @@
             $contactoDAO = new ContactoDAO($bd);
             $contactoDAO->cargar(array($cedula, 1, $correo));
             //Se anade el segundo contacto
-            if($telefono) { //De haber anadido un numero telefonico, se crea un renglon en la bd
+            if(!$telefono=="") { //De haber anadido un numero telefonico, se crea un renglon en la bd
                 $contactoDAO->cargar(array($cedula, 2, $telefono));
             }
                 //REPRESENTANTE

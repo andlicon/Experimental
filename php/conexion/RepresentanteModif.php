@@ -10,7 +10,8 @@
 
         public function cargar($parametros) {
             $insert = "INSERT INTO representante (cedula_representante)
-                       VALUES              (?)";
+                       VALUES                    (?)";
+            echo "cargando: ".$parametros[0];
             $this->bd->sql($insert, $parametros);
         }
 
@@ -22,7 +23,7 @@
         }
 
         public function eliminar($parametros) {
-            $delete =  "DELETE representante
+            $delete =  "DELETE FROM representante
                         WHERE cedula_representante=?";
             $this->bd->sql($delete, $parametros);
         }

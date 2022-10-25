@@ -1,5 +1,6 @@
 <?php
     include_once('../formulario/Mensaje.php');
+    include_once('../conexion/RepresentanteModif.php');
 
     $pag = 'Location: RepresentanteView.php';
 

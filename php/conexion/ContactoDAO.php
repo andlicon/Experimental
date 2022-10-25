@@ -75,6 +75,7 @@
         public function cargar(array $parametros) {
             $insert = "INSERT INTO contacto (cedula, id_tipo, contacto)
                        VALUES               (?,      ?,       ?)";
+            echo 'Se insertaran los valores '.$parametros[0].' '.$parametros[1].' '.$parametros[2];
             $this->bd->sql($insert, $parametros);
         }
 
