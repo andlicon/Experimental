@@ -1,5 +1,6 @@
 <?php
-    include_once('../conexion/contactoDAO.php');
+    include_once('../conexion/ContactoDAO.php');
+    include_once('../conexion/PersonaDAO.php');
 
     $pag = 'Location: RepresentanteView.php';
 
@@ -15,12 +16,22 @@
                     $datos = explode(',', $checks[$i]);
                     $cedula = $datos[0];
                     $tipoContacto = $datos[1];
-                    $contactoDAO->cantidadContactos(array ($cedula)); //TENGO LA CANTIDAD DE CONTACTOS
+                    $cantidadContacto = $contactoDAO->cantidadContactos(array ($cedula)); //TENGO LA CANTIDAD DE CONTACTOS
+
+                    if( $cantidadContacto > 1 ) {
+                        //Solo se elimina el contacto
+                        $contactoDAO->eliminar(array($cedula, $tipoContacto));
+                    }
+                    else {
+                        $contactoDAO->eliminar(array($cedula, $tipoContacto));
+                        //Eliminar id_representante
+                        $repModif = new Representante($bd);
+                        $repModif->eliminar($cedula);
+                        //Eliminar persona
+                        $personaDAO = new PersonaDAO($bd);
+                        $personaDAO->eliminar($cedula);
+                    }
                 }
-                //Primero elimina los contactos,
-                    //De no existir otro contacto
-                    //Elimiar idRepresentante
-                    //despues las personas
     
             }
             catch(Exception $mensaje) {  

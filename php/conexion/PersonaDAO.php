@@ -71,5 +71,11 @@
             $this->bd->sql($update, $parametros);
         }
 
+        public function eliminar($parametros) {
+            $delete =  "DELETE persona
+                        WHERE cedula=?";
+            $this->bd->sql($delete, $parametros);
+        }
+
     }
 ?>
