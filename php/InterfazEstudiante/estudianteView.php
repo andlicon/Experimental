@@ -86,6 +86,7 @@
                                 $apellido = $estudiante->getApellido();
                                 $fechaNacimiento = $estudiante->getFechaNacimiento();
                                 $clase = $estudiante->getClase();
+                                $claseDesc = $clase->getDescripcion();
                                 $cedulaRepresentante = $estudiante->getCedulaRepresentante();
 
                                 echo "  <tr>
@@ -102,7 +103,7 @@
                                                 $fechaNacimiento
                                             </td>
                                             <td class=\"output__celda\">
-                                                $clase
+                                                $claseDesc
                                             </td>
                                             <td class=\"output__celda\">
                                                 $cedulaRepresentante
