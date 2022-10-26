@@ -1,5 +1,6 @@
 <?php 
     include_once('../conexion/IConsultor.php');
+    include_once('../')
 
     class Actualizar {
         private $dao;
@@ -20,7 +21,7 @@
                 header($this->pagina.'?'.$this->objSerializar.'='.urlencode($serialize));
             }
             catch(Exception $e) {
-                echo $e;
+                
             }
         }
     }

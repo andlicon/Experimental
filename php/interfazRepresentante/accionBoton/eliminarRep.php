@@ -38,20 +38,3 @@
     }
 
 ?>
-
-
-<!-- $cantidadContacto = $contactoDAO->cantidadContactos(array ($cedula)); //TENGO LA CANTIDAD DE CONTACTOS
-
-if( $cantidadContacto > 1 ) {
-    //Solo se elimina el contacto
-    $contactoDAO->eliminar(array($cedula, $tipoContacto));
-}
-else {
-    $contactoDAO->eliminar(array($cedula, $tipoContacto));
-    //Eliminar id_representante
-    $repModif = new RepresentanteModif($bd);
-    $repModif->eliminar(array ($cedula));
-    //Eliminar persona
-    $personaDAO = new PersonaDAO($bd);
-    $personaDAO->eliminar(array($cedula));
-} -->
