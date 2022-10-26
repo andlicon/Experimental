@@ -115,9 +115,6 @@
                 ?>
             </tbody>
         </table>
-            <!-- inputs -->
-            <!-- SELECT PARA HACER CONSULTA INDIVIDUAL
-            EXTRAER DE BASE DE DATOS LAS clases -->
             <label for="claseInput" class="input__label">Clase</label>
             <select class="input__select" id="claseInput">
                 <?php 
