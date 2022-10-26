@@ -20,7 +20,9 @@
                 header($this->pagina.'?'.$this->objSerializar.'='.urlencode($serialize));
             }
             catch(Exception $e) {
-                echo $e;
+                $mensaje = new Mensaje(null, false, "Cedula no pertenece a ningun ".$this->objSerializar.".");
+                $serialize = serialize($mensaje);
+                header($this->pagina.'?'."mensaje".'='.urlencode($serialize));
             }
         }
     }

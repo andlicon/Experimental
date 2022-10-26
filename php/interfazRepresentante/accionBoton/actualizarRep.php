@@ -15,7 +15,7 @@
                 $actualizador = new Actualizar($representanteConsul, $pagina, $objSerializar);
                 $actualizador->actualizar();
             }
-            catch(Exception $e) {
+            catch(Exception $e) {   //De no conectarse a la bd
                 echo $e;
             }
     }

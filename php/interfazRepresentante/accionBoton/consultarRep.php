@@ -25,8 +25,8 @@
             $consultor = new Consultar($representanteConsul, $pagina, $objSerializar);
             $consultor->consultar(array($cedula));
         }
-        catch(Exception $e) {  
-            alerta($e);
+        catch(Exception $e) {  //No se ha podido conectar a la bd
+            echo $e;
         }
     }
 ?>

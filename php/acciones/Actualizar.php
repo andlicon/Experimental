@@ -1,6 +1,6 @@
 <?php 
     include_once('../conexion/IConsultor.php');
-    include_once('../')
+    include_once('../formulario/Mensaje.php');
 
     class Actualizar {
         private $dao;
@@ -21,7 +21,9 @@
                 header($this->pagina.'?'.$this->objSerializar.'='.urlencode($serialize));
             }
             catch(Exception $e) {
-                
+                $mensaje = new Mensaje(null, false, "No hay ningun ".$this->objSerializar." cargado en la base de datos.");
+                $serialize = serialize($mensaje);
+                header($this->pagina.'?'."mensaje".'='.urlencode($serialize));
             }
         }
     }
