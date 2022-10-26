@@ -1,7 +1,7 @@
 <?php
     include_once('IDAO.php');
 
-    class PersonaDAO implements IDAO {
+    class EstudianteDAO implements IDAO {
         private $bd;
 
         public function __construct(BaseDeDatos $bd) {
@@ -31,51 +31,53 @@
             return $persona;
         }
         
-        // public function getTodos() {
-        //     $consulta = "SELECT * 
-        //                 FROM persona";
-        //     $registros = $this->bd->sql($consulta, $cedula);
+        public function getTodos() {
+            $consulta = "SELECT * 
+                        FROM v_estudiantes";
+            $registros = $this->bd->sql($consulta, $cedula);
+            if(empty($registros)) {
+                throw new Exception('No existe estudiante con dicha cedula');
+            }
+           
+            $estudiantes = [];
+            for($i=0; $i<count($registros); $i++) {
+                $estudiante = $registros[$i];
+                $nombre = $estudiante['nombre'];
+                $apellido = $estudiante['apellido'];
+                $fechaNacimiento = $estudiante['fecha_nacimiento'];
+                $idRepresentante = $estudiante['id_representante'];
+                $cedulaRepresentante = $estudiante['cedula_representante'];
+                $idClase = $estudiante['id_clase'];
+                $descripcionClase = $estudiante['descripcion'];
+     
+                $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento,
+                                      $idRepresentante, $cedulaRepresentante,
+                                      new Clase($idClase, $descripcionClase, null));
+                $estudiantes[] = $est;
+            }
+ 
+            return $estudiantes;
+        }
 
-        //     if(empty($registros)) {
-        //         throw new Exception('No existe el representante con dicha cedula');
-        //     }
+        public function cargar($parametros) {
+            $insert = "INSERT INTO persona (cedula, nombre, apellido)
+                       VALUES              (?,      ?,      ?)";
+            $this->bd->sql($insert, $parametros);
+        }
 
-        //     $personas = [];
-        //     for($i=0; $i<count($registros); $i++) {
-        //         $persona = $registros[$i];
-
-        //         $cedula = $persona['cedula'];
-        //         $nombre = $persona['nombre'];
-        //         $apellido = $persona['apellido'];
-                
-        //         $per= new Persona($cedula, $nombre, $apellido);
-
-        //         $personas[] = $per;
-        //     }
-            
-        //     return $personas;
-        // }
-
-        // public function cargar($parametros) {
-        //     $insert = "INSERT INTO persona (cedula, nombre, apellido)
-        //                VALUES              (?,      ?,      ?)";
-        //     $this->bd->sql($insert, $parametros);
-        // }
-
-        // public function modificar($parametros) {
-        //     $update =  "UPDATE persona
-        //                 SET nombre=?, 
-        //                     apellido=?
-        //                 WHERE cedula=?";
-        //     $this->bd->sql($update, $parametros);
-        // }
-
-        // public function eliminar($parametros) {
-        //     $delete =  "DELETE FROM persona
-        //                 WHERE cedula=?";
-        //     $this->bd->sql($delete, $parametros);
-        // }
+        public function modificar($parametros) {
+            $update =  "UPDATE persona
+                        SET nombre=?, 
+                            apellido=?
+                        WHERE cedula=?";
+            $this->bd->sql($update, $parametros);
+        }
+        
+        public function eliminar($parametros) {
+            $delete =  "DELETE FROM persona
+                        WHERE cedula=?";
+            $this->bd->sql($delete, $parametros);
+        }
 
     }
-
 ?>
