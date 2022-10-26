@@ -44,6 +44,7 @@
                 <col class="output__col output__col--nombre">
                 <col class="output__col output__col--apellido">
                 <col class="output__col output__col--fechaNacimiento">
+                <col class="output__col output__col--clase">
                 <col class="output__col output__col--cedulaRepresentante">
             </colgroup>
             <thead class="output__header">
@@ -80,6 +81,7 @@
                             for($i=0; $i<count($estudiantes); $i++) {
                                 $estudiante = $estudiantes[$i];
 
+                                $idEstudiante = $estudiante->getId();
                                 $nombre = $estudiante->getNombre();
                                 $apellido = $estudiante->getApellido();
                                 $fechaNacimiento = $estudiante->getFechaNacimiento();
@@ -88,7 +90,7 @@
 
                                 echo "  <tr>
                                             <td class=\"output__celda\">
-                                                <input type=\"checkbox\" name=\"check[]\" value=\"$cedula,$idTipoContacto\" id=\"check$i\">
+                                                <input type=\"checkbox\" name=\"check[]\" value=\"$idEstudiante,$cedulaRepresentante\" id=\"check$i\">
                                             </td>
                                             <td class=\"output__celda\">
                                                 $nombre
