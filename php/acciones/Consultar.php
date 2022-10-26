@@ -1,5 +1,5 @@
 <?php 
-    include_once('../conexion/IModificador.php');
+    include_once('../conexion/IConsultor.php');
 
     class Consultar {
         private $dao;
