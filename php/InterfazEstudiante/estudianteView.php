@@ -116,6 +116,16 @@
             </tbody>
         </table>
             <!-- inputs -->
+            <!-- SELECT PARA HACER CONSULTA INDIVIDUAL
+            EXTRAER DE BASE DE DATOS LAS clases -->
+            <label for="claseInput" class="input__label">Clase</label>
+            <select class="input__select" id="claseInput">
+                <?php 
+                    include_once('generarClases.php');
+                    generarClases() 
+                ?>
+            </select>
+            
             <label for="nombreInput" class="input__label">Nombre</label>
             <input type="text" id="nombreInput" name="nombreInput" class="input__input input__input--texto">
             <label for="apellidoInput" class="input__label">Apellido</label>

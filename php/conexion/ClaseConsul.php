@@ -1,7 +1,7 @@
 <?php
     include_once('IConsultor.php');
 
-    class ClaseDAO implements IConsultor {
+    class ClaseConsul implements IConsultor {
         private BaseDeDatos $bd;
 
         public function __construct(BaseDeDatos $bd) {
@@ -35,6 +35,7 @@
         }
 
         public function getTodos() {
+            echo 'a';
             $consulta = "SELECT * 
                         FROM clase";
             $registros = $this->bd->sql($consulta, null);
