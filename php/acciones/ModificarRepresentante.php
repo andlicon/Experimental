@@ -28,11 +28,11 @@
 
             $arregloCorreo = $matriz[2];
             $correo = $arregloCorreo[0];
-            $idCorreo = $arregloCorreo[2];
+            $idCorreo = $arregloCorreo[1];
 
             $arregloTelefono = $matriz[3];
             $telefono = $arregloTelefono[0];
-            $idTelefono = $arregloTelefono[2];
+            $idTelefono = $arregloTelefono[1];
 
             //Revisar que se haya introducido algo en el input.
             $persona = $this->personaDAO->getInstancia($arregloCedula);     //instancia persona

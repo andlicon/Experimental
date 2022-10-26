@@ -27,9 +27,9 @@
 
             $modificador->modificar(array(
                                         array($cedula),
-                                        array($nombre, $apellido, $cedula),
-                                        array($correo, $cedula, 1),
-                                        array($telefono, $cedula, 2)
+                                        array($nombre, $apellido),
+                                        array($correo, 1),
+                                        array($telefono, 2)
                                     ));
         }
         catch(Exception $e) {     //No se ha podido conectar a la bd o hubo un error al insertar
