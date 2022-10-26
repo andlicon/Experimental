@@ -55,13 +55,13 @@
                        Nombre
                     </th>
                     <th class="output__celda output__celda--header">
-                       Nombre 
+                       Apellido 
                     </th>
                     <th class="output__celda output__celda--header">
-                       Apellido
+                       Fecha nacimiento
                     </th>
                     <th class="output__celda output__celda--header">
-                       Fecha Nacimiento
+                       clase
                     </th>
                     <th class="output__celda output__celda--header">
                        Cedula Representante
@@ -70,28 +70,25 @@
             </thead>
             <tbody class="output__body">
                 <?php
-                    include_once('../instancias/Representante.php');
-                    if( isset($_GET['representantes']) ) {
-                        $serialize = $_GET['representantes'];
+                    include_once('../instancias/Estudiante.php');
+                    if( isset($_GET['estudiantes']) ) {
+                        $serialize = $_GET['estudiantes'];
                     
                         if($serialize) {
-                            $representantes = unserialize($serialize);
+                            $estudiantes = unserialize($serialize);
                         
-                            for($i=0; $i<count($representantes); $i++) {
-                                $representante = $representantes[$i];
-                                $cedula = $representante->getCedula();
-                                $nombre = $representante->getNombre();
-                                $apellido = $representante->getApellido();
-                                $idTipoContacto = $representante->getidTipoContacto();
-                                $tipoContacto = $representante->getTipoContacto();
-                                $contacto = $representante->getContacto();
+                            for($i=0; $i<count($estudiantes); $i++) {
+                                $estudiante = $estudiantes[$i];
+
+                                $nombre = $estudiante->getNombre();
+                                $apellido = $estudiante->getApellido();
+                                $fechaNacimiento = $estudiante->getFechaNacimiento();
+                                $clase = $estudiante->getClase();
+                                $cedulaRepresentante = $estudiante->getCedulaRepresentante();
 
                                 echo "  <tr>
                                             <td class=\"output__celda\">
                                                 <input type=\"checkbox\" name=\"check[]\" value=\"$cedula,$idTipoContacto\" id=\"check$i\">
-                                            </td>
-                                            <td class=\"output__celda\">
-                                                $cedula
                                             </td>
                                             <td class=\"output__celda\">
                                                 $nombre
@@ -100,10 +97,13 @@
                                                 $apellido
                                             </td>
                                             <td class=\"output__celda\">
-                                                $tipoContacto
+                                                $fechaNacimiento
                                             </td>
                                             <td class=\"output__celda\">
-                                                $contacto
+                                                $clase
+                                            </td>
+                                            <td class=\"output__celda\">
+                                                $cedulaRepresentante
                                             </td>
                                         </tr>";
                             }

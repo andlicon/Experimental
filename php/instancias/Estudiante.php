@@ -21,25 +21,25 @@
         }
 
         public function getId() {
-            return $id;
+            return $this->id;
         }
         public function getNombre() {
-            return $nombre;
+            return $this->nombre;
         }
         public function getApellido() {
-            return $apellido;
+            return $this->apellido;
         }
-        public function getFecha_nacimiento() {
-            return $fechaNacimiento;
+        public function getFechaNacimiento() {
+            return $this->fechaNacimiento;
         }
         public function getIdRepresentante() {
-            return $idRepresentante;
+            return $this->idRepresentante;
         }
         public function getCedulaRepresentante() {
-            return $cedulaRepresentante;
+            return $this->cedulaRepresentante;
         }
         public function getIdClase() {
-            return $idClase;
+            return $this->idClase;
         }
         
         public function setId($id) {
