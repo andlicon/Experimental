@@ -1,5 +1,7 @@
 <?php 
     include_once('../conexion/IConsultor.php');
+    include_once('../formulario/Mensaje.php');
+    include_once('../general/mandarMensaje.php');
 
     class Consultar {
         private $dao;
@@ -21,8 +23,7 @@
             }
             catch(Exception $e) {
                 $mensaje = new Mensaje(null, false, "Cedula no pertenece a ningun ".$this->objSerializar.".");
-                $serialize = serialize($mensaje);
-                header($this->pagina.'?'."mensaje".'='.urlencode($serialize));
+                mandarMensaje($mensaje, $this->pagina);
             }
         }
     }
