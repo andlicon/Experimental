@@ -1,5 +1,6 @@
 <?php
     include_once('IDAO.php');
+    include_once('../instancias/Estudiante.php');
 
     class EstudianteDAO implements IDAO {
         private $bd;
@@ -34,7 +35,7 @@
         public function getTodos() {
             $consulta = "SELECT * 
                         FROM v_estudiantes";
-            $registros = $this->bd->sql($consulta, $cedula);
+            $registros = $this->bd->sql($consulta, null);
             if(empty($registros)) {
                 throw new Exception('No existe estudiante con dicha cedula');
             }
@@ -42,6 +43,7 @@
             $estudiantes = [];
             for($i=0; $i<count($registros); $i++) {
                 $estudiante = $registros[$i];
+                $id = $estudiante['id'];
                 $nombre = $estudiante['nombre'];
                 $apellido = $estudiante['apellido'];
                 $fechaNacimiento = $estudiante['fecha_nacimiento'];
@@ -52,7 +54,7 @@
      
                 $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento,
                                       $idRepresentante, $cedulaRepresentante,
-                                      new Clase($idClase, $descripcionClase, null));
+                                      new Clase($idClase, $descripcionClase, null, null));
                 $estudiantes[] = $est;
             }
  
