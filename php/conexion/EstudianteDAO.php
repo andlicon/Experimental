@@ -9,33 +9,42 @@
             $this->bd = $bd;
         }
 
-        public function getInstancia(array $id) {
+        public function getInstancia(array $idClase) {
             $consulta = "SELECT * 
                          FROM v_estudiantes
-                         WHERE id=?";
-            $registros = $this->bd->sql($consulta, $cedula);
+                         WHERE id_clase=?";
+            $registros = $this->bd->sql($consulta, $idClase);
 
             if(empty($registros)) {
                 throw new Exception('No existe el representante con dicha cedula');
             }
 
-            $persona = null;
-            if(!empty($registros)) {
-                $renglon = $registros[0];
-                $cedula = $renglon['cedula'];
-                $nombre = $renglon['nombre'];
-                $apellido = $renglon['apellido'];
-                
-                $persona = new Persona($cedula, $nombre, $apellido);
+            $estudiantes = [];
+            for($i=0; $i<count($registros); $i++) {
+                $estudiante = $registros[$i];
+                $id = $estudiante['id'];
+                $nombre = $estudiante['nombre'];
+                $apellido = $estudiante['apellido'];
+                $fechaNacimiento = $estudiante['fecha_nacimiento'];
+                $idRepresentante = $estudiante['id_representante'];
+                $cedulaRepresentante = $estudiante['cedula_representante'];
+                $idClase = $estudiante['id_clase'];
+                $descripcionClase = $estudiante['descripcion'];
+     
+                $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento,
+                                      $idRepresentante, $cedulaRepresentante,
+                                      new Clase($idClase, $descripcionClase, null, null));
+                $estudiantes[] = $est;
             }
-
-            return $persona;
+ 
+            return $estudiantes;
         }
         
         public function getTodos() {
             $consulta = "SELECT * 
                         FROM v_estudiantes";
             $registros = $this->bd->sql($consulta, null);
+
             if(empty($registros)) {
                 throw new Exception('No existe estudiante con dicha cedula');
             }
