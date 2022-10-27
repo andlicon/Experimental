@@ -52,30 +52,3 @@
         }
     }
 ?>
-
-<!-- try { 
-            $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
-                //PERSONA
-            $personaDAO = new PersonaDAO($bd);
-            $cargadorPersona = new Cargar($personaDAO);
-            $cargadorPersona->cargar(array($cedula, $nombre, $apellido));       //RETORNA 1 SI SE PUDO
-                //CONTACTO
-            //Se anade el primer contacto
-            $contactoDAO = new ContactoDAO($bd);
-            $cargadorContacto = new Cargar($contactoDAO);
-            $cargadorContacto->cargar(array($cedula, 1, $correo));              //RETORNA 1 SI SE PUDO
-            //Se anade el segundo contacto
-            if(!$telefono=="") { //De haber anadido un numero telefonico, se crea un renglon en la bd
-                $cargadorContacto->cargar(array($cedula, 2, $telefono));
-            }
-                //REPRESENTANTE
-            $representanteModif = new RepresentanteModif($bd);
-            $cargadorRepresentante = new Cargar($representanteModif);
-            $cargadorRepresentante->cargar(array($cedula));                 //RETORNA 1 SI SE PUDO
-
-            $alerta = new Mensaje(null, true, 'se ha cargado exitosamente al representante');
-            mandarMensaje($alerta, $pagina);
-        }
-        catch(Exception $e) {  
-            alerta($e);
-        } -->
