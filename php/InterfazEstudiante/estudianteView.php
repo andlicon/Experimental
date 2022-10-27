@@ -92,7 +92,7 @@
 
                                 echo "  <tr>
                                             <td class=\"output__celda\">
-                                                <input type=\"checkbox\" name=\"check[]\" value=\"$idEstudiante,$cedulaRepresentante\" id=\"check$i\">
+                                                <input type=\"checkbox\" name=\"check[]\" value=\"$idEstudiante\" id=\"check$i\">
                                             </td>
                                             <td class=\"output__celda\">
                                                 $nombre
