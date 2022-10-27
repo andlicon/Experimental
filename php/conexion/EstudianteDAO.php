@@ -89,10 +89,13 @@
         }
 
         public function modificar($parametros) {
-            $update =  "UPDATE persona
+            $update =  "UPDATE estudiante
                         SET nombre=?, 
-                            apellido=?
-                        WHERE cedula=?";
+                            apellido=?,
+                            fecha_nacimiento=?,
+                            id_clase=?,
+                            id_representante=?
+                        WHERE id=?";
             $this->bd->sql($update, $parametros);
         }
         
