@@ -46,16 +46,21 @@
             for($i=0; $i<count($registros); $i++) {
                 $representante = $registros[$i];
 
+                $id = $representante['id'];
                 $cedula = $representante['cedula'];
                 $nombre = $representante['nombre'];
                 $apellido = $representante['apellido'];
                 $idTipoContacto = $representante['id_tipo'];
                 $tipoContacto = $representante['descripcion'];
                 $contacto = $representante['contacto'];
-                $rep = new Representante($cedula, $nombre, $apellido, $idTipoContacto, $tipoContacto, $contacto);
+
+                $rep = new Representante($id, $cedula, $nombre, $apellido, $idTipoContacto, 
+                                         $tipoContacto, $contacto);
 
                 $representantes[] = $rep;
             }
+
+
             
             return $representantes;
          }
@@ -83,13 +88,15 @@
             for($i=0; $i<count($registros); $i++) {
                 $representante = $registros[$i];
 
+                $id = $representante['id'];
                 $cedula = $representante['cedula'];
                 $nombre = $representante['nombre'];
                 $apellido = $representante['apellido'];
                 $idTipoContacto = $representante['id_tipo'];
                 $tipoContacto = $representante['descripcion'];
                 $contacto = $representante['contacto'];
-                $rep = new Representante($cedula, $nombre, $apellido, $idTipoContacto, $tipoContacto, $contacto);
+                $rep = new Representante($id, $cedula, $nombre, $apellido, $idTipoContacto, 
+                                         $tipoContacto, $contacto);
 
                 $representantes[] = $rep;
             }

@@ -1,5 +1,6 @@
 <?php
     class Representante {
+        private $id;
         private $cedula;        //Cedula del representante
         private $nombre;        //noombre del representante
         private $apellido;      //apellido del representante
@@ -16,7 +17,9 @@
             @param $tipoContacto    tipo de contacto (tlf o correo)
             @param $contacto        contacto del representante
         */
-        public function __construct($cedula, $nombre, $apellido, $idTipoContacto, $tipoContacto, $contacto) {
+        public function __construct($id, $cedula, $nombre, $apellido, 
+                                    $idTipoContacto, $tipoContacto, $contacto) {
+            $this->id = $id;
             $this->cedula = $cedula;
             $this->nombre = $nombre;
             $this->apellido = $apellido;
@@ -102,6 +105,12 @@
         */
         public function setidTipoContacto($idTipoContacto) {
             $this->idTipoContacto = $idTipoContacto;
+        }
+        public function getId() {
+            return $this->id;
+        }
+        public function setId($id) {
+            $this->id = $id;
         }
     }
 ?>

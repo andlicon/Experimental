@@ -122,7 +122,6 @@
                     generarClases();
                 ?>
             </select>
-            
             <label for="nombreInput" class="input__label">Nombre</label>
             <input type="text" id="nombreInput" name="nombreInput" class="input__input input__input--texto">
             <label for="apellidoInput" class="input__label">Apellido</label>

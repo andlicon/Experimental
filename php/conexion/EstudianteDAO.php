@@ -61,9 +61,6 @@
                 $idClase = $estudiante['id_clase'];
                 $descripcionClase = $estudiante['descripcion'];
      
-                $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento,
-                                      $idRepresentante, $cedulaRepresentante,
-                                      new Clase($idClase, $descripcionClase, null, null));
                 $estudiantes[] = $est;
             }
  
@@ -71,8 +68,15 @@
         }
 
         public function cargar($parametros) {
-            $insert = "INSERT INTO persona (cedula, nombre, apellido)
-                       VALUES              (?,      ?,      ?)";
+            $insert = "INSERT INTO estudiante (nombre, apellido, fecha_nacimiento,
+                                               id_clase, id_representante)
+                       VALUES                 (?, ?, ?. ?, ?)";
+
+
+            for($i=0; $i<count($parametros); $i++) {
+                echo $parametros[$i].'<br>';
+            }
+
             $this->bd->sql($insert, $parametros);
         }
 
