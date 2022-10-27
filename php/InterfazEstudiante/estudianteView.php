@@ -74,13 +74,13 @@
                     include_once('../instancias/Estudiante.php');
                     if( isset($_GET['estudiantes']) ) {
                         $serialize = $_GET['estudiantes'];
-                    
+
                         if($serialize) {
                             $estudiantes = unserialize($serialize);
-                        
+
                             for($i=0; $i<count($estudiantes); $i++) {
                                 $estudiante = $estudiantes[$i];
-
+                                
                                 $idEstudiante = $estudiante->getId();
                                 $nombre = $estudiante->getNombre();
                                 $apellido = $estudiante->getApellido();

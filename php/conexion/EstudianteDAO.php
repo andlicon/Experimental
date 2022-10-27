@@ -61,6 +61,9 @@
                 $idClase = $estudiante['id_clase'];
                 $descripcionClase = $estudiante['descripcion'];
      
+                $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento,
+                                      $idRepresentante, $cedulaRepresentante,
+                                      new Clase($idClase, $descripcionClase, null, null));
                 $estudiantes[] = $est;
             }
  

@@ -35,7 +35,6 @@
         }
 
         public function getTodos() {
-            echo 'a';
             $consulta = "SELECT * 
                         FROM clase";
             $registros = $this->bd->sql($consulta, null);
