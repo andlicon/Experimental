@@ -119,7 +119,7 @@
             <select class="input__select" id="claseInput" name="claseInput">
                 <?php 
                     include_once('generarClases.php');
-                    generarClases() 
+                    generarClases();
                 ?>
             </select>
             
