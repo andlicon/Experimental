@@ -62,7 +62,7 @@
                        Fecha nacimiento
                     </th>
                     <th class="output__celda output__celda--header">
-                       clase
+                       Clase
                     </th>
                     <th class="output__celda output__celda--header">
                        Cedula Representante
