@@ -84,13 +84,7 @@
 
         public function cargar($parametros) {
             $insert = "INSERT INTO estudiante (nombre, apellido, fecha_nacimiento, id_clase, id_representante)
-                       VALUES                 (?,       ?,  ?, ?, ?)";
-            echo 'EMPIEZA ARREGLO<br>';
-            for($i=0; $i<count($parametros); $i++) {
-                echo $parametros[$i].'<br>';
-            }
-            echo 'TERMINA ARREGLO'.'<br>';
-            
+                       VALUES                 (?, ?,  ?, ?, ?)";
             $this->bd->sql($insert, $parametros);
         }
 
