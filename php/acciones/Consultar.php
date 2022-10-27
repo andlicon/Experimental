@@ -17,13 +17,13 @@
         public function consultar($parametros) {
             try {
                 $resultado = $this->dao->getInstancia($parametros);
-
+                echo 'c';
                 $serialize = serialize($resultado);
                 header($this->pagina.'?'.$this->objSerializar.'='.urlencode($serialize));
             }
             catch(Exception $e) {
-                $mensaje = new Mensaje(null, false, "Cedula no pertenece a ningun ".$this->objSerializar.".");
-                mandarMensaje($mensaje, $this->pagina);
+                // $mensaje = new Mensaje(null, false, "Cedula no pertenece a ningun ".$this->objSerializar.".");
+                // mandarMensaje($mensaje, $this->pagina);
             }
         }
     }

@@ -9,11 +9,23 @@
             $this->bd = $bd;
         }
 
-        public function getInstancia(array $idClase) {
-            $consulta = "SELECT * 
+        public function getInstancia(array $array) {
+            $consulta = null;
+            $parametros = null;
+
+            if(!$array[0]==null) {
+                $parametros = array($array[0]);
+                $consulta = "SELECT * 
                          FROM v_estudiantes
                          WHERE id_clase=?";
-            $registros = $this->bd->sql($consulta, $idClase);
+            }
+            else {
+                $parametros = array ($array[1]);
+                $consulta = "SELECT * 
+                         FROM v_estudiantes
+                         WHERE cedula_representante=?";
+            }
+            $registros = $this->bd->sql($consulta, $parametros);
 
             if(empty($registros)) {
                 throw new Exception('No existe el representante con dicha cedula');

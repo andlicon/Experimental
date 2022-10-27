@@ -4,6 +4,7 @@
 <?php
     include('accionBoton/actualizarEstu.php');
     include('accionBoton/consultarClaseEstu.php');
+    include('accionBoton/consultarCedulaEstu.php');
     include('accionBoton/cargarEstu.php');
     include('accionBoton/modificarEstu.php');
     include('accionBoton/eliminarEstu.php');
@@ -133,11 +134,11 @@
                 <option value="V-" class="input__select">V-</option>
                 <option value="E-" class="input__select">E-</option>
             </select>
-            <label for="cedulaRepInput" class="input__label">Cedula</label>
-            <input type="text" id="cedulaRepInput" name="cedulaRepInput" class="input__input input__input--texto">
+            <label for="cedulaInput" class="input__label">Cedula</label>
+            <input type="text" id="cedulaInput" name="cedulaInput" class="input__input input__input--texto">
             <!-- botones -->
             <button name="consultar-clase" class="boton">consultar por clase</button>
-            <button name="consultar-representante" class="boton">consultar por representante</button>
+            <button name="consultar-cedula" class="boton">consultar por representante</button>
             <button name="cargar" class="boton">cargar</button>
             <button name="modificar" class="boton">modificar</button>
             <button name="eliminar" class="boton">eliminar</button>
