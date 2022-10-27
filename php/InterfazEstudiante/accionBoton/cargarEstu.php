@@ -21,7 +21,10 @@
         $apellido = comprobarInput('apellidoInput', 'Se debe introducir un apellido valido', $pagina);
         $fecha = comprobarInput('fechaInput', 'Se debe introducir una fecha valida', $pagina);
         $claseInput = comprobarInput('claseInput', 'Se debe introducir una clase valida', $pagina);
-        $cedulaRep = comprobarInput('cedulaRepInput', 'Se debe introducir una fecha valida', $pagina);
+        $nacionalidadInput = comprobarInput('nacionalidadInput', 'Se debe introducir una nacionalidad valida', $pagina);
+        $cedulaInput = comprobarInput('cedulaInput', 'Se debe introducir un numero de cedula valido', $pagina);
+
+        $cedula = crearCedula($nacionalidadInput, $cedulaInput);
 
         try { 
             $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
@@ -31,7 +34,7 @@
 
             $cargador = new CargarEstudiante($estudianteDAO, $representanteConsul);
             $cargador->cargar(array
-                                    (array($cedulaRep),
+                                    (array($cedula),
                                      array($nombre, $apellido, $fecha, $claseInput), 
                                     )
                             );
