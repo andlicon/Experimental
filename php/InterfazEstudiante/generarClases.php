@@ -6,7 +6,6 @@
     function generarClases() {
         $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
         $consultor = new ClaseConsul($bd);
-        echo 'a';
         $clases = $consultor->getTodos();
 
         for($i=0; $i<count($clases); $i++) {
@@ -15,7 +14,7 @@
             $descripcionClase = $clase->getDescripcion();
             echo 
                 "
-                    <option value=\"$idClase\">$descripcionClase</option>
+                    <option value=\"$idClase\" class=\"input__select\">$descripcionClase</option>
                 ";
         }
     }
