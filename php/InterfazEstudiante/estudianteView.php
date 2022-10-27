@@ -3,7 +3,7 @@
     
 <?php
     include('accionBoton/actualizarEstu.php');
-    include('accionBoton/consultarEstu.php');
+    include('accionBoton/consultarClaseEstu.php');
     include('accionBoton/cargarEstu.php');
     include('accionBoton/modificarEstu.php');
     include('accionBoton/eliminarEstu.php');
@@ -128,10 +128,16 @@
             <input type="text" id="apellidoInput" name="apellidoInput" class="input__input input__input--texto">
             <label for="fechaInput" class="input__label">Fecha Nacimiento</label>
             <input type="date" id="fechaInput" name="fechaInput" class="input__input input__input--texto">
-            <label for="cedulaRepInput" class="input__label">Cedula Representante</label>
+            <label for="nacionalidadInput" class="input__label">Nacionalidad</label>
+            <select name="nacionalidadInput" id="nacionalidadInput" class="input__select">
+                <option value="V-" class="input__select">V-</option>
+                <option value="E-" class="input__select">E-</option>
+            </select>
+            <label for="cedulaRepInput" class="input__label">Cedula</label>
             <input type="text" id="cedulaRepInput" name="cedulaRepInput" class="input__input input__input--texto">
             <!-- botones -->
-            <button name="consultar" class="boton">consultar</button>
+            <button name="consultar-clase" class="boton">consultar por clase</button>
+            <button name="consultar-representante" class="boton">consultar por representante</button>
             <button name="cargar" class="boton">cargar</button>
             <button name="modificar" class="boton">modificar</button>
             <button name="eliminar" class="boton">eliminar</button>

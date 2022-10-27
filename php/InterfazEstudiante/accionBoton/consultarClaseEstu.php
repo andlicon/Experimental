@@ -6,7 +6,7 @@
     /*
         Consulta estudiantes dependiendo de la clase.
     */
-    if( isset($_POST['consultar']) ) {
+    if( isset($_POST['consultar-clase']) ) {
         $pagina = "Location: estudianteView.php";
         $objSerializar = "estudiantes";
         
