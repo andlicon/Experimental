@@ -8,6 +8,7 @@
     include_once('../formulario/Alerta.php');
     include_once('../general/comprobarInput.php');
     include_once('../general/mandarMensaje.php');
+    include_once('../general/formatoFecha.php');
 
 /*
     FALTA ALGUN METODO PARA DESACER LOS CAMBIOS DE HABER OCURRIDO ALGUN ERRROR
@@ -16,10 +17,10 @@
         $pagina = "Location: estudianteView.php";
 
         //Comprobando los inputs
-        $claseInput = comprobarInput('claseInput', 'Se debe introducir una clase valida', $pagina);
         $nombre = comprobarInput('nombreInput', 'Se debe introducir un nombre valido', $pagina);
         $apellido = comprobarInput('apellidoInput', 'Se debe introducir un apellido valido', $pagina);
         $fecha = comprobarInput('fechaInput', 'Se debe introducir una fecha valida', $pagina);
+        $claseInput = comprobarInput('claseInput', 'Se debe introducir una clase valida', $pagina);
         $cedulaRep = comprobarInput('cedulaRepInput', 'Se debe introducir una fecha valida', $pagina);
 
         try { 

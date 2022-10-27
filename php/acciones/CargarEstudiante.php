@@ -1,6 +1,7 @@
 <?php
     include_once('ICargar.php');
     include_once('../instancias/Representante.php');
+    include_once('../conexion/representanteConsul.php');
 
     class CargarEstudiante implements ICargar {
         private $estudianteDAO;
@@ -13,7 +14,7 @@
 
         public function cargar($matriz) {
             $representantes = $this->representanteConsul->getInstancia($matriz[0]);
-
+            
             if(!empty($representantes)) {
                 $rep = $representantes[0];
 
