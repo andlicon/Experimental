@@ -1,6 +1,8 @@
 <?php
     include_once('../conexion/EstudianteDAO.php');
     include_once('../acciones/ModificarEstudiante.php');
+    include_once('../formulario/Mensaje.php');
+    include_once('../general/mandarMensaje.php');
 
     if( isset($_POST['modificar']) ) {
         if( isset($_POST['check']) ) {
@@ -41,6 +43,10 @@
                 catch(Exception $mensaje) {  
                     alerta($mensaje);
                 }
+            }
+            else {
+                $mensaje = new Mensaje(null, false, "se debe elegir 1 solo representante para modificar");
+                mandarMenasje($mensaje, $pagina);
             }
         }
     }
