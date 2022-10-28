@@ -17,7 +17,7 @@
             $estudianteDAO = new EstudianteDAO($bd);
             
             $consultor = new Consultar($estudianteDAO, $pagina, $objSerializar);
-            $consultor->consultar(array($claseId, null));
+            $consultor->consultar(array($claseId, null, null));
         }
         catch(Exception $e) {  //No se ha podido conectar a la bd
             echo $e;

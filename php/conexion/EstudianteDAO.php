@@ -14,16 +14,23 @@
             $parametros = null;
 
             if(!$array[0]==null) {
+                echo "idClase";
                 $parametros = array($array[0]);
                 $consulta = "SELECT * 
                          FROM v_estudiantes
                          WHERE id_clase=?";
             }
-            else {
+            elseif(!$array[1]==null) {
                 $parametros = array ($array[1]);
                 $consulta = "SELECT * 
                          FROM v_estudiantes
                          WHERE cedula_representante=?";
+            }
+            else {
+                $parametros = array ($array[2]);
+                $consulta = "SELECT * 
+                         FROM v_estudiantes
+                         WHERE id=?";
             }
             $registros = $this->bd->sql($consulta, $parametros);
 

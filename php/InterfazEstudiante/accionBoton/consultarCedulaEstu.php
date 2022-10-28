@@ -20,7 +20,7 @@
             $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
             $estudianteDAO = new EstudianteDAO($bd);
             $consultor = new Consultar($estudianteDAO, $pagina, $objSerializar);
-            $consultor->consultar(array(null, $cedula));
+            $consultor->consultar(array(null, $cedula, null));
         }
         catch(Exception $e) {  //No se ha podido conectar a la bd
             echo $e;
