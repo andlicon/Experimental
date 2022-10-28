@@ -20,7 +20,7 @@
                     $eliminador->eliminar(array($idEstudiante));
                 }
     
-                // header($pagina);
+                header($pagina);
             }
             catch(Exception $mensaje) {  
                 alerta($mensaje);
