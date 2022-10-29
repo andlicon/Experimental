@@ -18,7 +18,7 @@
 
     <link rel="stylesheet" href="/css/main.css">
 </head>
-<body class="consulta">
+<body class="vista">
     <?php
         include_once('../formulario/Mensaje.php');
 
@@ -34,18 +34,18 @@
             }
         }
     ?>
-    <h2 class="consulta__titulo">Titulo</h2>
-    <div class="input">
-        <form action="" method="POST" class="input__form">
+    <h2 class="vista__titulo">Titulo</h2>
+    <div class="vista__cuerpo">
+        <form action="" method="POST" class="vista__contenido">
             <!-- output seleccionable -->
-            <table class="output__tabla">
+            <table class="output">
                 <colgroup> 
-                    <col class="output__col--seleccion">
-                    <col class="output__col--cedula">
-                    <col class="output__col--nombre">
-                    <col class="output__col--apellido">
-                    <col class="output__col--tipo">
-                    <col class="output__col--contacto">
+                    <col class="output__col output__col--seleccion">
+                    <col class="output__col output__col--cedula">
+                    <col class="output__col output__col--nombre">
+                    <col class="output__col output__col--apellido">
+                    <col class="output__col output__col--tipo">
+                    <col class="output__col output__col--contacto">
                 </colgroup>
                 <thead class="output__header">
                     <tr class="output__renglon">
@@ -87,7 +87,7 @@
                                     $tipoContacto = $representante->getTipoContacto();
                                     $contacto = $representante->getContacto();
 
-                                    echo "  <tr>
+                                    echo "  <tr class=\"output__renglon\">
                                                 <td class=\"output__celda\">
                                                     <input type=\"checkbox\" name=\"check[]\" value=\"$cedula,$idTipoContacto\" id=\"check$i\">
                                                 </td>

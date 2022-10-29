@@ -36,10 +36,10 @@
         }
     ?>
     <h2 class="consulta__titulo">Titulo</h2>
-    <div class="input">
-        <form action="" method="POST" class="input__form">
+    <div class="vista__cuerpo">
+        <form action="" method="POST" class="vista__contenido">
             <!-- output seleccionable -->
-            <table class="output__tabla">
+            <table class="output">
                 <colgroup> 
                     <col class="output__col output__col--seleccion">
                     <col class="output__col output__col--nombre">
@@ -75,13 +75,13 @@
                         include_once('../instancias/Estudiante.php');
                         if( isset($_GET['estudiantes']) ) {
                             $serialize = $_GET['estudiantes'];
-
+                        
                             if($serialize) {
                                 $estudiantes = unserialize($serialize);
-
+                            
                                 for($i=0; $i<count($estudiantes); $i++) {
                                     $estudiante = $estudiantes[$i];
-
+                                    
                                     $idEstudiante = $estudiante->getId();
                                     $nombre = $estudiante->getNombre();
                                     $apellido = $estudiante->getApellido();
@@ -89,8 +89,8 @@
                                     $clase = $estudiante->getClase();
                                     $claseDesc = $clase->getDescripcion();
                                     $cedulaRepresentante = $estudiante->getCedulaRepresentante();
-
-                                    echo "  <tr>
+                                
+                                    echo "  <tr class=\"output__renglon\">
                                                 <td class=\"output__celda\">
                                                     <input type=\"checkbox\" name=\"check[]\" value=\"$idEstudiante\" id=\"check$i\">
                                                 </td>
@@ -116,6 +116,7 @@
                     ?>
                 </tbody>
             </table>
+            <!-- input -->
             <label for="claseInput" class="input__label">Clase</label>
             <select class="input__select" id="claseInput" name="claseInput">
                 <?php 
