@@ -54,18 +54,7 @@ $login-row: (
     left: 0;
 }
 
-.consulta {
-    //  display: grid;
-    //  grid-template-areas: 
-    //                  'header'
-    //                  'output'
-    //                  'input';
-    //  grid-template-rows: 
-    //                  1em
-    //                  5em
-    //                  1fr
-    //                  0.5fr;
+.vista {
     display: flex;
     flex-flow: column nowrap;
 }
-
