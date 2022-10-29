@@ -114,7 +114,26 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-// h2 {
-//   font-size: 2em;
-//   text-align: center;
-// }
+h2 {
+  font-size: 1.7em;
+  font-weight: 900;
+  text-align: center;
+  font-style: var(--tipo-secundaria);
+}
+
+p, tr, label, input, button, select {
+    font-size: 1em;
+    font-style: var(--tipo-principal);
+}
+
+th {
+    font-size: 1em;
+    font-weight: 600;
+    text-align: center;
+    font-style: var(--tipo-secundaria);
+}
+
+label {
+    font-weight: 300;
+    font-size: 1.1em;
+}
