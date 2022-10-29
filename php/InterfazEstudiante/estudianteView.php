@@ -40,82 +40,82 @@
         <form action="" method="POST" class="input__form">
             <!-- output seleccionable -->
             <table class="output__tabla">
-            <colgroup> 
-                <col class="output__col output__col--seleccion">
-                <col class="output__col output__col--nombre">
-                <col class="output__col output__col--apellido">
-                <col class="output__col output__col--fechaNacimiento">
-                <col class="output__col output__col--clase">
-                <col class="output__col output__col--cedulaRepresentante">
-            </colgroup>
-            <thead class="output__header">
-                <tr class="output__renglon">
-                    <th class="output__celda output__celda--header">
-                       Seleccionar 
-                    </th>
-                    <th class="output__celda output__celda--header">
-                       Nombre
-                    </th>
-                    <th class="output__celda output__celda--header">
-                       Apellido 
-                    </th>
-                    <th class="output__celda output__celda--header">
-                       Fecha nacimiento
-                    </th>
-                    <th class="output__celda output__celda--header">
-                       Clase
-                    </th>
-                    <th class="output__celda output__celda--header">
-                       Cedula Representante
-                    </th>
-                </tr>
-            </thead>
-            <tbody class="output__body">
-                <?php
-                    include_once('../instancias/Estudiante.php');
-                    if( isset($_GET['estudiantes']) ) {
-                        $serialize = $_GET['estudiantes'];
+                <colgroup> 
+                    <col class="output__col output__col--seleccion">
+                    <col class="output__col output__col--nombre">
+                    <col class="output__col output__col--apellido">
+                    <col class="output__col output__col--fechaNacimiento">
+                    <col class="output__col output__col--clase">
+                    <col class="output__col output__col--cedulaRepresentante">
+                </colgroup>
+                <thead class="output__header">
+                    <tr class="output__renglon">
+                        <th class="output__celda output__celda--header">
+                           Seleccionar 
+                        </th>
+                        <th class="output__celda output__celda--header">
+                           Nombre
+                        </th>
+                        <th class="output__celda output__celda--header">
+                           Apellido 
+                        </th>
+                        <th class="output__celda output__celda--header">
+                           Fecha nacimiento
+                        </th>
+                        <th class="output__celda output__celda--header">
+                           Clase
+                        </th>
+                        <th class="output__celda output__celda--header">
+                           Cedula Representante
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="output__body">
+                    <?php
+                        include_once('../instancias/Estudiante.php');
+                        if( isset($_GET['estudiantes']) ) {
+                            $serialize = $_GET['estudiantes'];
 
-                        if($serialize) {
-                            $estudiantes = unserialize($serialize);
+                            if($serialize) {
+                                $estudiantes = unserialize($serialize);
 
-                            for($i=0; $i<count($estudiantes); $i++) {
-                                $estudiante = $estudiantes[$i];
-                                
-                                $idEstudiante = $estudiante->getId();
-                                $nombre = $estudiante->getNombre();
-                                $apellido = $estudiante->getApellido();
-                                $fechaNacimiento = $estudiante->getFechaNacimiento();
-                                $clase = $estudiante->getClase();
-                                $claseDesc = $clase->getDescripcion();
-                                $cedulaRepresentante = $estudiante->getCedulaRepresentante();
+                                for($i=0; $i<count($estudiantes); $i++) {
+                                    $estudiante = $estudiantes[$i];
 
-                                echo "  <tr>
-                                            <td class=\"output__celda\">
-                                                <input type=\"checkbox\" name=\"check[]\" value=\"$idEstudiante\" id=\"check$i\">
-                                            </td>
-                                            <td class=\"output__celda\">
-                                                $nombre
-                                            </td>
-                                            <td class=\"output__celda\">
-                                                $apellido
-                                            </td>
-                                            <td class=\"output__celda\">
-                                                $fechaNacimiento
-                                            </td>
-                                            <td class=\"output__celda\">
-                                                $claseDesc
-                                            </td>
-                                            <td class=\"output__celda\">
-                                                $cedulaRepresentante
-                                            </td>
-                                        </tr>";
+                                    $idEstudiante = $estudiante->getId();
+                                    $nombre = $estudiante->getNombre();
+                                    $apellido = $estudiante->getApellido();
+                                    $fechaNacimiento = $estudiante->getFechaNacimiento();
+                                    $clase = $estudiante->getClase();
+                                    $claseDesc = $clase->getDescripcion();
+                                    $cedulaRepresentante = $estudiante->getCedulaRepresentante();
+
+                                    echo "  <tr>
+                                                <td class=\"output__celda\">
+                                                    <input type=\"checkbox\" name=\"check[]\" value=\"$idEstudiante\" id=\"check$i\">
+                                                </td>
+                                                <td class=\"output__celda\">
+                                                    $nombre
+                                                </td>
+                                                <td class=\"output__celda\">
+                                                    $apellido
+                                                </td>
+                                                <td class=\"output__celda\">
+                                                    $fechaNacimiento
+                                                </td>
+                                                <td class=\"output__celda\">
+                                                    $claseDesc
+                                                </td>
+                                                <td class=\"output__celda\">
+                                                    $cedulaRepresentante
+                                                </td>
+                                            </tr>";
+                                }
                             }
                         }
-                    }
-                ?>
-            </tbody>
-        </table>
+                    ?>
+                </tbody>
+            </table>
             <label for="claseInput" class="input__label">Clase</label>
             <select class="input__select" id="claseInput" name="claseInput">
                 <?php 

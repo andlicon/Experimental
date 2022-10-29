@@ -39,80 +39,80 @@
         <form action="" method="POST" class="input__form">
             <!-- output seleccionable -->
             <table class="output__tabla">
-            <colgroup> 
-                <col class="output__col--seleccion">
-                <col class="output__col--cedula">
-                <col class="output__col--nombre">
-                <col class="output__col--apellido">
-                <col class="output__col--tipo">
-                <col class="output__col--contacto">
-            </colgroup>
-            <thead class="output__header">
-                <tr class="output__renglon">
-                    <th class="output__celda output__celda--header">
-                       Seleccionar 
-                    </th>
-                    <th class="output__celda output__celda--header">
-                       Cedula 
-                    </th>
-                    <th class="output__celda output__celda--header">
-                       Nombre 
-                    </th>
-                    <th class="output__celda output__celda--header">
-                       Apellido
-                    </th>
-                    <th class="output__celda output__celda--header">
-                       Tipo contacto 
-                    </th>
-                    <th class="output__celda output__celda--header">
-                       Contacto 
-                    </th>
-                </tr>
-            </thead>
-            <tbody class="output__body">
-                <?php
-                    include_once('../instancias/Representante.php');
-                    if( isset($_GET['representantes']) ) {
-                        $serialize = $_GET['representantes'];
-                    
-                        if($serialize) {
-                            $representantes = unserialize($serialize);
+                <colgroup> 
+                    <col class="output__col--seleccion">
+                    <col class="output__col--cedula">
+                    <col class="output__col--nombre">
+                    <col class="output__col--apellido">
+                    <col class="output__col--tipo">
+                    <col class="output__col--contacto">
+                </colgroup>
+                <thead class="output__header">
+                    <tr class="output__renglon">
+                        <th class="output__celda output__celda--header">
+                           Seleccionar 
+                        </th>
+                        <th class="output__celda output__celda--header">
+                           Cedula 
+                        </th>
+                        <th class="output__celda output__celda--header">
+                           Nombre 
+                        </th>
+                        <th class="output__celda output__celda--header">
+                           Apellido
+                        </th>
+                        <th class="output__celda output__celda--header">
+                           Tipo contacto 
+                        </th>
+                        <th class="output__celda output__celda--header">
+                           Contacto 
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="output__body">
+                    <?php
+                        include_once('../instancias/Representante.php');
+                        if( isset($_GET['representantes']) ) {
+                            $serialize = $_GET['representantes'];
                         
-                            for($i=0; $i<count($representantes); $i++) {
-                                $representante = $representantes[$i];
-                                $cedula = $representante->getCedula();
-                                $nombre = $representante->getNombre();
-                                $apellido = $representante->getApellido();
-                                $idTipoContacto = $representante->getidTipoContacto();
-                                $tipoContacto = $representante->getTipoContacto();
-                                $contacto = $representante->getContacto();
+                            if($serialize) {
+                                $representantes = unserialize($serialize);
+                            
+                                for($i=0; $i<count($representantes); $i++) {
+                                    $representante = $representantes[$i];
+                                    $cedula = $representante->getCedula();
+                                    $nombre = $representante->getNombre();
+                                    $apellido = $representante->getApellido();
+                                    $idTipoContacto = $representante->getidTipoContacto();
+                                    $tipoContacto = $representante->getTipoContacto();
+                                    $contacto = $representante->getContacto();
 
-                                echo "  <tr>
-                                            <td class=\"output__celda\">
-                                                <input type=\"checkbox\" name=\"check[]\" value=\"$cedula,$idTipoContacto\" id=\"check$i\">
-                                            </td>
-                                            <td class=\"output__celda\">
-                                                $cedula
-                                            </td>
-                                            <td class=\"output__celda\">
-                                                $nombre
-                                            </td>
-                                            <td class=\"output__celda\">
-                                                $apellido
-                                            </td>
-                                            <td class=\"output__celda\">
-                                                $tipoContacto
-                                            </td>
-                                            <td class=\"output__celda\">
-                                                $contacto
-                                            </td>
-                                        </tr>";
+                                    echo "  <tr>
+                                                <td class=\"output__celda\">
+                                                    <input type=\"checkbox\" name=\"check[]\" value=\"$cedula,$idTipoContacto\" id=\"check$i\">
+                                                </td>
+                                                <td class=\"output__celda\">
+                                                    $cedula
+                                                </td>
+                                                <td class=\"output__celda\">
+                                                    $nombre
+                                                </td>
+                                                <td class=\"output__celda\">
+                                                    $apellido
+                                                </td>
+                                                <td class=\"output__celda\">
+                                                    $tipoContacto
+                                                </td>
+                                                <td class=\"output__celda\">
+                                                    $contacto
+                                                </td>
+                                            </tr>";
+                                }
                             }
                         }
-                    }
-                ?>
-            </tbody>
-        </table>
+                    ?>
+                </tbody>
+            </table>
             <!-- inputs -->
             <label for="nacionalidadInput" class="input__label">Nacionalidad</label>
             <select name="nacionalidadInput" id="nacionalidadInput" class="input__select">
