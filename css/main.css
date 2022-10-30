@@ -209,6 +209,16 @@ label {
           flex-flow: column nowrap;
 }
 
+.vista__form {
+  height: 100%;
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "display" "input" "output";
+  -ms-grid-rows: 1fr 15em 5em;
+  grid-template-rows: 1fr 15em 5em;
+  background-color: white;
+}
+
 .login {
   --width: 20em;
   --height: 40em;
@@ -280,7 +290,7 @@ label {
 
 .output {
   width: 100%;
-  height: 80%;
+  height: 100%;
   background-color: grey;
 }
 

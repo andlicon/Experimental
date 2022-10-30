@@ -58,3 +58,19 @@ $login-row: (
     display: flex;
     flex-flow: column nowrap;
 }
+
+
+.vista__form {
+    height: 100%;
+
+    display: grid;
+    grid-template-areas: 
+                'display'
+                'input'
+                'output';
+    grid-template-rows: 
+                1fr
+                15em
+                5em;
+    background-color: white;
+}
