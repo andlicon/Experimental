@@ -24,7 +24,7 @@
 
         imprimirMensaje();
     ?>
-    <h2 class="vista__titulo">Titulo</h2>
+    <h2 class="vista__titulo">Gestionar representantes</h2>
     <div class="vista__cuerpo">
         <form action="" method="POST" class="vista__form">
             <!-- output seleccionable -->
@@ -105,6 +105,7 @@
             </table>
             <!-- inputs -->
             <div class="input">
+                <h2>Introducir informacion</h2>
                 <label for="nacionalidadInput" class="input__label">Nacionalidad</label>
                 <select name="nacionalidadInput" id="nacionalidadInput" class="input__select">
                     <option value="V-" class="input__select">V-</option>
@@ -123,6 +124,7 @@
             </div>
             <!-- botones -->
             <div class="botones">
+                <h2>Acciones</h2>
                 <button name="consultar" class="boton">consultar</button>
                 <button name="cargar" class="boton">cargar</button>
                 <button name="modificar" class="boton">modificar</button>
