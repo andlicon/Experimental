@@ -67,7 +67,7 @@ blockquote:before, blockquote:after, q:before, q:after {
 }
 
 /* Tipografía y formulario*/
-form, input, textarea, select, button, label {
+form, textarea, select, button, label {
   font-family: inherit;
   font-size: inherit;
   -webkit-hyphens: auto;
@@ -214,8 +214,8 @@ label {
   display: -ms-grid;
   display: grid;
       grid-template-areas: "display" "input" "output";
-  -ms-grid-rows: 1fr 15em 5em;
-  grid-template-rows: 1fr 15em 5em;
+  -ms-grid-rows: 1fr 16.5em 6em;
+  grid-template-rows: 1fr 16.5em 6em;
   background-color: white;
 }
 
@@ -301,6 +301,19 @@ label {
 
 .output__body {
   overflow: scroll;
+}
+
+.output__celda--centrado {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 /*

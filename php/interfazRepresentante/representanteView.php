@@ -78,8 +78,9 @@
                                     $contacto = $representante->getContacto();
 
                                     echo "  <tr class=\"output__renglon\">
-                                                <td class=\"output__celda\">
-                                                    <input type=\"checkbox\" name=\"check[]\" value=\"$cedula,$idTipoContacto\" id=\"check$i\">
+                                                <td class=\"output__celda\ output__celda--centrado\">
+                                                    <input type=\"checkbox\" name=\"check[]\" value=\"$cedula,$idTipoContacto\" 
+                                                            id=\"check$i\" class=\"output__check\">
                                                 </td>
                                                 <td class=\"output__celda\">
                                                     $cedula

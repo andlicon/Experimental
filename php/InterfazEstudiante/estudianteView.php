@@ -25,7 +25,7 @@
 
         imprimirMensaje();
     ?>
-    <h2 class="vista__titulo">Titulo</h2>
+    <h2 class="vista__titulo">Gestionar estudiante</h2>
     <div class="vista__cuerpo">
         <form action="" method="POST" class="vista__form">
             <!-- output seleccionable -->
@@ -81,7 +81,7 @@
                                     $cedulaRepresentante = $estudiante->getCedulaRepresentante();
                                 
                                     echo "  <tr class=\"output__renglon\">
-                                                <td class=\"output__celda\">
+                                                <td class=\"output__celda output__celda--centrado\">
                                                     <input type=\"checkbox\" name=\"check[]\" value=\"$idEstudiante\" id=\"check$i\">
                                                 </td>
                                                 <td class=\"output__celda\">
@@ -108,6 +108,7 @@
             </table>
             <!-- input -->
             <div class="input">
+                <h2>Introducir informacion</h2>
                 <div class="input__grupo">
                     <label for="claseInput" class="input__label">Clase</label>
                     <select class="input__select" id="claseInput" name="claseInput">

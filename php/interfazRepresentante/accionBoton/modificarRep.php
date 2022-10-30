@@ -28,7 +28,7 @@
                     $personaDAO = new PersonaDAO($bd);
                     $contactoDAO = new ContactoDAO($bd);
                 
-                    $modificador = new ModificarRepresentante($personaDAO, $contactoDAO, $pag, "representantes");
+                    $modificador = new ModificarRepresentante($personaDAO, $contactoDAO, $pagina, "representantes");
                 
                     $modificador->modificar(array(
                                                 array($cedula),
