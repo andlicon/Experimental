@@ -278,6 +278,12 @@ label {
   height: 100%;
 }
 
+.output {
+  width: 100%;
+  height: 80%;
+  background-color: grey;
+}
+
 .vista {
   /*Centrada*/
   height: 100%;
@@ -293,9 +299,9 @@ label {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
 }
 
 .vista__contenido {
@@ -305,6 +311,7 @@ label {
 }
 
 .vista__titulo {
+  height: 5%;
   padding: 0.3em;
   margin-bottom: 0.5em;
   background-color: purple;
@@ -312,10 +319,12 @@ label {
 
 .vista__cuerpo {
   padding: 0.3em;
+  height: 91%;
   background-color: brown;
 }
 
 .vista__mensaje {
+  height: 3%;
   padding: 0.4em;
   margin-bottom: 0.3em;
   font-weight: 600;

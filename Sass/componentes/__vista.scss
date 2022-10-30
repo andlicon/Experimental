@@ -7,7 +7,7 @@
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
 }
 
 .vista__contenido {
@@ -18,7 +18,10 @@
 }
 
 .vista__titulo {
+    height: 5%;
+
     padding: 0.3em;
+
     margin-bottom: 0.5em;
 
     background-color: purple;
@@ -27,10 +30,14 @@
 .vista__cuerpo {
     padding: 0.3em;
 
+    height: 91%;
+
     background-color: brown;
 }
 
 .vista__mensaje {
+    height: 3%;
+
     padding: 0.4em;
     margin-bottom: 0.3em;
 

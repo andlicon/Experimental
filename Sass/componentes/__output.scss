@@ -1,36 +1,6 @@
-// .output {
-//     display: flex;
-//     flex-flow: column nowrap;
-
-//     background-color: grey;
-// }
-
-// .output__tabla {
-//     height: 100%;
-
-//     border: 1px solid black;
-// }
-
-// .output__celda {
-
-//     border: 1px solid black;
-//     text-align: left;
-// }
-
-// .output__celda--header {
-//     text-align: center;
-// }
-
-// .output__col--cedula {
-//     width: 6.3em;
-// }
-
-// .output__mensaje {
-//     display: absolute;
-// }
-
-// .output__seleccion {
-//     width: 1em;
-//     height: 1em;
-//     background-color: red;
-// }
+.output {
+    width: 100%;
+    height: 80%;
+    
+    background-color: grey;
+}
