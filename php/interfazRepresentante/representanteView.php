@@ -106,21 +106,31 @@
             <!-- inputs -->
             <div class="input">
                 <h2>Introducir informacion</h2>
-                <label for="nacionalidadInput" class="input__label">Nacionalidad</label>
-                <select name="nacionalidadInput" id="nacionalidadInput" class="input__select">
-                    <option value="V-" class="input__select">V-</option>
-                    <option value="E-" class="input__select">E-</option>
-                </select>
-                <label for="cedulaInput" class="input__label">Cedula</label>
-                <input type="text" id="cedulaInput" name="cedulaInput" class="input__input input__input--texto">
-                <label for="nombreInput" class="input__label">Nombre</label>
-                <input type="text" id="nombreInput" name="nombreInput" class="input__input input__input--texto">
-                <label for="apellidoInput" class="input__label">Apellido</label>
-                <input type="text" id="apellidoInput" name="apellidoInput" class="input__input input__input--texto">
-                <label for="correoInput" class="input__label">Correo</label>
-                <input type="text" id="correoInput" name="correoInput" class="input__input input__input--texto">
-                <label for="telefonoInput" class="input__label">Telefono (opcional)</label>
-                <input type="text" id="telefonoInput" name="telefonoInput" class="input__input input__input--texto">
+                <div class="input__grupo">
+                    <label for="nacionalidadInput" class="input__label">Nacionalidad</label>
+                    <select name="nacionalidadInput" id="nacionalidadInput" class="input__select">
+                        <option value="V-" class="input__select">V-</option>
+                        <option value="E-" class="input__select">E-</option>
+                    </select>
+                    <label for="cedulaInput" class="input__label">Cedula</label>
+                    <input type="text" id="cedulaInput" name="cedulaInput" class="input__input input__input--texto">
+                </div>
+                <div class="input__grupo">
+                    <label for="nombreInput" class="input__label">Nombre</label>
+                    <input type="text" id="nombreInput" name="nombreInput" class="input__input input__input--texto">
+                </div>
+                <div class="input__grupo">
+                    <label for="apellidoInput" class="input__label">Apellido</label>
+                    <input type="text" id="apellidoInput" name="apellidoInput" class="input__input input__input--texto">
+                </div>
+                <div class="input__grupo">
+                    <label for="correoInput" class="input__label">Correo</label>
+                    <input type="text" id="correoInput" name="correoInput" class="input__input input__input--texto">
+                </div>
+                <div class="input__grupo">
+                    <label for="telefonoInput" class="input__label">Telefono (opcional)</label>
+                    <input type="text" id="telefonoInput" name="telefonoInput" class="input__input input__input--texto">
+                </div>
             </div>
             <!-- botones -->
             <div class="botones">

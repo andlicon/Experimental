@@ -307,6 +307,29 @@ label {
     *-NECESTIO HACER QUE SALGA UN SCROLL CUANDO SE DESBORDE LA LISTA
     *-NECESITO QUE LOS TR SEAN DEL MISMO TAMAÑO SIEMPRE
 */
+.input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  padding: 0.5em;
+  gap: 1em;
+}
+
+.input__grupo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1em;
+}
+
+.input__input, .input__select {
+  border: 1px solid black;
+}
+
 .vista {
   /*Centrada*/
   height: 100%;

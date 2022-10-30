@@ -1,0 +1,19 @@
+
+.input {
+    display: flex;
+    flex-flow: column nowrap;
+
+    padding: 0.5em;
+
+    gap: 1em;
+}
+
+.input__grupo {
+    display: flex;
+
+    gap: 1em;
+}
+
+.input__input, .input__select {
+    border: 1px solid black;
+}
