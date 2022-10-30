@@ -291,9 +291,22 @@ label {
 .output {
   width: 100%;
   height: 100%;
+  overflow: scroll;
   background-color: grey;
 }
 
+.output__renglon {
+  height: 1em;
+}
+
+.output__body {
+  overflow: scroll;
+}
+
+/*
+    *-NECESTIO HACER QUE SALGA UN SCROLL CUANDO SE DESBORDE LA LISTA
+    *-NECESITO QUE LOS TR SEAN DEL MISMO TAMAÑO SIEMPRE
+*/
 .vista {
   /*Centrada*/
   height: 100%;

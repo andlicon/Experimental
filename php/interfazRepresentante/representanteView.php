@@ -38,7 +38,7 @@
                     <col class="output__col output__col--contacto">
                 </colgroup>
                 <thead class="output__header">
-                    <tr class="output__renglon">
+                    <tr class="">
                         <th class="output__celda output__celda--header">
                            Seleccionar 
                         </th>
