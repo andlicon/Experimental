@@ -1,0 +1,33 @@
+.botones {
+    display: grid;
+    grid-template-columns: 
+                    repeat(6, 1fr);
+    grid-template-rows: 
+                    1fr
+                    1fr;
+    grid-gap: 0.5em;
+
+    padding: 0.5em 1em;
+}
+
+.botones__titulo {
+    grid-column: 6 span;
+}
+
+.boton {
+    border: 1px solid black;
+    border-radius: 5em;
+
+    color: white;
+
+    background-color: grey;
+}
+
+.boton:hover {
+    color: red;
+    background-color: yellow;
+}
+
+.boton:active {
+    color: green;
+}

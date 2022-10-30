@@ -124,7 +124,7 @@
             </div>
             <!-- botones -->
             <div class="botones">
-                <h2>Acciones</h2>
+                <h2 class="botones__titulo">Acciones</h2>
                 <button name="consultar" class="boton">consultar</button>
                 <button name="cargar" class="boton">cargar</button>
                 <button name="modificar" class="boton">modificar</button>
