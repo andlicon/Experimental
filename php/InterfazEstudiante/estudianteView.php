@@ -21,19 +21,9 @@
 </head>
 <body class="consulta">
     <?php
-        include_once('../formulario/Mensaje.php');
+        include_once('../general/imprimirMensaje.php');;
 
-        if( isset($_GET['mensaje']) ) {
-            $serialize = $_GET['mensaje'];
-        
-            if($serialize) {
-                $mensaje = unserialize($serialize);
-                echo 
-                    '<div class="output__mensaje" name="hola">'.
-                        $mensaje->getKeyInput().' '.$mensaje->getMotivo().' '.$mensaje->getMensaje().
-                    '</div>';
-            }
-        }
+        imprimirMensaje();
     ?>
     <h2 class="consulta__titulo">Titulo</h2>
     <div class="vista__cuerpo">
