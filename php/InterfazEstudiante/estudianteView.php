@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="vista">
     
 <?php
     include('accionBoton/actualizarEstu.php');
@@ -19,15 +19,15 @@
 
     <link rel="stylesheet" href="/css/main.css">
 </head>
-<body class="consulta">
+<body class="vista__contenido">
     <?php
         include_once('../general/imprimirMensaje.php');;
 
         imprimirMensaje();
     ?>
-    <h2 class="consulta__titulo">Titulo</h2>
+    <h2 class="vista__titulo">Titulo</h2>
     <div class="vista__cuerpo">
-        <form action="" method="POST" class="vista__contenido">
+        <form action="" method="POST" class="vista__form">
             <!-- output seleccionable -->
             <table class="output">
                 <colgroup> 
@@ -107,33 +107,50 @@
                 </tbody>
             </table>
             <!-- input -->
-            <label for="claseInput" class="input__label">Clase</label>
-            <select class="input__select" id="claseInput" name="claseInput">
-                <?php 
-                    include_once('generarClases.php');
-                    generarClases();
-                ?>
-            </select>
-            <label for="nombreInput" class="input__label">Nombre</label>
-            <input type="text" id="nombreInput" name="nombreInput" class="input__input input__input--texto">
-            <label for="apellidoInput" class="input__label">Apellido</label>
-            <input type="text" id="apellidoInput" name="apellidoInput" class="input__input input__input--texto">
-            <label for="fechaInput" class="input__label">Fecha Nacimiento</label>
-            <input type="date" id="fechaInput" name="fechaInput" class="input__input input__input--texto">
-            <label for="nacionalidadInput" class="input__label">Nacionalidad</label>
-            <select name="nacionalidadInput" id="nacionalidadInput" class="input__select">
-                <option value="V-" class="input__select">V-</option>
-                <option value="E-" class="input__select">E-</option>
-            </select>
-            <label for="cedulaInput" class="input__label">Cedula</label>
-            <input type="text" id="cedulaInput" name="cedulaInput" class="input__input input__input--texto">
+            <div class="input">
+                <div class="input__grupo">
+                    <label for="claseInput" class="input__label">Clase</label>
+                    <select class="input__select" id="claseInput" name="claseInput">
+                        <?php 
+                            include_once('generarClases.php');
+                            generarClases();
+                        ?>
+                    </select>
+                </div>
+                <div class="input__grupo">
+                    <label for="nombreInput" class="input__label">Nombre</label>
+                    <input type="text" id="nombreInput" name="nombreInput" class="input__input input__input--texto">
+                </div>
+                <div class="input__grupo">
+                    <label for="apellidoInput" class="input__label">Apellido</label>
+                    <input type="text" id="apellidoInput" name="apellidoInput" class="input__input input__input--texto">
+                </div>
+                <div class="input__grupo">
+                    <label for="fechaInput" class="input__label">Fecha Nacimiento</label>
+                    <input type="date" id="fechaInput" name="fechaInput" class="input__input input__input--texto">
+                </div>
+                <div class="input__grupo">
+                    <label for="nacionalidadInput" class="input__label">Nacionalidad</label>
+                    <select name="nacionalidadInput" id="nacionalidadInput" class="input__select">
+                        <option value="V-" class="input__select">V-</option>
+                        <option value="E-" class="input__select">E-</option>
+                    </select>
+                </div>
+                <div class="input__grupo">
+                    <label for="cedulaInput" class="input__label">Cedula</label>
+                    <input type="text" id="cedulaInput" name="cedulaInput" class="input__input input__input--texto">
+                </div>
+            </div>
             <!-- botones -->
-            <button name="consultar-clase" class="boton">consultar por clase</button>
-            <button name="consultar-cedula" class="boton">consultar por representante</button>
-            <button name="cargar" class="boton">cargar</button>
-            <button name="modificar" class="boton">modificar</button>
-            <button name="eliminar" class="boton">eliminar</button>
-            <button name="actualizar" class="boton">actualizar</button>
+            <div class="botones">
+                <h2 class="botones__titulo">Acciones</h2>
+                <button name="consultar-clase" class="boton">consultar por clase</button>
+                <button name="consultar-cedula" class="boton">consultar por representante</button>
+                <button name="cargar" class="boton">cargar</button>
+                <button name="modificar" class="boton">modificar</button>
+                <button name="eliminar" class="boton">eliminar</button>
+                <button name="actualizar" class="boton">actualizar</button>
+            </div>
         </form>
     </div>
 </body>
