@@ -314,3 +314,12 @@ label {
   padding: 0.3em;
   background-color: brown;
 }
+
+.vista__mensaje {
+  padding: 0.4em;
+  margin-bottom: 0.3em;
+  font-weight: 600;
+  text-align: center;
+  color: white;
+  background-color: red;
+}
