@@ -280,11 +280,37 @@ label {
 
 .vista {
   /*Centrada*/
+  height: 100%;
+  width: 100%;
   background-color: red;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .vista__contenido {
-  width: 50%;
-  height: 50%;
+  width: 70%;
+  padding: 1em 0.5em;
   background-color: blue;
+}
+
+.vista__titulo {
+  padding: 0.3em;
+  margin-bottom: 0.5em;
+  background-color: purple;
+}
+
+.vista__cuerpo {
+  padding: 0.3em;
+  background-color: brown;
 }

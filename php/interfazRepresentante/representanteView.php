@@ -28,7 +28,7 @@
             if($serialize) {
                 $mensaje = unserialize($serialize);
                 echo 
-                    '<div class="output__mensaje" name="hola">'.
+                    '<div class="vista__mensaje" name="hola">'.
                         $mensaje->getKeyInput().' '.$mensaje->getMotivo().' '.$mensaje->getMensaje().
                     '</div>';
             }
@@ -36,7 +36,7 @@
     ?>
     <h2 class="vista__titulo">Titulo</h2>
     <div class="vista__cuerpo">
-        <form action="" method="POST" class="vista__contenido">
+        <form action="" method="POST" class="vista__form">
             <!-- output seleccionable -->
             <table class="output">
                 <colgroup> 

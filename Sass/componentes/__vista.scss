@@ -1,10 +1,31 @@
 .vista {
     /*Centrada*/
+    height: 100%;
+    width: 100%;
     background-color: red;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
 }
 
 .vista__contenido {
-    width: 50%;
-    height: 50%;
+    width: 70%;
+
+    padding: 1em 0.5em;
     background-color: blue;
+}
+
+.vista__titulo {
+    padding: 0.3em;
+    margin-bottom: 0.5em;
+
+    background-color: purple;
+}
+
+.vista__cuerpo {
+    padding: 0.3em;
+
+    background-color: brown;
 }
