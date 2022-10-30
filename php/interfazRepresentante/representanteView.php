@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
-    
+<html lang="en" class="vista">
+
 <?php
     include('accionBoton/actualizarRep.php');
     include('accionBoton/consultarRep.php');
@@ -18,7 +18,7 @@
 
     <link rel="stylesheet" href="/css/main.css">
 </head>
-<body class="vista">
+<body class="vista__contenido">
     <?php
         include_once('../formulario/Mensaje.php');
 

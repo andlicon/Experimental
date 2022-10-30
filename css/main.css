@@ -277,3 +277,14 @@ label {
 .grande {
   height: 100%;
 }
+
+.vista {
+  /*Centrada*/
+  background-color: red;
+}
+
+.vista__contenido {
+  width: 50%;
+  height: 50%;
+  background-color: blue;
+}
