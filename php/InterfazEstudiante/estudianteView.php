@@ -21,8 +21,8 @@
 </head>
 <body class="vista__contenido">
     <?php
-        include_once('../general/imprimirMensaje.php');;
-
+        include_once('../general/imprimirMensaje.php');
+        
         imprimirMensaje();
     ?>
     <h2 class="vista__titulo">Gestionar estudiante</h2>

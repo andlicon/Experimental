@@ -74,3 +74,10 @@ $login-row: (
                 6em;
     background-color: white;
 }
+
+.vista__form--acciones {
+    display: grid;
+    grid-template-rows: 
+                1fr
+                6em;
+}

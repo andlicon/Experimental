@@ -219,6 +219,13 @@ label {
   background-color: white;
 }
 
+.vista__form--acciones {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr 6em;
+  grid-template-rows: 1fr 6em;
+}
+
 .login {
   --width: 20em;
   --height: 40em;

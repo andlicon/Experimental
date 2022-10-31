@@ -14,7 +14,6 @@
             $parametros = null;
 
             if(!$array[0]==null) {
-                echo "idClase";
                 $parametros = array($array[0]);
                 $consulta = "SELECT * 
                          FROM v_estudiantes
