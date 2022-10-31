@@ -2,7 +2,9 @@
 <html lang="en" class="vista">
 
 <?php
-    $idClase = 1;
+    //SIEMPRE DEBE RECIBIR POR PARAMETROS EL ID DE LA CLASE
+    $idClase = $_GET['idClase'];
+    
     include_once('accionesBotones/consultarEstudiante.php');
 ?>
 

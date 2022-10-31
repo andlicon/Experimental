@@ -19,7 +19,13 @@
                 $resultado = $this->dao->getInstancia($parametros);
                 
                 $serialize = serialize($resultado);
-                header($this->pagina.'?'.$this->objSerializar.'='.urlencode($serialize));
+
+                if( str_contains($this->pagina, "?") ) {
+                    header($this->pagina.'&'.$this->objSerializar.'='.urlencode($serialize));
+                }
+                else {
+                    header($this->pagina.'?'.$this->objSerializar.'='.urlencode($serialize));
+                }
             }
             catch(Exception $e) {
                 $mensaje = new Mensaje(null, false, "Cedula no pertenece a ningun ".$this->objSerializar.".");
