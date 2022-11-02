@@ -30,14 +30,8 @@
             $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
                 //PERSONA
             $estudianteDAO = new EstudianteDAO($bd);
-            $representanteConsul = new RepresentanteConsul($bd);
+            $estudianteDAO->cargar(array($nombre, $apellido, $fecha, $claseInput, $cedula));
 
-            $cargador = new CargarEstudiante($estudianteDAO, $representanteConsul);
-            $cargador->cargar(array
-                                    (array($cedula),
-                                     array($nombre, $apellido, $fecha, $claseInput), 
-                                    )
-                            );
             $mensaje = new Mensaje(null, true, 'se ha cargado exitosamente al estudiante');
             mandarMensaje($mensaje, $pagina);
         }

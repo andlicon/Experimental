@@ -85,7 +85,7 @@
         }
 
         public function cargar($parametros) {
-            $insert = "INSERT INTO estudiante (nombre, apellido, fecha_nacimiento, id_clase, id_representante)
+            $insert = "INSERT INTO estudiante (nombre, apellido, fecha_nacimiento, id_clase, cedula_representante)
                        VALUES                 (?, ?,  ?, ?, ?)";
             $this->bd->sql($insert, $parametros);
         }
