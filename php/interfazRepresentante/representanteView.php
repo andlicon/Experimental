@@ -61,25 +61,26 @@
                 </thead>
                 <tbody class="output__body">
                     <?php
-                        include_once('../instancias/Representante.php');
-                        if( isset($_GET['representantes']) ) {
-                            $serialize = $_GET['representantes'];
+                        include_once('../instancias/Persona.php');
+                        if( isset($_GET['personas']) ) {
+                            $serialize = $_GET['personas'];     //AHORA SE TIENE QUE PASAR POR HEADER PERSONA
                         
                             if($serialize) {
-                                $representantes = unserialize($serialize);
+                                $personas = unserialize($serialize);
                             
-                                for($i=0; $i<count($representantes); $i++) {
-                                    $representante = $representantes[$i];
-                                    $cedula = $representante->getCedula();
-                                    $nombre = $representante->getNombre();
-                                    $apellido = $representante->getApellido();
-                                    $idTipoContacto = $representante->getidTipoContacto();
-                                    $tipoContacto = $representante->getTipoContacto();
-                                    $contacto = $representante->getContacto();
+                                for($i=0; $i<count($personas); $i++) {
+                                    $persona = $personas[$i];
+                                    $cedula = $persona->getCedula();
+                                    $nombre = $persona->getNombre();
+                                    $apellido = $persona->getApellido();
+                                    $contacto = $persona->getContacto();
+                                    $idTipoCon = $contacto->getIdTipo();
+                                    $descripcionCon = $contacto->getDescripcion();
+                                    $contactoCon = $contacto->getContacto();
 
                                     echo "  <tr class=\"output__renglon\">
                                                 <td class=\"output__celda\ output__celda--centrado\">
-                                                    <input type=\"checkbox\" name=\"check[]\" value=\"$cedula,$idTipoContacto\" 
+                                                    <input type=\"checkbox\" name=\"check[]\" value=\"$cedula,$idTipoCon\" 
                                                             id=\"check$i\" class=\"output__check\">
                                                 </td>
                                                 <td class=\"output__celda\">
@@ -92,10 +93,10 @@
                                                     $apellido
                                                 </td>
                                                 <td class=\"output__celda\">
-                                                    $tipoContacto
+                                                    $descripcionCon
                                                 </td>
                                                 <td class=\"output__celda\">
-                                                    $contacto
+                                                    $contactoCon
                                                 </td>
                                             </tr>";
                                 }

@@ -19,7 +19,13 @@
                 $resultado = $this->dao->getTodos();
 
                 $serialize = serialize($resultado);
-                header($this->pagina.'?'.$this->objSerializar.'='.urlencode($serialize));
+
+                if( str_contains($this->pagina, "?") ) {
+                    header($this->pagina.'&'.$this->objSerializar.'='.urlencode($serialize));
+                }
+                else {
+                    header($this->pagina.'?'.$this->objSerializar.'='.urlencode($serialize));
+                }
             }
             catch(Exception $e) {
                 $mensaje = new Mensaje(null, false, "No hay ningun ".$this->objSerializar." cargado en la base de datos.");

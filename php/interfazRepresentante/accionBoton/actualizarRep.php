@@ -6,7 +6,7 @@
 
     if( isset($_POST['actualizar']) ) {
         $pagina = "Location: RepresentanteView.php";
-        $objSerializar = "representantes";
+        $objSerializar = "personas";
         
             try {
                 $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');

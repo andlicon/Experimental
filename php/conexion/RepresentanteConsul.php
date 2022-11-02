@@ -1,7 +1,8 @@
 <?php
     include_once('IDAO.php');
     include_once('BaseDeDatos.php');
-    include_once('../instancias/Representante.php');
+    include_once('../instancias/Persona.php');
+    include_once('../instancias/Contacto.php');
 
     /*
         Esta clase es un "consultor", junta las tablas:
@@ -34,7 +35,7 @@
         */
         public function getInstancia(array $cedula) {
             $consulta = "SELECT * 
-                        FROM v_representante_contacto
+                        FROM v_representantes
                         WHERE cedula=?";
             $registros = $this->bd->sql($consulta, $cedula);
 
@@ -46,22 +47,19 @@
             for($i=0; $i<count($registros); $i++) {
                 $representante = $registros[$i];
 
-                $id = $representante['id'];
                 $cedula = $representante['cedula'];
                 $nombre = $representante['nombre'];
                 $apellido = $representante['apellido'];
                 $idTipoContacto = $representante['id_tipo'];
-                $tipoContacto = $representante['descripcion'];
+                $descripcion = $representante['descripcion'];
                 $contacto = $representante['contacto'];
 
-                $rep = new Representante($id, $cedula, $nombre, $apellido, $idTipoContacto, 
-                                         $tipoContacto, $contacto);
+                $rep = new Persona($cedula, $nombre, $apellido, 
+                                    new Contacto($idTipoContacto, $contacto, $descripcion));                       
 
                 $representantes[] = $rep;
             }
 
-
-            
             return $representantes;
          }
 
@@ -77,30 +75,30 @@
         */
         public function getTodos() {
             $consulta = "SELECT * 
-                         FROM v_representante_contacto;";
-             $registros = $this->bd->sql($consulta, null);
+                        FROM v_representantes";
+            $registros = $this->bd->sql($consulta, null);
 
-             if(empty($registros)) {
-                throw new Exception('No existen registros de Representante');
+            if(empty($registros)) {
+                throw new Exception('No existe el representante con dicha cedula');
             }
-            
+
             $representantes = [];
             for($i=0; $i<count($registros); $i++) {
                 $representante = $registros[$i];
 
-                $id = $representante['id'];
                 $cedula = $representante['cedula'];
                 $nombre = $representante['nombre'];
                 $apellido = $representante['apellido'];
                 $idTipoContacto = $representante['id_tipo'];
-                $tipoContacto = $representante['descripcion'];
+                $descripcion = $representante['descripcion'];
                 $contacto = $representante['contacto'];
-                $rep = new Representante($id, $cedula, $nombre, $apellido, $idTipoContacto, 
-                                         $tipoContacto, $contacto);
+
+                $rep = new Persona($cedula, $nombre, $apellido, 
+                                    new Contacto($idTipoContacto, $contacto, $descripcion));                       
 
                 $representantes[] = $rep;
             }
-            
+
             return $representantes;
          }
 
