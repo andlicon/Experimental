@@ -23,7 +23,7 @@
             $personaDAO = new PersonaDAO($bd);
             $contactoDAO = new ContactoDAO($bd);
             
-            $modificador = new ModificarRepresentante($personaDAO, $contactoDAO, $pagina, "representantes");
+            $modificador = new ModificarPersona($personaDAO, $contactoDAO, $pagina, "representantes");
             
             $modificador->modificar(array(
                                         array($cedula),

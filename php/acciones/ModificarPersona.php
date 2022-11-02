@@ -1,7 +1,7 @@
 <?php
     include_once('IModificar.php');
 
-    class ModificarRepresentante implements IModificar {
+    class ModificarPersona implements IModificar {
         private $personaDAO;
         private $contactoDAO;
         private $pagina;
