@@ -1,5 +1,5 @@
 <?php
-    include_once('../acciones/CargarRepresentante.php');
+    include_once('../acciones/CargarPersona.php');
     //Clases  de acceso a datos
     include_once('../conexion/PersonaDAO.php');
     include_once('../conexion/ContactoDAO.php');
@@ -34,14 +34,14 @@
                 //PERSONA
             $personaDAO = new PersonaDAO($bd);
             $contactoDAO = new ContactoDAO($bd);
-            $representanteModif = new RepresentanteModif($bd);
 
-            $cargador = new CargarRepresentante($personaDAO, $contactoDAO, $representanteModif);
+            $cargador = new CargarPersona($personaDAO, $contactoDAO);
             $cargador->cargar(array
-                                    (array($cedula, $nombre, $apellido),
-                                     array($cedula, 1, $correo), 
-                                     array($cedula, 2, $telefono), 
-                                     array($cedula))
+                                    (
+                                        array($cedula, $nombre, $apellido, 1),
+                                        array($cedula, 1, $correo), 
+                                        array($cedula, 2, $telefono)
+                                    )
                             );
 
             $alerta = new Mensaje(null, true, 'se ha cargado exitosamente al representante');
