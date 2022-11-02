@@ -11,7 +11,7 @@
     */
     if( isset($_POST['consultar']) ) {
         $pagina = "Location: RepresentanteView.php";
-        $objSerializar = "representantes";
+        $objSerializar = "personas";
         
         //Cedula introducida por el usuario
         $nacionalidadInput = comprobarInput('nacionalidadInput', 'Se debe introducir una nacionalidad valida', $pagina);
