@@ -1,17 +1,16 @@
 <?php
     include_once('IEliminar.php');
 
-    class EliminarRepresentante implements IEliminar {
+    class EliminarPersona implements IEliminar {
         private $personaDAO;
         private $contactoDAO;
-        private $representanteModif;
 
-        public function __construct(PersonaDAO $personaDAO, 
-                                    ContactoDAO $contactoDAO, 
-                                    RepresentanteModif $representanteModif) {
+        public function __construct(
+                                        PersonaDAO $personaDAO, 
+                                        ContactoDAO $contactoDAO
+                                    ) {
             $this->personaDAO = $personaDAO;
             $this->contactoDAO = $contactoDAO;
-            $this->representanteModif = $representanteModif;
         }
 
         public function eliminar($matriz) {
@@ -23,8 +22,6 @@
             }
             else {                          //Se elimina toda informacion
                 $this->contactoDAO->eliminar($matriz[0]);
-
-                $this->representanteModif->eliminar($matriz[1]);
        
                 $this->personaDAO->eliminar($matriz[1]);
             }

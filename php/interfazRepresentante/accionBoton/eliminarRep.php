@@ -1,8 +1,7 @@
 <?php
     include_once('../conexion/ContactoDAO.php');
     include_once('../conexion/PersonaDAO.php');
-    include_once('../conexion/RepresentanteModif.php');
-    include_once('../acciones/EliminarRepresentante.php');
+    include_once('../acciones/EliminarPersona.php');
 
     if( isset($_POST['eliminar']) ) {
         if( isset($_POST['check']) ) {
@@ -13,10 +12,9 @@
             try {   //Extraer informacion de la base de datos
                 $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
                 $contactoDAO = new ContactoDAO($bd);
-                $repModif = new RepresentanteModif($bd);
                 $personaDAO = new PersonaDAO($bd);
 
-                $eliminador = new EliminarRepresentante($personaDAO, $contactoDAO, $repModif);
+                $eliminador = new EliminarPersona($personaDAO, $contactoDAO);
 
                 for($i=0; $i<count($checks); $i++) {
                     $datos = explode(',', $checks[$i]);
