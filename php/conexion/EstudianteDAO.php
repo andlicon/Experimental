@@ -70,7 +70,7 @@
         public function getInstanciaCedula($parametros) {
             $consulta = "SELECT * 
                          FROM v_estudiantes
-                         WHERE cedula_representante=?";
+                         WHERE cedula=?";
             $registros = $this->bd->sql($consulta, $parametros);
 
             if(empty($registros)) {

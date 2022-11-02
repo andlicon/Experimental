@@ -19,8 +19,10 @@
         try {   //Extraer informacion de la base de datos
             $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
             $estudianteDAO = new EstudianteDAO($bd);
-            $consultor = new Consultar($estudianteDAO, $pagina, $objSerializar);
-            $consultor->consultar(array(null, $cedula, null));
+
+            $resultado = $estudianteDAO->getInstanciaCedula(array($cedula));
+            $serialize = serialize($resultado);
+            header($pagina.'?'.$objSerializar.'='.urlencode($serialize));
         }
         catch(Exception $e) {  //No se ha podido conectar a la bd
             echo $e;
