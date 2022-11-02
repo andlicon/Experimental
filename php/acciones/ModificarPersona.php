@@ -23,8 +23,8 @@
             $cedula = $arregloCedula[0];
 
             $arregloPersona = $matriz[1];
-            $nombreInput = $arregloPersona[0];
-            $apellidoInput = $arregloPersona[1];
+            $nombreInput = $arregloPersona[1];
+            $apellidoInput = $arregloPersona[2];
 
             $arregloCorreo = $matriz[2];
             $correo = $arregloCorreo[0];

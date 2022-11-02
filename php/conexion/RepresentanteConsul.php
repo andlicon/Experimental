@@ -31,7 +31,7 @@
             @return <ul>
                         <li>De existir registro: arreglo de representante</li>
                         <li>De no existir registro: NULL</li>
-                    </ul>
+                    </ul> 
         */
         public function getInstancia(array $cedula) {
             $consulta = "SELECT * 
