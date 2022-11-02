@@ -7,6 +7,6 @@
         $pagina = "Location: estudianteView.php";
         
         $idClase = $_POST['claseInput'];
-        consultarClase($pagina, $idClase);
+        consultarClase($pagina, $idClase, $pagina, $idClase);
     }
 ?>

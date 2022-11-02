@@ -41,11 +41,11 @@
         public function getInstanciaClase($parametros) {
             $consulta = "SELECT * 
                         FROM v_estudiantes
-                        WHERE cedula_representante=?";
+                        WHERE id_clase=?";
             $registros = $this->bd->sql($consulta, $parametros);
 
             if(empty($registros)) {
-                throw new Exception('No existe el representante con dicha cedula');
+                throw new Exception('No hay estudiantes en el id_clase senalado');
             }
             
             $estudiantes = [];
