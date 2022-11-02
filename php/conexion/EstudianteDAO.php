@@ -44,13 +44,11 @@
                 $nombre = $estudiante['nombre'];
                 $apellido = $estudiante['apellido'];
                 $fechaNacimiento = $estudiante['fecha_nacimiento'];
-                $idRepresentante = $estudiante['id_representante'];
-                $cedulaRepresentante = $estudiante['cedula_representante'];
+                $cedulaRepresentante = $estudiante['cedula'];
                 $idClase = $estudiante['id_clase'];
                 $descripcionClase = $estudiante['descripcion'];
      
-                $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento,
-                                      $idRepresentante, $cedulaRepresentante,
+                $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento, $cedulaRepresentante,
                                       new Clase($idClase, $descripcionClase, null, null));
                 $estudiantes[] = $est;
             }
@@ -74,13 +72,11 @@
                 $nombre = $estudiante['nombre'];
                 $apellido = $estudiante['apellido'];
                 $fechaNacimiento = $estudiante['fecha_nacimiento'];
-                $idRepresentante = $estudiante['id_representante'];
-                $cedulaRepresentante = $estudiante['cedula_representante'];
+                $cedulaRepresentante = $estudiante['cedula'];
                 $idClase = $estudiante['id_clase'];
                 $descripcionClase = $estudiante['descripcion'];
      
-                $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento,
-                                      $idRepresentante, $cedulaRepresentante,
+                $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento, $cedulaRepresentante, 
                                       new Clase($idClase, $descripcionClase, null, null));
                 $estudiantes[] = $est;
             }
