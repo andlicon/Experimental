@@ -12,33 +12,35 @@
             $checks = $_POST['check'];
 
             if(count($checks)==1) {
-                $nombre = $_POST['nombreInput'];
-                $apellido = $_POST['apellidoInput'];
-                $fecha = $_POST['fechaInput'];
-                $idClase = $_POST['claseInput'];
+                $nombreInput = $_POST['nombreInput'];
+                $apellidoInput = $_POST['apellidoInput'];
+                $fechaInput = $_POST['fechaInput'];
+                $idClaseInput = $_POST['claseInput'];
 
                 $nacionalidadInput = $_POST['nacionalidadInput'];
-                $cedulaInput = $_POST['cedulaInput'];
-                $cedula = $cedulaInput=="" ? "" : crearCedula($nacionalidadInput, $cedulaInput);
+                $cedulaNumInput = $_POST['cedulaInput'];
+                $cedulaInput = $cedulaNumInput=="" ? "" : crearCedula($nacionalidadInput, $cedulaNumInput);
 
                 try {   //Extraer informacion de la base de datos
                     $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
                     $estudianteDAO = new EstudianteDAO($bd);
-                    $representanteConsul = new RepresentanteConsul($bd);
-
-                    $modificador = new ModificarEstudiante($estudianteDAO, $representanteConsul, $pagina, $objSerializar);
 
                     for($i=0; $i<count($checks); $i++) {
                         $idEstudiante = $checks[$i];
+                        $estudiantes = $estudianteDAO->getInstancia(array ($idEstudiante));
+                        $estudiante = $estudiantes[0];
 
-                        $modificador->modificar(array(
-                                                        array($cedula),
-                                                        array($nombre, $apellido, $fecha, $idClase, 
-                                                                $idEstudiante)
-                                                    ));
+                        $nombre = $nombreInput=="" ? $estudiante->getNombre() : $nombreInput;
+                        $apellido = $apellidoInput=="" ? $estudiante->getApellido() : $apellidoInput;
+                        $fecha = $fechaInput=="" ? $estudiante->getFechaNacimiento() : $fechaInput;
+                        $idClase = $idClaseInput=="" ? $estudiante->getClase()->getId() : $idClaseInput;
+                        $cedula = $cedulaInput=="" ? $estudiante->getCedulaRepresentante() : $cedulaInput;
+
+                        $estudianteDAO->modificar( array($nombre, $apellido, $fecha, 
+                                                         $idClase, $cedula, $idEstudiante));
                     }
                 
-                    // header($pagina);
+                    header($pagina);
                 }
                 catch(Exception $mensaje) {  
                     alerta($mensaje);

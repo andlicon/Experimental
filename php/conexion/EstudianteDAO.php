@@ -9,28 +9,68 @@
             $this->bd = $bd;
         }
 
-        public function getInstancia(array $array) {
-            $consulta = null;
-            $parametros = null;
-
-            if(!$array[0]==null) {
-                $parametros = array($array[0]);
-                $consulta = "SELECT * 
-                         FROM v_estudiantes
-                         WHERE id_clase=?";
-            }
-            elseif(!$array[1]==null) {
-                $parametros = array ($array[1]);
-                $consulta = "SELECT * 
-                         FROM v_estudiantes
-                         WHERE cedula_representante=?";
-            }
-            else {
-                $parametros = array ($array[2]);
-                $consulta = "SELECT * 
+        public function getInstancia(array $parametros) {
+            $consulta = "SELECT * 
                          FROM v_estudiantes
                          WHERE id=?";
+            $registros = $this->bd->sql($consulta, $parametros);
+
+            if(empty($registros)) {
+                throw new Exception('No existe el representante con dicha cedula');
             }
+
+            $estudiantes = [];
+            for($i=0; $i<count($registros); $i++) {
+                $estudiante = $registros[$i];
+                $id = $estudiante['id'];
+                $nombre = $estudiante['nombre'];
+                $apellido = $estudiante['apellido'];
+                $fechaNacimiento = $estudiante['fecha_nacimiento'];
+                $cedulaRepresentante = $estudiante['cedula'];
+                $idClase = $estudiante['id_clase'];
+                $descripcionClase = $estudiante['descripcion'];
+     
+                $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento, $cedulaRepresentante,
+                                      new Clase($idClase, $descripcionClase, null, null));
+                $estudiantes[] = $est;
+            }
+ 
+            return $estudiantes;
+        }
+
+        public function getInstanciaClase($parametros) {
+            $consulta = "SELECT * 
+                        FROM v_estudiantes
+                        WHERE cedula_representante=?";
+            $registros = $this->bd->sql($consulta, $parametros);
+
+            if(empty($registros)) {
+                throw new Exception('No existe el representante con dicha cedula');
+            }
+            
+            $estudiantes = [];
+            for($i=0; $i<count($registros); $i++) {
+                $estudiante = $registros[$i];
+                $id = $estudiante['id'];
+                $nombre = $estudiante['nombre'];
+                $apellido = $estudiante['apellido'];
+                $fechaNacimiento = $estudiante['fecha_nacimiento'];
+                $cedulaRepresentante = $estudiante['cedula'];
+                $idClase = $estudiante['id_clase'];
+                $descripcionClase = $estudiante['descripcion'];
+        
+                $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento, $cedulaRepresentante,
+                                      new Clase($idClase, $descripcionClase, null, null));
+                $estudiantes[] = $est;
+            }
+             
+            return $estudiantes;
+        }
+
+        public function getInstanciaCedula($parametros) {
+            $consulta = "SELECT * 
+                         FROM v_estudiantes
+                         WHERE cedula_representante=?";
             $registros = $this->bd->sql($consulta, $parametros);
 
             if(empty($registros)) {
@@ -96,7 +136,7 @@
                             apellido=?,
                             fecha_nacimiento=?,
                             id_clase=?,
-                            id_representante=?
+                            cedula_representante=?
                         WHERE id=?";
             $this->bd->sql($update, $parametros);
         }
