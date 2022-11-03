@@ -47,58 +47,50 @@
                            Motivo
                         </th>
                         <th class="output__celda output__celda--header">
-                           Descripcion
-                        </th>
-                        <th class="output__celda output__celda--header">
                            Fecha
                         </th>
                         <th class="output__celda output__celda--header">
-                            Monto 
+                            Debe
                         </th>
                     </tr>
                 </thead>
                 <tbody class="output__body">
                     <?php
-                        // include_once('../instancias/Representante.php');
-                        // if( isset($_GET['representantes']) ) {
-                        //     $serialize = $_GET['representantes'];
-                        
-                        //     if($serialize) {
-                        //         $representantes = unserialize($serialize);
-                            
-                        //         for($i=0; $i<count($representantes); $i++) {
-                        //             $representante = $representantes[$i];
-                        //             $cedula = $representante->getCedula();
-                        //             $nombre = $representante->getNombre();
-                        //             $apellido = $representante->getApellido();
-                        //             $idTipoContacto = $representante->getidTipoContacto();
-                        //             $tipoContacto = $representante->getTipoContacto();
-                        //             $contacto = $representante->getContacto();
-
-                        //             echo "  <tr class=\"output__renglon\">
-                        //                         <td class=\"output__celda\ output__celda--centrado\">
-                        //                             <input type=\"checkbox\" name=\"check[]\" value=\"$cedula,$idTipoContacto\" 
-                        //                                     id=\"check$i\" class=\"output__check\">
-                        //                         </td>
-                        //                         <td class=\"output__celda\">
-                        //                             $cedula
-                        //                         </td>
-                        //                         <td class=\"output__celda\">
-                        //                             $nombre
-                        //                         </td>
-                        //                         <td class=\"output__celda\">
-                        //                             $apellido
-                        //                         </td>
-                        //                         <td class=\"output__celda\">
-                        //                             $tipoContacto
-                        //                         </td>
-                        //                         <td class=\"output__celda\">
-                        //                             $contacto
-                        //                         </td>
-                        //                     </tr>";
-                        //         }
-                        //     }
-                        // }
+                        include_once('../instancias/Deuda.php');
+                        if( isset($_GET['deudas']) ) {
+                            $serialize = $_GET['deudas'];
+            
+                            if($serialize) {
+                                $deudas = unserialize($serialize);
+                    
+                                for($i=0; $i<count($deudas); $i++) {
+                                    $deuda = $deudas[$i];
+                                    $id = $deuda->getId();
+                                    $cedula = $deuda->getCedula();
+                                    $motivo = $deuda->getMotivo()->getDescripcion();
+                                    $fecha = $deuda->getFecha();
+                                    $debe = $deuda->getMontoInicial() - $deuda->getMontoEstado();
+                                    echo "  <tr class=\"output__renglon\">
+                                                <td class=\"output__celda\ output__celda--centrado\">
+                                                    <input type=\"checkbox\" name=\"check[]\" value=\"$id\" 
+                                                            id=\"check$i\" class=\"output__check\">
+                                                </td>
+                                                <td class=\"output__celda\">
+                                                    $cedula
+                                                </td>
+                                                <td class=\"output__celda\">
+                                                    $motivo
+                                                </td>
+                                                <td class=\"output__celda\">
+                                                    $fecha
+                                                </td>
+                                                <td class=\"output__celda\">
+                                                    $debe
+                                                </td>
+                                            </tr>";
+                                }
+                            }
+                        }
                     ?>
                 </tbody>
             </table>
