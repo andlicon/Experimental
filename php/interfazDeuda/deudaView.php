@@ -5,6 +5,7 @@
     include('accionBoton/cargarDeuda.php');
     include('accionBoton/consultarDeudaRep.php');
     include('accionBoton/consultarRepDeudor.php');
+    include('accionBoton/eliminarDeuda.php');
 ?>
 
 <head>

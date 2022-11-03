@@ -113,8 +113,8 @@
         }
 
         public function eliminar($parametros) {
-            $delete =  "DELETE FROM persona
-                        WHERE cedula=?";
+            $delete =  "DELETE FROM deuda
+                        WHERE id=?";
             $this->bd->sql($delete, $parametros);
         }
 
