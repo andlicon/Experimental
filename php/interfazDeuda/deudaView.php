@@ -3,9 +3,11 @@
 
 <?php
     include('accionBoton/cargarDeuda.php');
+    include('accionBoton/cobrarMensualidad.php');
     include('accionBoton/consultarDeudaRep.php');
     include('accionBoton/consultarRepDeudor.php');
     include('accionBoton/eliminarDeuda.php');
+    include('accionBoton/modificarDeuda.php');
 ?>
 
 <head>
