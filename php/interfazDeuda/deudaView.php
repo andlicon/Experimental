@@ -69,7 +69,7 @@
                                     $cedula = $deuda->getCedula();
                                     $motivo = $deuda->getMotivo()->getDescripcion();
                                     $fecha = $deuda->getFecha();
-                                    $debe = $deuda->getMontoInicial() - $deuda->getMontoEstado();
+                                    $debe = $deuda->getDebe();
                                     echo "  <tr class=\"output__renglon\">
                                                 <td class=\"output__celda\ output__celda--centrado\">
                                                     <input type=\"checkbox\" name=\"check[]\" value=\"$id\" 
@@ -111,7 +111,6 @@
                     <select class="input__select" id="motivoeInput" name="motivoInput">
                         <?php 
                             include_once('generarMotivo.php');
-                            echo 'a';
                             generarMotivo();
                         ?>
                     </select>
@@ -128,11 +127,11 @@
             <!-- botones -->
             <div class="botones">
                 <h2 class="botones__titulo">Acciones</h2>
-                <button name="consultar" class="boton">Consultar Deudores</button>
-                <button name="cargar" class="boton">Deuda por representante</button>
+                <button name="consultarDeudor" class="boton">Consultar Deudores</button>
+                <button name="consultarCedula" class="boton">Deuda por representante</button>
                 <button name="modificar" class="boton">modificar</button>
                 <button name="eliminar" class="boton">eliminar</button>
-                <button name="eliminar" class="boton">Cargar deuda</button>
+                <button name="cargar" class="boton">Cargar deuda</button>
                 <button name="actualizar" class="boton">Cobrar mensualidad</button>
             </div>
         </form>

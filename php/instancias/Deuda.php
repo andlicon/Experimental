@@ -4,16 +4,15 @@
         private $cedula;
         private Motivo $motivo;
         private $fecha;
-        private $montoInicial;
-        private $montoEstado;
+        private $debe;
 
-        public function __construct($id, $cedula, Motivo $motivo, $fecha, 
-                                    $montoInicial, $montoEstado) {
+        public function __construct($id, $cedula, Motivo $motivo, 
+                                    $fecha, $debe) {
             $this->id = $id;
             $this->cedula = $cedula;
             $this->motivo = $motivo;
-            $this->montoInicial = $montoInicial;
-            $this->montoEstado = $montoEstado;                   
+            $this->fecha = $fecha;
+            $this->debe = $debe;                  
         } 
 
         public function getId() {
@@ -28,11 +27,8 @@
         public function getFecha() {
             return $this->fecha;
         }
-        public function getMontoInicial() {
-            return $this->montoInicial;
-        }
-        public function geMontoEstado() {
-            return $this->montoEstado;
+        public function getDebe() {
+            return $this->debe;
         }
 
         public function setId($id) {
@@ -44,11 +40,8 @@
         public function setMotivo($motivo) {
             $this->motivo = $motivo;
         }
-        public function setMontoInicial($montoInicial) {
-            $this->montoInicial = $montoInicial;
-        }
-        public function setMontoEstado($montoEstado) {
-            $this->montoEstado = $montoEstado;
+        public function setDebe($debe) {
+            $this->debe = $debe;
         }
     }
 ?>

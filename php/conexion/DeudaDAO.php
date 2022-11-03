@@ -1,0 +1,122 @@
+<?php
+    include_once ('IDAO.php');
+    include_once('../instancias/Deuda.php');
+    include_once('../instancias/Motivo.php');
+
+    class DeudaDAO implements IDAO {
+        private $bd;
+
+        public function __construct(BaseDeDatos $bd) {
+            $this->bd = $bd;
+        }
+
+        public function getInstancia(array $cedula) {
+            $consulta = "SELECT * 
+                        FROM v_deuda
+                        WHERE cedula_representante=?";
+            $registros = $this->bd->sql($consulta, $cedula);
+
+            if(empty($registros)) {
+                throw new Exception('No existe el representante con dicha cedula');
+            }
+
+            $deudas = [];
+            for($i=0; $i<count($registros); $i++) {
+                $deuda = $registros[$i];
+
+                $id = $deuda['id'];
+                $cedula = $deuda['cedula_representante'];
+                $idMotivo = $deuda['id_motivo'];
+                $descripMotivo = $deuda['descripcion'];
+                $fecha = $deuda['fecha'];
+                $debe = $deuda['debe'];
+                
+                $motivo = new Motivo($idMotivo, $descripMotivo);
+                $deb= new Deuda($id, $cedula, $motivo, $fecha, $debe);
+
+                $deudas[] = $deb;
+            }
+            
+            return $deudas;
+        }
+        
+        public function getTodos() {
+            $consulta = "SELECT * 
+                        FROM v_deuda";
+            $registros = $this->bd->sql($consulta, $cedula);
+
+            if(empty($registros)) {
+                throw new Exception('No existe el representante con dicha cedula');
+            }
+
+            $deudas = [];
+            for($i=0; $i<count($registros); $i++) {
+                $deuda = $registros[$i];
+
+                $id = $deuda['id'];
+                $cedula = $deuda['cedula_representante'];
+                $idMotivo = $deuda['id_motivo'];
+                $descripMotivo = $deuda['descripcion'];
+                $fecha = $deuda['fecha'];
+                $debe = $deuda['debe'];
+                
+                $motivo = new Motivo($idMotivo, $descripMotivo);
+                $deb= new Deuda($id, $cedula, $motivo, $fecha, $debe);
+
+                $deudas[] = $deb;
+            }
+            
+            return $deudas;
+        }
+
+        public function getDeudores() {
+            $consulta = "SELECT * 
+                        FROM v_deudores";
+            $registros = $this->bd->sql($consulta, $cedula);
+
+            if(empty($registros)) {
+                throw new Exception('No existe el representante con dicha cedula');
+            }
+
+            $deudas = [];
+            for($i=0; $i<count($registros); $i++) {
+                $deuda = $registros[$i];
+
+                $id = $deuda['id'];
+                $cedula = $deuda['cedula_representante'];
+                $idMotivo = $deuda['id_motivo'];
+                $descripMotivo = $deuda['descripcion'];
+                $fecha = $deuda['fecha'];
+                $debe = $deuda['debe'];
+                
+                $motivo = new Motivo($idMotivo, $descripMotivo);
+                $deb= new Deuda($id, $cedula, $motivo, $fecha, $debe);
+
+                $deudas[] = $deb;
+            }
+            
+            return $deudas;
+        }
+
+        public function cargar($parametros) {
+            $insert = "INSERT INTO persona (cedula, nombre, apellido, es_representante)
+                       VALUES              (?,      ?,      ?,        ?)";
+            $this->bd->sql($insert, $parametros);
+        }
+
+        public function modificar($parametros) {
+            $update =  "UPDATE persona
+                        SET nombre=?, 
+                            apellido=?
+                        WHERE cedula=?";
+            $this->bd->sql($update, $parametros);
+        }
+
+        public function eliminar($parametros) {
+            $delete =  "DELETE FROM persona
+                        WHERE cedula=?";
+            $this->bd->sql($delete, $parametros);
+        }
+
+    }
+?>
