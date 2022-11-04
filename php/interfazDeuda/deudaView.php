@@ -131,8 +131,8 @@
                     <input type="text" id="cedulaInput" name="cedulaInput" class="input__input input__input--texto">
                 </div>
                 <div class="input__grupo">
-                    <label for="motivoeInput" class="input__label">Motivo</label>
-                    <select class="input__select" id="motivoeInput" name="motivoInput">
+                    <label for="motivoInput" class="input__label">Motivo</label>
+                    <select class="input__select" id="motivoInput" name="motivoInput">
                         <?php 
                             include_once('generarMotivo.php');
                             generarMotivo();
