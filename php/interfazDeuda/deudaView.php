@@ -50,7 +50,16 @@
                            Motivo
                         </th>
                         <th class="output__celda output__celda--header">
+                           Descripcion
+                        </th>
+                        <th class="output__celda output__celda--header">
                            Fecha
+                        </th>
+                        <th class="output__celda output__celda--header">
+                            Monto Inicial
+                        </th>
+                        <th class="output__celda output__celda--header">
+                            Pagado
                         </th>
                         <th class="output__celda output__celda--header">
                             Debe
@@ -71,8 +80,11 @@
                                     $id = $deuda->getId();
                                     $cedula = $deuda->getCedula();
                                     $motivo = $deuda->getMotivo()->getDescripcion();
+                                    $descripcion = $deuda->getDescripcion();
                                     $fecha = $deuda->getFecha();
-                                    $debe = $deuda->getDebe();
+                                    $montoInicial = $deuda->getMontoInicial();
+                                    $montoEstado = $deuda->getMontoEstado();
+                                    $debe = $deuda->getDeuda();
                                     echo "  <tr class=\"output__renglon\">
                                                 <td class=\"output__celda\ output__celda--centrado\">
                                                     <input type=\"checkbox\" name=\"check[]\" value=\"$id\" 
@@ -85,7 +97,16 @@
                                                     $motivo
                                                 </td>
                                                 <td class=\"output__celda\">
+                                                    $descripcion
+                                                </td>
+                                                <td class=\"output__celda\">
                                                     $fecha
+                                                </td>
+                                                <td class=\"output__celda\">
+                                                    $montoInicial
+                                                </td>
+                                                <td class=\"output__celda\">
+                                                    $montoEstado
                                                 </td>
                                                 <td class=\"output__celda\">
                                                     $debe
@@ -123,8 +144,12 @@
                     <input type="date" id="fechaInput" name="fechaInput" class="input__input">
                 </div>
                 <div class="input__grupo">
-                    <label for="montoInput" class="input__label">Monto</label>
+                    <label for="montoInput" class="input__label">Monto inicial</label>
                     <input type="text" id="montoInput" name="montoInput" class="input__input">
+                </div>
+                <div class="input__grupo">
+                    <label for="descripcionInput" class="input__label">Descripcion</label>
+                    <input type="text" id="descripcionInput" name="descripcionInput" class="input__input">
                 </div>
             </div>
             <!-- botones -->

@@ -75,22 +75,22 @@
             $registros = $this->bd->sql($consulta, $cedula);
 
             if(empty($registros)) {
-                throw new Exception('No existe el representante con dicha cedula');
+                throw new Exception('No existen representantes deudores');
             }
 
             $deudas = [];
             for($i=0; $i<count($registros); $i++) {
                 $deuda = $registros[$i];
 
-                $id = $deuda['id'];
+
                 $cedula = $deuda['cedula_representante'];
-                $idMotivo = $deuda['id_motivo'];
-                $descripMotivo = $deuda['descripcion'];
-                $fecha = $deuda['fecha'];
-                $debe = $deuda['debe'];
+                $montoInicial = $deuda['monto_inicial'];
+                $montoEstado = $deuda['monto_estado'];
+                $deuda = $deuda['deuda'];
                 
-                $motivo = new Motivo($idMotivo, $descripMotivo);
-                $deb= new Deuda(null, $cedula, $motivo, $fecha, $debe);
+                $motivo = new Motivo(null, null);
+                $deb= new Deuda(null, $cedula, $motivo, null, 
+                                null, $montoInicial, $montoEstado, $deuda);
 
                 $deudas[] = $deb;
             }

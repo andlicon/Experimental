@@ -3,16 +3,22 @@
         private $id;
         private $cedula;
         private Motivo $motivo;
+        private $descripcion;
         private $fecha;
-        private $debe;
+        private $montoInicial;
+        private $montoEstado;
+        private $deuda;
 
-        public function __construct($id, $cedula, Motivo $motivo, 
-                                    $fecha, $debe) {
+        public function __construct($id, $cedula, Motivo $motivo, $descripcion,
+                                    $fecha, $montoInicial, $montoEstado, $deuda) {
             $this->id = $id;
             $this->cedula = $cedula;
             $this->motivo = $motivo;
+            $this->descripcion = $descripcion;
             $this->fecha = $fecha;
-            $this->debe = $debe;                  
+            $this->montoInicial = $montoInicial;
+            $this->montoEstado = $montoEstado;
+            $this->deuda = $deuda;                  
         } 
 
         public function getId() {
@@ -24,11 +30,20 @@
         public function getMotivo() {
             return $this->motivo;
         }
+        public function getDescripcion() {
+            return $this->descripcion;
+        }
         public function getFecha() {
             return $this->fecha;
         }
-        public function getDebe() {
-            return $this->debe;
+        public function getMontoInicial() {
+            return $this->montoInicial;
+        }
+        public function getMontoEstado() {
+            return $this->montoEstado;
+        }
+        public function getDeuda() {
+            return $this->deuda;
         }
 
         public function setId($id) {
@@ -40,8 +55,17 @@
         public function setMotivo($motivo) {
             $this->motivo = $motivo;
         }
-        public function setDebe($debe) {
-            $this->debe = $debe;
+        public function setDescripcion($descripcion) {
+            $this->descripcion = $descripcion;
+        }
+        public function setMontoInicial($montoInicial) {
+           $this->montoInicial = $montoInicial;
+        }
+        public function setMontoEstado($montoEstado) {
+            $this->montoEstado = $montoEstado;
+        }
+        public function setDeuda($deuda) {
+            $this->deuda = $deuda;
         }
     }
 ?>
