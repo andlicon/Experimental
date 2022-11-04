@@ -90,7 +90,7 @@
                 $debe = $deuda['debe'];
                 
                 $motivo = new Motivo($idMotivo, $descripMotivo);
-                $deb= new Deuda($id, $cedula, $motivo, $fecha, $debe);
+                $deb= new Deuda(null, $cedula, $motivo, $fecha, $debe);
 
                 $deudas[] = $deb;
             }

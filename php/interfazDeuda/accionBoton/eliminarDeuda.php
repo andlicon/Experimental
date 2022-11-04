@@ -14,8 +14,6 @@
                 for($i=0; $i<count($checks); $i++) {
                     $idDeuda = $checks[$i];
 
-                    echo 'a';
-
                     $deudaDAO->eliminar(array($idDeuda));
                 }
     
