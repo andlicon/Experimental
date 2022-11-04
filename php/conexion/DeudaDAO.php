@@ -102,8 +102,8 @@
         }
 
         public function cargar($parametros) {
-            $insert = "INSERT INTO persona (cedula, nombre, apellido, es_representante)
-                       VALUES              (?,      ?,      ?,        ?)";
+            $insert = "INSERT INTO deuda    (cedula_representante,  id_motivo,  fecha,  descripcion,    monto_inicial) 
+                        VALUES              (?,                     ?,          ?,      ?,              ?)";
             $this->bd->sql($insert, $parametros);
         }
 
