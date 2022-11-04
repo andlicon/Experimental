@@ -26,14 +26,17 @@
 
                 $id = $deuda['id'];
                 $cedula = $deuda['cedula_representante'];
-                $idMotivo = $deuda['id_motivo'];
-                $descripMotivo = $deuda['descripcion'];
                 $fecha = $deuda['fecha'];
-                $debe = $deuda['debe'];
+                $idMotivo = $deuda['id_motivo'];
+                $descripMotivo = $deuda['motivo_descripcion'];
+                $descripDeuda = $deuda['deuda_descripcion'];
+                $montoInicial = $deuda['monto_inicial'];
+                $montoEstado = $deuda['monto_estado'];
+                $deuda = $deuda['deuda'];
                 
                 $motivo = new Motivo($idMotivo, $descripMotivo);
-                $deb= new Deuda($id, $cedula, $motivo, $fecha, $debe);
-
+                $deb= new Deuda($id, $cedula, $motivo, $descripDeuda, 
+                                $fecha, $montoInicial, $montoEstado, $deuda);
                 $deudas[] = $deb;
             }
             
