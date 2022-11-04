@@ -12,7 +12,7 @@
 
             $resultado = $estudianteDAO->getInstanciaClase(array($claseId));
             $serialize = serialize($resultado);
-            header($pagina.'?'.$objSerializar.'='.urlencode($serialize)."&idClase=$claseId");
+            header($pagina.'&'.$objSerializar.'='.urlencode($serialize));
 
         }
         catch(Exception $e) {  //No se ha podido conectar a la bd

@@ -2,9 +2,12 @@
 <html lang="en" class="vista">
 
 <?php
-    //SIEMPRE DEBE RECIBIR POR PARAMETROS EL ID DE LA CLASE
-    $idClase = $_GET['idClase'];
-    
+    $idClase = 3;
+
+    if(isset($_POST['idClase'])) {
+        $idClase = $_GET['idClase'];
+    }
+
     include_once('accionesBotones/consultarEstudiante.php');
 ?>
 
@@ -19,7 +22,7 @@
 </head>
 <body class="vista__contenido">
     <?php
-        include_once('../general/imprimirMensaje.php');;
+        include_once('../general/imprimirMensaje.php');
 
         imprimirMensaje();
     ?>

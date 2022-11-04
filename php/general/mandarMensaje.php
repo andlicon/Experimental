@@ -1,7 +1,12 @@
 <?php
     function mandarMensaje($mensaje, $pagina) {
         $serialize = serialize($mensaje);
-        header("$pagina?mensaje=".urlencode($serialize));
+        if(str_contains($pagina, "?")) {
+            header("$pagina&mensaje=".urlencode($serialize));
+        }
+        else {
+            header("$pagina?mensaje=".urlencode($serialize));
+        }
         die();
     }
 ?>
