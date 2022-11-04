@@ -52,5 +52,17 @@
             return $registros;
         }
 
+        public function procedure($procedure, $parametros) {
+            $procedure = $this->conexion->prepare($procedure);
+            
+            if($parametros) {
+                $procedure->execute($parametros);
+            }
+            else {
+                $procedure->execute();
+            }
+
+        }
+
     }
 ?>

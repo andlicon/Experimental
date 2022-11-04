@@ -173,7 +173,7 @@
                 <button name="modificar" class="boton">modificar</button>
                 <button name="eliminar" class="boton">eliminar</button>
                 <button name="cargar" class="boton">Cargar deuda</button>
-                <button name="actualizar" class="boton">Cobrar mensualidad</button>
+                <button name="cobrar" class="boton">Cobrar mensualidad</button>
             </div>
         </form>
     </div>
