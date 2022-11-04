@@ -19,7 +19,7 @@
                 $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
                 $deudaDAO = new DeudaDAO($bd);
 
-                $resultado = $deudaDAO->getInstancia(array($cedula));
+                $resultado = $deudaDAO->getInstanciaCedula(array($cedula));
                 $serialize = serialize($resultado);
                 header($pagina.'?'.$objSerializar.'='.urlencode($serialize));
             }

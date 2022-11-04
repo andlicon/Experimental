@@ -10,7 +10,40 @@
             $this->bd = $bd;
         }
 
-        public function getInstancia(array $cedula) {
+        public function getInstancia(array $id) {
+            $consulta = "SELECT * 
+                        FROM v_deuda
+                        WHERE id=?";
+            $registros = $this->bd->sql($consulta, $id);
+
+            if(empty($registros)) {
+                throw new Exception('No existe el representante con dicha cedula');
+            }
+
+            $deudas = [];
+            for($i=0; $i<count($registros); $i++) {
+                $deuda = $registros[$i];
+
+                $id = $deuda['id'];
+                $cedula = $deuda['cedula_representante'];
+                $fecha = $deuda['fecha'];
+                $idMotivo = $deuda['id_motivo'];
+                $descripMotivo = $deuda['motivo_descripcion'];
+                $descripDeuda = $deuda['deuda_descripcion'];
+                $montoInicial = $deuda['monto_inicial'];
+                $montoEstado = $deuda['monto_estado'];
+                $deuda = $deuda['deuda'];
+                
+                $motivo = new Motivo($idMotivo, $descripMotivo);
+                $deb= new Deuda($id, $cedula, $motivo, $descripDeuda, 
+                                $fecha, $montoInicial, $montoEstado, $deuda);
+                $deudas[] = $deb;
+            }
+            
+            return $deudas;
+        }
+
+        public function getInstanciaCedula($cedula) {
             $consulta = "SELECT * 
                         FROM v_deuda
                         WHERE cedula_representante=?";
@@ -108,10 +141,13 @@
         }
 
         public function modificar($parametros) {
-            $update =  "UPDATE persona
-                        SET nombre=?, 
-                            apellido=?
-                        WHERE cedula=?";
+            $update =  "UPDATE deuda
+                        SET cedula_representante=?, 
+                            id_motivo=?,
+                            fecha=?,
+                            descripcion=?,
+                            monto_inicial=?
+                        WHERE id=?";
             $this->bd->sql($update, $parametros);
         }
 

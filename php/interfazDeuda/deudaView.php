@@ -69,12 +69,14 @@
                 <tbody class="output__body">
                     <?php
                         include_once('../instancias/Deuda.php');
+                        $deudaTotal = 0;
+                        
                         if( isset($_GET['deudas']) ) {
                             $serialize = $_GET['deudas'];
             
                             if($serialize) {
                                 $deudas = unserialize($serialize);
-                    
+
                                 for($i=0; $i<count($deudas); $i++) {
                                     $deuda = $deudas[$i];
                                     $id = $deuda->getId();
@@ -85,6 +87,9 @@
                                     $montoInicial = $deuda->getMontoInicial();
                                     $montoEstado = $deuda->getMontoEstado();
                                     $debe = $deuda->getDeuda();
+
+                                    $deudaTotal += $debe;
+
                                     echo "  <tr class=\"output__renglon\">
                                                 <td class=\"output__celda\ output__celda--centrado\">
                                                     <input type=\"checkbox\" name=\"check[]\" value=\"$id\" 
@@ -117,6 +122,14 @@
                         }
                     ?>
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="7"></td>
+                        <td>
+                            <?php echo$deudaTotal ?>
+                        </td>
+                    </tr>
+                </tfoot>
             </table>
             <!-- inputs -->
             <div class="input">
