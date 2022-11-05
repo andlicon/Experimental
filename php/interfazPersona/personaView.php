@@ -2,11 +2,11 @@
 <html lang="en" class="vista">
 
 <?php
-    include('accionBoton/actualizarRep.php');
-    include('accionBoton/consultarRep.php');
-    include('accionBoton/cargarRep.php');
-    include('accionBoton/modificarRep.php');
-    include('accionBoton/eliminarRep.php');
+    include('accionBoton/actualizarPer.php');
+    include('accionBoton/consultarPer.php');
+    include('accionBoton/cargarPer.php');
+    include('accionBoton/modificarPer.php');
+    include('accionBoton/eliminarPer.php');
 ?>
 
 <head>
@@ -14,7 +14,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Gestionar representantes</title>
+    <title>Gestionar Persona</title>
 
     <link rel="stylesheet" href="/css/main.css">
 </head>
@@ -24,7 +24,7 @@
 
         imprimirMensaje();
     ?>
-    <h2 class="vista__titulo">Gestionar representantes</h2>
+    <h2 class="vista__titulo">Gestionar Persona</h2>
     <div class="vista__cuerpo">
         <form action="" method="POST" class="vista__form">
             <!-- output seleccionable -->
