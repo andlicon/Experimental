@@ -3,7 +3,7 @@
         private $cedula;
         private $nombre;
         private $apellido;
-        private $contacto;
+        private Contacto $contacto;
 
         public function __construct($cedula, $nombre, $apellido, $contacto) {
             $this->cedula = $cedula;

@@ -48,6 +48,9 @@
                            Apellido
                         </th>
                         <th class="output__celda output__celda--header">
+                           clase
+                        </th>
+                        <th class="output__celda output__celda--header">
                            Tipo contacto 
                         </th>
                         <th class="output__celda output__celda--header">
