@@ -55,7 +55,7 @@
                 $contacto = $persona['contacto'];
 
                 $per = new Persona($cedula, $nombre, $apellido, 
-                                    new Contacto($idTipoContacto, $contacto, $descripcion));                       
+                                    new Contacto($cedula, $idTipoContacto, $descripcion, $contacto));                       
 
                 $personas[] = $per;
             }
@@ -94,7 +94,7 @@
                 $contacto = $persona['contacto'];
 
                 $per = new Persona($cedula, $nombre, $apellido, 
-                                    new Contacto($idTipoContacto, $contacto, $descripcion));                       
+                                    new Contacto($cedula, $idTipoContacto, $descripcion, $contacto));                        
 
                 $personas[] = $per;
             }

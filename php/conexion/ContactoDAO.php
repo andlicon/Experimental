@@ -28,7 +28,7 @@
                 $idTipo = $contacto['id_tipo'];
                 $info = $contacto['contacto'];
                 
-                $cont = new Contacto($cedula, $idTipo, $info);
+                $cont = new Contacto($cedula, $idTipo, null, $info);
 
                 $contactos[] = $cont;
             }
@@ -53,7 +53,7 @@
                 $idTipo = $contacto['id_tipo'];
                 $info = $contacto['contacto'];
                 
-                $cont = new Contacto($cedula, $idTipo, $info);
+                $cont = new Contacto($cedula, $idTipo, null, $info);
 
                 $contactos[] = $cont;
             }
