@@ -1,18 +1,17 @@
 <?php
-    include_once('../conexion/RepresentanteConsul.php');
-    include_once('../formulario/Alerta.php');
-    include_once('../general/crearCedula.php');
     include_once('../acciones/Actualizar.php');
+    include_once('../conexion/BaseDeDatos.php');
+    include_once('../conexion/ProfesorConsulta.php');
 
     if( isset($_POST['actualizar']) ) {
-        $pagina = "Location: personaView.php";
-        $objSerializar = "personas";
+        $pagina = "Location: profesorView.php";
+        $objSerializar = "profesores";
         
             try {
                 $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
-                $representanteConsul = new RepresentanteConsul($bd);
+                $profConsul = new ProfesorConsulta($bd);
 
-                $actualizador = new Actualizar($representanteConsul, $pagina, $objSerializar);
+                $actualizador = new Actualizar($profConsul, $pagina, $objSerializar);
                 $actualizador->actualizar();
             }
             catch(Exception $e) {   //De no conectarse a la bd

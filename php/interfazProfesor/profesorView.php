@@ -2,7 +2,7 @@
 <html lang="en" class="vista">
 
 <?php
-
+    include_once('accionBoton/actualizarProf.php');
 ?>
 
 <head>
@@ -51,9 +51,6 @@
                            clase
                         </th>
                         <th class="output__celda output__celda--header">
-                           Tipo contacto 
-                        </th>
-                        <th class="output__celda output__celda--header">
                            Contacto 
                         </th>
                     </tr>
@@ -68,18 +65,17 @@
                                 $profesores = unserialize($serialize);
                             
                                 for($i=0; $i<count($profesores); $i++) {
-                                    $profesores = $profesores[$i];
-                                    $cedula = $profesores->getCedula();
-                                    $nombre = $profesores->getNombre();
-                                    $apellido = $profesores->getApellido();
-                                    $contacto = $profesores->getContacto();
-                                    $idTipoCon = $contacto->getIdTipo();
-                                    $descripcionCon = $contacto->getDescripcion();
-                                    $contactoCon = $contacto->getContacto();
+                                    $profesor = $profesores[$i];
+                                    $cedula = $profesor->getCedula();
+                                    $nombre = $profesor->getNombre();
+                                    $apellido = $profesor->getApellido();
+                                    /*Clase informacion*/
+                                    $claseProf = $profesor->getClase();
+                                    $clase = $claseProf->getDescripcion();
 
                                     echo "  <tr class=\"output__renglon\">
                                                 <td class=\"output__celda\ output__celda--centrado\">
-                                                    <input type=\"checkbox\" name=\"check[]\" value=\"$cedula,$idTipoCon\" 
+                                                    <input type=\"checkbox\" name=\"check[]\" value=\"$cedula\" 
                                                             id=\"check$i\" class=\"output__check\">
                                                 </td>
                                                 <td class=\"output__celda\">
@@ -92,11 +88,12 @@
                                                     $apellido
                                                 </td>
                                                 <td class=\"output__celda\">
-                                                    $descripcionCon
+                                                    $clase
                                                 </td>
-                                                <td class=\"output__celda\">
-                                                    $contactoCon
-                                                </td>
+                                                <td>";
+                                                    include_once('../general/generarTablaContactos.php');
+                                                    generarTablaContactos($cedula);
+                                    echo        "</td>
                                             </tr>";
                                 }
                             }

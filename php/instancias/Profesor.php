@@ -4,7 +4,7 @@
     class Profesor extends Persona{
         private Clase $clase;
 
-        public function __construct($cedula, $nombre, $apellido, Contacto $contacto, Clase $clase) {
+        public function __construct($cedula, $nombre, $apellido, $contacto, Clase $clase) {
             parent::__construct($cedula, $nombre, $apellido, $contacto);
             $this->clase = $clase;
         }
