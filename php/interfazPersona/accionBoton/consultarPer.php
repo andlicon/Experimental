@@ -1,8 +1,6 @@
 <?php
-    include_once('../instancias/Representante.php');
-    include_once('../conexion/RepresentanteConsul.php');
+    include_once('../conexion/PersonaContactoConsulta.php');
     include_once('../acciones/Consultar.php');
-    include_once('../formulario/Alerta.php');
     include_once('../general/crearCedula.php');
     include_once('../general/comprobarInput.php');
 
@@ -20,9 +18,9 @@
 
         try {   //Extraer informacion de la base de datos
             $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
-            $representanteConsul = new RepresentanteConsul($bd);
+            $persoConsul = new PersonaContactoConsulta($bd);
 
-            $consultor = new Consultar($representanteConsul, $pagina, $objSerializar);
+            $consultor = new Consultar($persoConsul, $pagina, $objSerializar);
             $consultor->consultar(array($cedula));
         }
         catch(Exception $e) {  //No se ha podido conectar a la bd

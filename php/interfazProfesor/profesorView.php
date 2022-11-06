@@ -61,18 +61,18 @@
                 <tbody class="output__body">
                     <?php
                         include_once('../instancias/Persona.php');
-                        if( isset($_GET['personas']) ) {
-                            $serialize = $_GET['personas'];     //AHORA SE TIENE QUE PASAR POR HEADER PERSONA
+                        if( isset($_GET['profesores']) ) {
+                            $serialize = $_GET['profesores'];     //AHORA SE TIENE QUE PASAR POR HEADER PERSONA
                         
                             if($serialize) {
-                                $personas = unserialize($serialize);
+                                $profesores = unserialize($serialize);
                             
-                                for($i=0; $i<count($personas); $i++) {
-                                    $persona = $personas[$i];
-                                    $cedula = $persona->getCedula();
-                                    $nombre = $persona->getNombre();
-                                    $apellido = $persona->getApellido();
-                                    $contacto = $persona->getContacto();
+                                for($i=0; $i<count($profesores); $i++) {
+                                    $profesores = $profesores[$i];
+                                    $cedula = $profesores->getCedula();
+                                    $nombre = $profesores->getNombre();
+                                    $apellido = $profesores->getApellido();
+                                    $contacto = $profesores->getContacto();
                                     $idTipoCon = $contacto->getIdTipo();
                                     $descripcionCon = $contacto->getDescripcion();
                                     $contactoCon = $contacto->getContacto();

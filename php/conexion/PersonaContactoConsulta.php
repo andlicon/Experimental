@@ -13,7 +13,7 @@
 
         Todo esto se hace en base a la vista "v_representante_contacto" esta retorna todos los contactos, ya sea de tlf o de correo electornico
     */
-    class RepresentanteConsul implements IConsultor {
+    class PersonaContactoConsulta implements IConsultor {
         private BaseDeDatos $bd;
 
         public function __construct(BaseDeDatos $bd) {
@@ -35,7 +35,7 @@
         */
         public function getInstancia(array $cedula) {
             $consulta = "SELECT * 
-                        FROM v_representantes
+                        FROM v_personas
                         WHERE cedula=?";
             $registros = $this->bd->sql($consulta, $cedula);
 
@@ -43,24 +43,24 @@
                 throw new Exception('No existe el representante con dicha cedula');
             }
 
-            $representantes = [];
+            $personas = [];
             for($i=0; $i<count($registros); $i++) {
-                $representante = $registros[$i];
+                $persona = $registros[$i];
 
-                $cedula = $representante['cedula'];
-                $nombre = $representante['nombre'];
-                $apellido = $representante['apellido'];
-                $idTipoContacto = $representante['id_tipo'];
-                $descripcion = $representante['descripcion'];
-                $contacto = $representante['contacto'];
+                $cedula = $persona['cedula'];
+                $nombre = $persona['nombre'];
+                $apellido = $persona['apellido'];
+                $idTipoContacto = $persona['id_tipo'];
+                $descripcion = $persona['descripcion'];
+                $contacto = $persona['contacto'];
 
-                $rep = new Persona($cedula, $nombre, $apellido, 
+                $per = new Persona($cedula, $nombre, $apellido, 
                                     new Contacto($idTipoContacto, $contacto, $descripcion));                       
 
-                $representantes[] = $rep;
+                $personas[] = $per;
             }
 
-            return $representantes;
+            return $personas;
          }
 
         /*
@@ -75,31 +75,31 @@
         */
         public function getTodos() {
             $consulta = "SELECT * 
-                        FROM v_representantes";
+                        FROM v_personas";
             $registros = $this->bd->sql($consulta, null);
 
             if(empty($registros)) {
                 throw new Exception('No existe el representante con dicha cedula');
             }
 
-            $representantes = [];
+            $personas = [];
             for($i=0; $i<count($registros); $i++) {
-                $representante = $registros[$i];
+                $persona = $registros[$i];
 
-                $cedula = $representante['cedula'];
-                $nombre = $representante['nombre'];
-                $apellido = $representante['apellido'];
-                $idTipoContacto = $representante['id_tipo'];
-                $descripcion = $representante['descripcion'];
-                $contacto = $representante['contacto'];
+                $cedula = $persona['cedula'];
+                $nombre = $persona['nombre'];
+                $apellido = $persona['apellido'];
+                $idTipoContacto = $persona['id_tipo'];
+                $descripcion = $persona['descripcion'];
+                $contacto = $persona['contacto'];
 
-                $rep = new Persona($cedula, $nombre, $apellido, 
+                $per = new Persona($cedula, $nombre, $apellido, 
                                     new Contacto($idTipoContacto, $contacto, $descripcion));                       
 
-                $representantes[] = $rep;
+                $personas[] = $per;
             }
 
-            return $representantes;
+            return $personas;
          }
 
     }

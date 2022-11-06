@@ -11,8 +11,8 @@
 
         public function getInstancia(array $cedula) {
             $consulta = "SELECT * 
-                        FROM persona
-                        WHERE cedula=?";
+                        FROM    persona
+                        WHERE   cedula=?";
             $registros = $this->bd->sql($consulta, $cedula);
 
             if(empty($registros)) {
