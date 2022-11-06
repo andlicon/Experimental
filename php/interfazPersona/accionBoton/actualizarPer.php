@@ -5,7 +5,7 @@
     include_once('../acciones/Actualizar.php');
 
     if( isset($_POST['actualizar']) ) {
-        $pagina = "Location: RepresentanteView.php";
+        $pagina = "Location: personaView.php";
         $objSerializar = "personas";
         
             try {

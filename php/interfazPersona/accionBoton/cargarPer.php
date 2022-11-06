@@ -16,7 +16,7 @@
     FALTA ALGUN METODO PARA DESACER LOS CAMBIOS DE HABER OCURRIDO ALGUN ERRROR
 */
     if( isset($_POST['cargar']) ) {
-        $pagina = 'Location: RepresentanteView.php';
+        $pagina = 'Location: personaView.php';
 
         //Comprobando los inputs
         $nacionalidadInput = comprobarInput('nacionalidadInput', 'Se debe introducir una nacionalidad valida', $pagina);

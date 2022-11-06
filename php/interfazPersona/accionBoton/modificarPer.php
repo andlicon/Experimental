@@ -5,7 +5,7 @@
 
     if( isset($_POST['modificar']) ) {
 
-        $pagina = 'Location: RepresentanteView.php';
+        $pagina = 'Location: personaView.php';
         $objSerializar = "personas";
 
         $nacionalidadInput = comprobarInput('nacionalidadInput', 'Se debe introducir una nacionalidad valida', $pagina);
@@ -23,7 +23,7 @@
             $personaDAO = new PersonaDAO($bd);
             $contactoDAO = new ContactoDAO($bd);
             
-            $modificador = new ModificarPersona($personaDAO, $contactoDAO, $pagina, "representantes");
+            $modificador = new ModificarPersona($personaDAO, $contactoDAO, $pagina, "personas");
             
             $modificador->modificar(array(
                                         array($cedula),

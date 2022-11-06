@@ -7,7 +7,7 @@
         if( isset($_POST['check']) ) {
             $checks = $_POST['check'];
 
-            $pag = 'Location: RepresentanteView.php';
+            $pag = 'Location: personaView.php';
 
             try {   //Extraer informacion de la base de datos
                 $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');

@@ -10,7 +10,7 @@
         consulta única instancia para Representante
     */
     if( isset($_POST['consultar']) ) {
-        $pagina = "Location: RepresentanteView.php";
+        $pagina = "Location: personaView.php";
         $objSerializar = "personas";
         
         //Cedula introducida por el usuario

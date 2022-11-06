@@ -5,7 +5,7 @@
         private $apellido;
         private Contacto $contacto;
 
-        public function __construct($cedula, $nombre, $apellido, $contacto) {
+        public function __construct($cedula, $nombre, $apellido, Contacto $contacto) {
             $this->cedula = $cedula;
             $this->nombre = $nombre;
             $this->apellido = $apellido;
