@@ -12,7 +12,7 @@
 
         public function getInstancia(array $cedula) {
             $consulta = "SELECT * 
-                        FROM contacto
+                        FROM v_contacto
                         WHERE cedula=?";
             $registros = $this->bd->sql($consulta, $cedula);
 
@@ -26,9 +26,10 @@
 
                 $cedula = $contacto['cedula'];
                 $idTipo = $contacto['id_tipo'];
+                $descripcion = $contacto['descripcion'];
                 $info = $contacto['contacto'];
                 
-                $cont = new Contacto($cedula, $idTipo, null, $info);
+                $cont = new Contacto($cedula, $idTipo, $descripcion, $info);
 
                 $contactos[] = $cont;
             }
@@ -38,7 +39,7 @@
         
         public function getTodos() {
             $consulta = "SELECT * 
-                        FROM contacto";
+                        FROM v_contacto";
             $registros = $this->bd->sql($consulta, $cedula);
 
             if(empty($registros)) {
@@ -51,9 +52,10 @@
 
                 $cedula = $contacto['cedula'];
                 $idTipo = $contacto['id_tipo'];
+                $descripcion = $contacto['descripcion'];
                 $info = $contacto['contacto'];
                 
-                $cont = new Contacto($cedula, $idTipo, null, $info);
+                $cont = new Contacto($cedula, $idTipo, $descripcion, $info);
 
                 $contactos[] = $cont;
             }

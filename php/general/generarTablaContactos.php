@@ -12,10 +12,11 @@
             echo "<table>";
             for($i=0; $i<count($contactos); $i++) {
                 $contacto = $contactos[$i];
+                $descripcion = $contacto->getDescripcion();
                 $cont = $contacto->getContacto();
                 echo "<tr>
                         <td>
-                            $cont
+                            <span class=\"output__tipo-contacto\">$descripcion:</span> <span class=\"output__contacto\">$cont</span>
                         </td>
                      </tr>";
             }
