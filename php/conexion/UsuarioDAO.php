@@ -73,8 +73,16 @@
             return $usuarios;
         }
 
-        public function cargar($objeto) {
+        public function cargar($parametros) {
 
+        }
+
+        public function modificar($parametros) {
+
+        }
+
+        public function eliminar($parametros) {
+            
         }
     }
 ?>

@@ -135,9 +135,7 @@
             <div class="botones">
                 <h2 class="botones__titulo">Acciones</h2>
                 <button name="consultar" class="boton">consultar</button>
-                <button name="cargar" class="boton">cargar</button>
-                <button name="modificar" class="boton">modificar</button>
-                <button name="eliminar" class="boton">eliminar</button>
+                <button name="asignar" class="boton">Asignar clase</button>
                 <button name="actualizar" class="boton">actualizar</button>
             </div>
         </form>
