@@ -3,6 +3,7 @@
 
 <?php
     include_once('accionBoton/actualizarProf.php');
+    include_once('accionBoton/consultarProf.php');
 ?>
 
 <head>
