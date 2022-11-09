@@ -3,13 +3,11 @@
         private $cedula;
         private $nombre;
         private $apellido;
-        private $contacto;
 
-        public function __construct($cedula, $nombre, $apellido, $contacto) {
+        public function __construct($cedula, $nombre, $apellido) {
             $this->cedula = $cedula;
             $this->nombre = $nombre;
             $this->apellido = $apellido;
-            $this->contacto = $contacto;
         }
 
         public function getCedula() {
@@ -21,9 +19,6 @@
         public function getApellido() {
             return $this->apellido;
         }
-        public function getContacto() {
-            return $this->contacto;
-        }
         public function setCedula($cedula) {
             $this->cedula = $cedula;
         }
@@ -32,9 +27,6 @@
         }
         public function setApellido($apellido) {
             $this->apellido = $apellido;
-        }
-        public function setContacto($contacto) {
-            $this->contacto = $contacto;
         }
     }
 
