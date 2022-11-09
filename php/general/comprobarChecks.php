@@ -28,5 +28,8 @@
 
             return $checks;
         }
+        else {
+            throw new ExceptionSelect("No hay ningun elemento para seleccionar", $pagina);
+        }
     }
 ?>
