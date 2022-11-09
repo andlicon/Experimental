@@ -18,7 +18,7 @@
             try {
                 $resultado = $this->dao->getInstancia($parametros);
                 
-                $serialize = serialize($resultado);
+                $serialize = serialize(array ($resultado));
 
                 if( str_contains($this->pagina, "?") ) {
                     header($this->pagina.'&'.$this->objSerializar.'='.urlencode($serialize));
