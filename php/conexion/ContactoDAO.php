@@ -10,9 +10,36 @@
         }
 
 
-        public function getInstancia(array $cedula) {
+        public function getInstancia(array $id) {
             $consulta = "SELECT * 
-                        FROM v_contacto
+                        FROM contacto
+                        WHERE id=?";
+            $registros = $this->bd->sql($consulta, $cedula);
+
+            if(empty($registros)) {
+                throw new Exception('No existe el representante con dicha cedula');
+            }
+
+            $contactos = [];
+            for($i=0; $i<count($registros); $i++) {
+                $contacto = $registros[$i];
+
+                $id = $contacto['id'];
+                $cedula = $contacto['cedula'];
+                $idTipo = $contacto['id_tipo'];
+                $info = $contacto['contacto'];
+                
+                $cont = new Contacto($id, $cedula, $idTipo,  $info);
+
+                $contactos[] = $cont;
+            }
+            
+            return $contactos;
+        }
+
+        public function getInstanciaCedula(array $cedula) {
+            $consulta = "SELECT * 
+                        FROM contacto
                         WHERE cedula=?";
             $registros = $this->bd->sql($consulta, $cedula);
 
@@ -24,12 +51,12 @@
             for($i=0; $i<count($registros); $i++) {
                 $contacto = $registros[$i];
 
+                $id = $contacto['id'];
                 $cedula = $contacto['cedula'];
                 $idTipo = $contacto['id_tipo'];
-                $descripcion = $contacto['descripcion'];
                 $info = $contacto['contacto'];
                 
-                $cont = new Contacto($cedula, $idTipo, $descripcion, $info);
+                $cont = new Contacto($id, $cedula, $idTipo,  $info);
 
                 $contactos[] = $cont;
             }
@@ -39,7 +66,7 @@
         
         public function getTodos() {
             $consulta = "SELECT * 
-                        FROM v_contacto";
+                        FROM contacto";
             $registros = $this->bd->sql($consulta, $cedula);
 
             if(empty($registros)) {
@@ -50,12 +77,12 @@
             for($i=0; $i<count($registros); $i++) {
                 $contacto = $registros[$i];
 
+                $id = $contacto['id'];
                 $cedula = $contacto['cedula'];
                 $idTipo = $contacto['id_tipo'];
-                $descripcion = $contacto['descripcion'];
                 $info = $contacto['contacto'];
                 
-                $cont = new Contacto($cedula, $idTipo, $descripcion, $info);
+                $cont = new Contacto($id, $cedula, $idTipo,  $info);
 
                 $contactos[] = $cont;
             }

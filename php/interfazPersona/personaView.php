@@ -69,14 +69,13 @@
                                 $personas = unserialize($serialize);
                             
                                 for($i=0; $i<count($personas); $i++) {
+                                    /*Obteniendo los datos de la persona*/
                                     $persona = $personas[$i];
                                     $cedula = $persona->getCedula();
                                     $nombre = $persona->getNombre();
                                     $apellido = $persona->getApellido();
-                                    $contacto = $persona->getContacto();
-                                    $idTipoCon = $contacto->getIdTipo();
-                                    $descripcionCon = $contacto->getDescripcion();
-                                    $contactoCon = $contacto->getContacto();
+                                    /*Obteniendo los datos del contacto de la persona*/
+                                    
 
                                     echo "  <tr class=\"output__renglon\">
                                                 <td class=\"output__celda\ output__celda--centrado\">
