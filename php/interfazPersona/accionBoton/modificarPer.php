@@ -1,40 +1,34 @@
 <?php
-    include_once('../formulario/Mensaje.php');
-    include_once('../general/mandarMensaje.php');
-    include_once('../acciones/ModificarPersona.php');
+    include_once('../general/comprobarChecks.php');
+    include_once('../Excepciones/ExceptionSelect.php');
 
     if( isset($_POST['modificar']) ) {
 
-        $pagina = 'Location: personaView.php';
-        $objSerializar = "personas";
+        try {
+            $pagina = 'Location: personaView.php';
+            $objSerializar = "personas";
 
-        $nacionalidadInput = comprobarInput('nacionalidadInput', 'Se debe introducir una nacionalidad valida', $pagina);
-        $cedulaInput = comprobarInput('cedulaInput', 'Se debe introducir una cedula valida', $pagina);;
-        $cedula = crearCedula($nacionalidadInput, $cedulaInput);
-
-        $nombre = $_POST['nombreInput'];
-        $apellido = $_POST['apellidoInput'];
-        $correo = $_POST['correoInput'];
-        $telefono = $_POST['telefonoInput'];
-
-        try {   //Extraer informacion de la base de datos
-            $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
-
-            $personaDAO = new PersonaDAO($bd);
-            
-            
-            // $modificador = new ModificarPersona($personaDAO, $contactoDAO, $pagina, "personas");
-            
-            // $modificador->modificar(array(
-            //                             array($cedula),
-            //                             array($cedula, $nombre, $apellido),
-            //                             array($correo, 1),
-            //                             array($telefono, 2)
-            //                         ));
-            }
-            catch(Exception $e) {     //No se ha podido conectar a la bd o hubo un error al insertar
-                echo $e;
-            }
+            $cedulas = comprobarChecks(false, $pagina);
     
+            $nombre = $_POST['nombreInput'];
+            $apellido = $_POST['apellidoInput'];
+
+            $cedula = $cedulas[0];
+
+            if($nombre!="" || $apellido!="") {
+                $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
+                        
+                $personaDAO = new PersonaDAO($bd);
+    
+                $personaDAO->modificar(array($nombre, $apellido, $cedula));
+            }
+        }
+        catch(ExceptionSelect $e) {
+            echo $e->imprimirError();
+        }
+        catch(Exception $e) {
+            echo $e;
+        }
+
     }
 ?>
