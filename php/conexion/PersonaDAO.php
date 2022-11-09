@@ -26,7 +26,7 @@
                 $nombre = $renglon['nombre'];
                 $apellido = $renglon['apellido'];
                 
-                $persona = new Persona($cedula, $nombre, $apellido, null);
+                $persona = new Persona($cedula, $nombre, $apellido);
             }
 
             return $persona;
@@ -49,7 +49,7 @@
                 $nombre = $persona['nombre'];
                 $apellido = $persona['apellido'];
                 
-                $per= new Persona($cedula, $nombre, $apellido, null);
+                $per= new Persona($cedula, $nombre, $apellido);
 
                 $personas[] = $per;
             }
