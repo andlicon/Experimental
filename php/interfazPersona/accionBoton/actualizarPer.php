@@ -1,8 +1,6 @@
 <?php
     include_once('../conexion/BaseDeDatos.php');
     include_once('../conexion/PersonaDAO.php');
-    include_once('../formulario/Alerta.php');
-    include_once('../general/crearCedula.php');
     include_once('../acciones/Actualizar.php');
 
     if( isset($_POST['actualizar']) ) {

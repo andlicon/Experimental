@@ -52,9 +52,6 @@
                            Apellido
                         </th>
                         <th class="output__celda output__celda--header">
-                           Tipo contacto 
-                        </th>
-                        <th class="output__celda output__celda--header">
                            Contacto 
                         </th>
                     </tr>
@@ -74,9 +71,7 @@
                                     $cedula = $persona->getCedula();
                                     $nombre = $persona->getNombre();
                                     $apellido = $persona->getApellido();
-                                    /*Obteniendo los datos del contacto de la persona*/
                                     
-
                                     echo "  <tr class=\"output__renglon\">
                                                 <td class=\"output__celda\ output__celda--centrado\">
                                                     <input type=\"checkbox\" name=\"check[]\" value=\"$cedula\" 
@@ -91,15 +86,14 @@
                                                 <td class=\"output__celda\">
                                                     $apellido
                                                 </td>
-                                                <td class=\"output__celda\">
-                                                   
-                                                </td>
-                                                <td class=\"output__celda\">
-                                                    
-                                                </td>
+                                                <td class=\"output__celda\">";    
+                                                    include_once('../general/generarTablaContactos.php');
+                                                     generarTablaContactos($cedula);
+                                    echo       "</td>
                                             </tr>";
                                 }
-                            }
+                            }   //CONSULTAR POR EL TIPO CONTACTO
+                                //CONSULTAR POR EL CONTACTO
                         }
                     ?>
                 </tbody>

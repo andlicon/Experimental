@@ -1,9 +1,9 @@
 <?php 
-     include_once ('IDAO.php');
+     include_once ('Iconsultor.php');
      include_once('../conexion/BaseDeDatos.php');
      include_once ('../Instancias/Motivo.php');
 
-     class TipoContactoConsul implements IDAO {
+     class TipoContactoConsul implements IConsultor {
         private BaseDeDatos $bd;
 
         public function __construct(BaseDeDatos $bd) {
@@ -15,7 +15,7 @@
             $consulta = "SELECT * 
                         FROM  tipo_contacto
                         WHERE id=?";
-            $registros = $this->bd->sql($consulta, $cedula);
+            $registros = $this->bd->sql($consulta, $id);
 
             if(empty($registros)) {
                 throw new Exception('No existe tipo_contacto con dicho id');
@@ -33,10 +33,10 @@
                 $tipos[] = $tip;
             }
             
-            return $tipos;
+            return $tipos[0];
         }
         
-        public function getTodos(array $id) {
+        public function getTodos() {
             $consulta = "SELECT * 
                         FROM  tipo_contacto";
             $registros = $this->bd->sql($consulta, $cedula);

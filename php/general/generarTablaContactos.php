@@ -1,22 +1,29 @@
 <?php
     include_once('../conexion/BaseDeDatos.php');
     include_once('../conexion/ContactoDAO.php');
+    include_once('../conexion/TipoContactoConsul.php');
 
     function generarTablaContactos($cedula) {
         try {
             $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
             $contactoDAO = new ContactoDAO($bd);
+            $tipoContactoConsul = new TipoContactoConsul($bd);
 
-            $contactos = $contactoDAO->getInstancia(array ($cedula));
+            $contactos = $contactoDAO->getInstanciaCedula(array ($cedula));
 
             echo "<table>";
             for($i=0; $i<count($contactos); $i++) {
+                //Contacto
                 $contacto = $contactos[$i];
-                $descripcion = $contacto->getDescripcion();
                 $cont = $contacto->getContacto();
+                //Tipo Contacto
+                $idTipo = $contacto->getIdTipo();
+                $tipoContacto = $tipoContactoConsul->getInstancia(array($idTipo));
+                $tipoDescripcion = $tipoContacto->getDescripcion();
+
                 echo "<tr>
                         <td>
-                            <span class=\"output__tipo-contacto\">$descripcion:</span> <span class=\"output__contacto\">$cont</span>
+                            <span class=\"output__tipo-contacto\">$tipoDescripcion:</span> <span class=\"output__contacto\">$cont</span>
                         </td>
                      </tr>";
             }
