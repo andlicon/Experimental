@@ -21,16 +21,16 @@
             $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
 
             $personaDAO = new PersonaDAO($bd);
-            $contactoDAO = new ContactoDAO($bd);
             
-            $modificador = new ModificarPersona($personaDAO, $contactoDAO, $pagina, "personas");
             
-            $modificador->modificar(array(
-                                        array($cedula),
-                                        array($cedula, $nombre, $apellido),
-                                        array($correo, 1),
-                                        array($telefono, 2)
-                                    ));
+            // $modificador = new ModificarPersona($personaDAO, $contactoDAO, $pagina, "personas");
+            
+            // $modificador->modificar(array(
+            //                             array($cedula),
+            //                             array($cedula, $nombre, $apellido),
+            //                             array($correo, 1),
+            //                             array($telefono, 2)
+            //                         ));
             }
             catch(Exception $e) {     //No se ha podido conectar a la bd o hubo un error al insertar
                 echo $e;

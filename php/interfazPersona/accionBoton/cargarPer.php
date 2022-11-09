@@ -23,8 +23,6 @@
         $cedulaInput = comprobarInput('cedulaInput', 'Se debe introducir un numero de cedula valido', $pagina);
         $nombre = comprobarInput('nombreInput', 'Se debe introducir un nombre valido', $pagina);
         $apellido = comprobarInput('apellidoInput', 'Se debe introducir un apellido valido', $pagina);
-        $correo = comprobarInput('correoInput', 'Se debe introducir un correo valido', $pagina);
-        $telefono = $_POST['telefonoInput'];    //No debe ser comprobado ya que es opcional.
 
         $cedula = crearCedula($nacionalidadInput, $cedulaInput);    //se crea la cedula
 
@@ -32,7 +30,6 @@
             $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
                 //PERSONA
             $personaDAO = new PersonaDAO($bd);
-            $contactoDAO = new ContactoDAO($bd);
 
             $cargador = new CargarPersona($personaDAO, $contactoDAO);
             $cargador->cargar(array

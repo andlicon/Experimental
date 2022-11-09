@@ -117,15 +117,6 @@
                     <label for="apellidoInput" class="input__label">Apellido</label>
                     <input type="text" id="apellidoInput" name="apellidoInput" class="input__input input__input--texto">
                 </div>
-                <div class="input__grupo">
-                    <label for="correoInput" class="input__label">Correo</label>
-                    <input type="text" id="correoInput" name="correoInput" class="input__input input__input--texto">
-                </div>
-                <div class="input__grupo">
-                    <label for="telefonoInput" class="input__label">Telefono (opcional)</label>
-                    <input type="text" id="telefonoInput" name="telefonoInput" class="input__input input__input--texto">
-                </div>
-            </div>
             <!-- botones -->
             <div class="botones">
                 <h2 class="botones__titulo">Acciones</h2>
