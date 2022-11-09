@@ -88,12 +88,11 @@
                                                 </td>
                                                 <td class=\"output__celda\">";    
                                                     include_once('../general/generarTablaContactos.php');
-                                                     generarTablaContactos($cedula);
+                                                    generarTablaContactos($cedula);
                                     echo       "</td>
                                             </tr>";
                                 }
-                            }   //CONSULTAR POR EL TIPO CONTACTO
-                                //CONSULTAR POR EL CONTACTO
+                            } 
                         }
                     ?>
                 </tbody>
