@@ -79,7 +79,7 @@
 
                                     echo "  <tr class=\"output__renglon\">
                                                 <td class=\"output__celda\ output__celda--centrado\">
-                                                    <input type=\"checkbox\" name=\"check[]\" value=\"$cedula,$idTipoCon\" 
+                                                    <input type=\"checkbox\" name=\"check[]\" value=\"$cedula\" 
                                                             id=\"check$i\" class=\"output__check\">
                                                 </td>
                                                 <td class=\"output__celda\">
@@ -92,10 +92,10 @@
                                                     $apellido
                                                 </td>
                                                 <td class=\"output__celda\">
-                                                    $descripcionCon
+                                                   
                                                 </td>
                                                 <td class=\"output__celda\">
-                                                    $contactoCon
+                                                    
                                                 </td>
                                             </tr>";
                                 }
