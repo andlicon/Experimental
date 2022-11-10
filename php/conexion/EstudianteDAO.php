@@ -26,12 +26,11 @@
                 $nombre = $estudiante['nombre'];
                 $apellido = $estudiante['apellido'];
                 $fechaNacimiento = $estudiante['fecha_nacimiento'];
-                $cedulaRepresentante = $estudiante['cedula'];
+                $cedulaRepresentante = $estudiante['cedula_representante'];
                 $idClase = $estudiante['id_clase'];
-                $descripcionClase = $estudiante['descripcion'];
      
-                $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento, $cedulaRepresentante,
-                                      new Clase($idClase, $descripcionClase, null, null));
+                $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento, 
+                                        $cedulaRepresentante, $idClase);
                 $estudiantes[] = $est;
             }
  
@@ -40,7 +39,7 @@
 
         public function getInstanciaClase($parametros) {
             $consulta = "SELECT * 
-                        FROM v_estudiantes
+                        FROM estudiante
                         WHERE id_clase=?";
             $registros = $this->bd->sql($consulta, $parametros);
 
@@ -55,12 +54,11 @@
                 $nombre = $estudiante['nombre'];
                 $apellido = $estudiante['apellido'];
                 $fechaNacimiento = $estudiante['fecha_nacimiento'];
-                $cedulaRepresentante = $estudiante['cedula'];
+                $cedulaRepresentante = $estudiante['cedula_representante'];
                 $idClase = $estudiante['id_clase'];
-                $descripcionClase = $estudiante['descripcion'];
-        
-                $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento, $cedulaRepresentante,
-                                      new Clase($idClase, $descripcionClase, null, null));
+     
+                $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento, 
+                                        $cedulaRepresentante, $idClase);
                 $estudiantes[] = $est;
             }
              
@@ -69,8 +67,8 @@
 
         public function getInstanciaCedula($parametros) {
             $consulta = "SELECT * 
-                         FROM v_estudiantes
-                         WHERE cedula=?";
+                         FROM estudiante
+                         WHERE cedula_representante=?";
             $registros = $this->bd->sql($consulta, $parametros);
 
             if(empty($registros)) {
@@ -84,12 +82,11 @@
                 $nombre = $estudiante['nombre'];
                 $apellido = $estudiante['apellido'];
                 $fechaNacimiento = $estudiante['fecha_nacimiento'];
-                $cedulaRepresentante = $estudiante['cedula'];
+                $cedulaRepresentante = $estudiante['cedula_representante'];
                 $idClase = $estudiante['id_clase'];
-                $descripcionClase = $estudiante['descripcion'];
      
-                $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento, $cedulaRepresentante,
-                                      new Clase($idClase, $descripcionClase, null, null));
+                $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento, 
+                                        $cedulaRepresentante, $idClase);
                 $estudiantes[] = $est;
             }
  
@@ -98,7 +95,7 @@
         
         public function getTodos() {
             $consulta = "SELECT * 
-                        FROM v_estudiantes";
+                        FROM estudiante";
             $registros = $this->bd->sql($consulta, null);
 
             if(empty($registros)) {
@@ -112,12 +109,11 @@
                 $nombre = $estudiante['nombre'];
                 $apellido = $estudiante['apellido'];
                 $fechaNacimiento = $estudiante['fecha_nacimiento'];
-                $cedulaRepresentante = $estudiante['cedula'];
+                $cedulaRepresentante = $estudiante['cedula_representante'];
                 $idClase = $estudiante['id_clase'];
-                $descripcionClase = $estudiante['descripcion'];
      
-                $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento, $cedulaRepresentante, 
-                                      new Clase($idClase, $descripcionClase, null, null));
+                $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento, 
+                                        $cedulaRepresentante, $idClase);
                 $estudiantes[] = $est;
             }
  
