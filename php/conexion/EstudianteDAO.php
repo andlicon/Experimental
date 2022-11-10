@@ -9,11 +9,11 @@
             $this->bd = $bd;
         }
 
-        public function getInstancia(array $parametros) {
+        public function getInstancia(array $id) {
             $consulta = "SELECT * 
-                         FROM v_estudiantes
+                         FROM estudiante
                          WHERE id=?";
-            $registros = $this->bd->sql($consulta, $parametros);
+            $registros = $this->bd->sql($consulta, $id);
 
             if(empty($registros)) {
                 throw new Exception('No existe el representante con dicha cedula');
@@ -37,11 +37,11 @@
             return $estudiantes;
         }
 
-        public function getInstanciaClase($parametros) {
+        public function getInstanciaClase($idClase) {
             $consulta = "SELECT * 
                         FROM estudiante
                         WHERE id_clase=?";
-            $registros = $this->bd->sql($consulta, $parametros);
+            $registros = $this->bd->sql($consulta, $idClase);
 
             if(empty($registros)) {
                 throw new Exception('No hay estudiantes en el id_clase senalado');
@@ -65,11 +65,11 @@
             return $estudiantes;
         }
 
-        public function getInstanciaCedula($parametros) {
+        public function getInstanciaCedula($cedulaRep) {
             $consulta = "SELECT * 
                          FROM estudiante
                          WHERE cedula_representante=?";
-            $registros = $this->bd->sql($consulta, $parametros);
+            $registros = $this->bd->sql($consulta, $cedulaRep);
 
             if(empty($registros)) {
                 throw new Exception('No existe el representante con dicha cedula');
