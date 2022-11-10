@@ -1,22 +1,20 @@
 <?php
-    include_once('Clase.php');
-
     class Estudiante {
         private $id;
         private $nombre;
         private $apellido;
         private $fechaNacimiento;
         private $cedulaRepresentante;
-        private Clase $clase;
+        private $idClase;
 
         public function __construct($id, $nombre, $apellido, $fechaNacimiento, 
-                                    $cedulaRepresentante, $clase) {
+                                    $cedulaRepresentante, $idClase) {
             $this->id = $id;
             $this->nombre = $nombre;
             $this->apellido = $apellido;
             $this->fechaNacimiento = $fechaNacimiento;
             $this->cedulaRepresentante = $cedulaRepresentante;
-            $this->clase = $clase;
+            $this->idClase = $idClase;
         }
 
         public function getId() {
@@ -34,8 +32,8 @@
         public function getCedulaRepresentante() {
             return $this->cedulaRepresentante;
         }
-        public function getClase() {
-            return $this->clase;
+        public function getIdClase() {
+            return $this->idClase;
         }
         
         public function setId($id) {
@@ -53,8 +51,8 @@
         public function setCedulaRepresentante($cedulaRepresentante) {
             $this->cedulaRepresentante = $cedulaRepresentante;
         }
-        public function setClase($clase) {
-            $this->clase = $clase;
+        public function setClase($idClase) {
+            $this->idClase = $idClase;
         }
     }
 ?>
