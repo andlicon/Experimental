@@ -34,10 +34,10 @@
             $pagina->imprimirMensaje(null, Mensaje::EXITO, "Se ha cargado a la persona exitosamente.");
         }
         catch(InputException $e) {
-            echo $e->imprimirError();
+            $e->imprimirError();
         }
         catch(Exception $e) {  
-            alerta($e);
+            echo $e;
         }
     }
 ?>
