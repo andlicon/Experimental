@@ -25,7 +25,27 @@
             mandarMensaje($mensaje, $this->pagina);
         }
 
+        public function actualizarPagina($parametros) {
 
+            if($parametros!=null) {
+                $serialize = serialize($parametros);
+
+                if( str_contains($this->pagina, "?") ) {
+                    header($this->pagina.'&'.$this->objSerializar.'='.urlencode($serialize));
+                }
+                else {
+                    header($this->pagina.'?'.$this->objSerializar.'='.urlencode($serialize));
+                }
+
+                die();
+            }
+
+            header($this->pagina);
+        }
+
+        public function extenderPagina($pagina) {
+            $this->pagina = $this->pagina.$pagina;
+        }
         public function getPagina() {
             return $this->pagina;
         }
