@@ -10,8 +10,16 @@
 
             $cedulas = comprobarChecks(true, $pagina);
 
+            $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
             $contactoDAO = new ContactoDAO($bd);
             $personaDAO = new PersonaDAO($bd);
+
+            for($i=0; $i<count($cedulas); $i++) {
+                $cedula = $cedulas[$i];
+
+                $personaDAO->eliminar(array($cedula));
+                $contactoDAO->eliminarPorCedula(array($cedula));
+            }
         }
         catch(ExceptionSelect $e) {
             echo $e->imprimirError();

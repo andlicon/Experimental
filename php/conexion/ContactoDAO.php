@@ -121,5 +121,11 @@
             $this->bd->sql($delete, $parametros);
         }
 
+        public function eliminarPorCedula(array $cedula) {
+            $delete=   " DELETE FROM contacto
+                        WHERE cedula=?;";
+            $this->bd->sql($delete, $cedula);
+        }
+
     }
 ?>
