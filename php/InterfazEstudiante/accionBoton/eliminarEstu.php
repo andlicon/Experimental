@@ -1,31 +1,39 @@
 <?php
     include_once('../conexion/EstudianteDAO.php');
-    include_once('../acciones/EliminarEstudiante.php');
+    include_once('../general/Pagina.php');
+    include_once('../general/comprobarChecks.php');
 
     if( isset($_POST['eliminar']) ) {
-        if( isset($_POST['check']) ) {
-        
-            $checks = $_POST['check'];
+        $pagina = new Pagina(Pagina::ESTUDIANTE);
 
-            $pagina = "Location: estudianteView.php";
+        $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
 
-            try {   //Extraer informacion de la base de datos
-                $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
-                $estudianteDAO = new EstudianteDAO($bd);
+        try {
+            $idsEstudiante = comprobarChecks(true, $pagina);
+            $estudianteDAO = new EstudianteDAO($bd);
 
-                $eliminador = new EliminarEstudiante($estudianteDAO);
-
-                for($i=0; $i<count($checks); $i++) {
-                    $idEstudiante = $checks[$i];
-                    $eliminador->eliminar(array($idEstudiante));
-                }
-    
-                header($pagina);
+            for($i=0; $i<count($idsEstudiante); $i++) {
+                $id = $idsEstudiante[$i];
+                $estudianteDAO->eliminar(array($id));
+                $bd->guardarCambios();
             }
-            catch(Exception $mensaje) {  
-                alerta($mensaje);
+
+            $pagina->imprimirMensaje(null, Mensaje::EXITO, "Se ha eliminado exitosamente a los estudiantes.");
+        }
+        catch(ExceptionSelect $e) {
+            echo $e->imprimirError();
+        }
+        catch(PDOException $e) {
+            $codigo = $e->getCode();
+
+            if($codigo==23000) {
+                $bd->revertirCambios();
+                $pagina->imprimirMensaje(null, Mensaje::ERROR, "Existe alguna dependencia que impide eliminar a la persona.");
+
+                die();
             }
+            
+            echo $e;
         }
     }
-
 ?>

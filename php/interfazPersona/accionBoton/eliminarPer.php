@@ -2,6 +2,7 @@
     include_once('../conexion/ContactoDAO.php');
     include_once('../conexion/PersonaDAO.php');
     include_once('../general/Pagina.php');
+    include_once('../general/comprobarChecks.php');
 
     if( isset($_POST['eliminar']) ) {
 
@@ -20,6 +21,7 @@
 
                 $personaDAO->eliminar(array($cedula));
                 $contactoDAO->eliminarPorCedula(array($cedula));
+                $bd->guardarCambios();
             }
 
             $pagina->imprimirMensaje(null, Mensaje::EXITO, "Se ha eliminado exitosamente a la persona.");
