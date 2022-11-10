@@ -11,6 +11,7 @@
 
             $cedulas = comprobarChecks(false, $pagina);
     
+            //Inputs del usuario
             $nombre = $_POST['nombreInput'];
             $apellido = $_POST['apellidoInput'];
 
