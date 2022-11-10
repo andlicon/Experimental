@@ -4,6 +4,8 @@
         Es una representacion del exito o error de los procesos.
     */
     class Mensaje { 
+        const ERROR = false;
+        const EXITO = true;
 
         private $keyInput;      //Key input, permite relacionar el mensaje con un elemento HTML.
         private $motivo;        //true:exito    false:error

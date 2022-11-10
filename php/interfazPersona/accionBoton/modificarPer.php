@@ -1,12 +1,12 @@
 <?php
     include_once('../general/comprobarChecks.php');
     include_once('../Excepciones/ExceptionSelect.php');
+    include_once('../general/Pagina.php');
 
     if( isset($_POST['modificar']) ) {
 
         try {
-            $pagina = 'Location: personaView.php';
-            $objSerializar = "personas";
+            $pagina = new Pagina(Pagina::PERSONA);
 
             $cedulas = comprobarChecks(false, $pagina);
     

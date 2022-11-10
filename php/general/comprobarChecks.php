@@ -1,5 +1,6 @@
 <?php
     include_once('../Excepciones/ExceptionSelect.php');
+    include_once('../general/Pagina.php');
 
     /* 
         Comprueba los checks seleccionados por el usuario
@@ -12,7 +13,7 @@
 
         @return arreglo de Value asignados a los checks en su etiqueta HTML
     */
-    function comprobarChecks(bool $sonVarios, $pagina) {
+    function comprobarChecks(bool $sonVarios, Pagina $pagina) {
         if( isset($_POST['check']) ) {
             $checks = $_POST['check'];
             $cantidad = count($checks);
