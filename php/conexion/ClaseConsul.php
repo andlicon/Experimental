@@ -12,7 +12,7 @@
             $consulta = "SELECT * 
                         FROM clase
                         WHERE id=?";
-            $registros = $this->bd->sql($consulta, $cedula);
+            $registros = $this->bd->sql($consulta, $id);
 
             if(empty($registros)) {
                 throw new Exception('No hay clases registradas en la base de dato.');

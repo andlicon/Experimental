@@ -63,6 +63,8 @@
                 <tbody class="output__body">
                     <?php
                         include_once('../instancias/Estudiante.php');
+                        include_once('getNombreClase.php');
+
                         if( isset($_GET['estudiantes']) ) {
                             $serialize = $_GET['estudiantes'];
                         
@@ -72,13 +74,15 @@
                                 for($i=0; $i<count($estudiantes); $i++) {
                                     $estudiante = $estudiantes[$i];
                                     
+                                    //Informacion Estudiante
                                     $idEstudiante = $estudiante->getId();
                                     $nombre = $estudiante->getNombre();
                                     $apellido = $estudiante->getApellido();
                                     $fechaNacimiento = $estudiante->getFechaNacimiento();
-                                    $clase = $estudiante->getClase();
-                                    $claseDesc = $clase->getDescripcion();
+                                    $idClase = $estudiante->getIdClase();
                                     $cedulaRepresentante = $estudiante->getCedulaRepresentante();
+                                    //Informacion clase
+                                    $nombreClase = getNombreClase($idClase);
                                 
                                     echo "  <tr class=\"output__renglon\">
                                                 <td class=\"output__celda output__celda--centrado\">
@@ -94,7 +98,7 @@
                                                     $fechaNacimiento
                                                 </td>
                                                 <td class=\"output__celda\">
-                                                    $claseDesc
+                                                    $nombreClase
                                                 </td>
                                                 <td class=\"output__celda\">
                                                     $cedulaRepresentante
