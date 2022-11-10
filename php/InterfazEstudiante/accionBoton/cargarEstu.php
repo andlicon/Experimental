@@ -1,11 +1,8 @@
 <?php
-    include_once('../acciones/CargarEstudiante.php');
     //Clases  de acceso a datos
     include_once('../conexion/PersonaDAO.php');
     include_once('../conexion/ContactoDAO.php');
-    include_once('../conexion/RepresentanteConsul.php');
     //Funciones
-    include_once('../formulario/Alerta.php');
     include_once('../general/comprobarInput.php');
     include_once('../general/mandarMensaje.php');
     include_once('../general/formatoFecha.php');

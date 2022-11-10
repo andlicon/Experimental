@@ -1,7 +1,6 @@
 <?php
     include_once('../conexion/EstudianteDAO.php');
     include_once('../acciones/Consultar.php');
-    include_once('../formulario/Alerta.php');
     include_once('../general/comprobarInput.php');
     include_once('../general/crearCedula.php');
 
