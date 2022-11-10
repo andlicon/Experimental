@@ -1,7 +1,6 @@
 <?php
     //Clases  de acceso a datos
-    include_once('../conexion/PersonaDAO.php');
-    include_once('../conexion/ContactoDAO.php');
+    include_once('../conexion/EstudianteDAO.php');
     //Funciones
     include_once('../general/comprobarInput.php');
     include_once('../general/mandarMensaje.php');
@@ -11,7 +10,7 @@
     FALTA ALGUN METODO PARA DESACER LOS CAMBIOS DE HABER OCURRIDO ALGUN ERRROR
 */
     if( isset($_POST['cargar']) ) {
-        $pagina = "Location: estudianteView.php";
+        $pagina = new Pagina(Pagina::ESTUDIANTE);
 
         //Comprobando los inputs
         $nombre = comprobarInput('nombreInput', $pagina);
@@ -29,8 +28,8 @@
             $estudianteDAO = new EstudianteDAO($bd);
             $estudianteDAO->cargar(array($nombre, $apellido, $fecha, $claseInput, $cedula));
 
-            $mensaje = new Mensaje(null, true, 'se ha cargado exitosamente al estudiante');
-            mandarMensaje($mensaje, $pagina);
+            $bd->guardarCambios();
+            $pagina->imprimirMensaje(null, Mensaje::EXITO, "Se ha cargado al estudiante exitosamente.");
         }
         catch(Exception $e) {  
             alerta($e);

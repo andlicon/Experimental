@@ -17,7 +17,7 @@
                 $this->objSerializar = "personas";
             }
             if($pagina==self::ESTUDIANTE) {
-                $pagina = "Location: estudianteView.php";
+                $this->pagina = "Location: estudianteView.php";
                 $this->objSerializar = "estudiantes";
             }
             else {
