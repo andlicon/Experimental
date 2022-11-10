@@ -3,7 +3,6 @@
     include_once('../conexion/PersonaDAO.php');
     include_once('../conexion/ContactoDAO.php');
     //Funciones
-    include_once('../formulario/Alerta.php');
     include_once('../general/crearCedula.php');
     include_once('../general/comprobarInput.php');
     include_once('../excepciones/InputException.php');
