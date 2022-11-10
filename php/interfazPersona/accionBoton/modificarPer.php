@@ -1,7 +1,7 @@
 <?php
     include_once('../general/comprobarChecks.php');
-    include_once('../Excepciones/ExceptionSelect.php');
     include_once('../general/Pagina.php');
+    include_once('../Excepciones/ExceptionSelect.php');
     include_once('../formulario/Mensaje.php');
 
     if( isset($_POST['modificar']) ) {
