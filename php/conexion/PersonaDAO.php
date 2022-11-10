@@ -19,17 +19,18 @@
                 throw new Exception('No existe el representante con dicha cedula');
             }
 
-            $persona = null;
+            $personas = [];
             if(!empty($registros)) {
                 $renglon = $registros[0];
                 $cedula = $renglon['cedula'];
                 $nombre = $renglon['nombre'];
                 $apellido = $renglon['apellido'];
                 
-                $persona = new Persona($cedula, $nombre, $apellido);
+                $per= new Persona($cedula, $nombre, $apellido);
+                $personas[] = $per;
             }
 
-            return $persona;
+            return $personas;
         }
         
         public function getTodos() {
