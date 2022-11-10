@@ -5,12 +5,13 @@
 
     if( isset($_POST['eliminar']) ) {
 
+        $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
+
         try {
             $pagina = new Pagina(Pagina::PERSONA);
 
             $cedulas = comprobarChecks(true, $pagina);
 
-            $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
             $contactoDAO = new ContactoDAO($bd);
             $personaDAO = new PersonaDAO($bd);
 
@@ -30,6 +31,7 @@
             $codigo = $e->getCode();
 
             if($codigo==23000) {
+                $bd->revertirCambios();
                 $pagina->imprimirMensaje(null, Mensaje::ERROR, "Existe alguna dependencia que impide eliminar a la persona.");
 
                 die();

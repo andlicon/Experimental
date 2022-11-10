@@ -64,5 +64,17 @@
 
         }
 
+        public function guardarCambios() {
+            $sql = "COMMIT;";
+            $commit = $this->conexion->prepare($sql);
+            $commit->execute();
+        }
+
+        public function revertirCambios() {
+            $sql = "COMMIT;";
+            $commit = $this->conexion->prepare($sql);
+            $commit->execute();
+        }
+
     }
 ?>

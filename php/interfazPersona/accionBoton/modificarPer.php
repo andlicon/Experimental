@@ -19,11 +19,11 @@
 
             if($nombre!="" || $apellido!="") {
                 $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
-                        
                 $personaDAO = new PersonaDAO($bd);
     
                 $personaDAO->modificar(array($nombre, $apellido, $cedula));
 
+                $bd->guardarCambios();
                 $pagina->imprimirMensaje(null, Mensaje::EXITO, "Se ha modificado a la persona exitosamente.");
             }
             else {
