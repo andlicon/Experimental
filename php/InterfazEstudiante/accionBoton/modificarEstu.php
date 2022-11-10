@@ -23,6 +23,9 @@
             $cedulaNumInput = $_POST['cedulaInput'];
             $cedulaInput = $cedulaNumInput=="" ? "" : crearCedula($nacionalidadInput, $cedulaNumInput);
 
+            //Crearia instancia del obj.
+            
+
             $estudianteDAO = new EstudianteDAO($bd);
 
             //Comprobando que exista algun cambio comparado con la bd.
