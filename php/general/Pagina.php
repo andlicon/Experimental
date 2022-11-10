@@ -5,6 +5,7 @@
     class Pagina {
         /*CONSTANTES*/
         const PERSONA = 1;
+        const ESTUDIANTE = 2;
 
         /*ATRIBUTOS*/
         private $pagina;
@@ -14,6 +15,10 @@
             if($pagina==self::PERSONA) {
                 $this->pagina = 'Location: personaView.php';
                 $this->objSerializar = "personas";
+            }
+            if($pagina==self::ESTUDIANTE) {
+                $pagina = "Location: estudianteView.php";
+                $this->objSerializar = "estudiantes";
             }
             else {
                 throw new Exception("No se introdujo ninguna pagina valida.");
