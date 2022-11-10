@@ -22,6 +22,9 @@
     
                 $personaDAO->modificar(array($nombre, $apellido, $cedula));
             }
+            else {
+                $pagina->imprimirMensaje(null, Mensaje::ERROR, "Para modificar se debe introducir al menos 1 dato");
+            }
         }
         catch(ExceptionSelect $e) {
             echo $e->imprimirError();
