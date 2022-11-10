@@ -1,14 +1,11 @@
 <?php
-    include_once('../formulario/Mensaje.php');
-    include_once('mandarMensaje.php');
+    include_once('../excepciones/InputException.php');
 
-    function comprobarInput($keyInput, $mensaje, $pagina) {
+    function comprobarInput($keyInput, Pagina $pagina) {
         $input = $_POST[$keyInput];
 
         if(!$input || $input=="") {
-            //Mandando error a la pagina
-            $alerta = new Mensaje($keyInput, false, $mensaje);
-            mandarMensaje($alerta, $pagina);
+            throw new InputException("Se debe introducir un $keyInput valido", $pagina);
         }
 
         return $input;

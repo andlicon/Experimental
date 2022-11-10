@@ -1,5 +1,5 @@
 <?php
-    include_once('../Excepciones/ExceptionSelect.php');
+    include_once('../Excepciones/SelectException.php');
     include_once('../general/Pagina.php');
 
     /* 
@@ -19,18 +19,18 @@
             $cantidad = count($checks);
 
             if($cantidad==0) {
-                throw new ExceptionSelect("Se debe elegir al menos 1 item.", $pagina);
+                throw new SelectException("Se debe elegir al menos 1 item.", $pagina);
             }
             else if(!$sonVarios) {
                 if($cantidad>1) {
-                    throw new ExceptionSelect("Se debe seleccionar un unico item.", $pagina);
+                    throw new SelectException("Se debe seleccionar un unico item.", $pagina);
                 }
             }
 
             return $checks;
         }
         else {
-            throw new ExceptionSelect("No hay ningun elemento para seleccionar", $pagina);
+            throw new SelectException("No hay ningun elemento para seleccionar", $pagina);
         }
     }
 ?>

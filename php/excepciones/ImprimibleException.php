@@ -1,11 +1,11 @@
 <?php
     include_once('../general/Pagina.php');
 
-    class ExceptionSelect extends Exception {
+    abstract class ImprimibleException extends Exception {
         private Pagina $pagina;
 
-        public function __construct($message, Pagina $pagina, $code = 0, Exception $previous = null) {
-            parent::__construct($message, $code, $previous);
+        public function __construct(Pagina $pagina, $mensaje, $code = 0, Exception $previous = null) {
+            parent::__construct($mensaje, $code, $previous);
 
             $this->pagina = $pagina;
         }
