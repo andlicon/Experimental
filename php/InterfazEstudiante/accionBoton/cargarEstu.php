@@ -14,12 +14,12 @@
         $pagina = "Location: estudianteView.php";
 
         //Comprobando los inputs
-        $nombre = comprobarInput('nombreInput', 'Se debe introducir un nombre valido', $pagina);
-        $apellido = comprobarInput('apellidoInput', 'Se debe introducir un apellido valido', $pagina);
-        $fecha = comprobarInput('fechaInput', 'Se debe introducir una fecha valida', $pagina);
-        $claseInput = comprobarInput('claseInput', 'Se debe introducir una clase valida', $pagina);
-        $nacionalidadInput = comprobarInput('nacionalidadInput', 'Se debe introducir una nacionalidad valida', $pagina);
-        $cedulaInput = comprobarInput('cedulaInput', 'Se debe introducir un numero de cedula valido', $pagina);
+        $nombre = comprobarInput('nombreInput', $pagina);
+        $apellido = comprobarInput('apellidoInput', $pagina);
+        $fecha = comprobarInput('fechaInput', $pagina);
+        $claseInput = comprobarInput('claseInput', $pagina);
+        $nacionalidadInput = comprobarInput('nacionalidadInput', $pagina);
+        $cedulaInput = comprobarInput('cedulaInput', $pagina);
 
         $cedula = crearCedula($nacionalidadInput, $cedulaInput);
 
