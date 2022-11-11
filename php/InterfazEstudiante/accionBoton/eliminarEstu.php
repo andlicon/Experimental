@@ -6,6 +6,9 @@
     if( isset($_POST['eliminar']) ) {
         $pagina = new Pagina(Pagina::ESTUDIANTE);
 
+        /*
+            ! esto deberia estar dentro de un try, o buscar una mejor forma de hacerlo.
+        */
         $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
 
         try {
