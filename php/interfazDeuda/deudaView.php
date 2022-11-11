@@ -130,7 +130,7 @@
                     <tr>
                         <td colspan="7"></td>
                         <td>
-                            <?php echo$deudaTotal ?>
+                            <?php echo"Deuda total: $deudaTotal"?>
                         </td>
                     </tr>
                 </tfoot>

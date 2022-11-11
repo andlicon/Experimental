@@ -12,7 +12,7 @@
 
         public function getInstancia(array $id) {
             $consulta = "SELECT * 
-                        FROM v_deuda
+                        FROM deuda
                         WHERE id=?";
             $registros = $this->bd->sql($consulta, $id);
 
@@ -28,14 +28,12 @@
                 $cedula = $deuda['cedula_representante'];
                 $fecha = $deuda['fecha'];
                 $idMotivo = $deuda['id_motivo'];
-                $descripMotivo = $deuda['motivo_descripcion'];
-                $descripDeuda = $deuda['deuda_descripcion'];
+                $descripcion = $deuda['escripcion'];
                 $montoInicial = $deuda['monto_inicial'];
                 $montoEstado = $deuda['monto_estado'];
                 $deuda = $deuda['deuda'];
                 
-                $motivo = new Motivo($idMotivo, $descripMotivo);
-                $deb= new Deuda($id, $cedula, $motivo, $descripDeuda, 
+                $deb= new Deuda($id, $cedula, $idMotivo, $descripcion, 
                                 $fecha, $montoInicial, $montoEstado, $deuda);
                 $deudas[] = $deb;
             }
@@ -45,7 +43,7 @@
 
         public function getInstanciaCedula($cedula) {
             $consulta = "SELECT * 
-                        FROM v_deuda
+                        FROM deuda
                         WHERE cedula_representante=?";
             $registros = $this->bd->sql($consulta, $cedula);
 
@@ -61,14 +59,12 @@
                 $cedula = $deuda['cedula_representante'];
                 $fecha = $deuda['fecha'];
                 $idMotivo = $deuda['id_motivo'];
-                $descripMotivo = $deuda['motivo_descripcion'];
-                $descripDeuda = $deuda['deuda_descripcion'];
+                $descripcion = $deuda['escripcion'];
                 $montoInicial = $deuda['monto_inicial'];
                 $montoEstado = $deuda['monto_estado'];
                 $deuda = $deuda['deuda'];
                 
-                $motivo = new Motivo($idMotivo, $descripMotivo);
-                $deb= new Deuda($id, $cedula, $motivo, $descripDeuda, 
+                $deb= new Deuda($id, $cedula, $idMotivo, $descripcion, 
                                 $fecha, $montoInicial, $montoEstado, $deuda);
                 $deudas[] = $deb;
             }
@@ -78,7 +74,7 @@
         
         public function getTodos() {
             $consulta = "SELECT * 
-                        FROM v_deuda";
+                        FROM deuda";
             $registros = $this->bd->sql($consulta, $cedula);
 
             if(empty($registros)) {
@@ -91,14 +87,15 @@
 
                 $id = $deuda['id'];
                 $cedula = $deuda['cedula_representante'];
-                $idMotivo = $deuda['id_motivo'];
-                $descripMotivo = $deuda['descripcion'];
                 $fecha = $deuda['fecha'];
-                $debe = $deuda['debe'];
+                $idMotivo = $deuda['id_motivo'];
+                $descripcion = $deuda['escripcion'];
+                $montoInicial = $deuda['monto_inicial'];
+                $montoEstado = $deuda['monto_estado'];
+                $deuda = $deuda['deuda'];
                 
-                $motivo = new Motivo($idMotivo, $descripMotivo);
-                $deb= new Deuda($id, $cedula, $motivo, $fecha, $debe);
-
+                $deb= new Deuda($id, $cedula, $idMotivo, $descripcion, 
+                                $fecha, $montoInicial, $montoEstado, $deuda);
                 $deudas[] = $deb;
             }
             
@@ -124,8 +121,7 @@
                 $montoEstado = $deuda['monto_estado'];
                 $deuda = $deuda['deuda'];
                 
-                $motivo = new Motivo(null, null);
-                $deb= new Deuda(null, $cedula, $motivo, null, 
+                $deb= new Deuda(null, $cedula, null, null, 
                                 null, $montoInicial, $montoEstado, $deuda);
 
                 $deudas[] = $deb;
