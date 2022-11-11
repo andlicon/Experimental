@@ -151,8 +151,8 @@
                     <label for="motivoInput" class="input__label">Motivo</label>
                     <select class="input__select" id="motivoInput" name="motivoInput">
                         <?php 
-                            include_once('generarMotivo.php');
-                            generarMotivo();
+                            include_once('optionMotivo.php');
+                            optionMotivo();
                         ?>
                     </select>
                 </div>

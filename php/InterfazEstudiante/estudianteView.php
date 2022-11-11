@@ -117,8 +117,8 @@
                     <label for="claseInput" class="input__label">Clase</label>
                     <select class="input__select" id="claseInput" name="claseInput">
                         <?php 
-                            include_once('generarClases.php');
-                            generarClases();
+                            include_once('optionClases.php');
+                            optionClases();
                         ?>
                     </select>
                 </div>
