@@ -12,17 +12,17 @@
     if( isset($_POST['cargar']) ) {
         $pagina = new Pagina(Pagina::ESTUDIANTE);
 
-        //Comprobando los inputs
-        $nombre = comprobarInput('nombreInput', $pagina);
-        $apellido = comprobarInput('apellidoInput', $pagina);
-        $fecha = comprobarInput('fechaInput', $pagina);
-        $claseInput = comprobarInput('claseInput', $pagina);
-        $nacionalidadInput = comprobarInput('nacionalidadInput', $pagina);
-        $cedulaInput = comprobarInput('cedulaInput', $pagina);
-
-        $cedula = crearCedula($nacionalidadInput, $cedulaInput);
-
         try { 
+            //Comprobando los inputs
+            $nombre = comprobarInput('nombreInput', $pagina);
+            $apellido = comprobarInput('apellidoInput', $pagina);
+            $fecha = comprobarInput('fechaInput', $pagina);
+            $claseInput = comprobarInput('claseInput', $pagina);
+            $nacionalidadInput = comprobarInput('nacionalidadInput', $pagina);
+            $cedulaInput = comprobarInput('cedulaInput', $pagina);
+
+            $cedula = crearCedula($nacionalidadInput, $cedulaInput);
+
             $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
                 //PERSONA
             $estudianteDAO = new EstudianteDAO($bd);
@@ -30,6 +30,9 @@
 
             $bd->guardarCambios();
             $pagina->imprimirMensaje(null, Mensaje::EXITO, "Se ha cargado al estudiante exitosamente.");
+        }
+        catch(InputException $e) {
+            $e->imprimirError();
         }
         catch(Exception $e) {  
             alerta($e);
