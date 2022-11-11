@@ -1,28 +1,42 @@
 <?php
     include_once('../conexion/DeudaDAO.php');
 
+    include_once('../general/Pagina.php');
+    include_once('../general/comprobarChecks.php');
+
     if( isset($_POST['eliminar']) ) {
-        if( isset($_POST['check']) ) {
-            $checks = $_POST['check'];
+        $pagina = new Pagina(Pagina::DEUDA);
 
-            $pag = 'Location: DeudaView.php';
+        $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
 
-            try {   //Extraer informacion de la base de datos
-                $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
-                $deudaDAO = new DeudaDAO($bd);
+        try {
+            $deudaDAO = new DeudaDAO($bd);
 
-                for($i=0; $i<count($checks); $i++) {
-                    $idDeuda = $checks[$i];
+            $idsDeudas = comprobarChecks(true, $pagina);
 
-                    $deudaDAO->eliminar(array($idDeuda));
-                }
-    
-                header($pag);
+            for($i=0; $i<count($idsDeudas); $i++) {
+                $idDeuda = $idsDeudas[$i];
+
+                $deudaDAO->eliminar(array($idDeuda));
+                $bd->guardarCambios();
             }
-            catch(Exception $mensaje) {  
-                alerta($mensaje);
+
+            $pagina->imprimirMensaje(null, Mensaje::EXITO, "Se ha eliminado exitosamente las deudas.");
+        }
+        catch(PDOException $e) {
+            $codigo = $e->getCode();
+
+            if($codigo==23000) {
+                $bd->revertirCambios();
+                $pagina->imprimirMensaje(null, Mensaje::ERROR, "Existe alguna dependencia que impide eliminar a la deuda.");
+
+                die();
             }
+            
+            echo $e;
+        }
+        catch(Exception $e) {  
+            echo($e);
         }
     }
-
 ?>

@@ -6,51 +6,59 @@
     include_once('../general/comprobarInput.php');
 
     if( isset($_POST['modificar']) ) {
-        if( isset($_POST['check']) ) {
-            $pagina = "Location: deudaView.php";
-            $objSerializar = "deudas";
+        $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
+        $pagina = new Pagina(Pagina::DEUDA);
 
-            $checks = $_POST['check'];
+        try {
+            $idsDeudas = comprobarChecks(false, $pagina);
 
-            if(count($checks)==1) {
-                $nacionalidadInput = $_POST['nacionalidadInput'];
-                $cedulaNumInput = $_POST['cedulaInput'];
-                $cedulaInput = $cedulaNumInput=="" ? "" : crearCedula($nacionalidadInput, $cedulaNumInput);
-                $idMotivoInput = $_POST['motivoInput'];
-                $descripcionInput = $_POST['descripcionInput'];
-                $fechaInput = $_POST['fechaInput'];
-                $montoInput = $_POST['montoInput'];
+            $deudaDAO = new DeudaDAO($bd);
 
-                try {   //Extraer informacion de la base de datos
-                    $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
-                    $deudaDAO = new DeudaDAO($bd);
+            //INPUTS
+            $nacionalidadInput = $_POST['nacionalidadInput'];
+            $cedulaNumInput = $_POST['cedulaInput'];
+            $cedulaInput = $cedulaNumInput=="" ? "" : crearCedula($nacionalidadInput, $cedulaNumInput);
+            $idMotivoInput = $_POST['motivoInput'];
+            $descripcionInput = $_POST['descripcionInput'];
+            $fechaInput = $_POST['fechaInput'];
+            $montoInput = $_POST['montoInput'];
 
-                    for($i=0; $i<count($checks); $i++) {
-                        $idDeuda = $checks[$i];
-                        $deudas = $deudaDAO->getInstancia(array ($idDeuda));
-                        $deuda = $deudas[0];
+            for($i=0; $i<count($idsDeudas); $i++) {
+                $idDeuda = $idsDeudas[$i];
+                $deudas = $deudaDAO->getInstancia(array($idDeuda));
+                $deuda = $deudas[0];
 
-                        $cedula = $cedulaInput=="" ? $deuda->getCedula() : $cedulaInput;
-                        $idMotivo = $idMotivoInput=="" ? $deuda->getMotivo()->getId() : $idMotivoInput;
-                        $descripcion = $descripcionInput=="" ? $deuda->getDescripcion() : $descripcionInput;
-                        $fecha = $fechaInput=="" ? $deuda->getFecha() : $fechaInput;
-                        $monto = $montoInput=="" ? $deuda->getMontoInicial() : $montoInicial;
+                $cedula = $cedulaInput=="" ? $deuda->getCedula() : $cedulaInput;
+                $idMotivo = $idMotivoInput=="" ? $deuda->getIdMotivo() : $idMotivoInput;
+                $descripcion = $descripcionInput=="" ? $deuda->getDescripcion() : $descripcionInput;
+                $fecha = $fechaInput=="" ? $deuda->getFecha() : $fechaInput;
+                $monto = $montoInput=="" ? $deuda->getMontoInicial() : $montoInicial;
 
-                        $deudaDAO->modificar( array($cedula, $idMotivo, $fecha, 
-                                                    $descripcion, $monto, $idDeuda));
-                    }
-                
-                    header($pagina);
-                }
-                catch(Exception $mensaje) {  
-                    alerta($mensaje);
-                }
+                $deudaDAO->modificar( array($cedula, $idMotivo, $fecha, 
+                                            $descripcion, $monto, $idDeuda));
+
+                $bd->guardarCambios();
             }
-            else {
-                $mensaje = new Mensaje(null, false, "se debe elegir 1 solo representante para modificar");
-                mandarMenasje($mensaje, $pagina);
+
+            $pagina->imprimirMensaje(null, Mensaje::EXITO, "La deuda fue modificada con exito.");
+        }
+        catch(ExceptionSelect $e) {
+            echo $e->imprimirError();
+        }
+        catch(PDOException $e) {
+            $codigo = $e->getCode();
+
+            if($codigo==23000) {
+                $bd->revertirCambios();
+                $pagina->imprimirMensaje(null, Mensaje::ERROR, "Existe alguna dependencia que impide eliminar a la persona.");
+
+                die();
             }
+            
+            echo $e;
+        }
+        catch(Exception $e) {
+            echo $e;
         }
     }
-
 ?>

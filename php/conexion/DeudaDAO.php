@@ -28,7 +28,7 @@
                 $cedula = $deuda['cedula_representante'];
                 $fecha = $deuda['fecha'];
                 $idMotivo = $deuda['id_motivo'];
-                $descripcion = $deuda['escripcion'];
+                $descripcion = $deuda['descripcion'];
                 $montoInicial = $deuda['monto_inicial'];
                 $montoEstado = $deuda['monto_estado'];
                 $deuda = $deuda['deuda'];
@@ -59,7 +59,7 @@
                 $cedula = $deuda['cedula_representante'];
                 $fecha = $deuda['fecha'];
                 $idMotivo = $deuda['id_motivo'];
-                $descripcion = $deuda['escripcion'];
+                $descripcion = $deuda['descripcion'];
                 $montoInicial = $deuda['monto_inicial'];
                 $montoEstado = $deuda['monto_estado'];
                 $deuda = $deuda['deuda'];
@@ -89,7 +89,7 @@
                 $cedula = $deuda['cedula_representante'];
                 $fecha = $deuda['fecha'];
                 $idMotivo = $deuda['id_motivo'];
-                $descripcion = $deuda['escripcion'];
+                $descripcion = $deuda['descripcion'];
                 $montoInicial = $deuda['monto_inicial'];
                 $montoEstado = $deuda['monto_estado'];
                 $deuda = $deuda['deuda'];
