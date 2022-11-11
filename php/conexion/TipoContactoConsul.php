@@ -33,7 +33,7 @@
                 $tipos[] = $tip;
             }
             
-            return $tipos[0];
+            return $tipos;
         }
         
         public function getTodos() {

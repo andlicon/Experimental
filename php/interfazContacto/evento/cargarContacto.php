@@ -1,6 +1,6 @@
 <?php
     //Clases  de acceso a datos
-    include_once('../conexion/PersonaDAO.php');
+    include_once('../conexion/ContactoDAO.php');
     //Funciones
     include_once('../general/crearCedula.php');
     include_once('../general/comprobarInput.php');
@@ -13,23 +13,33 @@
     FALTA ALGUN METODO PARA DESACER LOS CAMBIOS DE HABER OCURRIDO ALGUN ERRROR
 */
     if( isset($_POST['cargar']) ) {
-        $pagina = new Pagina(Pagina::PERSONA);
+        $pagina = new Pagina(Pagina::CONTACTO);
 
         try { 
             //Comprobando los inputs
             $nacionalidadInput = comprobarInput('nacionalidadInput', $pagina);
             $cedulaInput = comprobarInput('cedulaInput', $pagina);
             $cedula = crearCedula($nacionalidadInput, $cedulaInput);    //se crea la cedula
-            $nombre = comprobarInput('nombreInput', $pagina);
-            $apellido = comprobarInput('apellidoInput', $pagina);
+            $correo = comprobarInput('correoInput', $pagina);
+            $telefono = $_POST['telefonoInput'];
 
             $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
-            
-            $personaDAO = new PersonaDAO($bd);
-            $personaDAO->cargar(array($cedula, $nombre, $apellido));
+    
+            $contactoDAO = new ContactoDAO($bd);
 
-            $bd->guardarCambios();
-            $pagina->imprimirMensaje(null, Mensaje::EXITO, "Se ha cargado a la persona exitosamente.");
+            if($contactoDAO->cantidadContactos(array($cedula))<2) {
+                $contactoDAO->cargar(array($cedula, 1, $correo));
+
+                if($telefono!="") {
+                    $contactoDAO->cargar(array($cedula, 2, $telefono));
+                }
+
+                $bd->guardarCambios();
+                $pagina->imprimirMensaje(null, Mensaje::EXITO, "Se ha cargado el contacto exitosamente.");
+            }
+            else {
+                $pagina->imprimirMensaje(null, Mensaje::ERROR, "La persona no puede tener mas contactos.");
+            }
         }
         catch(InputException $e) {
             $e->imprimirError();

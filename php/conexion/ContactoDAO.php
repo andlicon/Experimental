@@ -14,7 +14,7 @@
             $consulta = "SELECT * 
                         FROM contacto
                         WHERE id=?";
-            $registros = $this->bd->sql($consulta, $cedula);
+            $registros = $this->bd->sql($consulta, $id);
 
             if(empty($registros)) {
                 throw new Exception('No existe el representante con dicha cedula');
@@ -67,7 +67,7 @@
         public function getTodos() {
             $consulta = "SELECT * 
                         FROM contacto";
-            $registros = $this->bd->sql($consulta, $cedula);
+            $registros = $this->bd->sql($consulta, null);
 
             if(empty($registros)) {
                 throw new Exception('No existe el representante con dicha cedula');
@@ -87,14 +87,14 @@
                 $contactos[] = $cont;
             }
             
-            return $representantes;
+            return $contactos;
         }
 
-        public function cantidadContactos(array $parametros) {
+        public function cantidadContactos(array $cedula) {
             $consulta = "SELECT *
                         FROM v_cantidad_contactos
                         WHERE cedula=?";
-            $contactos = $this->bd->sql($consulta, $parametros);
+            $contactos = $this->bd->sql($consulta, $cedula);
 
             $contacto = $contactos[0];
             $cantidad = $contacto['cantidad'];
@@ -104,21 +104,20 @@
         public function cargar(array $parametros) {
             $insert = "INSERT INTO contacto (cedula, id_tipo, contacto)
                        VALUES               (?,      ?,       ?)";
-            echo 'Se insertaran los valores '.$parametros[0].' '.$parametros[1].' '.$parametros[2];
             $this->bd->sql($insert, $parametros);
         }
 
-        public function modificar(array $parametros) {
+        public function modificar(array $id) {
             $update = " UPDATE contacto
                         SET contacto=?
-                        WHERE cedula=? AND id_tipo=?;";
+                        WHERE id=?";
             $this->bd->sql($update, $parametros);
         }
 
-        public function eliminar(array $parametros) {
+        public function eliminar(array $id) {
             $delete=   " DELETE FROM contacto
-                        WHERE cedula=? AND id_tipo=?;";
-            $this->bd->sql($delete, $parametros);
+                        WHERE id=?";
+            $this->bd->sql($delete, $id);
         }
 
         public function eliminarPorCedula(array $cedula) {

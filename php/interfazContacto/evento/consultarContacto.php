@@ -1,14 +1,11 @@
 <?php
-    include_once('../conexion/PersonaDAO.php');
+    include_once('../conexion/ContactoDAO.php');
     include_once('../general/crearCedula.php');
     include_once('../general/comprobarInput.php');
     include_once('../general/Pagina.php');
 
-    /*
-        consulta única instancia para Representante
-    */
     if( isset($_POST['consultar']) ) {
-        $pagina = new Pagina(Pagina::PERSONA);
+        $pagina = new Pagina(Pagina::CONTACTO);
         
         //Cedula introducida por el usuario
         $nacionalidadInput = comprobarInput('nacionalidadInput', $pagina);
@@ -17,9 +14,9 @@
 
         try {   
             $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
-            $personaDAO = new PersonaDAO($bd);
+            $contactoDAO = new ContactoDAO($bd);
 
-            $resultado = $personaDAO->getInstancia(array ($cedula));
+            $resultado = $contactoDAO->getInstanciaCedula(array($cedula));
             $pagina->actualizarPagina($resultado);
         }
         catch(InputException $e) {
