@@ -69,6 +69,7 @@
                 <tbody class="output__body">
                     <?php
                         include_once('../instancias/Deuda.php');
+                        include_once('getMotivo.php');
                         $deudaTotal = 0;
                         
                         if( isset($_GET['deudas']) ) {
@@ -78,15 +79,18 @@
                                 $deudas = unserialize($serialize);
 
                                 for($i=0; $i<count($deudas); $i++) {
+                                    //Deuda
                                     $deuda = $deudas[$i];
                                     $id = $deuda->getId();
                                     $cedula = $deuda->getCedula();
-                                    $motivo = $deuda->getMotivo()->getDescripcion();
                                     $descripcion = $deuda->getDescripcion();
                                     $fecha = $deuda->getFecha();
                                     $montoInicial = $deuda->getMontoInicial();
                                     $montoEstado = $deuda->getMontoEstado();
                                     $debe = $deuda->getDeuda();
+                                    //motivo
+                                    $idMotivo = $deuda->getIdMotivo();
+                                    $motivo = getMotivo($idMotivo);
 
                                     $deudaTotal += $debe;
 
