@@ -6,32 +6,46 @@
 
     if( isset($_POST['modificar']) ) {
 
+        $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
+
         try {
             $pagina = new Pagina(Pagina::PERSONA);
 
             $cedulas = comprobarChecks(false, $pagina);
-    
-            //Inputs del usuario
-            $nombre = $_POST['nombreInput'];
-            $apellido = $_POST['apellidoInput'];
-
             $cedula = $cedulas[0];
 
-            if($nombre!="" || $apellido!="") {
-                $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
-                $personaDAO = new PersonaDAO($bd);
+            $personaDAO = new PersonaDAO($bd);
     
-                $personaDAO->modificar(array($nombre, $apellido, $cedula));
+            //Inputs del usuario
+            $nombreInput = $_POST['nombreInput'];
+            $apellidoInput = $_POST['apellidoInput'];
+            
+            //Comprobando que exista algun cambio comparado con la bd.
+            //Solo se modificaran los atributos que sean distintos a la bd.
+            //!ESTO SE PUEDE REALIZAR EN OTRA CLASE PARA CUMPLIR "SRP", DESPUES CORREGIR.
+            $resultado = $personaDAO->getInstancia(array($cedula));
+            $persona = $resultado[0];
+            $nombre = $nombreInput=="" ? $persona->getNombre() : $nombreInput;
+            $apellido = $apellidoInput=="" ? $persona->getApellido() : $apellidoInput;
 
-                $bd->guardarCambios();
-                $pagina->imprimirMensaje(null, Mensaje::EXITO, "Se ha modificado a la persona exitosamente.");
-            }
-            else {
-                $pagina->imprimirMensaje(null, Mensaje::ERROR, "Para modificar se debe introducir al menos 1 dato");
-            }
+            $personaDAO->modificar(array($nombre, $apellido, $cedula));
+            $bd->guardarCambios();
+            $pagina->imprimirMensaje(null, Mensaje::EXITO, "Se ha modificado a la persona exitosamente.");
         }
         catch(ExceptionSelect $e) {
             echo $e->imprimirError();
+        }
+        catch(PDOException $e) {
+            $codigo = $e->getCode();
+
+            if($codigo==23000) {
+                $bd->revertirCambios();
+                $pagina->imprimirMensaje(null, Mensaje::ERROR, "Existe alguna dependencia que impide modificar a la persona.");
+
+                die();
+            }
+            
+            echo $e;
         }
         catch(Exception $e) {
             echo $e;

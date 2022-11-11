@@ -14,6 +14,8 @@
             $idsEstudiantes = comprobarChecks(false, $pagina);
             $idEstudiante = $idsEstudiantes[0];
 
+            $estudianteDAO = new EstudianteDAO($bd);
+
             //INPUTS
             $nombreInput = $_POST['nombreInput'];
             $apellidoInput = $_POST['apellidoInput'];
@@ -22,14 +24,12 @@
             $nacionalidadInput = $_POST['nacionalidadInput'];
             $cedulaNumInput = $_POST['cedulaInput'];
             $cedulaInput = $cedulaNumInput=="" ? "" : crearCedula($nacionalidadInput, $cedulaNumInput);
-
-            //Crearia instancia del obj.
-            
-
-            $estudianteDAO = new EstudianteDAO($bd);
+            $estudianteInput = new Estudiante($idEstudiante, $nombreInput, 
+                                                $apellidoInput, $fechaInput, $idClaseInput, $cedulaInput);
 
             //Comprobando que exista algun cambio comparado con la bd.
-            //Solo se modificaran los atributos que sean distintos a la bd
+            //Solo se modificaran los atributos que sean distintos a la bd.
+            //!ESTO SE PUEDE REALIZAR EN OTRA CLASE PARA CUMPLIR "SRP", DESPUES CORREGIR.
             $estudiantes = $estudianteDAO->getInstancia(array($idEstudiante));
             $estudiante = $estudiantes[0];
 
