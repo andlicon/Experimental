@@ -2,18 +2,18 @@
     class Deuda {
         private $id;
         private $cedula;
-        private Motivo $motivo;
+        private $idMotivo;
         private $descripcion;
         private $fecha;
         private $montoInicial;
         private $montoEstado;
         private $deuda;
 
-        public function __construct($id, $cedula, Motivo $motivo, $descripcion,
+        public function __construct($id, $cedula, $idMotivo, $descripcion,
                                     $fecha, $montoInicial, $montoEstado, $deuda) {
             $this->id = $id;
             $this->cedula = $cedula;
-            $this->motivo = $motivo;
+            $this->idMotivo = $idMotivo;
             $this->descripcion = $descripcion;
             $this->fecha = $fecha;
             $this->montoInicial = $montoInicial;
@@ -27,8 +27,8 @@
         public function getCedula() {
             return $this->cedula;
         }
-        public function getMotivo() {
-            return $this->motivo;
+        public function getidMotivo() {
+            return $this->idMotivo;
         }
         public function getDescripcion() {
             return $this->descripcion;
@@ -52,8 +52,8 @@
         public function setCedula($cedula) {
             $this->cedula = $cedula;
         }
-        public function setMotivo($motivo) {
-            $this->motivo = $motivo;
+        public function setidMotivo($idMotivo) {
+            $this->idMotivo = $idMotivo;
         }
         public function setDescripcion($descripcion) {
             $this->descripcion = $descripcion;
