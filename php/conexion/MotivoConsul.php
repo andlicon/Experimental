@@ -13,7 +13,7 @@
             $consulta = "SELECT * 
                         FROM motivo_deuda
                         WHERE id=?";
-            $registros = $this->bd->sql($consulta, $cedula);
+            $registros = $this->bd->sql($consulta, $id);
 
             if(empty($registros)) {
                 throw new Exception('No hay motivos registradas en la base de dato.');

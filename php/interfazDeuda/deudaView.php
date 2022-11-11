@@ -69,7 +69,7 @@
                 <tbody class="output__body">
                     <?php
                         include_once('../instancias/Deuda.php');
-                        include_once('getMotivo.php');
+                        include_once('getDescripcionMotivo.php');
                         $deudaTotal = 0;
                         
                         if( isset($_GET['deudas']) ) {
@@ -90,7 +90,7 @@
                                     $debe = $deuda->getDeuda();
                                     //motivo
                                     $idMotivo = $deuda->getIdMotivo();
-                                    $motivo = getMotivo($idMotivo);
+                                    $motivo = getDescripcionMotivo($idMotivo);
 
                                     $deudaTotal += $debe;
 
