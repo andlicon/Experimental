@@ -2,10 +2,6 @@
     include_once('../conexion/BaseDeDatos.php');
     include_once('../conexion/DeudaDAO.php');
 
-    include_once('../formulario/Alerta.php');
-
-    include_once('../acciones/Actualizar.php');
-
     include_once('../general/crearCedula.php');
     include_once('../general/comprobarInput.php');
     include_once('../general/crearCedula.php');
