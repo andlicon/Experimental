@@ -13,7 +13,7 @@
         public function __construct($nombre, $contrasena, $idTipoUsuario) {
             $this->nombre = $nombre;
             $this->contrasena = $contrasena;
-            $this->tipoUsuario = $idTipoUsuario;
+            $this->idTipoUsuario = $idTipoUsuario;
         }
 
         //SETTERS Y GETTERS

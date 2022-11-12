@@ -9,6 +9,7 @@
         const DEUDA = 3;
         const CONTACTO = 4;
         const LOGIN = 5;
+        const OPCION = 6;
 
         /*ATRIBUTOS*/
         private $pagina;
@@ -35,6 +36,10 @@
             else if($pagina==self::LOGIN) {
                 $this->pagina = "Location: /php/interfazLogin/loginView.php";
                 $this->objSerializar = "usuarios";
+            }
+            else if($pagina==self::OPCION) {
+                $this->pagina =  "Location: /php/interfazOpcion/opcionView.php";
+                $this->objSerializar = "tipo_usuario";
             }
             else {
                 throw new Exception("No se introdujo ninguna pagina valida.");

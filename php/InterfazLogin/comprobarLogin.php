@@ -26,7 +26,10 @@
             if($usuarios) {
                 $usuario = $usuarios[0];
                 if($usuarioInput===$usuario->getNombre() && $contrasenaInput===$usuario->getContrasena()) {
-                    header("Location: /php/interfazPersona/personaView.php");
+                    $paginaOpcion = new Pagina(Pagina::OPCION);
+                    
+                    $idTipoUsuario = $usuario->getIdTipoUsuario();
+                    $paginaOpcion->actualizarPagina($idTipoUsuario);
                 }
             }
         }
