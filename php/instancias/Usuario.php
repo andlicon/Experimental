@@ -2,8 +2,7 @@
     class Usuario {
         private $nombre;        //nombre usuario
         private $contrasena;    //contrasena usuario
-        private $tipoUsuario;   //id tipo usuario
-        private $permiso;       //descripcion permisos
+        private $idTipoUsuario;   //id tipo usuario
 
         /*
             Crea a un usuario asignando todos sus atributos
@@ -11,11 +10,10 @@
             @param $nombre      nombre del usuario
             @param $contrasena  contrasena del usuario
         */
-        public function __construct($nombre, $contrasena, $tipoUsuario, $permiso) {
+        public function __construct($nombre, $contrasena, $idTipoUsuario) {
             $this->nombre = $nombre;
             $this->contrasena = $contrasena;
-            $this->tipoUsuario = $tipoUsuario;
-            $this->permiso = $permiso;
+            $this->tipoUsuario = $idTipoUsuario;
         }
 
         //SETTERS Y GETTERS
@@ -46,26 +44,14 @@
         /*
             @return tipo usuario
         */
-        public function getTipoUsuario() {
-            return $this->tipoUsuario;
+        public function getIdTipoUsuario() {
+            return $this->idTipoUsuario;
         }
          /*
             @param $contrasena - es el nueva nombre a asignar
         */
-        public function setTipoUsuario($tipoUsuario) {
-            $this->tipoUsuario = $tipoUsuario;
-        }
-        /*
-            @return descripcion de permisos
-        */
-        public function getPermiso() {
-            return $this->Permiso;
-        }
-         /*
-            @param $contrasena - es el nueva nombre a asignar
-        */
-        public function setPermisos($Permiso) {
-            $this->Permiso = $Permiso;
+        public function setIdTipoUsuario($tipoUsuario) {
+            $this->idTipoUsuario = $idTipoUsuario;
         }
     }
 ?>

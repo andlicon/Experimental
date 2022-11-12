@@ -24,25 +24,29 @@
             @thrown Exception - Arroja Exception de no existir una combinación usuario/cliente
             @return Usuario es un transfer object 
         */
-        public function getInstancia(array $nombre) {
+        public function getInstancia(array $usuario) {
             $consulta = "SELECT * 
-                        FROM v_usuarios
-                        WHERE usuario=?";
-            $registro = $this->bd->sql($consulta, $nombre);
+                        FROM usuario
+                        WHERE nombre=?";
+            $registros = $this->bd->sql($consulta, $usuario);
 
-            if(!is_array($registro)) {
+            if(!is_array($registros)) {
                 throw new Exception('No existe combinación usuario/contrasena');
             }
             
-            $usuario = null;
-            if($registro) {
-                $registro = $registro[0];
-                $usuario = $registro['usuario'];
-                $contrasena = $registro['contrasena'];
-                $usuario = new Usuario($usuario, $contrasena, '', '');
-            }
+            $usuarios = [];
+            for($i=0; $i<count($registros); $i++) {
+                $registro = $registros[$i];
 
-            return $usuario;
+                $usuario = $registro['nombre'];
+                $contrasena = $registro['contrasena'];
+                $idTipoUsuario = $registro['id_tipo_usuario'];
+                $us = new Usuario($usuario, $contrasena, $idTipoUsuario);
+
+                $usuarios[] = $us;
+            }
+            
+            return $usuarios;
         }
 
         /*
@@ -50,22 +54,21 @@
         */
         public function getTodos() {
             $consulta = "SELECT * 
-                         FROM v_usuarios";
+                         FROM usuario";
              $registros = $this->bd->sql($consulta, null);
 
              if(empty($registros)) {
-                throw new Exception('No existen registros de Representante');
+                throw new Exception('No existen registros de Usuarios.');
             }
             
             $usuarios = [];
             for($i=0; $i<count($registros); $i++) {
                 $registro = $registros[$i];
 
-                $usuario = $registro['usuario'];
+                $usuario = $registro['nombre'];
                 $contrasena = $registro['contrasena'];
-                $tipoUsuario = $registro['tipo'];
-                $permiso = $registro['permiso'];
-                $us = new Usuario($usuario, $contrasena, $tipoUsuario, $permiso);
+                $idTipoUsuario = $registro['id_tipo_usuario'];
+                $us = new Usuario($usuario, $contrasena, $idTipoUsuario);
 
                 $usuarios[] = $us;
             }

@@ -8,6 +8,7 @@
         const ESTUDIANTE = 2;
         const DEUDA = 3;
         const CONTACTO = 4;
+        const LOGIN = 5;
 
         /*ATRIBUTOS*/
         private $pagina;
@@ -29,6 +30,10 @@
             else if($pagina==self::CONTACTO) {
                 $this->pagina = "Location: contactoView.php";
                 $this->objSerializar = "contactos";
+            }
+            else if($pagina==self::LOGIN) {
+                $this->pagina = "Location: loginView.php";
+                $this->objSerializar = "usuarios";
             }
             else {
                 throw new Exception("No se introdujo ninguna pagina valida.");

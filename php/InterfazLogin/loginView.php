@@ -16,6 +16,11 @@
 
 <body class="body-login">
     <div class="login">
+        <?php
+            include_once('../general/imprimirMensaje.php');;
+
+            imprimirMensaje();
+        ?>
         <h2 class="login__titulo">Unidad Educativa Instituto Experimental.</h2>
         <img class="login__imagen" src="#" alt="Logo del colegio">
         <form class="login__formulario formulario" method="POST">
