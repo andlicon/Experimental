@@ -26,7 +26,7 @@
             if($usuarios) {
                 $usuario = $usuarios[0];
                 if($usuarioInput===$usuario->getNombre() && $contrasenaInput===$usuario->getContrasena()) {
-                    header("Location: /index.php");
+                    header("Location: /php/interfazPersona/personaView.php");
                 }
             }
         }
