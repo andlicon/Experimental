@@ -14,6 +14,7 @@
     */
     if(isset($_POST['login'])) {
         $pagina = new Pagina(Pagina::LOGIN);
+
         try {
             //combinacion usuario y contrasena introducida en el formulario
             $usuarioInput = comprobarInput('usuario', $pagina);;
