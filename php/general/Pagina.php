@@ -52,7 +52,6 @@
         }
 
         public function actualizarPagina($parametros) {
-
             if($parametros!=null) {
                 $serialize = serialize($parametros);
 
@@ -62,11 +61,12 @@
                 else {
                     header($this->pagina.'?'.$this->objSerializar.'='.urlencode($serialize));
                 }
-
-                die();
+            }
+            else {
+                header($this->pagina);
             }
 
-            header($this->pagina);
+            die();
         }
 
         public function extenderPagina($pagina) {

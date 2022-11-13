@@ -5,7 +5,8 @@
     $idTipoUsuario = null;
 
     if( isset($_GET['tipo_usuario']) ) {
-        $idTipoUsuario = $_GET['tipo_usuario'];
+       $serialize = $_GET['tipo_usuario'];
+       $idTipoUsuario = unserialize($serialize);
     }
 ?>
 
