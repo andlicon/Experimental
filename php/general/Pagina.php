@@ -10,6 +10,10 @@
         const CONTACTO = 4;
         const LOGIN = 5;
         const OPCION = 6;
+        const PROFESOR = 7;
+        const CLASE = 8;
+
+        const TIPO_USUARIO = "tipo_usuario";
 
         /*ATRIBUTOS*/
         private $pagina;
@@ -40,6 +44,14 @@
             else if($pagina==self::OPCION) {
                 $this->pagina =  "Location: /php/interfazOpcion/opcionView.php";
                 $this->objSerializar = "tipo_usuario";
+            }
+            else if($pagina==self::PROFESOR) {
+                $this->pagina =  "Location: /php/interfazProfesor/profesorView.php";
+                $this->objSerializar = "personas";
+            }
+            else if($pagina==self::CLASE) {
+                $this->pagina =  "Location: /php/interfazClase/claserView.php";
+                $this->objSerializar = "estudiantes";
             }
             else {
                 throw new Exception("No se introdujo ninguna pagina valida.");

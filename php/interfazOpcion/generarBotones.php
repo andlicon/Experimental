@@ -19,6 +19,7 @@
                 $botones = $botones."<button name=\"gestionar-deuda\" class=\"boton\">Gestionar deuda</button>";
                 $botones = $botones."<button name=\"gestionar-estudiante\" class=\"boton\">Gestionar estudiante</button>";
                 $botones = $botones."<button name=\"gestionar-profesor\" class=\"boton\">Gestionar profesor</button>";
+                $botones = $botones."<button name=\"salir\" class=\"boton\">Salir</button>";
             }
             else if($permiso==3) {  //director
                 $botones = $botones."<button name=\"gestionar-persona\" class=\"boton\">Gestionar persona</button>";
@@ -27,9 +28,11 @@
                 $botones = $botones."<button name=\"gestionar-deuda\" class=\"boton\">Gestionar deuda</button>";
                 $botones = $botones."<button name=\"gestionar-estudiante\" class=\"boton\">Gestionar estudiante</button>";
                 $botones = $botones."<button name=\"gestionar-profesor\" class=\"boton\">Gestionar profesor</button>";
+                $botones = $botones."<button name=\"salir\" class=\"boton\">Salir</button>";
             }
             else {                  //profesor
                 $botones = $botones."<button name=\"gestionar-clase\" class=\"boton\">Gestionar clase</button>";
+                $botones = $botones."<button name=\"salir\" class=\"boton\">Salir</button>";
             }
 
             echo $botones;

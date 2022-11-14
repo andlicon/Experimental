@@ -2,6 +2,8 @@
 <html lang="en" class="vista">
 
 <?php
+    include('redireccionarPagina.php');
+
     $idTipoUsuario = null;
 
     if( isset($_GET['tipo_usuario']) ) {
