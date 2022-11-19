@@ -11,28 +11,28 @@
     }
 
     if( isset($_POST['gestionar-persona']) ) {
-        $pagina = new Pagina(Pagina::PERSONA, $usuario);
+        $pagina = new Pagina(Pagina::PERSONA);
     }
     elseif( isset($_POST['gestionar-contacto']) ) {
-        $pagina = new Pagina(Pagina::CONTACTO, $usuario);
+        $pagina = new Pagina(Pagina::CONTACTO);
     }
     elseif( isset($_POST['gestionar-pago']) ) {
-        $pagina = new Pagina(Pagina::PAGO, $usuario);
+        $pagina = new Pagina(Pagina::PAGO);
     }
     elseif( isset($_POST['gestionar-deuda']) ) {
-        $pagina = new Pagina(Pagina::DEUDA, $usuario);
+        $pagina = new Pagina(Pagina::DEUDA);
     }
     elseif( isset($_POST['gestionar-estudiante']) ) {
-        $pagina = new Pagina(Pagina::ESTUDIANTE, $usuario);
+        $pagina = new Pagina(Pagina::ESTUDIANTE);
     } 
     elseif( isset($_POST['gestionar-profesor']) ) {
-        $pagina = new Pagina(Pagina::PROFESOR, $usuario);
+        $pagina = new Pagina(Pagina::PROFESOR);
     }
     elseif( isset($_POST['gestionar-clase']) ) {
-        $pagina = new Pagina(Pagina::CLASE, $usuario);
+        $pagina = new Pagina(Pagina::CLASE);
     }
     elseif( isset($_POST['salir']) ) {
-        $pagina = new Pagina(Pagina::LOGIN, $usuario);
+        $pagina = new Pagina(Pagina::LOGIN);
     }
 
     if($pagina!=null) {

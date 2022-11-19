@@ -1,6 +1,7 @@
 <?php
     include_once('../formulario/Mensaje.php');
     include_once('../general/mandarMensaje.php');
+    include_once('../instancias/usuario.php');
 
     class Pagina {
         /*CONSTANTES*/
@@ -13,7 +14,6 @@
         const PROFESOR = 7;
         const CLASE = 8;
     
-
         const USUARIO_OBJ = "usuario";
 
 
@@ -22,8 +22,11 @@
         private $objSerializar;
 
         
-        public function __construct($pagina, $usuario = null) {
-            $this->setUsuario($usuario);
+        public function __construct($pagina) {
+            if(isset($_GET['usuario'])) {
+                $usuarioGet = $_GET['usuario'];
+                $usuario = unserialize($usuarioGet);
+            }
 
             if($pagina==self::PERSONA) {
                 $this->pagina = 'Location: /php/interfazPersona/personaView.php';
@@ -60,6 +63,8 @@
             else {
                 throw new Exception("No se introdujo ninguna pagina valida.");
             }
+
+            $this->setUsuario($usuario);
         }
 
         public function imprimirMensaje($keyLayout, $motivo, $mensaje) {
@@ -70,7 +75,6 @@
         public function actualizarPagina($parametros) {
             if($parametros!=null) {
                 $serialize = serialize($parametros);
-
                 if( str_contains($this->pagina, "?") ) {
                     header($this->pagina.'&'.$this->objSerializar.'='.urlencode($serialize));
                 }
@@ -81,7 +85,6 @@
             else {
                 header($this->pagina);
             }
-
             die();
         }
 
