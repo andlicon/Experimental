@@ -28,9 +28,8 @@
                 $usuario = $usuarios[0];
                 if($usuarioInput===$usuario->getNombre() && $contrasenaInput===$usuario->getContrasena()) {
                     $paginaOpcion = new Pagina(Pagina::OPCION);
-                    
-                    $idTipoUsuario = $usuario->getIdTipoUsuario();
-                    $paginaOpcion->actualizarPagina($idTipoUsuario);
+                    $paginaOpcion->setUsuario($usuario);
+                    $paginaOpcion->actualizarPagina(null);
                 }
             }
         }

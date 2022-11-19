@@ -6,6 +6,7 @@
 
 
     /*
+        !CREO QUE NO USO ESTA CLASE, REVISAR
         Esta clase es un "consultor", junta las tablas:
 
 

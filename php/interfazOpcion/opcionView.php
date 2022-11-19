@@ -3,13 +3,6 @@
 
 <?php
     include('redireccionarPagina.php');
-
-    $idTipoUsuario = null;
-
-    if( isset($_GET['tipo_usuario']) ) {
-       $serialize = $_GET['tipo_usuario'];
-       $idTipoUsuario = unserialize($serialize);
-    }
 ?>
 
 <head>
@@ -29,9 +22,10 @@
             <div class="botones">
                 <h2 class="botones__titulo">Acciones</h2>
                 <?php
-                    include_once('generarBotones.php');
+                    include_once('../general/deserializarUsuario.php');
 
-                    generarBotones($idTipoUsuario);
+                    $usuario = deserializarUsuario();
+                    generarBotones($usuario->getIdTipoUsuario());
                 ?>
             </div>
         </form>

@@ -12,15 +12,19 @@
         const OPCION = 6;
         const PROFESOR = 7;
         const CLASE = 8;
+    
 
-        const TIPO_USUARIO = "tipo_usuario";
+        const USUARIO_OBJ = "usuario";
+
 
         /*ATRIBUTOS*/
         private $pagina;
         private $objSerializar;
 
         
-        public function __construct($pagina) {
+        public function __construct($pagina, $usuario = null) {
+            $this->setUsuario($usuario);
+
             if($pagina==self::PERSONA) {
                 $this->pagina = 'Location: /php/interfazPersona/personaView.php';
                 $this->objSerializar = "personas";
@@ -81,8 +85,12 @@
             die();
         }
 
-        public function extenderPagina($pagina) {
-            $this->pagina = $this->pagina.$pagina;
+        public function setUsuario($usuario) {
+            if($usuario!=null) {
+                $serialize = serialize($usuario);
+
+                $this->pagina = $this->pagina.'?'.self::USUARIO_OBJ.'='.urlencode($serialize);
+            }
         }
         public function getPagina() {
             return $this->pagina;
