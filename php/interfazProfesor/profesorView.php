@@ -60,8 +60,8 @@
                 <tbody class="output__body">
                     <?php
                         include_once('../instancias/Persona.php');
-                        if( isset($_GET['profesores']) ) {
-                            $serialize = $_GET['profesores'];     //AHORA SE TIENE QUE PASAR POR HEADER PERSONA
+                        if( isset($_GET['personas']) ) {
+                            $serialize = $_GET['personas'];     //AHORA SE TIENE QUE PASAR POR HEADER PERSONA
                         
                             if($serialize) {
                                 $profesores = unserialize($serialize);
@@ -71,9 +71,6 @@
                                     $cedula = $profesor->getCedula();
                                     $nombre = $profesor->getNombre();
                                     $apellido = $profesor->getApellido();
-                                    /*Clase informacion*/
-                                    $claseProf = $profesor->getClase();
-                                    $clase = $claseProf->getDescripcion();
 
                                     echo "  <tr class=\"output__renglon\">
                                                 <td class=\"output__celda\ output__celda--centrado\">
@@ -89,9 +86,10 @@
                                                 <td class=\"output__celda\">
                                                     $apellido
                                                 </td>
-                                                <td class=\"output__celda\">
-                                                    $clase
-                                                </td>
+                                                <td class=\"output__celda\">";
+                                                    include_once('../general/generarClase.php');
+                                                    generarClase($cedula);
+                                    echo        "</td>
                                                 <td>";
                                                     include_once('../general/generarTablaContactos.php');
                                                     generarTablaContactos($cedula);

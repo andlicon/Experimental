@@ -1,7 +1,7 @@
 <?php
     include_once('IConsultor.php');
     include_once('BaseDeDatos.php');
-    include_once('../instancias/Profesor.php');
+    include_once('../instancias/Persona.php');
     include_once('../instancias/Clase.php');
 
 
@@ -12,7 +12,7 @@
 
         Todo esto se hace en base a la vista "v_representante_contacto" esta retorna todos los contactos, ya sea de tlf o de correo electornico
     */
-    class ProfesorConsulta implements IConsultor {
+    class ProfesorConsul implements IConsultor {
         private BaseDeDatos $bd;
 
         public function __construct(BaseDeDatos $bd) {
@@ -49,13 +49,8 @@
                 $cedula = $profesor['cedula'];
                 $nombre = $profesor['nombre'];
                 $apellido = $profesor['apellido'];
-                /*Info de la clase*/
-                $claseId = $profesor['id_clase'];
-                $claseDescrip = $profesor['descrip_clase'];
-                $claseSalon = $profesor['salon'];
-                $clase = new Clase($claseId, $claseDescrip, $claseSalon, $cedula);
 
-                $prof = new Profesor($cedula, $nombre, $apellido, null, $clase);                       
+                $prof = new Persona($cedula, $nombre, $apellido);                       
 
                 $profesores[] = $prof;
             }
@@ -89,13 +84,8 @@
                 $cedula = $profesor['cedula'];
                 $nombre = $profesor['nombre'];
                 $apellido = $profesor['apellido'];
-                /*Info de la clase*/
-                $claseId = $profesor['id_clase'];
-                $claseDescrip = $profesor['descrip_clase'];
-                $claseSalon = $profesor['salon'];
-                $clase = new Clase($claseId, $claseDescrip, $claseSalon, $cedula);
 
-                $prof = new Profesor($cedula, $nombre, $apellido, null, $clase);                       
+                $prof = new Persona($cedula, $nombre, $apellido);                       
 
                 $profesores[] = $prof;
             }

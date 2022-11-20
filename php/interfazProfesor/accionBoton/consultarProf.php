@@ -1,7 +1,7 @@
 <?php
     include_once('../acciones/Actualizar.php');
     include_once('../conexion/BaseDeDatos.php');
-    include_once('../conexion/ProfesorConsulta.php');
+    include_once('../conexion/ProfesorConsul.php');
     include_once('../general/comprobarInput.php');
     include_once('../general/crearCedula.php');
     include_once('../acciones/Consultar.php');
@@ -16,16 +16,16 @@
             $cedula = crearCedula($nacionalidadInput, $cedulaInput);
 
             $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
-            $profConsul = new ProfesorConsulta($bd);
+            $profConsul = new ProfesorConsul($bd);
 
-            $consultor = new Consultar($profConsul, $pagina, $objSerializar);
-            $consultor->consultar(array($cedula));
+            $resultado = $profConsul->getInstancia(array($cedula));
+            $pagina->actualizarPagina($resultado);
         }
         catch(InputException $e) {
             $e->imprimirError();
         }
         catch(Exception $e) {   //De no conectarse a la bd
-            echo $e;
+            $pagina->imprimirMensaje(null, Mensaje::ERROR, "No hay representante");
         }
     }
 ?>
