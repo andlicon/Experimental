@@ -32,8 +32,8 @@
             $bd->guardarCambios();
             $pagina->imprimirMensaje(null, Mensaje::EXITO, "Se ha modificado a la persona exitosamente.");
         }
-        catch(ExceptionSelect $e) {
-            echo $e->imprimirError();
+        catch(SelectException $e) {
+            $e->imprimirError();
         }
         catch(PDOException $e) {
             $codigo = $e->getCode();

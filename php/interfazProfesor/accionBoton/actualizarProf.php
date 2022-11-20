@@ -4,8 +4,7 @@
     include_once('../conexion/ProfesorConsulta.php');
 
     if( isset($_POST['actualizar']) ) {
-        $pagina = "Location: profesorView.php";
-        $objSerializar = "profesores";
+        $pagina = new Pagina(Pagina::PROFESOR);
         
             try {
                 $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');

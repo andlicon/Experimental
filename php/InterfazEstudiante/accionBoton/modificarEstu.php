@@ -47,8 +47,8 @@
 
             $pagina->imprimirMensaje(null, Mensaje::EXITO, "Se ha emodificado exitosamente a los estudiantes.");
         }
-        catch(ExceptionSelect $e) {
-            echo $e->imprimirError();
+        catch(SelectException $e) {
+            $e->imprimirError();
         }
         catch(PDOException $e) {
             $codigo = $e->getCode();

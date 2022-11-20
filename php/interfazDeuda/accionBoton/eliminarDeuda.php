@@ -23,6 +23,9 @@
 
             $pagina->imprimirMensaje(null, Mensaje::EXITO, "Se ha eliminado exitosamente las deudas.");
         }
+        catch(SelectException $e) {
+           $e->imprimirError();
+        }
         catch(PDOException $e) {
             $codigo = $e->getCode();
 

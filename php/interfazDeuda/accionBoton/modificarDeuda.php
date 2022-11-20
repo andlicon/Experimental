@@ -42,8 +42,8 @@
 
             $pagina->imprimirMensaje(null, Mensaje::EXITO, "La deuda fue modificada con exito.");
         }
-        catch(ExceptionSelect $e) {
-            echo $e->imprimirError();
+        catch(SelectException $e) {
+            $e->imprimirError();
         }
         catch(PDOException $e) {
             $codigo = $e->getCode();

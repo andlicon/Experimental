@@ -7,23 +7,25 @@
     include_once('../acciones/Consultar.php');
 
     if( isset($_POST['consultar']) ) {
-        $pagina = "Location: profesorView.php";
-        $objSerializar = "profesores";
+        $pagina = new Pagina(Pagina::PROFESOR);
         
         //Cedula introducida por el usuario
-        $nacionalidadInput = comprobarInput('nacionalidadInput', 'Se debe introducir una nacionalidad valida', $pagina);
-        $cedulaInput = comprobarInput('cedulaInput', 'Se debe introducir un numero de cedula valido', $pagina);
-        $cedula = crearCedula($nacionalidadInput, $cedulaInput);
+        try {
+            $nacionalidadInput = comprobarInput('nacionalidadInput', $pagina);
+            $cedulaInput = comprobarInput('cedulaInput', $pagina);
+            $cedula = crearCedula($nacionalidadInput, $cedulaInput);
 
-            try {
-                $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
-                $profConsul = new ProfesorConsulta($bd);
+            $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
+            $profConsul = new ProfesorConsulta($bd);
 
-                $consultor = new Consultar($profConsul, $pagina, $objSerializar);
-                $consultor->consultar(array($cedula));
-            }
-            catch(Exception $e) {   //De no conectarse a la bd
-                echo $e;
-            }
+            $consultor = new Consultar($profConsul, $pagina, $objSerializar);
+            $consultor->consultar(array($cedula));
+        }
+        catch(InputException $e) {
+            $e->imprimirError();
+        }
+        catch(Exception $e) {   //De no conectarse a la bd
+            echo $e;
+        }
     }
 ?>

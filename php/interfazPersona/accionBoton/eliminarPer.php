@@ -26,7 +26,7 @@
 
             $pagina->imprimirMensaje(null, Mensaje::EXITO, "Se ha eliminado exitosamente a la persona.");
         }
-        catch(ExceptionSelect $e) {
+        catch(SelectException $e) {
             echo $e->imprimirError();
         }
         catch(PDOException $e) {
