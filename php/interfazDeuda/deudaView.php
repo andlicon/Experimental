@@ -8,6 +8,7 @@
     include('accionBoton/consultarRepDeudor.php');
     include('accionBoton/eliminarDeuda.php');
     include('accionBoton/modificarDeuda.php');
+    include_once('../general/accionVolver.php');
 ?>
 
 <head>
@@ -178,6 +179,7 @@
                 <button name="eliminar" class="boton">eliminar</button>
                 <button name="cargar" class="boton">Cargar deuda</button>
                 <button name="cobrar" class="boton">Cobrar mensualidad</button>
+                <button name="volver" class="boton">volver</button>
             </div>
         </form>
     </div>

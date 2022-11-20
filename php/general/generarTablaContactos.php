@@ -19,7 +19,7 @@
                 //Tipo Contacto
                 $idTipo = $contacto->getIdTipo();
                 $tipoContacto = $tipoContactoConsul->getInstancia(array($idTipo));
-                $tipoDescripcion = $tipoContacto->getDescripcion();
+                $tipoDescripcion = $tipoContacto[0]->getDescripcion();
 
                 echo "<tr>
                         <td>

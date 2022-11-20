@@ -4,6 +4,7 @@
 <?php
     include_once('accionBoton/actualizarProf.php');
     include_once('accionBoton/consultarProf.php');
+    include_once('../general/accionVolver.php');
 ?>
 
 <head>
@@ -137,6 +138,7 @@
                 <button name="consultar" class="boton">consultar</button>
                 <button name="asignar" class="boton">Asignar clase</button>
                 <button name="actualizar" class="boton">actualizar</button>
+                <button name="volver" class="boton">volver</button>
             </div>
         </form>
     </div>

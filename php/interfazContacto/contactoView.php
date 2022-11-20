@@ -6,6 +6,7 @@
     include_once('evento/cargarContacto.php');
     include_once('evento/consultarContacto.php');
     include_once('evento/eliminarContacto.php');
+    include_once('../general/accionVolver.php');
 ?>
 
 <head>
@@ -119,6 +120,7 @@
                 <button name="actualizar" class="boton">actualizar</button>
                 <button name="cargar" class="boton">cargar</button>
                 <button name="eliminar" class="boton">eliminar</button>
+                <button name="volver" class="boton">volver</button>
             </div>
         </form>
     </div>

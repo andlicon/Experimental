@@ -7,6 +7,7 @@
     include('accionBoton/cargarPer.php');
     include('accionBoton/modificarPer.php');
     include('accionBoton/eliminarPer.php');
+    include_once('../general/accionVolver.php');
 ?>
 
 <head>
@@ -125,6 +126,7 @@
                 <button name="modificar" class="boton">modificar</button>
                 <button name="eliminar" class="boton">eliminar</button>
                 <button name="actualizar" class="boton">actualizar</button>
+                <button name="volver" class="boton">volver</button>
             </div>
         </form>
     </div>
