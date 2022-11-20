@@ -6,13 +6,13 @@
 
     if( isset($_POST['consultar']) ) {
         $pagina = new Pagina(Pagina::CONTACTO);
-        
-        //Cedula introducida por el usuario
-        $nacionalidadInput = comprobarInput('nacionalidadInput', $pagina);
-        $cedulaInput = comprobarInput('cedulaInput', $pagina);
-        $cedula = crearCedula($nacionalidadInput, $cedulaInput);
 
         try {   
+            //Cedula introducida por el usuario
+            $nacionalidadInput = comprobarInput('nacionalidadInput', $pagina);
+            $cedulaInput = comprobarInput('cedulaInput', $pagina);
+            $cedula = crearCedula($nacionalidadInput, $cedulaInput);
+
             $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
             $contactoDAO = new ContactoDAO($bd);
 
