@@ -41,7 +41,8 @@
                 $usuario = $registro['nombre'];
                 $contrasena = $registro['contrasena'];
                 $idTipoUsuario = $registro['id_tipo_usuario'];
-                $us = new Usuario($usuario, $contrasena, $idTipoUsuario);
+                $cedula = $registro['cedula'];
+                $us = new Usuario($usuario, $contrasena, $idTipoUsuario, $cedula);
 
                 $usuarios[] = $us;
             }
@@ -68,7 +69,8 @@
                 $usuario = $registro['nombre'];
                 $contrasena = $registro['contrasena'];
                 $idTipoUsuario = $registro['id_tipo_usuario'];
-                $us = new Usuario($usuario, $contrasena, $idTipoUsuario);
+                $cedula = $registro['cedula'];
+                $us = new Usuario($usuario, $contrasena, $idTipoUsuario, $cedula);
 
                 $usuarios[] = $us;
             }

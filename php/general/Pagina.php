@@ -28,43 +28,45 @@
                 $usuario = unserialize($usuarioGet);
             }
 
-            if($pagina==self::PERSONA) {
-                $this->pagina = 'Location: /php/interfazPersona/personaView.php';
-                $this->objSerializar = "personas";
-            }
-            else if($pagina==self::ESTUDIANTE) {
-                $this->pagina = "Location: /php/interfazEstudiante/estudianteView.php";
-                $this->objSerializar = "estudiantes";
-            }
-            else if($pagina==self::DEUDA) {
-                $this->pagina = "Location: /php/interfazDeuda/deudaView.php";
-                $this->objSerializar = "deudas";
-            }
-            else if($pagina==self::CONTACTO) {
-                $this->pagina = "Location: /php/interfazContacto/contactoView.php";
-                $this->objSerializar = "contactos";
-            }
-            else if($pagina==self::LOGIN) {
+            if($pagina==self::LOGIN) {
                 $this->pagina = "Location: /php/interfazLogin/loginView.php";
                 $this->objSerializar = "usuarios";
             }
-            else if($pagina==self::OPCION) {
-                $this->pagina =  "Location: /php/interfazOpcion/opcionView.php";
-                $this->objSerializar = "tipo_usuario";
-            }
-            else if($pagina==self::PROFESOR) {
-                $this->pagina =  "Location: /php/interfazProfesor/profesorView.php";
-                $this->objSerializar = "personas";
-            }
-            else if($pagina==self::CLASE) {
-                $this->pagina =  "Location: /php/interfazClase/claserView.php";
-                $this->objSerializar = "estudiantes";
-            }
             else {
-                throw new Exception("No se introdujo ninguna pagina valida.");
-            }
+                if($pagina==self::PERSONA) {
+                    $this->pagina = 'Location: /php/interfazPersona/personaView.php';
+                    $this->objSerializar = "personas";
+                }
+                else if($pagina==self::ESTUDIANTE) {
+                    $this->pagina = "Location: /php/interfazEstudiante/estudianteView.php";
+                    $this->objSerializar = "estudiantes";
+                }
+                else if($pagina==self::DEUDA) {
+                    $this->pagina = "Location: /php/interfazDeuda/deudaView.php";
+                    $this->objSerializar = "deudas";
+                }
+                else if($pagina==self::CONTACTO) {
+                    $this->pagina = "Location: /php/interfazContacto/contactoView.php";
+                    $this->objSerializar = "contactos";
+                }
+                else if($pagina==self::OPCION) {
+                    $this->pagina =  "Location: /php/interfazOpcion/opcionView.php";
+                    $this->objSerializar = "tipo_usuario";
+                }
+                else if($pagina==self::PROFESOR) {
+                    $this->pagina =  "Location: /php/interfazProfesor/profesorView.php";
+                    $this->objSerializar = "personas";
+                }
+                else if($pagina==self::CLASE) {
+                    $this->pagina =  "Location: /php/interfazClase/claseView.php";
+                    $this->objSerializar = "estudiantes";
+                }
+                else {
+                    throw new Exception("No se introdujo ninguna pagina valida.");
+                }
 
-            $this->setUsuario($usuario);
+                $this->setUsuario($usuario);
+            }
         }
 
         public function imprimirMensaje($keyLayout, $motivo, $mensaje) {

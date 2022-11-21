@@ -3,6 +3,7 @@
         private $nombre;        //nombre usuario
         private $contrasena;    //contrasena usuario
         private $idTipoUsuario;   //id tipo usuario
+        private $cedula;
 
         /*
             Crea a un usuario asignando todos sus atributos
@@ -10,10 +11,11 @@
             @param $nombre      nombre del usuario
             @param $contrasena  contrasena del usuario
         */
-        public function __construct($nombre, $contrasena, $idTipoUsuario) {
+        public function __construct($nombre, $contrasena, $idTipoUsuario, $cedula) {
             $this->nombre = $nombre;
             $this->contrasena = $contrasena;
             $this->idTipoUsuario = $idTipoUsuario;
+            $this->cedula = $cedula;
         }
 
         //SETTERS Y GETTERS
@@ -22,6 +24,9 @@
         */
         public function getNombre() {
             return $this->nombre;
+        } 
+        public function getCedula() {
+            return $this->cedula;
         } 
         /*
             @param $nombre - nombre del nuevo nombre a asignar
@@ -52,6 +57,9 @@
         */
         public function setIdTipoUsuario($tipoUsuario) {
             $this->idTipoUsuario = $idTipoUsuario;
+        }
+        public function setCedula($cedula) {
+            $this->cedula = $cedula;
         }
     }
 ?>

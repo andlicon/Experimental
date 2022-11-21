@@ -1,13 +1,23 @@
 <?php
     include_once('../acciones/consultarClase.php');
+    include_once('../general/Pagina.php');
 
     /*
         Consulta estudiantes dependiendo de la clase.
     */
     if( isset($_POST['consultar-clase']) ) {
-        //DEBO ENVIAR SIEMPRE EL $IDCLASE POR URL
-        $pagina = "Location: claseView.php?idClase=$idClase";
+        $pagina = new Pagina(Pagina::CLASE);
 
-        consultarClase($pagina, $idClase);
+        try {
+            $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
+            $estudianteDAO = new EstudianteDAO($bd);
+
+            $resultado = $estudianteDAO->getInstanciaClase(array($idClase));
+
+            $pagina->actualizarPagina($resultado);
+        }
+        catch(Exception $e) {
+            
+        }
     }
 ?>

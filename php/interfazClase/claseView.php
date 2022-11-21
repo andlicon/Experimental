@@ -2,11 +2,8 @@
 <html lang="en" class="vista">
 
 <?php
-    $idClase = 3;
-
-    if(isset($_POST['idClase'])) {
-        $idClase = $_GET['idClase'];
-    }
+    include_once('../general/getIdClase.php');
+    $idClase = getIdClase();
 
     include_once('accionesBotones/consultarEstudiante.php');
     include_once('../general/accionVolver.php');
