@@ -7,7 +7,7 @@
     include_once('../general/crearCedula.php');
     include_once('../general/Pagina.php');
 
-    if( isset($_POST['cargar']) ) {
+    if( isset($_POST['cargarDeuda']) ) {
         $pagina = new Pagina(Pagina::DEUDA);
 
             try {

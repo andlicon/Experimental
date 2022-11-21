@@ -3,11 +3,13 @@
 
 <?php
     include('accionBoton/cargarDeuda.php');
-    include('accionBoton/cobrarMensualidad.php');
-    include('accionBoton/consultarDeudaRep.php');
-    include('accionBoton/consultarRepDeudor.php');
+    include('accionBoton/cargarPago.php');
     include('accionBoton/eliminarDeuda.php');
     include('accionBoton/modificarDeuda.php');
+    include('accionBoton/consultarDeudaRep.php');
+    include('accionBoton/consultarRepDeudor.php');
+    include('accionBoton/cobrarMensualidad.php');
+    
     include_once('../general/accionVolver.php');
 ?>
 
@@ -177,8 +179,9 @@
                 <button name="consultarCedula" class="boton">Deuda por representante</button>
                 <button name="modificar" class="boton">modificar</button>
                 <button name="eliminar" class="boton">eliminar</button>
-                <button name="cargar" class="boton">Cargar deuda</button>
+                <button name="cargarDeuda" class="boton">Cargar deuda</button>
                 <button name="cobrar" class="boton">Cobrar mensualidad</button>
+                <button name="cargarPago" class="boton">Cargar pago</button>
                 <button name="volver" class="boton">volver</button>
             </div>
         </form>

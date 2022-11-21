@@ -13,6 +13,7 @@
         const OPCION = 6;
         const PROFESOR = 7;
         const CLASE = 8;
+        const PAGO = 9;
     
         const USUARIO_OBJ = "usuario";
 
@@ -60,6 +61,10 @@
                 else if($pagina==self::CLASE) {
                     $this->pagina =  "Location: /php/interfazClase/claseView.php";
                     $this->objSerializar = "estudiantes";
+                }
+                else if($pagina==self::PAGO) {
+                    $this->pagina =  "Location: /php/interfazPago/pagoView.php";
+                    $this->objSerializar = "pagos";
                 }
                 else {
                     throw new Exception("No se introdujo ninguna pagina valida.");
