@@ -25,7 +25,7 @@
 </head>
 <body class="vista__contenido">
     <?php
-        include_once(GENERAL_PATH.'/imprimirMensaje.php');;
+        include_once(MENSAJE_PATH.'/imprimirMensaje.php');;
         imprimirMensaje();
     ?>
     <h2 class="vista__titulo">Gestionar deudas</h2>

@@ -4,7 +4,7 @@
 
     include_once(EXCEPTION_PATH.'/SelectException.php');
     
-    include_once(FORMULARIO_PATH.'/Mensaje.php');
+    include_once(MENSAJE_PATH.'/Mensaje.php');
 
     if( isset($_POST['modificar']) ) {
 

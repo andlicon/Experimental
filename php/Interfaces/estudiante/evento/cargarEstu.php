@@ -3,8 +3,6 @@
     include_once(DAO_PATH.'/EstudianteDAO.php');
     //Funciones
     include_once(GENERAL_PATH.'/comprobarInput.php');
-    include_once(GENERAL_PATH.'/mandarMensaje.php');
-    include_once(GENERAL_PATH.'/formatoFecha.php');
 
 /*
     FALTA ALGUN METODO PARA DESACER LOS CAMBIOS DE HABER OCURRIDO ALGUN ERRROR

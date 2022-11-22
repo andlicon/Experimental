@@ -1,7 +1,7 @@
 <?php
     include_once(DAO_PATH.'/BaseDeDatos.php');
     include_once(DAO_PATH.'/PersonaDAO.php');
-    include_once(ROOT_PATH.'/general/Pagina.php');
+    include_once(GENERAL_PATH.'Pagina.php');
 
     if( isset($_POST['actualizar']) ) {
         $pagina = new Pagina(Pagina::PERSONA);

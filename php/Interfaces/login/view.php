@@ -18,7 +18,7 @@
 <body class="body-login">
     <div class="login">
         <?php
-            include_once(GENERAL_PATH.'/imprimirMensaje.php');
+            include_once(MENSAJE_PATH.'/imprimirMensaje.php');
 
             imprimirMensaje();
         ?>

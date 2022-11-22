@@ -1,5 +1,5 @@
 <?php
-    include_once(FORMULARIO_PATH.'/Mensaje.php');
+    include_once('Mensaje.php');
 
     function imprimirMensaje() {
         if( isset($_GET['mensaje']) ) {

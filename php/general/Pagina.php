@@ -1,6 +1,6 @@
 <?php
-    include_once(FORMULARIO_PATH.'/Mensaje.php');
-    include_once(GENERAL_PATH.'/mandarMensaje.php');
+    include_once(MENSAJE_PATH.'/Mensaje.php');
+    include_once(MENSAJE_PATH.'/mandarMensaje.php');
     include_once(DTO_PATH.'/usuario.php');
 
     class Pagina {

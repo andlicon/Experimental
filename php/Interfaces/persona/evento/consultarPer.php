@@ -1,8 +1,8 @@
 <?php
-    include_once(ROOT_PATH.'/conexion/PersonaDAO.php');
-    include_once(ROOT_PATH.'/general/crearCedula.php');
-    include_once(ROOT_PATH.'/general/comprobarInput.php');
-    include_once(ROOT_PATH.'/general/Pagina.php');
+    include_once(DAO_PATH.'/PersonaDAO.php');
+    include_once(GENERAL_PATH.'/crearCedula.php');
+    include_once(GENERAL_PATH.'/comprobarInput.php');
+    include_once(GENERAL_PATH.'/Pagina.php');
 
     /*
         consulta única instancia para Representante
