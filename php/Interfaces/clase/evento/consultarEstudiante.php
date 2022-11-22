@@ -1,5 +1,6 @@
 <?php
     include_once(GENERAL_PATH.'/Pagina.php');
+    include_once(DAO_PATH.'/EstudianteDAO.php');
 
     /*
         Consulta estudiantes dependiendo de la clase.
