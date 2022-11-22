@@ -1,5 +1,6 @@
 <?php
     include_once('IConsultor.php');
+    include_once('../instancias/Cuenta.php');
 
     class CuentaConsul implements IConsultor {
         private BaseDeDatos $bd;
@@ -23,9 +24,10 @@
                 $cuenta = $registros[$i];
 
                 $id = $cuenta['id'];
-                $nombre = $cuenta['nombre'];
+                $descripcion = $cuenta['descripcion'];
                 $banco = $cuenta['banco'];
-                $ct = new Cuenta($id, $nombre, $banco);
+                $rif = $cuenta['rif'];
+                $ct = new Cuenta($id, $descripcion, $banco, $rif);
             
                 $cuentas[] = $ct;
             }
@@ -47,9 +49,10 @@
                 $cuenta = $registros[$i];
 
                 $id = $cuenta['id'];
-                $nombre = $cuenta['nombre'];
+                $descripcion = $cuenta['descripcion'];
                 $banco = $cuenta['banco'];
-                $ct = new Cuenta($id, $nombre, $banco);
+                $rif = $cuenta['rif'];
+                $ct = new Cuenta($id, $descripcion, $banco, $rif);
             
                 $cuentas[] = $ct;
             }

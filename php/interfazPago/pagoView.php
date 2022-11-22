@@ -139,7 +139,8 @@
                     <label for="cuentaInput" class="input__label">Cuenta</label>
                     <select class="input__select" id="cuentaInput" name="cuentaInput">
                         <?php 
-                            
+                            include('generarCuenta.php');
+                            optionCuenta();
                         ?>
                     </select>
                 </div>
@@ -147,7 +148,8 @@
                     <label for="tipoPagoInput" class="input__label">Tipo Pago</label>
                     <select class="input__select" id="tipoPagoInput" name="tipoPagoInput">
                         <?php 
-                            
+                            include('generarTipoPago.php');
+                            optionTipoPago();
                         ?>
                     </select>
                 </div>

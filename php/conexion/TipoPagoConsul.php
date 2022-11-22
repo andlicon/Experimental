@@ -1,5 +1,6 @@
 <?php
     include_once('IConsultor.php');
+    include_once('../instancias/TipoPago.php');
 
     class TipoPagoConsul implements IConsultor {
         private BaseDeDatos $bd;
@@ -35,7 +36,7 @@
         public function getTodos() {
             $consulta = "SELECT * 
                         FROM tipo_pago";
-            $registros = $this->bd->sql($consulta, $id);
+            $registros = $this->bd->sql($consulta, null);
 
             if(empty($registros)) {
                 throw new Exception('No hay tipo cuenta registradas en la base de dato.');
