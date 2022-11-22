@@ -1,7 +1,7 @@
 <?php
-    include_once('../conexion/BaseDeDatos.php');
-    include_once('../conexion/ContactoDAO.php');
-    include_once('../conexion/TipoContactoConsul.php');
+    include_once(DAO_PATH.'/BaseDeDatos.php');
+    include_once(DAO_PATH.'/ContactoDAO.php');
+    include_once(DAO_PATH.'/TipoContactoConsul.php');
 
     function generarTablaContactos($cedula) {
         try {

@@ -1,6 +1,6 @@
 <?php
-    include_once('../Excepciones/SelectException.php');
-    include_once('../general/Pagina.php');
+    include_once(EXCEPTION_PATH.'/SelectException.php');
+    include_once(GENERAL_PATH.'/Pagina.php');
 
     /* 
         Comprueba los checks seleccionados por el usuario

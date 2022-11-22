@@ -1,6 +1,6 @@
 <?php
-    include_once('../conexion/ClaseConsul.php');
-    include_once('../instancias/Clase.php');
+    include_once(DAO_PATH.'/ClaseConsul.php');
+    include_once(DTO_PATH.'/Clase.php');
 
     function generarClase($cedulaProf) {
         try {

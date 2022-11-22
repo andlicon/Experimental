@@ -1,8 +1,8 @@
 <?php
-    include_once('../conexion/BaseDeDatos.php');
-    include_once('../conexion/ClaseConsul.php');
-    include_once('../instancias/Clase.php');
-    include_once('../instancias/Usuario.php');
+    include_once(DAO_PATH.'/BaseDeDatos.php');
+    include_once(DAO_PATH.'/ClaseConsul.php');
+    include_once(DTO_PATH.'/Clase.php');
+    include_once(DTO_PATH.'/Usuario.php');
 
     function getIdClase() {
         if(isset($_GET['usuario'])) {

@@ -1,5 +1,5 @@
 <?php
-    include_once('../excepciones/InputException.php');
+    include_once(EXCEPTION_PATH.'/InputException.php');
 
     function comprobarInput($keyInput, Pagina $pagina) {
         $input = $_POST[$keyInput];

@@ -1,7 +1,7 @@
 <?php
-    include_once('../formulario/Mensaje.php');
-    include_once('../general/mandarMensaje.php');
-    include_once('../instancias/usuario.php');
+    include_once(FORMULARIO_PATH.'/Mensaje.php');
+    include_once(GENERAL_PATH.'/mandarMensaje.php');
+    include_once(DTO_PATH.'/usuario.php');
 
     class Pagina {
         /*CONSTANTES*/
@@ -30,40 +30,40 @@
             }
 
             if($pagina==self::LOGIN) {
-                $this->pagina = "Location: /php/interfazLogin/loginView.php";
+                $this->pagina = "Location: /php/interfaces/login/view.php";
                 $this->objSerializar = "usuarios";
             }
             else {
                 if($pagina==self::PERSONA) {
-                    $this->pagina = 'Location: /php/interfazPersona/personaView.php';
+                    $this->pagina = 'Location: /php/interfaces/persona/view.php';
                     $this->objSerializar = "personas";
                 }
                 else if($pagina==self::ESTUDIANTE) {
-                    $this->pagina = "Location: /php/interfazEstudiante/estudianteView.php";
+                    $this->pagina = "Location: /php/interfaces/estudiante/view.php";
                     $this->objSerializar = "estudiantes";
                 }
                 else if($pagina==self::DEUDA) {
-                    $this->pagina = "Location: /php/interfazDeuda/deudaView.php";
+                    $this->pagina = "Location: /php/interfaces/deuda/view.php";
                     $this->objSerializar = "deudas";
                 }
                 else if($pagina==self::CONTACTO) {
-                    $this->pagina = "Location: /php/interfazContacto/contactoView.php";
+                    $this->pagina = "Location: /php/interfaces/contacto/view.php";
                     $this->objSerializar = "contactos";
                 }
                 else if($pagina==self::OPCION) {
-                    $this->pagina =  "Location: /php/interfazOpcion/opcionView.php";
+                    $this->pagina =  "Location: /php/interfaces/opcion/view.php";
                     $this->objSerializar = "tipo_usuario";
                 }
                 else if($pagina==self::PROFESOR) {
-                    $this->pagina =  "Location: /php/interfazProfesor/profesorView.php";
+                    $this->pagina =  "Location: /php/interfaces/profesor/view.php";
                     $this->objSerializar = "personas";
                 }
                 else if($pagina==self::CLASE) {
-                    $this->pagina =  "Location: /php/interfazClase/claseView.php";
+                    $this->pagina =  "Location: /php/interfaces/clase/view.php";
                     $this->objSerializar = "estudiantes";
                 }
                 else if($pagina==self::PAGO) {
-                    $this->pagina =  "Location: /php/interfazPago/pagoView.php";
+                    $this->pagina =  "Location: /php/interfaces/pago/view.php";
                     $this->objSerializar = "pagos";
                 }
                 else {

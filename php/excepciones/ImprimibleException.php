@@ -1,5 +1,5 @@
 <?php
-    include_once('../general/Pagina.php');
+    include_once(ROOT_PATH.'/general/Pagina.php');
 
     abstract class ImprimibleException extends Exception {
         private Pagina $pagina;
