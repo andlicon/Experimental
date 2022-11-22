@@ -114,14 +114,6 @@
                         }
                     ?>
                 </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="7"></td>
-                        <td>
-                            <?php echo"Deuda total: $deudaTotal"?>
-                        </td>
-                    </tr>
-                </tfoot>
             </table>
             <!-- inputs -->
             <div class="input">
@@ -136,14 +128,6 @@
                     <input type="text" id="cedulaInput" name="cedulaInput" class="input__input input__input--texto">
                 </div>
                 <div class="input__grupo">
-                    <label for="motivoInput" class="input__label">Motivo</label>
-                    <select class="input__select" id="motivoInput" name="motivoInput">
-                        <?php 
-                            
-                        ?>
-                    </select>
-                </div>
-                <div class="input__grupo">
                     <label for="fechaInput" class="input__label">Fecha</label>
                     <input type="date" id="fechaInput" name="fechaInput" class="input__input">
                 </div>
@@ -152,31 +136,37 @@
                     <input type="text" id="montoInput" name="montoInput" class="input__input">
                 </div>
                 <div class="input__grupo">
-                    <label for="descripcionInput" class="input__label">Descripcion</label>
-                    <input type="text" id="descripcionInput" name="descripcionInput" class="input__input">
+                    <label for="cuentaInput" class="input__label">Cuenta</label>
+                    <select class="input__select" id="cuentaInput" name="cuentaInput">
+                        <?php 
+                            
+                        ?>
+                    </select>
+                </div>
+                <div class="input__grupo">
+                    <label for="tipoPagoInput" class="input__label">Tipo Pago</label>
+                    <select class="input__select" id="tipoPagoInput" name="tipoPagoInput">
+                        <?php 
+                            
+                        ?>
+                    </select>
+                </div>
+                <div class="input__grupo">
+                    <label for="refInput" class="input__label">Referencia</label>
+                    <input type="text" id="refInput" name="refInput" class="input__input">
                 </div>
             </div>
             <!-- botones -->
             <div class="botones">
                 <h2 class="botones__titulo">Acciones</h2>
-                <button name="consultarDeudor" class="boton">Consultar Deudores</button>
-                <button name="consultarCedula" class="boton">Deuda por representante</button>
+                <button name="consultarDeudor" class="boton">Consultar por cedula</button>
+                <button name="consultarCedula" class="boton">Actualizar</button>
                 <button name="modificar" class="boton">modificar</button>
                 <button name="eliminar" class="boton">eliminar</button>
-                <button name="cargarDeuda" class="boton">Cargar deuda</button>
-                <button name="cobrar" class="boton">Cobrar mensualidad</button>
-                <button name="cargarPago" class="boton">Cargar pago</button>
+                <button name="cargarDeuda" class="boton">Cargar</button>
                 <button name="volver" class="boton">volver</button>
             </div>
         </form>
     </div>
 </body>
 </html>
-
-
-<!-- id
-fecha
-monto
-id_cuenta
-id_tipo_pago
-ref -->
