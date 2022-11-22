@@ -7,7 +7,7 @@
 
     $idClase = getIdClase();
 
-    include_once('accionesBotones/consultarEstudiante.php');
+    include_once('evento/consultarEstudiante.php');
     include_once(GENERAL_PATH.'/accionVolver.php');
 ?>
 

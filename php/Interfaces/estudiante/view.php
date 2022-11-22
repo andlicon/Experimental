@@ -3,12 +3,12 @@
     
 <?php
     include_once('../ruta.php');
-    include('accionBoton/actualizarEstu.php');
-    include('accionBoton/consultarClaseEstu.php');
-    include('accionBoton/consultarCedulaEstu.php');
-    include('accionBoton/cargarEstu.php');
-    include('accionBoton/modificarEstu.php');
-    include('accionBoton/eliminarEstu.php');
+    include('evento/actualizarEstu.php');
+    include('evento/consultarClaseEstu.php');
+    include('evento/consultarCedulaEstu.php');
+    include('evento/cargarEstu.php');
+    include('evento/modificarEstu.php');
+    include('evento/eliminarEstu.php');
     include_once(GENERAL_PATH.'/accionVolver.php');
 ?>
 

@@ -3,8 +3,8 @@
 
 <?php
     include_once('../ruta.php');
-    include_once('accionBoton/actualizarProf.php');
-    include_once('accionBoton/consultarProf.php');
+    include_once('evento/actualizarProf.php');
+    include_once('evento/consultarProf.php');
     include_once(GENERAL_PATH.'/accionVolver.php');
 ?>
 

@@ -3,11 +3,11 @@
 
 <?php
     include_once('../ruta.php');
-    include('accionBoton/actualizarPer.php');
-    include('accionBoton/consultarPer.php');
-    include('accionBoton/cargarPer.php');
-    include('accionBoton/modificarPer.php');
-    include('accionBoton/eliminarPer.php');
+    include('evento/actualizarPer.php');
+    include('evento/consultarPer.php');
+    include('evento/cargarPer.php');
+    include('evento/modificarPer.php');
+    include('evento/eliminarPer.php');
     include_once(GENERAL_PATH.'/accionVolver.php');
 ?>
 

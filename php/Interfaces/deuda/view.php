@@ -3,13 +3,13 @@
 
 <?php
     include_once('../ruta.php');
-    include('accionBoton/cargarDeuda.php');
-    include('accionBoton/cargarPago.php');
-    include('accionBoton/eliminarDeuda.php');
-    include('accionBoton/modificarDeuda.php');
-    include('accionBoton/consultarDeudaRep.php');
-    include('accionBoton/consultarRepDeudor.php');
-    include('accionBoton/cobrarMensualidad.php');
+    include('evento/cargarDeuda.php');
+    include('evento/cargarPago.php');
+    include('evento/eliminarDeuda.php');
+    include('evento/modificarDeuda.php');
+    include('evento/consultarDeudaRep.php');
+    include('evento/consultarRepDeudor.php');
+    include('evento/cobrarMensualidad.php');
     
     include_once(GENERAL_PATH.'/accionVolver.php');
 ?>
