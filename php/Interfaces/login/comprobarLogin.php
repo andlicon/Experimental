@@ -18,16 +18,16 @@
 
         try {
             //combinacion usuario y contrasena introducida en el formulario
-            $usuarioInput = comprobarInput('usuario', $pagina);;
-            $contrasenaInput = comprobarInput('contrasena', $pagina);; 
+            $nicknameInput = comprobarInput('nicknameEntrar', $pagina);;
+            $contrasenaInput = comprobarInput('contrasenaEntrar', $pagina);; 
 
             $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
             $usuarioDAO = new UsuarioDAO($bd);
-            $usuarios = $usuarioDAO->getInstancia(array($usuarioInput));
+            $usuarios = $usuarioDAO->getInstancia(array($nicknameInput));
 
             if($usuarios) {
                 $usuario = $usuarios[0];
-                if($usuarioInput===$usuario->getNombre() && $contrasenaInput===$usuario->getContrasena()) {
+                if($usuarioInput===$usuario->getNickname() && $contrasenaInput===$usuario->getContrasena()) {
                     $paginaOpcion = new Pagina(Pagina::OPCION);
                     $paginaOpcion->setUsuario($usuario);
                     $paginaOpcion->actualizarPagina(null);

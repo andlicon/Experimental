@@ -137,10 +137,10 @@ label {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-flow: row nowrap;
-          flex-flow: row nowrap;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -149,7 +149,7 @@ label {
           align-items: center;
 }
 
-.login {
+.login__display {
   display: -ms-grid;
   display: grid;
       grid-template-areas: "titulo" "imagen" "cuerpo";
@@ -226,7 +226,7 @@ label {
   grid-template-rows: 1fr 6em;
 }
 
-.login {
+.login__display {
   --width: 20em;
   --height: 40em;
   width: var(--width);
@@ -236,7 +236,7 @@ label {
   background-color: red;
 }
 @media screen and (min-width: 1024px) {
-  .login {
+  .login__display {
     --width: 40em;
     --height: 45em;
   }
@@ -256,6 +256,10 @@ label {
   font-size: 2em;
   font-weight: 900;
   line-height: 1em;
+}
+
+.display--oculto {
+  display: none;
 }
 
 /*

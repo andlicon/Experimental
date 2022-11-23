@@ -3,7 +3,7 @@
 //login
 .body-login {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
 }
@@ -14,7 +14,7 @@ $login-row: (
         "cuerpo"      : 8em
     );
 
-.login {
+.login__display {
     display: grid;
     grid-template-areas: 
                 'titulo'
