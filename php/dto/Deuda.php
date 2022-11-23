@@ -2,6 +2,7 @@
     class Deuda {
         private $id;
         private $cedula;
+        private $idEstudiante;
         private $idMotivo;
         private $descripcion;
         private $fecha;
@@ -9,10 +10,12 @@
         private $montoEstado;
         private $deuda;
 
-        public function __construct($id, $cedula, $idMotivo, $descripcion,
-                                    $fecha, $montoInicial, $montoEstado, $deuda) {
+        public function __construct($id, $cedula, $idEstudiante, $idMotivo, 
+                                    $descripcion, $fecha, $montoInicial, 
+                                    $montoEstado, $deuda) {
             $this->id = $id;
             $this->cedula = $cedula;
+            $this->idEstudiante = $idEstudiante;
             $this->idMotivo = $idMotivo;
             $this->descripcion = $descripcion;
             $this->fecha = $fecha;
@@ -45,6 +48,9 @@
         public function getDeuda() {
             return $this->deuda;
         }
+        public function getIdEstudiante() {
+            return $this->idEstudiante;
+        }
 
         public function setId($id) {
             $this->id = $id;
@@ -66,6 +72,9 @@
         }
         public function setDeuda($deuda) {
             $this->deuda = $deuda;
+        }
+        public function setIdEstudiante($idEstudiante) {
+            $this->idEstudiante = $idEstudiante;
         }
     }
 ?>

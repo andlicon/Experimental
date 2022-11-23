@@ -26,6 +26,7 @@
 
                 $id = $deuda['id'];
                 $cedula = $deuda['cedula_representante'];
+                $idEstudiante = $deuda['id_estudiante'];
                 $fecha = $deuda['fecha'];
                 $idMotivo = $deuda['id_motivo'];
                 $descripcion = $deuda['descripcion'];
@@ -33,7 +34,7 @@
                 $montoEstado = $deuda['monto_estado'];
                 $deuda = $deuda['deuda'];
                 
-                $deb= new Deuda($id, $cedula, $idMotivo, $descripcion, 
+                $deb= new Deuda($id, $cedula, $idEstudiante, $idMotivo, $descripcion, 
                                 $fecha, $montoInicial, $montoEstado, $deuda);
                 $deudas[] = $deb;
             }
@@ -57,6 +58,7 @@
 
                 $id = $deuda['id'];
                 $cedula = $deuda['cedula_representante'];
+                $idEstudiante = $deuda['id_estudiante'];
                 $fecha = $deuda['fecha'];
                 $idMotivo = $deuda['id_motivo'];
                 $descripcion = $deuda['descripcion'];
@@ -64,7 +66,39 @@
                 $montoEstado = $deuda['monto_estado'];
                 $deuda = $deuda['deuda'];
                 
-                $deb= new Deuda($id, $cedula, $idMotivo, $descripcion, 
+                $deb= new Deuda($id, $cedula, $idEstudiante, $idMotivo, $descripcion, 
+                                $fecha, $montoInicial, $montoEstado, $deuda);
+                $deudas[] = $deb;
+            }
+            
+            return $deudas;
+        }
+
+        public function getInstanciaEstudiante($idiEstudiante) {
+            $consulta = "SELECT * 
+                        FROM deuda
+                        WHERE id_estudiante=?";
+            $registros = $this->bd->sql($consulta, $cedula);
+
+            if(empty($registros)) {
+                throw new Exception('No existe el representante con dicha cedula');
+            }
+
+            $deudas = [];
+            for($i=0; $i<count($registros); $i++) {
+                $deuda = $registros[$i];
+
+                $id = $deuda['id'];
+                $cedula = $deuda['cedula_representante'];
+                $idEstudiante = $deuda['id_estudiante'];
+                $fecha = $deuda['fecha'];
+                $idMotivo = $deuda['id_motivo'];
+                $descripcion = $deuda['descripcion'];
+                $montoInicial = $deuda['monto_inicial'];
+                $montoEstado = $deuda['monto_estado'];
+                $deuda = $deuda['deuda'];
+                
+                $deb= new Deuda($id, $cedula, $idEstudiante, $idMotivo, $descripcion, 
                                 $fecha, $montoInicial, $montoEstado, $deuda);
                 $deudas[] = $deb;
             }
@@ -87,6 +121,7 @@
 
                 $id = $deuda['id'];
                 $cedula = $deuda['cedula_representante'];
+                $idEstudiante = $deuda['id_estudiante'];
                 $fecha = $deuda['fecha'];
                 $idMotivo = $deuda['id_motivo'];
                 $descripcion = $deuda['descripcion'];
@@ -94,7 +129,7 @@
                 $montoEstado = $deuda['monto_estado'];
                 $deuda = $deuda['deuda'];
                 
-                $deb= new Deuda($id, $cedula, $idMotivo, $descripcion, 
+                $deb= new Deuda($id, $cedula, $idEstudiante, $idMotivo, $descripcion, 
                                 $fecha, $montoInicial, $montoEstado, $deuda);
                 $deudas[] = $deb;
             }

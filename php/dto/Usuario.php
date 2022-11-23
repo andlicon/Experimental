@@ -1,8 +1,10 @@
 <?php
     class Usuario {
-        private $nombre;        //nombre usuario
+        private $id;
+        private $nickname;        //nombre usuario
         private $contrasena;    //contrasena usuario
         private $idTipoUsuario;   //id tipo usuario
+        private $valido;
         private $cedula;
 
         /*
@@ -11,10 +13,13 @@
             @param $nombre      nombre del usuario
             @param $contrasena  contrasena del usuario
         */
-        public function __construct($nombre, $contrasena, $idTipoUsuario, $cedula) {
-            $this->nombre = $nombre;
+        public function __construct($id, $nickname, $contrasena, 
+                                    $idTipoUsuario, $valido, $cedula) {
+            $this->id = $id;
+            $this->nickname = $nickname;
             $this->contrasena = $contrasena;
             $this->idTipoUsuario = $idTipoUsuario;
+            $this-setValido($valido);
             $this->cedula = $cedula;
         }
 
@@ -22,17 +27,23 @@
         /*
             @return nombre usuario
         */
-        public function getNombre() {
-            return $this->nombre;
+        public function getNickname() {
+            return $this->nickname;
         } 
         public function getCedula() {
             return $this->cedula;
         } 
+        public function getValido() {
+            return $this->valido;
+        }
+        public function getId() {
+            return $this->id;
+        }
         /*
             @param $nombre - nombre del nuevo nombre a asignar
         */
-        public function setNombre($nombre) {
-            $this->nombre = $nombre;
+        public function setNickname($nickname) {
+            $this->nickname = $nickname;
         }
         /*
             @return contrasena del usuario
@@ -60,6 +71,12 @@
         }
         public function setCedula($cedula) {
             $this->cedula = $cedula;
+        }
+        public function setValido($valido) {
+            $this->valido = $valido ? true : false;
+        }
+        public function setId($id) {
+            $this->id = $id;
         }
     }
 ?>

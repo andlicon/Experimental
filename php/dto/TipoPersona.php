@@ -1,20 +1,20 @@
 <?php
-    class TipoUsuario {
+    class TipoPersona {
         private $id;
-        private $nombre;
+        private $descripcion;
         private $permiso;
 
-        public function __construct($id, $nombre, $permiso) {
+        public function __construct($id, $descripcion, $permiso) {
             $this->id = $id;
-            $this->nombre = $nombre;
+            $this->descripcion = $descripcion;
             $this->permiso = $permiso;
         }
 
         public function getId() {
             return $this->id;
         }
-        public function getNombre() {
-            return $this->nombre;
+        public function getDescripcion() {
+            return $this->descripcion;
         }
         public function getPermiso() {
             return $this->permiso;
@@ -23,8 +23,8 @@
         public function setId($id) {
             $this->id = $id;
         }
-        public function setNombre($nombre) {
-            $this->nombre = $nombre;
+        public function setDescripcion($descripcion) {
+            $this->descripcion = $descripcion;
         }
         public function setPermiso($permiso) {
             $this->permiso = $permiso;

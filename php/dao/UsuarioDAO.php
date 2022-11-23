@@ -24,11 +24,11 @@
             @thrown Exception - Arroja Exception de no existir una combinación usuario/cliente
             @return Usuario es un transfer object 
         */
-        public function getInstancia(array $usuario) {
+        public function getInstancia(array $id) {
             $consulta = "SELECT * 
                         FROM usuario
-                        WHERE nombre=?";
-            $registros = $this->bd->sql($consulta, $usuario);
+                        WHERE id=?";
+            $registros = $this->bd->sql($consulta, $id);
 
             if(!is_array($registros)) {
                 throw new Exception('No existe combinación usuario/contrasena');
@@ -38,11 +38,41 @@
             for($i=0; $i<count($registros); $i++) {
                 $registro = $registros[$i];
 
-                $usuario = $registro['nombre'];
+                $id = $registro['id'];
+                $nickname = $registro['nickname'];
                 $contrasena = $registro['contrasena'];
+                $valido = $registro['valido'];
                 $idTipoUsuario = $registro['id_tipo_usuario'];
                 $cedula = $registro['cedula'];
-                $us = new Usuario($usuario, $contrasena, $idTipoUsuario, $cedula);
+                $us = new Usuario($id, $nickname, $contrasena, $idTipoUsuario, $cedula);
+
+                $usuarios[] = $us;
+            }
+            
+            return $usuarios;
+        }
+
+        public function getInstanciaNickname(array $nickname) {
+            $consulta = "SELECT * 
+                        FROM usuario
+                        WHERE nickname=?";
+            $registros = $this->bd->sql($consulta, $nickname);
+
+            if(!is_array($registros)) {
+                throw new Exception('No existe combinación usuario/contrasena');
+            }
+            
+            $usuarios = [];
+            for($i=0; $i<count($registros); $i++) {
+                $registro = $registros[$i];
+
+                $id = $registro['id'];
+                $nickname = $registro['nickname'];
+                $contrasena = $registro['contrasena'];
+                $valido = $registro['valido'];
+                $idTipoUsuario = $registro['id_tipo_usuario'];
+                $cedula = $registro['cedula'];
+                $us = new Usuario($id, $nickname, $contrasena, $idTipoUsuario, $cedula);
 
                 $usuarios[] = $us;
             }
@@ -66,11 +96,13 @@
             for($i=0; $i<count($registros); $i++) {
                 $registro = $registros[$i];
 
-                $usuario = $registro['nombre'];
+                $id = $registro['id'];
+                $nickname = $registro['nickname'];
                 $contrasena = $registro['contrasena'];
+                $valido = $registro['valido'];
                 $idTipoUsuario = $registro['id_tipo_usuario'];
                 $cedula = $registro['cedula'];
-                $us = new Usuario($usuario, $contrasena, $idTipoUsuario, $cedula);
+                $us = new Usuario($id, $nickname, $contrasena, $idTipoUsuario, $cedula);
 
                 $usuarios[] = $us;
             }

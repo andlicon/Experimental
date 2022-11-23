@@ -25,8 +25,9 @@
                 $cedula = $renglon['cedula'];
                 $nombre = $renglon['nombre'];
                 $apellido = $renglon['apellido'];
+                $idTipoPersona = $renglon['id_tipo_persona'];
                 
-                $per= new Persona($cedula, $nombre, $apellido);
+                $per= new Persona($cedula, $nombre, $apellido, $idTipoPersona);
                 $personas[] = $per;
             }
 
@@ -43,18 +44,17 @@
             }
 
             $personas = [];
-            for($i=0; $i<count($registros); $i++) {
-                $persona = $registros[$i];
-
-                $cedula = $persona['cedula'];
-                $nombre = $persona['nombre'];
-                $apellido = $persona['apellido'];
+            if(!empty($registros)) {
+                $renglon = $registros[0];
+                $cedula = $renglon['cedula'];
+                $nombre = $renglon['nombre'];
+                $apellido = $renglon['apellido'];
+                $idTipoPersona = $renglon['id_tipo_persona'];
                 
-                $per= new Persona($cedula, $nombre, $apellido);
-
+                $per= new Persona($cedula, $nombre, $apellido, $idTipoPersona);
                 $personas[] = $per;
             }
-            
+
             return $personas;
         }
 

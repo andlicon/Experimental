@@ -1,8 +1,8 @@
 <?php 
      include_once ('Iconsultor.php');
-     include_once(DTO_PATH.'/TipoUsuario.php');
+     include_once(DTO_PATH.'/TipoPersona.php');
 
-     class TipoUsuarioConsul implements IConsultor {
+     class TipoPersonaConsul implements IConsultor {
         private BaseDeDatos $bd;
 
         public function __construct(BaseDeDatos $bd) {
@@ -12,12 +12,12 @@
 
         public function getInstancia(array $id) {
             $consulta = "SELECT * 
-                        FROM  tipo_usuario
+                        FROM  tipo_persona
                         WHERE id=?";
             $registros = $this->bd->sql($consulta, $id);
 
             if(empty($registros)) {
-                throw new Exception('No existe tipo_usuario con dicho id');
+                throw new Exception('No existe tipo_persona con dicho id');
             }
 
             $tipos= [];
@@ -25,10 +25,10 @@
                 $tipo = $registros[$i];
 
                 $id = $tipo['id'];
-                $nombre = $tipo['nombre'];
+                $descripcion = $tipo['descripcion'];
                 $permiso = $tipo['permisos'];
 
-                $tip = new TipoUsuario($id, $nombre, $permiso);
+                $tip = new TipoPersona($id, $nombre, $permiso);
                 $tipos[] = $tip;
             }
             
@@ -37,11 +37,11 @@
         
         public function getTodos() {
             $consulta = "SELECT * 
-                        FROM  tipo_usuario";
-            $registros = $this->bd->sql($consulta, $cedula);
+                        FROM  tipo_persona";
+            $registros = $this->bd->sql($consulta, null);
 
             if(empty($registros)) {
-                throw new Exception('No existe ningun tipo_usuario en la bd');
+                throw new Exception('No existe tipo_persona con dicho id');
             }
 
             $tipos= [];
@@ -49,10 +49,10 @@
                 $tipo = $registros[$i];
 
                 $id = $tipo['id'];
-                $nombre = $tipo['nombre'];
+                $descripcion = $tipo['descripcion'];
                 $permiso = $tipo['permisos'];
 
-                $tip = new TipoUsuario($id, $nombre, $permiso);
+                $tip = new TipoPersona($id, $nombre, $permiso);
                 $tipos[] = $tip;
             }
             

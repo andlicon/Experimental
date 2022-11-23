@@ -3,16 +3,19 @@
         private $id;
         private $idDeuda;
         private $fecha;
+        private $cedula;
         private $monto;
         private $idCuenta;
         private $idTipoPago;
         private $ref;
 
-        public function __construct($id, $idDeuda, $fecha, $monto, 
-                                    $idCuenta, $idTipoPago, $ref) {
+        public function __construct($id, $idDeuda, $fecha, $cedula, 
+                                    $monto, $idCuenta, $idTipoPago, 
+                                    $ref) {
             $this->id = $id;
             $this->idDeuda = $idDeuda;
             $this->fecha = $fecha;
+            $this->cedula = $cedula;
             $this->monto = $monto;
             $this->idCuenta = $idCuenta;
             $this->idTipoPago = $idTipoPago;
@@ -27,6 +30,9 @@
         }
         public function getFecha() {
             return $this->fecha;
+        }
+        public function getCedula() {
+            return $this->cedula;
         }
         public function getMonto() {
             return $this->monto;
@@ -49,6 +55,9 @@
         }
         public function setFecha($fecha) {
             $this->fecha = $fecha;
+        }
+        public function setCedula($cedula) {
+            $this->cedula = $cedula;
         }
         public function setMonto($monto) {
             $this->monto = $monto;
