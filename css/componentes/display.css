@@ -1,0 +1,19 @@
+.display--centrado {
+  --width: 20em;
+  --height: 40em;
+  width: var(--width);
+  height: var(--height);
+  border-radius: 3em;
+  padding: 2em;
+  background-color: red;
+}
+@media screen and (min-width: 1024px) {
+  .display--centrado {
+    --width: 40em;
+    --height: 45em;
+  }
+}
+
+.display--oculto {
+  display: none;
+}

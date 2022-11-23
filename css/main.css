@@ -164,16 +164,31 @@ label {
   grid-area: titulo;
 }
 
+.login > .login__titulo {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+}
+
 .login__imagen {
   -ms-grid-row: 3;
   -ms-grid-column: 1;
   grid-area: imagen;
 }
 
+.login > .login__imagen {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+}
+
 .login__formulario {
   -ms-grid-row: 5;
   -ms-grid-column: 1;
   grid-area: cuerpo;
+}
+
+.login > .login__formulario {
+  -ms-grid-row: 5;
+  -ms-grid-column: 1;
 }
 
 .login__formulario {
@@ -226,20 +241,13 @@ label {
   grid-template-rows: 1fr 6em;
 }
 
-.login__display {
-  --width: 20em;
-  --height: 40em;
-  width: var(--width);
-  height: var(--height);
-  border-radius: 3em;
-  padding: 2em;
-  background-color: red;
-}
-@media screen and (min-width: 1024px) {
-  .login__display {
-    --width: 40em;
-    --height: 45em;
-  }
+.login {
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "titulo" "imagen" "cuerpo";
+  -ms-grid-rows: 5em 1em 1fr 1em 8em;
+  grid-template-rows: 5em 1fr 8em;
+  gap: 1em;
 }
 
 .login__titulo {
@@ -256,6 +264,26 @@ label {
   font-size: 2em;
   font-weight: 900;
   line-height: 1em;
+}
+
+.display--oculto {
+  display: none;
+}
+
+.display--centrado {
+  --width: 20em;
+  --height: 40em;
+  width: var(--width);
+  height: var(--height);
+  border-radius: 3em;
+  padding: 2em;
+  background-color: red;
+}
+@media screen and (min-width: 1024px) {
+  .display--centrado {
+    --width: 40em;
+    --height: 45em;
+  }
 }
 
 .display--oculto {

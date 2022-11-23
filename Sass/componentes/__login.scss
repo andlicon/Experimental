@@ -1,28 +1,14 @@
-.login__display {
-    $width: (
-        "telefono"  : 20em,
-        "pc"        : 40em
-    );
-    $height: (
-        "telefono"  : 40em,
-        "pc"        : 45em
-    );
-
-    --width: #{map-get($width, "telefono")};
-    --height: #{map-get($height, "telefono")};
-
-    @media screen and (min-width : 1024px){
-        --width: #{map-get($width, "pc")};
-        --height: #{map-get($height, "pc")};
-    }
-
-    width: var(--width);
-    height: var(--height);
-
-    border-radius: 3em;
-    padding: 2em;
-
-    background-color: red;
+.login {
+    display: grid;
+    grid-template-areas: 
+                'titulo'
+                'imagen'
+                'cuerpo';
+    grid-template-rows: 
+                map-get($login-row, "titulo")
+                map-get($login-row, "imagen")
+                map-get($login-row, "cuerpo");
+    gap: 1em;
 }
 
 .login__titulo {

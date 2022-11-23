@@ -1,5 +1,5 @@
 <?php
-    include_once('../conexion/IConsultor.php');
+    include_once(DAO_PATH.'IConsultor.php');
 
     class GenerarOption {
         private IConsultor $consultor;

@@ -28,7 +28,7 @@
                 $descripcion = $tipo['descripcion'];
                 $permiso = $tipo['permisos'];
 
-                $tip = new TipoPersona($id, $nombre, $permiso);
+                $tip = new TipoPersona($id, $descripcion, $permiso);
                 $tipos[] = $tip;
             }
             
@@ -52,7 +52,7 @@
                 $descripcion = $tipo['descripcion'];
                 $permiso = $tipo['permisos'];
 
-                $tip = new TipoPersona($id, $nombre, $permiso);
+                $tip = new TipoPersona($id, $descripcion, $permiso);
                 $tipos[] = $tip;
             }
             
