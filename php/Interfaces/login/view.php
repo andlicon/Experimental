@@ -19,7 +19,6 @@
 <body class="body-login">
         <?php
             include_once(MENSAJE_PATH.'/imprimirMensaje.php');
-            imprimirMensaje();
         ?>
 
     <!-- LOGIN -->
@@ -39,6 +38,7 @@
         <h2 class="login__titulo">Registo.</h2>
         <form class="login__formulario formulario" method="POST">
             <!-- persona -->
+            <h2>Datos personales</h2>
             <div class="input__grupo">
                 <label for="nacionalidadInput" class="input__label">Nacionalidad</label>
                 <select name="nacionalidadInput" id="nacionalidadInput" class="input__select">
@@ -56,6 +56,16 @@
                 <label for="apellidoInput" class="input__label">Apellido</label>
                 <input type="text" id="apellidoInput" name="apellidoInput" class="input__input input__input--texto">
             </div>
+            <h2>Datos contacto</h2>
+            <div class="input__grupo">
+                <label for="correoInput" class="input__label">Correo</label>
+                <input type="text" id="correoInput" name="correoInput" class="input__input input__input--texto">
+            </div>
+            <div class="input__grupo">
+                <label for="telefonoInput" class="input__label">Telefono</label>
+                <input type="text" id="telefonoInput" name="telefonoInput" class="input__input input__input--texto">
+            </div>
+            <h2>Datos usuario</h2>
             <div class="input__grupo">
                 <label for="tipoPersonaInput" class="input__label">Tipo</label>
                 <select class="input__select" id="tipoPersonaInput" name="tipoPersonaInput">
