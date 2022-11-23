@@ -9,16 +9,19 @@
 
     <link rel="stylesheet" href="/css/main.css">
     <script type="text/javascript" src="../js/cambiarLamina.js"></script>
+    <script type="text/javascript" src="../js/autoEliminar.js"></script>
 </head>
 
 <?php
     include_once('../ruta.php');
     include("evento/comprobarLogin.php");
+    include("evento/registrar.php");
 ?>
 
 <body class="body-login">
         <?php
             include_once(MENSAJE_PATH.'/imprimirMensaje.php');
+            imprimirMensaje();
         ?>
 
     <!-- LOGIN -->
@@ -26,7 +29,7 @@
         <h2 class="login__titulo">Unidad Educativa Instituto Experimental.</h2>
         <img class="login__imagen" src="#" alt="Logo del colegio">
         <form class="login__formulario formulario" method="POST">
-            <input class="formulario__input" type="text" placeholder="usuario" name="nicknameEntrar">
+            <input class="formulario__input" type="text" placeholder="nickname" name="nicknameEntrar">
             <input class="formulario__input" type="password" placeholder="contraseña" name="contrasenaEntrar">
             <input class="login__boton" type="submit" name="login" value="Acceder">
         </form>

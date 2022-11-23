@@ -18,8 +18,8 @@
 
         try {
             //combinacion usuario y contrasena introducida en el formulario
-            $nicknameInput = comprobarInput('nicknameEntrar', $pagina);;
-            $contrasenaInput = comprobarInput('contrasenaEntrar', $pagina);; 
+            $nicknameInput = comprobarInput('nicknameEntrar', $pagina);
+            $contrasenaInput = comprobarInput('contrasenaEntrar', $pagina);
 
             $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
             $usuarioDAO = new UsuarioDAO($bd);
