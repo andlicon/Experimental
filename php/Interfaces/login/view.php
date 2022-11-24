@@ -59,6 +59,7 @@
                 <label for="apellidoInput" class="input__label">Apellido</label>
                 <input type="text" id="apellidoInput" name="apellidoInput" class="input__input input__input--texto">
             </div>
+            <!-- contacto -->
             <h2>Datos contacto</h2>
             <div class="input__grupo">
                 <label for="correoInput" class="input__label">Correo</label>
@@ -68,6 +69,7 @@
                 <label for="telefonoInput" class="input__label">Telefono</label>
                 <input type="text" id="telefonoInput" name="telefonoInput" class="input__input input__input--texto">
             </div>
+            <!-- usuario -->
             <h2>Datos usuario</h2>
             <div class="input__grupo">
                 <label for="tipoPersonaInput" class="input__label">Tipo</label>
@@ -86,8 +88,10 @@
                <label for="contrasenaInput" class="input__label">Contraseña</label>
                 <input type="password" id="contrasenaInput" name="contrasenaInput" class="input__input input__input--texto">
             </div>
+            <!-- enviar -->
             <input class="login__boton" type="submit" name="registrar" value="Registrar">
         </form>
+        
         <input class="login__boton" type="submit" name="volver" value="volver" onclick="cambiarVisibilidiad('registrar', 'login');">
     </div>
 </body>

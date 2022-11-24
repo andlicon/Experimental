@@ -111,7 +111,9 @@
         }
 
         public function cargar($parametros) {
-
+            $cargar= "  INSERT INTO usuario (nickname, contrasena, cedula)
+                        VALUES      (?, ?, ?)";
+            $registros = $this->bd->sql($cargar, $parametros);
         }
 
         public function modificar($parametros) {

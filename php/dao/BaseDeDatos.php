@@ -71,7 +71,7 @@
         }
 
         public function revertirCambios() {
-            $sql = "COMMIT;";
+            $sql = "ROLLBACK;";
             $commit = $this->conexion->prepare($sql);
             $commit->execute();
         }
