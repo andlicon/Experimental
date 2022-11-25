@@ -24,6 +24,7 @@
 
         
         public function __construct($pagina) {
+            $usuario = null;
             if(isset($_GET['usuario'])) {
                 $usuarioGet = $_GET['usuario'];
                 $usuario = unserialize($usuarioGet);
