@@ -1,15 +1,15 @@
 <?php
     include_once(DAO_PATH.'/BaseDeDatos.php');
-    include_once(DAO_PATH.'/TipoUsuarioConsul.php');
+    include_once(DAO_PATH.'/TipoPersonaConsul.php');
 
-    function generarBotones($idTipoUsuario) {
+    function generarBotones($id) {
         try {
             $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
-            $tipoUsuarioConsul = new TipoUsuarioConsul($bd); 
+            $tipoPersonaConsul = new TipoPersonaConsul($bd); 
             
-            $resultados = $tipoUsuarioConsul->getInstancia(array($idTipoUsuario));
-            $tipoUsuario = $resultados[0];
-            $permiso = $tipoUsuario->getPermiso();
+            $resultados = $tipoPersonaConsul->getInstancia(array($id));
+            $tipoPersona = $resultados[0];
+            $permiso = $tipoPersona->getPermiso();
 
             $botones = "";
             if($permiso==2) {       //administrador

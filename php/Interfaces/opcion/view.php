@@ -26,6 +26,11 @@
                     include_once(GENERAL_PATH.'deserializarUsuario.php');
 
                     $usuario = deserializarUsuario();
+                    $cedula = $usuario->getTipoPersona();
+
+                    //Consultar para ver la persona
+                    //get permiso y consultar por el tipo permiso
+
                     generarBotones($usuario->getIdTipoUsuario());
                 ?>
             </div>
