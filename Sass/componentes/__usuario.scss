@@ -1,8 +1,48 @@
+//Variables
+$usuarioDesplegado: 300px;
+$usuarioOculto: 25px;
+
 .usuario {
-    width: 300px;
+    width: $usuarioOculto;
     height: 100%;
+
     position: sticky;
     top: 0;
 
     background-color: black;
+
+    transition: 0.3s;
+}
+
+.usuario__contenido {
+    margin-left: -$usuarioDesplegado;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+
+    &:first-child {
+        margin-top: 50%;
+    }
+}
+
+.usuario:hover {
+    width: $usuarioDesplegado;
+
+    .usuario__contenido {
+        margin-left: 0;
+        padding: 0px;
+    }
+}
+
+.usuario__nickname {
+    align-self: center;
+}
+
+.usuario__imagen {
+    width: 75px;
+    height: 75px;
+
+    z-index: 0;
 }

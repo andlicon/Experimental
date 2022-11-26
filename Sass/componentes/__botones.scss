@@ -15,19 +15,64 @@
 }
 
 .boton {
-    border: 1px solid black;
-    border-radius: 5em;
+    width: 100%;
+    height: 80px;       //puede variar
 
-    color: white;
+    background-color: white;
+    color: black;
+    border: none;
 
-    background-color: grey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    cursor: pointer;
+    font-weight: 500;
+
+    text-transform: uppercase;
+
+    &:hover .boton__span {
+        left: 15px;
+    }
+
+    &:hover .boton__imagen {
+        opacity: 1;
+        left: calc(100% - 40px);
+    }
 }
 
-.boton:hover {
-    color: red;
-    background-color: yellow;
+.boton--separacion {
+    margin-bottom: 0.3em;
 }
 
 .boton:active {
     color: green;
+}
+
+.boton__span {
+    display: inline-block;
+    transition: .4s ease-in-out all;
+    position: absolute;
+    left: 40%;
+    opacity: 1;
+}
+
+.boton__imagen {
+    width: 35px;
+    height: 35px;
+
+    display: flex;
+    align-items: center;
+    position: absolute;
+
+    left: 0px;
+    opacity: 0;
+    transition: .3s ease-in-out all;
+}
+
+svg {
+    width: 35px;
+    height: 35px;
 }

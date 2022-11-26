@@ -33,12 +33,11 @@
                 $botones = $botones."<button name=\"salir\" class=\"boton\">Salir</button>";
             }
             else {                  //representante
-                $botones = $botones."<button name=\"gestionar-contacto\" class=\"boton\">Gestionar contacto</button>";
-                $botones = $botones."<button name=\"gestionar-pago\" class=\"boton\">Gestionar pago</button>";
-                $botones = $botones."<button name=\"gestionar-deuda\" class=\"boton\">Gestionar deuda</button>";
-                $botones = $botones."<button name=\"gestionar-estudiante\" class=\"boton\">Gestionar estudiante</button>";
-                $botones = $botones."<button name=\"gestionar-usuario\" class=\"boton\">Gestionar usuario</button>";
-                $botones = $botones."<button name=\"salir\" class=\"boton\">Salir</button>";
+                $botones = $botones."<button name=\"gestionar-contacto\" class=\"boton boton--separacion\">Usuario</button>";
+                $botones = $botones."<button name=\"gestionar-pago\" class=\"boton boton--separacion\">Pagos</button>";
+                $botones = $botones."<button name=\"gestionar-deuda\" class=\"boton boton--separacion\">Deudas</button>";
+                $botones = $botones."<button name=\"gestionar-estudiante\" class=\"boton boton--separacion\">Estudiantes</button>";
+                $botones = $botones."<button name=\"salir\" class=\"boton boton--separacion\">Salir</button>";
             }
 
             echo $botones;
