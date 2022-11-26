@@ -32,12 +32,13 @@
                 $botones = $botones."<button name=\"gestionar-usuario\" class=\"boton\">Gestionar usuario</button>";
                 $botones = $botones."<button name=\"salir\" class=\"boton\">Salir</button>";
             }
-            else {                  //representante
-                $botones = $botones."<button name=\"gestionar-contacto\" class=\"boton boton--separacion\">Usuario</button>";
-                $botones = $botones."<button name=\"gestionar-pago\" class=\"boton boton--separacion\">Pagos</button>";
-                $botones = $botones."<button name=\"gestionar-deuda\" class=\"boton boton--separacion\">Deudas</button>";
-                $botones = $botones."<button name=\"gestionar-estudiante\" class=\"boton boton--separacion\">Estudiantes</button>";
-                $botones = $botones."<button name=\"salir\" class=\"boton boton--separacion\">Salir</button>";
+            else {                  //representante         HACERLOS TODOS ASÍ
+                $botones = $botones.crearBoton("inicio", "Inicio");
+                $botones = $botones.crearBoton("gestionar-contacto", "Usuario");
+                $botones = $botones.crearBoton("gestionar-pago", "Pagos");
+                $botones = $botones.crearBoton("gestionar-deuda", "Deudas");
+                $botones = $botones.crearBoton("gestionar-estudiante", "Estudiante");
+                $botones = $botones.crearBoton("gestionar-salir", "Salir");
             }
 
             echo $botones;
@@ -45,5 +46,19 @@
         catch(Exception $e) {
             echo $e;
         }
+    }
+
+    function crearBoton($name, $texto){
+    echo 
+        '<button class="boton" name="'.$name.'">
+                    <div class="boton__imagen">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
+                        </svg>
+                    </div>
+                    <span class="boton__span">'.
+                        $texto
+                    .'</span>
+        </button>';
     }
 ?>
