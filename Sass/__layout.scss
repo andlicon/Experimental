@@ -8,6 +8,13 @@
     align-items: center;
 }
 
+.body-page {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
 $login-row: (
         "titulo"      : 5em,
         "imagen"      : 1fr,
