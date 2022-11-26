@@ -11,6 +11,7 @@
     include_once(GENERAL_PATH.'/Pagina.php');
 
     include_once(EXCEPTION_PATH.'/InputException.php');
+    include_once(EXCEPTION_PATH.'/DaoException.php');
 
     /*
         Al precionar el botón con name="login", se comprobara en la base de dato
@@ -30,11 +31,24 @@
             $e->imprimirError();
             die();
         }
+        catch(DaoException $e) {
+            $dao = $e->getDao();
+            $accion = $e->getAccion();
+            $mensaje = $e->getMessage();
+
+            if($dao == DaoException::CONTACTO) {
+                //borrar personas
+            }
+            else if ($dao == DaoException::USUARIO) {
+                //borrar contactos
+                //borrar persona
+            }
+ 
+            $pagina->imprimirMensaje(null, Mensaje::ERROR, $mensaje);
+        }
         catch(PDOException $e) {
-            //Tratar de borrar primero el usuario, despues el contacto y por ultimo la persona.
-            //Borrar usuario
-            //Borrar contacto
-            //Borrar persona
+            //Error en la conexion a la bd
+            echo $e;
         }
         catch(Exception $e) {
             echo $e;

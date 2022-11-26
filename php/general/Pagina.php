@@ -81,19 +81,34 @@
         }
 
         public function actualizarPagina($parametros) {
-            if($parametros!=null) {
-                $serialize = serialize($parametros);
-                if( str_contains($this->pagina, "?") ) {
-                    header($this->pagina.'&'.$this->objSerializar.'='.urlencode($serialize));
-                }
-                else {
-                    header($this->pagina.'?'.$this->objSerializar.'='.urlencode($serialize));
-                }
+            if($parametros==null) {
+                header($this->pagina);
+                die();
+            }
+
+            $serialize = serialize($parametros);
+            if(str_contains($this->pagina, "?")) {
+                header($this->pagina.'&'.$this->objSerializar.'='.urlencode($serialize));
             }
             else {
-                header($this->pagina);
+                header($this->pagina.'?'.$this->objSerializar.'='.urlencode($serialize));
             }
+
             die();
+            
+            // if($parametros!=null) {
+            //     $serialize = serialize($parametros);
+            //     if( str_contains($this->pagina, "?") ) {
+            //         header($this->pagina.'&'.$this->objSerializar.'='.urlencode($serialize));
+            //     }
+            //     else {
+            //         header($this->pagina.'?'.$this->objSerializar.'='.urlencode($serialize));
+            //     }
+            // }
+            // else {
+            //     header($this->pagina);
+            // }
+            // die();
         }
 
         public function setUsuario($usuario) {

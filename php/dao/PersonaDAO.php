@@ -1,6 +1,7 @@
 <?php
     include_once ('IDAO.php');
     include_once(DTO_PATH.'/Persona.php');
+    include_once(EXCEPTION_PATH.'/DaoException.php');
 
     class PersonaDAO implements IDAO {
         private $bd;
@@ -59,9 +60,14 @@
         }
 
         public function cargar($parametros) {
-            $insert = "INSERT INTO persona (cedula, nombre, apellido, id_tipo_persona)
-                       VALUES              (?,      ?,      ?,        ?)";
-            $this->bd->sql($insert, $parametros);
+            try {
+                $insert = " INSERT INTO persona (cedula, nombre, apellido, id_tipo_persona)
+                            VALUES              (?,      ?,      ?,        ?)";
+                $this->bd->sql($insert, $parametros);
+            }
+            catch(PDOException $e) {
+                throw new DaoException("persona", "cargar", "ya existe una persona con esa cedula");
+            }
         }
 
         public function modificar($parametros) {
