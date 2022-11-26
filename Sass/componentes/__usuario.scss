@@ -21,10 +21,22 @@ $usuarioOculto: 25px;
 
     display: flex;
     flex-flow: column nowrap;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 
     position: relative;
+
+    * {
+        margin-bottom: 0.4em;
+    }
+
+    &:first-child {
+        margin-top: 30%;
+    }
+}
+
+.usuario__nickname {
+    margin-bottom: 50px;
 }
 
 .usuario:hover {
