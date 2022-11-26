@@ -121,9 +121,14 @@
         }
 
         public function cargar($parametros) {
-            $insert = "INSERT INTO estudiante (nombre, apellido, fecha_nacimiento, id_clase, cedula_representante)
+            try {
+                $insert = "INSERT INTO estudiante (nombre, apellido, fecha_nacimiento, id_clase, cedula_representante)
                        VALUES                 (?, ?,  ?, ?, ?)";
-            $this->bd->sql($insert, $parametros);
+                $this->bd->sql($insert, $parametros);
+            }
+            catch(PDOException $e) {
+                throw new DaoException(DaoException::ESTUDIANTE, DaoException::CARGAR, "ya existe un estudiante con el id indicado.");
+            }
         }
 
         public function modificar($parametros) {
@@ -138,9 +143,14 @@
         }
         
         public function eliminar($parametros) {
-            $delete =  "DELETE FROM estudiante
-                        WHERE id=?";
-            $this->bd->sql($delete, $parametros);
+            try {
+                $insert = "INSERT INTO estudiante (nombre, apellido, fecha_nacimiento, id_clase, cedula_representante)
+                       VALUES                 (?, ?,  ?, ?, ?)";
+            $this->bd->sql($insert, $parametros);
+            }
+            catch(PDOException $e) {
+                throw new DaoException(DaoException::ESTUDIANTE, DaoException::ELIMINAR, "No se puede eliminar estudiante por alguna dependencia.");
+            }
         }
 
     }

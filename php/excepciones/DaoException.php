@@ -5,8 +5,12 @@
         const PERSONA = 1;
         const USUARIO = 2;
         const CONTACTO = 3;
+        const ESTUDIANTE = 4;
+        const DEUDA = 5;
+        const PAGO = 6;
         
         const CARGAR = 'cargar';
+        const ELIMINAR = 'eliminar';
 
         private $dao;
         private $accion;

@@ -80,9 +80,14 @@
         }
 
         public function eliminar($parametros) {
-            $delete =  "DELETE FROM persona
+            try {
+                $delete =  "DELETE FROM persona
                         WHERE cedula=?";
-            $this->bd->sql($delete, $parametros);
+                $this->bd->sql($delete, $parametros);
+            }
+            catch(PDOException $e) {
+                throw new DaoException(DaoException::PERSONA, DaoException::ELIMINAR, "Existe alguna dependencia que impide borrar a la persona.");
+            }
         }
 
     }
