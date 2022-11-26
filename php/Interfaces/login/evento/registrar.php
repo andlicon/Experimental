@@ -56,8 +56,7 @@
             $pagina->imprimirMensaje(null, Mensaje::ERROR, $mensaje);
         }
         catch(PDOException $e) {
-            //Error en la conexion a la bd
-            echo $e;
+            $pagina->imprimirMensaje(null, Mensaje::ERROR, "Error al conectar a la bd.");
         }
         catch(Exception $e) {
             echo $e;
