@@ -24,14 +24,28 @@
                 <h2 class="botones__titulo">Acciones</h2>
                 <?php
                     include_once(GENERAL_PATH.'deserializarUsuario.php');
+                    include_once(DAO_PATH.'PersonaDAO.php');
+                    include_once(DAO_PATH.'TipoPersonaConsul.php');
+                    include_once(DTO_PATH.'Persona.php');
 
                     $usuario = deserializarUsuario();
-                    $cedula = $usuario->getTipoPersona();
+                    $cedula = $usuario->getCedula();
+
+                    $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
+
+
+                    $personaDAO = new PersonaDAO($bd);
+                    $personas = $personaDAO->getInstancia(array($cedula));
+                    $persona = $personas[0];
+                    $idPersona = $persona->getIdTipoPersona();
 
                     //Consultar para ver la persona
-                    //get permiso y consultar por el tipo permiso
-
-                    generarBotones($usuario->getIdTipoUsuario());
+                    $tipoPersonaConsul = new TipoPersonaConsul($bd);
+                    $tiposPersonas = $tipoPersonaConsul->getInstancia(array($idPersona));
+                    $tipoPersona = $tiposPersonas[0];
+                    $permiso = $tipoPersona->getPermiso();
+                    
+                    generarBotones($permiso);
                 ?>
             </div>
         </form>
