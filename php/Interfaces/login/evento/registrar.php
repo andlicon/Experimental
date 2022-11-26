@@ -1,17 +1,14 @@
 <?php
     include_once(DAO_PATH.'/BaseDeDatos.php');
-    include_once(DAO_PATH.'/PersonaDAO.php');
-    include_once(DAO_PATH.'/ContactoDAO.php');
-    include_once(DAO_PATH.'/UsuarioDAO.php');
 
-    include_once(DTO_PATH.'/Usuario.php');
-
-    include_once(GENERAL_PATH.'/comprobarInput.php');
-    include_once(GENERAL_PATH.'/crearCedula.php');
     include_once(GENERAL_PATH.'/Pagina.php');
 
     include_once(EXCEPTION_PATH.'/InputException.php');
     include_once(EXCEPTION_PATH.'/DaoException.php');
+
+    include_once(FUNCIONES_DAO_PATH.'/cargarPersona.php');
+    include_once(FUNCIONES_DAO_PATH.'/cargarContacto.php');
+    include_once(FUNCIONES_DAO_PATH.'/cargarUsuario.php');
 
     /*
         Al precionar el botón con name="login", se comprobara en la base de dato
@@ -26,6 +23,8 @@
             cargarPersona($bd, $pagina);
             cargarContacto($bd, $pagina);
             cargarUsuario($bd, $pagina);
+            
+            $pagina->imprimirMensaje(null, Mensaje::EXITO, "Se ha registrado con exito!");
         }
         catch(InputException $e) {
             $e->imprimirError();
@@ -53,45 +52,5 @@
         catch(Exception $e) {
             echo $e;
         }
-    }
-
-    function cargarPersona(BaseDeDatos $bd, $pagina) {
-        $nacionalidadInput = comprobarInput('nacionalidadInput', $pagina);
-        $cedulaInput = comprobarInput('cedulaInput', $pagina);
-        $cedula = crearCedula($nacionalidadInput, $cedulaInput);    //se crea la cedula
-        $nombre = comprobarInput('nombreInput', $pagina);
-        $apellido = comprobarInput('apellidoInput', $pagina);
-        $idTipoPersona = comprobarInput('tipoPersonaInput', $pagina);
-        
-        $personaDAO = new PersonaDAO($bd);
-        $personaDAO->cargar(array($cedula, $nombre, $apellido, $idTipoPersona));
-    }
-
-    function cargarContacto(BaseDeDatos $bd, $pagina) {
-        $nacionalidadInput = comprobarInput('nacionalidadInput', $pagina);
-        $cedulaInput = comprobarInput('cedulaInput', $pagina);
-        $cedula = crearCedula($nacionalidadInput, $cedulaInput);    //se crea la cedula
-        $correo = comprobarInput('correoInput', $pagina);
-        $telefono = $_POST['telefonoInput'];
-
-        $contactoDAO = new ContactoDAO($bd, $pagina);
-
-        $contactoDAO->cargar(array($cedula, 1, $correo));
-
-        if($telefono!="") {
-            $contactoDAO->cargar(array($cedula, 2, $telefono));
-        }
-    }
-
-    function cargarUsuario(BaseDeDatos $bd, $pagina) {
-        $nacionalidadInput = comprobarInput('nacionalidadInput', $pagina);
-        $cedulaInput = comprobarInput('cedulaInput', $pagina);
-        $cedula = crearCedula($nacionalidadInput, $cedulaInput);    //se crea la cedula
-        $tipoPersona = comprobarInput('tipoPersonaInput', $pagina);
-        $nickname = comprobarInput('nicknameInput', $pagina);
-        $contrasena = comprobarInput('contrasenaInput', $pagina);
-
-        $usuarioDAO = new UsuarioDAO($bd);
-        $usuarioDAO->cargar(array($cedula, $nickname, $contrasena));
     }
 ?>

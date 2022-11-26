@@ -6,4 +6,5 @@
     define('EXCEPTION_PATH', ROOT_PATH.'/excepciones/');  //Leva a las exceptions
     define('FORMULARIO_PATH', ROOT_PATH.'/formulario/');  //Leva a las exceptions
     define('MENSAJE_PATH', ROOT_PATH.'/mensaje/');  //Leva a los mensajes
+    define('FUNCIONES_DAO_PATH', ROOT_PATH.'/funcionesDao/');  //Leva a las funciones DAO
 ?>
