@@ -133,6 +133,10 @@ label {
   font-size: 1.1em;
 }
 
+html, body {
+  overflow: auto;
+}
+
 .body-login {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -150,19 +154,10 @@ label {
 }
 
 .body-page {
+  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row nowrap;
-          flex-flow: row nowrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
 .login__display {
@@ -257,7 +252,7 @@ label {
   grid-template-rows: 1fr 6em;
 }
 
-.body-login {
+.body-page {
   background-image: URL("/img/interfaz/background/background-l.jpg");
 }
 
@@ -406,20 +401,6 @@ label {
   /*Centrada*/
   height: 100%;
   width: 100%;
-  background-color: red;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row nowrap;
-          flex-flow: row nowrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
 }
 
 .vista__contenido {
@@ -541,4 +522,12 @@ label {
 
 .boton:active {
   color: green;
+}
+
+.usuario {
+  width: 300px;
+  height: 100%;
+  position: sticky;
+  top: 0;
+  background-color: black;
 }
