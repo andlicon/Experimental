@@ -2,9 +2,11 @@
 
     class DaoException extends Exception {
         // CONSTANTES
-        const PERSONA = "persona";
-        const USUARIO = "usuario";
-        const CONTACTO = "contacto";
+        const PERSONA = 1;
+        const USUARIO = 2;
+        const CONTACTO = 3;
+        
+        const CARGAR = 'cargar';
 
         private $dao;
         private $accion;

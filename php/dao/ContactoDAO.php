@@ -102,9 +102,14 @@
         }
 
         public function cargar(array $parametros) {
-            $insert = "INSERT INTO contacto (cedula, id_tipo, contacto)
+            try {
+                $insert = "INSERT INTO contacto (cedula, id_tipo, contacto)
                        VALUES               (?,      ?,       ?)";
-            $this->bd->sql($insert, $parametros);
+                $this->bd->sql($insert, $parametros);
+            }
+            catch(PDOException $e) {
+                throw new DaoException(DaoException::CONTACTO, DaoException::CARGAR, "ya existe un usuario con el contacto indicado.");
+            }
         }
 
         public function modificar(array $id) {

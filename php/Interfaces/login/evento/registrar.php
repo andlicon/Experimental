@@ -1,5 +1,7 @@
 <?php
     include_once(DAO_PATH.'/BaseDeDatos.php');
+    include_once(DAO_PATH.'/PersonaDAO.php');
+    include_once(DAO_PATH.'/ContactoDAO.php');
 
     include_once(GENERAL_PATH.'/Pagina.php');
 
@@ -23,7 +25,7 @@
             cargarPersona($bd, $pagina);
             cargarContacto($bd, $pagina);
             cargarUsuario($bd, $pagina);
-            
+
             $pagina->imprimirMensaje(null, Mensaje::EXITO, "Se ha registrado con exito!");
         }
         catch(InputException $e) {
@@ -35,12 +37,20 @@
             $accion = $e->getAccion();
             $mensaje = $e->getMessage();
 
-            if($dao == DaoException::CONTACTO) {
-                //borrar personas
-            }
-            else if ($dao == DaoException::USUARIO) {
+            $nacionalidadInput = comprobarInput('nacionalidadInput', $pagina);
+            $cedulaInput = comprobarInput('cedulaInput', $pagina);
+            $cedula = crearCedula($nacionalidadInput, $cedulaInput);
+
+            $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
+
+            if($dao == DaoException::CONTACTO || $dao == DaoException::USUARIO) {
                 //borrar contactos
+                $contactoDAO = new ContactoDAO($bd);
+                $contactoDAO->eliminarPorCedula(array($cedula));
+
                 //borrar persona
+                $personaDAO = new PersonaDAO($bd);
+                $personaDAO->eliminar(array($cedula));
             }
  
             $pagina->imprimirMensaje(null, Mensaje::ERROR, $mensaje);

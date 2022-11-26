@@ -106,8 +106,13 @@
         }
 
         public function cargar($parametros) {
-            $cargar= "CALL  p_cargar_usuario(?, ?, ?)";
-            $registros = $this->bd->sql($cargar, $parametros);
+            try {
+                $cargar= "CALL  p_cargar_usuario(?, ?, ?)";
+                $registros = $this->bd->sql($cargar, $parametros);
+            }
+            catch(PDOException $e) {
+                throw new DaoException(DaoException::USUARIO, DaoException::CARGAR, "ya existe un usuario con dicho nickname.");
+            }
         }
 
         public function modificar($parametros) {

@@ -66,7 +66,7 @@
                 $this->bd->sql($insert, $parametros);
             }
             catch(PDOException $e) {
-                throw new DaoException("persona", "cargar", "ya existe una persona con esa cedula");
+                throw new DaoException(DaoException::PERSONA, DaoException::CARGAR, "ya existe una persona con esa cedula.");
             }
         }
 
