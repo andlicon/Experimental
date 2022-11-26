@@ -16,36 +16,47 @@
         si existe una combinación usuario/contrasena, de no existir creara un div
     */
     if(isset($_POST['login'])) {
-        $pagina = new Pagina(Pagina::LOGIN);
+        $paginaLogin = new Pagina(Pagina::LOGIN);
 
         try {
             //combinacion usuario y contrasena introducida en el formulario
             $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
 
-            $nicknameInput = comprobarInput('nicknameEntrar', $pagina);
-            $contrasenaInput = comprobarInput('contrasenaEntrar', $pagina);
+            $nicknameInput = comprobarInput('nicknameEntrar', $paginaLogin);
+            $contrasenaInput = comprobarInput('contrasenaEntrar', $paginaLogin);
             $usuarioDAO = new UsuarioDAO($bd);
             $usuarios = $usuarioDAO->getInstanciaNickname(array($nicknameInput));
 
             if($usuarios) {
                 $usuario = $usuarios[0];
-                if($nicknameInput===$usuario->getNickname() && $contrasenaInput===$usuario->getContrasena()) {
-                    $opcion = new Pagina(Pagina::OPCION);
-                    $opcion->setUsuario($usuario);
-                    $opcion->actualizarPagina(null);
-                }
-                else{
-                    $pagina->imprimirMensaje(null, Mensaje::ERROR, "No existe combinacion usuario/contrasena");
+
+                if(!usuarioValido($usuario)) {
+                    $paginaLogin->imprimirMensaje(null, Mensaje::ERROR, "Usuario sigue a la espera de la validación.");
                     die();
                 }
+                if(!credencialesValidos($usuario, $nicknameInput, $contrasenaInput)) {
+                    $paginaLogin->imprimirMensaje(null, Mensaje::ERROR, "No existe combinacion usuario/contrasena.");
+                    die();
+                }
+
+                $paginaOpcion = new Pagina(Pagina::OPCION);
+                $paginaOpcion->setUsuario($usuario);
+                $paginaOpcion->actualizarPagina(null);
             }
         }
         catch(InputException $e) {
             $e->imprimirError();
-            die();
         }
         catch(Exception $e) {
             echo $e;
         }
+    }
+
+    function usuarioValido(Usuario $usuario) {
+        return $usuario->getValido();
+    }
+
+    function credencialesValidos(Usuario $usuario, $nickname, $contrasena) {
+        return $nickname===$usuario->getNickname() && $contrasena===$usuario->getContrasena();
     }
 ?>

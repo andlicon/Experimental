@@ -78,6 +78,6 @@
         $contrasena = comprobarInput('contrasenaInput', $pagina);
 
         $usuarioDAO = new UsuarioDAO($bd);
-        $usuarioDAO->cargar(array($nickname, $contrasena, $cedula));
+        $usuarioDAO->cargar(array($cedula, $nickname, $contrasena));
     }
 ?>

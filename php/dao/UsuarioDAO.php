@@ -31,7 +31,7 @@
             $registros = $this->bd->sql($consulta, $cedula);
 
             if(!is_array($registros)) {
-                throw new Exception('No existe combinación usuario con dicha cedula');
+                throw new Exception('No existe usuario con dicha cedula');
             }
             
             $usuarios = [];
@@ -57,7 +57,7 @@
             $registros = $this->bd->sql($consulta, $nickname);
 
             if(!is_array($registros)) {
-                throw new Exception('No existe combinación usuario/contrasena');
+                throw new Exception('No existe usuario con dicho nickname.');
             }
             
             $usuarios = [];
@@ -106,8 +106,7 @@
         }
 
         public function cargar($parametros) {
-            $cargar= "  INSERT INTO usuario (nickname, contrasena, cedula)
-                        VALUES      (?, ?, ?)";
+            $cargar= "CALL  p_cargar_usuario(?, ?, ?)";
             $registros = $this->bd->sql($cargar, $parametros);
         }
 
