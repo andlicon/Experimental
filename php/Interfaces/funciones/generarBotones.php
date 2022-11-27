@@ -12,34 +12,31 @@
             $permiso = $tipoPersona->getPermiso();
 
             $botones = "";
-            if($permiso==2) {       //administrador PROFESOR
-                $botones = $botones."<button name=\"gestionar-clase\" class=\"boton\">Gestionar clase</button>";
-                $botones = $botones."<button name=\"gestionar-contacto\" class=\"boton\">Gestionar contacto</button>";
-                $botones = $botones."<button name=\"gestionar-usuario\" class=\"boton\">Gestionar usuario</button>";
-                $botones = $botones."<button name=\"salir\" class=\"boton\">Salir</button>";
+            $botones = $botones.crearBoton("inicio", "Inicio");
+            $botones = $botones.crearBoton("gestionar-usuario", "Usuario");
+            if($permiso==2) {       //PROFESOR
+                $botones = $botones.crearBoton("gestionar-clase", "Clase");
             }
-            else if($permiso==3) {
-                $botones = $botones."<button name=\"gestionar-usuario\" class=\"boton\">Gestionar usuario</button>";
-                $botones = $botones."<button name=\"salir\" class=\"boton\">Salir</button>";
-            }
-            else if($permiso==4) {  //administrador
-                $botones = $botones."<button name=\"gestionar-persona\" class=\"boton\">Gestionar persona</button>";
-                $botones = $botones."<button name=\"gestionar-contacto\" class=\"boton\">Gestionar contacto</button>";
-                $botones = $botones."<button name=\"gestionar-pago\" class=\"boton\">Gestionar pago</button>";
-                $botones = $botones."<button name=\"gestionar-deuda\" class=\"boton\">Gestionar deuda</button>";
-                $botones = $botones."<button name=\"gestionar-estudiante\" class=\"boton\">Gestionar estudiante</button>";
-                $botones = $botones."<button name=\"gestionar-profesor\" class=\"boton\">Gestionar profesor</button>";
-                $botones = $botones."<button name=\"gestionar-usuario\" class=\"boton\">Gestionar usuario</button>";
-                $botones = $botones."<button name=\"salir\" class=\"boton\">Salir</button>";
-            }
-            else {                  //representante         HACERLOS TODOS ASÍ
-                $botones = $botones.crearBoton("inicio", "Inicio");
-                $botones = $botones.crearBoton("gestionar-contacto", "Usuario");
+            else if($permiso==3) {  //PROFESOR Y REPRESENTANTE
+                $botones = $botones.crearBoton("gestionar-clase", "Clase");
                 $botones = $botones.crearBoton("gestionar-pago", "Pagos");
                 $botones = $botones.crearBoton("gestionar-deuda", "Deudas");
                 $botones = $botones.crearBoton("gestionar-estudiante", "Estudiante");
-                $botones = $botones.crearBoton("gestionar-salir", "Salir");
             }
+            else if($permiso==4) {  //ADMINISTRADOR
+                $botones = $botones.crearBoton("gestionar-clase", "Clase");
+                $botones = $botones.crearBoton("gestionar-persona", "Personas");
+                $botones = $botones.crearBoton("gestionar-pago", "Pagos");
+                $botones = $botones.crearBoton("gestionar-deuda", "Deudas");
+                $botones = $botones.crearBoton("gestionar-estudiante", "Estudiante");
+                $botones = $botones.crearBoton("gestionar-profesor", "Profesor");
+            }
+            else {                  //REPRESENTANTE
+                $botones = $botones.crearBoton("gestionar-pago", "Pagos");
+                $botones = $botones.crearBoton("gestionar-deuda", "Deudas");
+                $botones = $botones.crearBoton("gestionar-estudiante", "Estudiante");
+            }
+            $botones = $botones.crearBoton("salir", "Salir");
 
             echo $botones;
         }
