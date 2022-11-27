@@ -1,6 +1,7 @@
 <?php
     include_once ('IDAO.php');
     include_once(DTO_PATH.'/Persona.php');
+    include_once(EXCEPTION_PATH.'/DaoException.php');
 
     class PersonaDAO implements IDAO {
         private $bd;
@@ -59,9 +60,14 @@
         }
 
         public function cargar($parametros) {
-            $insert = "INSERT INTO persona (cedula, nombre, apellido, id_tipo_persona)
-                       VALUES              (?,      ?,      ?,        ?)";
-            $this->bd->sql($insert, $parametros);
+            try {
+                $insert = " INSERT INTO persona (cedula, nombre, apellido, id_tipo_persona)
+                            VALUES              (?,      ?,      ?,        ?)";
+                $this->bd->sql($insert, $parametros);
+            }
+            catch(PDOException $e) {
+                throw new DaoException(DaoException::PERSONA, DaoException::CARGAR, "ya existe una persona con esa cedula.");
+            }
         }
 
         public function modificar($parametros) {
@@ -74,9 +80,14 @@
         }
 
         public function eliminar($parametros) {
-            $delete =  "DELETE FROM persona
+            try {
+                $delete =  "DELETE FROM persona
                         WHERE cedula=?";
-            $this->bd->sql($delete, $parametros);
+                $this->bd->sql($delete, $parametros);
+            }
+            catch(PDOException $e) {
+                throw new DaoException(DaoException::PERSONA, DaoException::ELIMINAR, "Existe alguna dependencia que impide borrar a la persona.");
+            }
         }
 
     }

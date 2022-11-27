@@ -1,0 +1,71 @@
+//Variables
+$usuario: 300px;
+
+.usuario {
+    width: $usuario;
+    height: 100%;
+
+    color: white;
+
+    position: sticky;
+    top: 0;
+
+    background-color: #1B1C1E;
+    transition: 0.3s;
+    z-index: 9;
+
+    &::after {
+        content: "";
+        height: 100%;
+        width: $usuario;
+        left: -$usuario;
+        top: 0;
+        position: absolute;
+        z-index: 1;
+
+        background-color: #1F1F23;;
+
+        transition: 0.1s all;
+    }
+
+    &:hover::after {
+        left: 0;
+    }
+}
+
+.usuario__contenido {
+    height: 100%;
+    width: $usuario;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+
+    position: relative;
+    z-index: 10;
+
+    * {
+        margin-bottom: 0.4em;
+    }
+
+    &:first-child {
+        margin-top: 30%;
+    }
+}
+
+.usuario__nickname {
+    margin-bottom: 50px;
+}
+
+.usuario__nickname {
+    align-self: center;
+    text-align: center;
+}
+
+.usuario__imagen {
+    width: 75px;
+    height: 75px;
+
+    z-index: 0;
+}

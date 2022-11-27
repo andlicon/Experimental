@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" class="vista">
+<html lang="en">
 
 <?php
     include_once('../ruta.php');
-    include('redireccionarPagina.php');
+    include('../funciones/redireccionarPagina.php');
 ?>
 
 <head>
@@ -15,21 +15,15 @@
 
     <link rel="stylesheet" href="/css/main.css">
 </head>
-<body class="vista__contenido">
-    <h2 class="vista__titulo">Opciones</h2>
-    <div class="vista__cuerpo">
-        <form action="" method="POST" class="vista__form">    
-            <!-- botones -->
-            <div class="botones">
-                <h2 class="botones__titulo">Acciones</h2>
-                <?php
-                    include_once(GENERAL_PATH.'deserializarUsuario.php');
-
-                    $usuario = deserializarUsuario();
-                    generarBotones($usuario->getIdTipoUsuario());
-                ?>
-            </div>
-        </form>
+<body class="body-page">
+    <?php
+        include_once('../funciones/generarUsuario.php');
+        generarUsuario();
+    ?>
+    <div class="body-main">
+        <nav>
+            Opciones(Título), volver, opciones de la pagina
+        </nav>
     </div>
 </body>
 </html>

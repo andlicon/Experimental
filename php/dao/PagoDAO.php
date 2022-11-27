@@ -108,9 +108,14 @@
         }
 
         public function eliminar($parametros) {
-            $delete =  "DELETE FROM pago
+            try {
+                $delete =  "DELETE FROM pago
                         WHERE id=?";
-            $this->bd->sql($delete, $parametros);
+                $this->bd->sql($delete, $parametros);
+            }
+            catch(PDOException $e) {
+                throw new DaoException(DaoException::PAGO, DaoException::ELIMINAR, "Existe alguna dependencia que impide borrar el pago.");
+            }
         }
 
     }

@@ -183,9 +183,14 @@
         }
 
         public function eliminar($parametros) {
-            $delete =  "DELETE FROM deuda
-                        WHERE id=?";
-            $this->bd->sql($delete, $parametros);
+            try {
+                $delete =  "DELETE FROM deuda
+                            WHERE id=?";
+                $this->bd->sql($delete, $parametros);
+            }
+            catch(PDOException $e) {
+                throw new DaoException(DaoException::DEUDA, DaoException::ELIMINAR, "Existe alguna dependencia que impide borrar a la deuda.");
+            }
         }
 
     }

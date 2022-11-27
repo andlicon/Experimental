@@ -8,6 +8,18 @@
     align-items: center;
 }
 
+.body-page {
+   height: 100vh;
+   display: flex;
+}
+
+.body-main {
+    height: 100%;
+    width: 100%;
+
+    background-color: red;
+}
+
 $login-row: (
         "titulo"      : 5em,
         "imagen"      : 1fr,
