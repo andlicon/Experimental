@@ -1,23 +1,43 @@
 //Variables
-$usuarioDesplegado: 300px;
-$usuarioOculto: 25px;
+$usuario: 300px;
+
+//background-color: #1B1C1E;
+//background-color: #1F1F23;
 
 .usuario {
-    width: $usuarioOculto;
+    width: $usuario;
     height: 100%;
 
     position: sticky;
     top: 0;
 
-    background-color: grey;
-
+    //background-color: #23272A;        DISCORD
+    background-color: #1B1C1E;
     transition: 0.3s;
+    z-index: 9;
+
+    &::after {
+        content: "";
+        height: 100%;
+        width: $usuario;
+        left: -$usuario;
+        top: 0;
+        position: absolute;
+        z-index: 1;
+
+        background-color: #1F1F23;;
+
+        transition: 0.1s all;
+    }
+
+    &:hover::after {
+        left: 0;
+    }
 }
 
 .usuario__contenido {
-    margin-left: -$usuarioDesplegado;
-
     height: 100%;
+    width: $usuario;
 
     display: flex;
     flex-flow: column nowrap;
@@ -25,6 +45,7 @@ $usuarioOculto: 25px;
     align-items: center;
 
     position: relative;
+    z-index: 10;
 
     * {
         margin-bottom: 0.4em;
@@ -40,11 +61,7 @@ $usuarioOculto: 25px;
 }
 
 .usuario:hover {
-    width: $usuarioDesplegado;
-
-    .usuario__contenido {
-        margin-left: 0;
-    }
+    
 }
 
 .usuario__nickname {
