@@ -24,6 +24,17 @@
         <nav>
             Opciones(Título), volver, opciones de la pagina
         </nav>
+        <main>
+            <div class="input">
+                Datos de persona
+            </div>
+            <div class="input">
+                Datos de contacto
+            </div>
+            <div class="input">
+                Datos de usuario
+            </div>
+        </main>
     </div>
 </body>
 </html>

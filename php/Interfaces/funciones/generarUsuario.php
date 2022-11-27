@@ -6,7 +6,7 @@
     function generarUsuario() {
         $usuario = deserializarUsuario();
 
-        echo '<div class="usuario">
+        echo '<nav class="usuario">
                 <div class="usuario__contenido">
                     <div class="usuario__elemento">
                         <img class="usuario__imagen" src="../../../img/interfaz/background/background-s.jpg">
@@ -21,6 +21,6 @@
                             generarBotones($permiso);
         echo        '</form>
                 </div>
-            </div>';
+            </nav>';
     }
 ?>
