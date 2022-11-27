@@ -3,7 +3,7 @@
 
 <?php
     include_once('../ruta.php');
-    include('redireccionarPagina.php');
+    include('../funciones/redireccionarPagina.php');
 ?>
 
 <head>
