@@ -31,6 +31,9 @@
     elseif( isset($_POST['gestionar-clase']) ) {
         $pagina = new Pagina(Pagina::CLASE);
     }
+    elseif( isset($_POST['gestionar-usuario']) ) {
+        $pagina = new Pagina(Pagina::USUARIO);
+    }
     elseif( isset($_POST['salir']) ) {
         $pagina = new Pagina(Pagina::LOGIN);
     }

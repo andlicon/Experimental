@@ -39,9 +39,9 @@
                     die();
                 }
 
-                $paginaOpcion = new Pagina(Pagina::OPCION);
-                $paginaOpcion->setUsuario($usuario);
-                $paginaOpcion->actualizarPagina(null);
+                $paginaInicio = new Pagina(Pagina::INICIO);
+                $paginaInicio->setUsuario($usuario);
+                $paginaInicio->actualizarPagina(null);
             }
         }
         catch(InputException $e) {
