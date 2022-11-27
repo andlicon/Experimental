@@ -1,8 +1,5 @@
 $color:#1F1F23;
 
-//background-color: #1B1C1E;
-//background-color: #1F1F23;
-
 .boton {
     width: 300px;
     height: 35px;     
@@ -29,11 +26,6 @@ $color:#1F1F23;
     &:hover .boton__imagen {
         opacity: 1;
         left: calc(100% - 40px);
-    }
-
-    &:hover {
-        background-color: #1B1C1E;
-        background-color: #1F1F23;
     }
 }
 

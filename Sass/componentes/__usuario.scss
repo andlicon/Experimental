@@ -1,17 +1,15 @@
 //Variables
 $usuario: 300px;
 
-//background-color: #1B1C1E;
-//background-color: #1F1F23;
-
 .usuario {
     width: $usuario;
     height: 100%;
 
+    color: white;
+
     position: sticky;
     top: 0;
 
-    //background-color: #23272A;        DISCORD
     background-color: #1B1C1E;
     transition: 0.3s;
     z-index: 9;
@@ -60,12 +58,9 @@ $usuario: 300px;
     margin-bottom: 50px;
 }
 
-.usuario:hover {
-    
-}
-
 .usuario__nickname {
     align-self: center;
+    text-align: center;
 }
 
 .usuario__imagen {

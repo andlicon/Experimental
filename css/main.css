@@ -465,10 +465,6 @@ html, body {
   opacity: 1;
   left: calc(100% - 40px);
 }
-.boton:hover {
-  background-color: #1B1C1E;
-  background-color: #1F1F23;
-}
 
 .boton--separacion {
   margin-bottom: 0.3em;
@@ -518,6 +514,7 @@ svg {
 .usuario {
   width: 300px;
   height: 100%;
+  color: white;
   position: sticky;
   top: 0;
   background-color: #1B1C1E;
@@ -575,6 +572,7 @@ svg {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
+  text-align: center;
 }
 
 .usuario__imagen {
