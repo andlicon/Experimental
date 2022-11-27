@@ -4,11 +4,6 @@
 <?php
     include_once('../ruta.php');
     include('redireccionarPagina.php');
-    include_once(GENERAL_PATH.'deserializarUsuario.php');
-    include_once(DTO_PATH.'Usuario.php');
-
-    $usuario = deserializarUsuario();
-    
 ?>
 
 <head>
@@ -21,26 +16,10 @@
     <link rel="stylesheet" href="/css/main.css">
 </head>
 <body class="body-page">
-    <div class="usuario">
-        <div class="usuario__contenido">
-            <div class="usuario__elemento">
-                <img class="usuario__imagen" src="../../../img/interfaz/background/background-s.jpg">
-                <p class="usuario__nickname">
-                    <?php
-                        $nickname = $usuario->getNickname();
-                        echo $nickname;    
-                    ?>
-                </p>
-            </div>
-            <form action="" method="POST" class="usuario__elemento">
-                <?php
-                    include_once('getPermiso.php');
-                    $permiso = getPermiso($usuario);
-                    generarBotones($permiso);
-                ?>
-            </form>
-        </div>
-    </div>
+    <?php
+        include_once('../funciones/generarUsuario.php');
+        generarUsuario();
+    ?>
     <div class="body-main">
         <nav>
             Opciones(Título), volver, opciones de la pagina
