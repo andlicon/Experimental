@@ -72,7 +72,7 @@
             $registros = $this->bd->sql($consulta, $cedulaRep);
 
             if(empty($registros)) {
-                throw new Exception('No existe el representante con dicha cedula');
+                throw new Exception('No existe estudiante asociado al usuario.');
             }
 
             $estudiantes = [];

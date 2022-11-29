@@ -28,3 +28,9 @@
 .display--oculto {
     display: none;
 }
+
+.display {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}

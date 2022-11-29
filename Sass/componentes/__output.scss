@@ -1,18 +1,32 @@
 .output {
-    width: 100%;
-    height: 100%;
+    width: 90%;
+    height: 500px;
+
+    table-layout: fixed;
+    border-collapse: collapse;
 
     overflow: scroll;
+    overflow-x: hidden;
+}
 
-    background-color: grey;
+.output__table {
+    width: 100%;
+    height: 100%;
+    
+    table-layout: fixed;
+    border-collapse: collapse;
+
+    td, th {
+        padding: 5px;
+    }
+
+    tr, col {
+        border: 3px solid purple;
+    }
 }
 
 .output__renglon {
     height: 1em;
-}
-
-.output__body {
-    overflow: scroll;
 }
 
 .output__celda--centrado {
@@ -21,7 +35,10 @@
     justify-content: center;
 }
 
-/*
-    *-NECESTIO HACER QUE SALGA UN SCROLL CUANDO SE DESBORDE LA LISTA
-    *-NECESITO QUE LOS TR SEAN DEL MISMO TAMAÑO SIEMPRE
-*/
+.output__col--seleccion, .output__col--clase {
+    width: 8em;
+}
+
+.output__col--fechaNacimiento {
+    width: 10em;
+}

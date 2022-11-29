@@ -315,6 +315,19 @@ body {
   display: none;
 }
 
+.display {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 /*
     El formulario esta siendo empleado en este proyecto para 
 */
@@ -353,18 +366,29 @@ body {
 }
 
 .output {
+  width: 90%;
+  height: 500px;
+  table-layout: fixed;
+  border-collapse: collapse;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.output__table {
   width: 100%;
   height: 100%;
-  overflow: scroll;
-  background-color: grey;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+.output__table td, .output__table th {
+  padding: 5px;
+}
+.output__table tr, .output__table col {
+  border: 3px solid purple;
 }
 
 .output__renglon {
   height: 1em;
-}
-
-.output__body {
-  overflow: scroll;
 }
 
 .output__celda--centrado {
@@ -380,10 +404,14 @@ body {
           justify-content: center;
 }
 
-/*
-    *-NECESTIO HACER QUE SALGA UN SCROLL CUANDO SE DESBORDE LA LISTA
-    *-NECESITO QUE LOS TR SEAN DEL MISMO TAMAÑO SIEMPRE
-*/
+.output__col--seleccion, .output__col--clase {
+  width: 8em;
+}
+
+.output__col--fechaNacimiento {
+  width: 10em;
+}
+
 .input {
   display: -webkit-box;
   display: -ms-flexbox;

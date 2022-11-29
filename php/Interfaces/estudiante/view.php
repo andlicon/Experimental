@@ -35,82 +35,83 @@
             Opciones(Título), volver, opciones de la pagina
         </nav>
         <!-- Display -->
-        <form action="" method="POST" class="vista__form">
-            <table class="output">
-                <colgroup> 
-                    <col class="output__col output__col--seleccion">
-                    <col class="output__col output__col--nombre">
-                    <col class="output__col output__col--apellido">
-                    <col class="output__col output__col--fechaNacimiento">
-                    <col class="output__col output__col--clase">
-                    <col class="output__col output__col--cedulaRepresentante">
-                </colgroup>
-                <thead class="output__header">
-                    <tr class="output__renglon">
-                        <th class="output__celda output__celda--header">
-                           Seleccionar 
-                        </th>
-                        <th class="output__celda output__celda--header">
-                           Nombre
-                        </th>
-                        <th class="output__celda output__celda--header">
-                           Apellido 
-                        </th>
-                        <th class="output__celda output__celda--header">
-                           Fecha nacimiento
-                        </th>
-                        <th class="output__celda output__celda--header">
-                           Clase
-                        </th>
-                    </tr>
-                </thead>
-                <tbody class="output__body">
-                    <?php
-                        include_once(DTO_PATH.'/Estudiante.php');
-                        include_once('getNombreClase.php');
+        <form action="" method="POST" class="display">
+            <div class="output">
+                <table class="output__table">
+                    <colgroup> 
+                        <col class="output__col output__col--seleccion">
+                        <col class="output__col output__col--nombre">
+                        <col class="output__col output__col--apellido">
+                        <col class="output__col output__col--fechaNacimiento">
+                        <col class="output__col output__col--clase">
+                    </colgroup>
+                    <thead class="output__header">
+                        <tr class="output__renglon">
+                            <th class="output__celda output__celda--header">
+                               Seleccionar 
+                            </th>
+                            <th class="output__celda output__celda--header">
+                               Nombre
+                            </th>
+                            <th class="output__celda output__celda--header">
+                               Apellido 
+                            </th>
+                            <th class="output__celda output__celda--header">
+                               Fecha nacimiento
+                            </th>
+                            <th class="output__celda output__celda--header">
+                               Clase
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="output__body">
+                        <?php
+                            include_once(DTO_PATH.'/Estudiante.php');
+                            include_once('getNombreClase.php');
 
-                        if( isset($_GET['estudiantes']) ) {
-                            $serialize = $_GET['estudiantes'];
-                        
-                            if($serialize) {
-                                $estudiantes = unserialize($serialize);
+                            if( isset($_GET['estudiantes']) ) {
+                                $serialize = $_GET['estudiantes'];
                             
-                                for($i=0; $i<count($estudiantes); $i++) {
-                                    $estudiante = $estudiantes[$i];
-                                    
-                                    //Informacion Estudiante
-                                    $idEstudiante = $estudiante->getId();
-                                    $nombre = $estudiante->getNombre();
-                                    $apellido = $estudiante->getApellido();
-                                    $fechaNacimiento = $estudiante->getFechaNacimiento();
-                                    $idClase = $estudiante->getIdClase();
-                                    $cedulaRepresentante = $estudiante->getCedulaRepresentante();
-                                    //Informacion clase
-                                    $nombreClase = getNombreClase($idClase);
+                                if($serialize) {
+                                    $estudiantes = unserialize($serialize);
                                 
-                                    echo "  <tr class=\"output__renglon\">
-                                                <td class=\"output__celda output__celda--centrado\">
-                                                    <input type=\"checkbox\" name=\"check[]\" value=\"$idEstudiante\" id=\"check$i\">
-                                                </td>
-                                                <td class=\"output__celda\">
-                                                    $nombre
-                                                </td>
-                                                <td class=\"output__celda\">
-                                                    $apellido
-                                                </td>
-                                                <td class=\"output__celda\">
-                                                    $fechaNacimiento
-                                                </td>
-                                                <td class=\"output__celda\">
-                                                    $nombreClase
-                                                </td>
-                                            </tr>";
+                                    for($i=0; $i<count($estudiantes); $i++) {
+                                        $estudiante = $estudiantes[$i];
+
+                                        //Informacion Estudiante
+                                        $idEstudiante = $estudiante->getId();
+                                        $nombre = $estudiante->getNombre();
+                                        $apellido = $estudiante->getApellido();
+                                        $fechaNacimiento = $estudiante->getFechaNacimiento();
+                                        $idClase = $estudiante->getIdClase();
+                                        $cedulaRepresentante = $estudiante->getCedulaRepresentante();
+                                        //Informacion clase
+                                        $nombreClase = getNombreClase($idClase);
+                                    
+                                        echo "  <tr class=\"output__renglon\">
+                                                    <td class=\"output__celda output__celda--centrado\">
+                                                        <input type=\"checkbox\" name=\"check[]\" value=\"$idEstudiante\" id=\"check$i\">
+                                                    </td>
+                                                    <td class=\"output__celda\">
+                                                        $nombre
+                                                    </td>
+                                                    <td class=\"output__celda\">
+                                                        $apellido
+                                                    </td>
+                                                    <td class=\"output__celda\">
+                                                        $fechaNacimiento
+                                                    </td>
+                                                    <td class=\"output__celda\">
+                                                        $nombreClase
+                                                    </td>
+                                                </tr>";
+                                    }
                                 }
                             }
-                        }
-                    ?>
-                </tbody>
-            </table>
+                        ?>
+                    </tbody>
+                </table>
+            </div>
             <div class="input">
                 <h2>Introducir informacion</h2>
                 <div class="input__grupo">

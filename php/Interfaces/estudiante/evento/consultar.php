@@ -23,7 +23,7 @@
             $pagina->actualizarPagina($resultado);
         }
         catch(Exception $e) {  //No se ha podido conectar a la bd
-            echo $e;
+            $pagina->imprimirMensaje(null, Mensaje::ERROR, $e->getMessage());
         }
     }
 ?>
