@@ -19,7 +19,6 @@
 ?>
 
 <body class="body-page">
-    </div>
         <?php
             include_once(MENSAJE_PATH.'/imprimirMensaje.php');
             imprimirMensaje();
