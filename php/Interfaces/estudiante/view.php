@@ -28,6 +28,10 @@
         generarUsuario();
     ?>
     <div class="body-main">
+        <?php
+            include_once(MENSAJE_PATH.'/imprimirMensaje.php');
+            imprimirMensaje();
+        ?>
         <nav>
             Opciones(Título), volver, opciones de la pagina
         </nav>
@@ -58,9 +62,6 @@
                         </th>
                         <th class="output__celda output__celda--header">
                            Clase
-                        </th>
-                        <th class="output__celda output__celda--header">
-                           Cedula Representante
                         </th>
                     </tr>
                 </thead>
@@ -104,9 +105,6 @@
                                                 <td class=\"output__celda\">
                                                     $nombreClase
                                                 </td>
-                                                <td class=\"output__celda\">
-                                                    $cedulaRepresentante
-                                                </td>
                                             </tr>";
                                 }
                             }
@@ -120,8 +118,8 @@
                     <label for="claseInput" class="input__label">Clase</label>
                     <select class="input__select" id="claseInput" name="claseInput">
                         <?php 
-                            // include_once('optionClases.php');
-                            // optionClases();
+                            include_once('optionClases.php');
+                            optionClases();
                         ?>
                     </select>
                 </div>
@@ -149,22 +147,24 @@
                     <input type="text" id="cedulaInput" name="cedulaInput" class="input__input input__input--texto">
                 </div>
             </div>
+
             <div class="botones">
                 <h2 class="botones__titulo">Acciones</h2>
-                <button name="consultar-clase" class="boton">consultar por clase</button>
-                <button name="consultar-cedula" class="boton">consultar por representante</button>
+                <button name="consultar" class="boton">consultar</button>
                 <button name="cargar" class="boton">cargar</button>
                 <button name="modificar" class="boton">modificar</button>
                 <button name="eliminar" class="boton">eliminar</button>
                 <button name="actualizar" class="boton">actualizar</button>
-                <button name="volver" class="boton">volver</button>
             </div>
         </form>
     </div>
 </body>
 </html>
 
-
+<?php
+    //include_once(MENSAJE_PATH.'/imprimirMensaje.php');
+    //imprimirMensaje();
+?>
 
 <!-- <body class="vista__contenido">
     <?php
