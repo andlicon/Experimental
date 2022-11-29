@@ -1,0 +1,18 @@
+.contenido {
+    display: flex;
+    flex-flow: column nowrap;
+
+    background-color: #dfe3f6;
+
+    margin-bottom: 1.3em;
+}
+
+.contenido__bloque {
+    display: flex;
+    
+    margin-bottom: 1em;
+}
+
+.contenido__titulo {
+    margin-bottom: 1.5em;
+}

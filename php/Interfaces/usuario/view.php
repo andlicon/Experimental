@@ -25,15 +25,64 @@
             Opciones(Título), volver, opciones de la pagina
         </nav>
         <main>
-            <div class="input">
-                Datos de persona
-            </div>
-            <div class="input">
-                Datos de contacto
-            </div>
-            <div class="input">
-                Datos de usuario
-            </div>
+            <?php
+                //Realiziar query de persona, usuario y contacto.
+            ?>
+            <form action="" method="POST">
+                <div class="contenido">
+                    <h3 class="contenido__titulo">
+                        datos de persona
+                    </h3>
+                    <div class="contenido__bloque">
+                        <label for="nombre-input">Nombre</label>
+                        <input type="text" id="nombre-input">
+                    </div>
+                    <div class="contenido__bloque">
+                        <label for="nombre-apellido">Apellido</label>
+                        <input type="text" id="apellido-input">
+                    </div>
+                </div>
+                <div class="contenido">
+                    <h3 class="contenido__titulo">
+                        datos de contacto
+                    </h3>
+                    <div class="contenido__bloque">
+                        <label for="correo-input">Correo</label>
+                        <input type="text" id="correo-input">
+                    </div>
+                    <div class="contenido__bloque">
+                        <label for="telefono-input">Telefono</label>
+                        <input type="text" id="telefono-input">
+                    </div>
+                </div>
+                <div class="contenido">
+                    <h3 class="contenido__titulo">
+                        datos de usuario
+                    </h3>
+                    <div class="contenido__bloque">
+                        <label for="nickname-input">Nickname</label>
+                        <input type="text" id="nickname-input">
+                    </div>
+                    <div class="contenido__bloque">
+                        <label for="contrasena1-input">Nueva contrasena</label>
+                        <input type="password" id="contrasena1-input">
+                    </div>
+                    <div class="contenido__bloque">
+                        <label for="contrasena2-input">Repetir contrasena</label>
+                        <input type="password" id="contrasena2-input">
+                    </div>
+                </div>
+                <div class="contenido">
+                    <div class="contenido__bloque">
+                        <button>
+                            enviar
+                        </button>
+                        <button>
+                            reestablecer
+                        </button>
+                    </div>
+                </div>
+            </form>
         </main>
     </div>
 </body>

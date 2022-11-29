@@ -153,6 +153,10 @@ html, body {
           align-items: center;
 }
 
+body {
+  background-color: #F6F6F6;
+}
+
 .body-page {
   height: 100vh;
   display: -webkit-box;
@@ -260,10 +264,6 @@ html, body {
   display: grid;
   -ms-grid-rows: 1fr 6em;
   grid-template-rows: 1fr 6em;
-}
-
-.body-page {
-  background-image: URL("/img/interfaz/background/background-l.jpg");
 }
 
 .login {
@@ -583,4 +583,27 @@ svg {
   width: 75px;
   height: 75px;
   z-index: 0;
+}
+
+.contenido {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  background-color: #dfe3f6;
+  margin-bottom: 1.3em;
+}
+
+.contenido__bloque {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 1em;
+}
+
+.contenido__titulo {
+  margin-bottom: 1.5em;
 }
