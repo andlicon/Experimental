@@ -6,8 +6,7 @@
     include('../funciones/redireccionarPagina.php');
 
     include('evento/actualizarEstu.php');
-    include('evento/consultarClaseEstu.php');
-    include('evento/consultarCedulaEstu.php');
+    include('evento/consultar.php');
     include('evento/cargarEstu.php');
     include('evento/modificarEstu.php');
     include('evento/eliminarEstu.php');
@@ -141,10 +140,6 @@
                         <option value="V-" class="input__select">V-</option>
                         <option value="E-" class="input__select">E-</option>
                     </select>
-                </div>
-                <div class="input__grupo">
-                    <label for="cedulaInput" class="input__label">Cedula</label>
-                    <input type="text" id="cedulaInput" name="cedulaInput" class="input__input input__input--texto">
                 </div>
             </div>
 
