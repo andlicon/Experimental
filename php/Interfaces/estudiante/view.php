@@ -114,7 +114,6 @@
                     ?>
                 </tbody>
             </table>
-             input
             <div class="input">
                 <h2>Introducir informacion</h2>
                 <div class="input__grupo">
@@ -150,7 +149,6 @@
                     <input type="text" id="cedulaInput" name="cedulaInput" class="input__input input__input--texto">
                 </div>
             </div>
-            botones 
             <div class="botones">
                 <h2 class="botones__titulo">Acciones</h2>
                 <button name="consultar-clase" class="boton">consultar por clase</button>
