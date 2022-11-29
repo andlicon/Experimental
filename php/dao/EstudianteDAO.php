@@ -16,7 +16,7 @@
             $registros = $this->bd->sql($consulta, $id);
 
             if(empty($registros)) {
-                throw new Exception('No existe el representante con dicha cedula');
+                throw new Exception('No existe estudiante asociado a dicha id');
             }
 
             $estudiantes = [];
@@ -44,7 +44,7 @@
             $registros = $this->bd->sql($consulta, $idClase);
 
             if(empty($registros)) {
-                throw new Exception('No hay estudiantes en el id_clase senalado');
+                throw new Exception('No existe estudiante asociada a la clase.');
             }
             
             $estudiantes = [];
@@ -99,7 +99,7 @@
             $registros = $this->bd->sql($consulta, null);
 
             if(empty($registros)) {
-                throw new Exception('No existe estudiante con dicha cedula');
+                throw new Exception('No existen estudiante en la base de datos.');
             }
            
             $estudiantes = [];
