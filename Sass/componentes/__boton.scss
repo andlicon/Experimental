@@ -1,11 +1,6 @@
 $color:#1F1F23;
 
 .boton {
-    width: 300px;
-    height: 35px;     
-
-    background-color: #1B1C1E;
-    color: white;
     border: none;
 
     display: flex;
@@ -18,6 +13,13 @@ $color:#1F1F23;
     font-weight: 500;
 
     text-transform: uppercase;
+}
+
+.boton--menu {
+    width: 300px;
+    height: 35px;
+    background-color: #1B1C1E;
+    color: white;
 
     &:hover .boton__span {
         left: 15px;
@@ -33,10 +35,10 @@ $color:#1F1F23;
     margin-bottom: 0.3em;
 }
 
-.boton:hover {
+.boton--menu:hover {
     color: gold;
 }
-.boton:active {
+.boton--menu:active {
     color: lightgoldenrodyellow;
 }
 
