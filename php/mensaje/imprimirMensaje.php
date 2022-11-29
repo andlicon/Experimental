@@ -11,7 +11,7 @@
                     '<div class="vista__mensaje" id="mensaje">
                         <button onclick=document.getElementById("mensaje").classList.add("display--oculto")>X</button>'.
                         $mensaje->getKeyInput().' '.$mensaje->getMotivo().' '.$mensaje->getMensaje().
-                        '<script type="text/javascript">setTimeout(autoEliminar, 3000, "mensaje")</script>
+                        '<script type="text/javascript" src="../js/autoEliminar.js"></script>
                     </div>';
             }
         }
