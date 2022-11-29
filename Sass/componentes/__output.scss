@@ -5,6 +5,8 @@
     table-layout: fixed;
     border-collapse: collapse;
 
+    border: 3px solid purple;
+
     overflow: scroll;
     overflow-x: hidden;
 }
@@ -20,8 +22,12 @@
         padding: 5px;
     }
 
-    tr, col {
+    tr, col, th  {
         border: 3px solid purple;
+    }
+
+    tr {
+        border-left: 0px hidden;
     }
 }
 

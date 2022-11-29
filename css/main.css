@@ -370,6 +370,7 @@ body {
   height: 500px;
   table-layout: fixed;
   border-collapse: collapse;
+  border: 3px solid purple;
   overflow: scroll;
   overflow-x: hidden;
 }
@@ -383,8 +384,11 @@ body {
 .output__table td, .output__table th {
   padding: 5px;
 }
-.output__table tr, .output__table col {
+.output__table tr, .output__table col, .output__table th {
   border: 3px solid purple;
+}
+.output__table tr {
+  border-left: 0px hidden;
 }
 
 .output__renglon {
