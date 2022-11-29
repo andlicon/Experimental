@@ -27,13 +27,13 @@
         generarUsuario();
     ?>
     <div class="body-main">
+        <h1>
+            Estudiantes
+        </h1>
         <?php
             include_once(MENSAJE_PATH.'/imprimirMensaje.php');
             imprimirMensaje();
         ?>
-        <nav>
-            Opciones(Título), volver, opciones de la pagina
-        </nav>
         <!-- Display -->
         <form action="" method="POST" class="display">
             <div class="output">

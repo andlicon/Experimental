@@ -29,11 +29,18 @@
     background-color: brown;
 }
 
-.vista__mensaje {
-    height: 3%;
+.mensaje {
+    height: 3em;
+    width: 100%;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-content: center;
 
     padding: 0.4em;
-    margin-bottom: 0.3em;
+
+    position: absolute;
 
     font-weight: 600;
     text-align: center;

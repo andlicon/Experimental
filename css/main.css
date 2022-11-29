@@ -167,6 +167,7 @@ body {
 .body-main {
   height: 100%;
   width: 100%;
+  position: relative;
   display: -ms-grid;
   display: grid;
   -ms-grid-rows: 4em 1fr;
@@ -293,39 +294,6 @@ body {
 
 .display--oculto {
   display: none;
-}
-
-.display--centrado {
-  --width: 20em;
-  --height: 40em;
-  width: var(--width);
-  height: var(--height);
-  border-radius: 3em;
-  padding: 2em;
-  background-color: red;
-}
-@media screen and (min-width: 1024px) {
-  .display--centrado {
-    --width: 40em;
-    --height: 45em;
-  }
-}
-
-.display--oculto {
-  display: none;
-}
-
-.display {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column nowrap;
-          flex-flow: column nowrap;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
 /*
@@ -464,10 +432,23 @@ body {
   background-color: brown;
 }
 
-.vista__mensaje {
-  height: 3%;
+.mensaje {
+  height: 3em;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
   padding: 0.4em;
-  margin-bottom: 0.3em;
+  position: absolute;
   font-weight: 600;
   text-align: center;
   color: white;
@@ -641,4 +622,37 @@ svg {
 
 .contenido__titulo {
   margin-bottom: 1.5em;
+}
+
+.display--centrado {
+  --width: 20em;
+  --height: 40em;
+  width: var(--width);
+  height: var(--height);
+  border-radius: 3em;
+  padding: 2em;
+  background-color: red;
+}
+@media screen and (min-width: 1024px) {
+  .display--centrado {
+    --width: 40em;
+    --height: 45em;
+  }
+}
+
+.display {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.display--oculto {
+  display: none;
 }
