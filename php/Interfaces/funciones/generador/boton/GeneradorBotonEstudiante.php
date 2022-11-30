@@ -9,7 +9,7 @@
         public function generarItems() {
             $permiso = parent::getPermiso();
 
-            $botones = "";
+            $botones = '<h2 class="botones__titulo">Acciones</h2>';
             if($permiso!=2) {       //PROFESOR
                 if($permiso==4) {  //ADMINISTRADOR
                     $botones = $botones.$this->crearItem("consultar-all", "consultar");

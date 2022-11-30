@@ -22,6 +22,7 @@
             return $permiso;
         }
 
+        //Por defecto crea texto
         protected abstract function crearItem($name, $texto);
 
     }

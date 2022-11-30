@@ -114,38 +114,16 @@
             </div>
             <div class="input">
                 <h2>Introducir informacion</h2>
-                <div class="input__grupo">
-                    <label for="claseInput" class="input__label">Clase</label>
-                    <select class="input__select" id="claseInput" name="claseInput">
-                        <?php 
-                            include_once('optionClases.php');
-                            optionClases();
-                        ?>
-                    </select>
-                </div>
-                <div class="input__grupo">
-                    <label for="nombreInput" class="input__label">Nombre</label>
-                    <input type="text" id="nombreInput" name="nombreInput" class="input__input input__input--texto">
-                </div>
-                <div class="input__grupo">
-                    <label for="apellidoInput" class="input__label">Apellido</label>
-                    <input type="text" id="apellidoInput" name="apellidoInput" class="input__input input__input--texto">
-                </div>
-                <div class="input__grupo">
-                    <label for="fechaInput" class="input__label">Fecha Nacimiento</label>
-                    <input type="date" id="fechaInput" name="fechaInput" class="input__input input__input--texto">
-                </div>
-                <div class="input__grupo">
-                    <label for="nacionalidadInput" class="input__label">Nacionalidad</label>
-                    <select name="nacionalidadInput" id="nacionalidadInput" class="input__select">
-                        <option value="V-" class="input__select">V-</option>
-                        <option value="E-" class="input__select">E-</option>
-                    </select>
-                </div>
+                    <?php
+                        include_once(FUNCIONES_IG_PATH.'generador/input/GeneradorInputEstudiante.php');
+                        $permiso = getPermiso($usuario);
+                        $genMenu = new GeneradorInputEstudiante($permiso);
+                        $genMenu->generarItems();
+                    ?>
+
             </div>
 
             <div class="botones">
-                <h2 class="botones__titulo">Acciones</h2>
                 <?php
                     include_once(FUNCIONES_IG_PATH.'generador/boton/GeneradorBotonEstudiante.php');
                     $permiso = getPermiso($usuario);
@@ -157,3 +135,8 @@
     </div>
 </body>
 </html>
+
+
+//include_once('optionClases.php');
+//optionClases();
+//Ver como añado esto al generadorInputEstudiante
