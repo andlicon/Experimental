@@ -1,48 +1,49 @@
 <?php
-    include_once(DAO_PATH.'/BaseDeDatos.php');
-    include_once(DAO_PATH.'/TipoPersonaConsul.php');
+    include_once(FUNCIONES_IG_PATH.'botones/GeneradorMenu.php');
 
     function generarBotones($id) {
-        try {
-            $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
-            $tipoPersonaConsul = new TipoPersonaConsul($bd); 
+        $genMenu = new GeneradorMenu($id);
+        $genMenu->generarBotones();
+        // try {
+        //     $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
+        //     $tipoPersonaConsul = new TipoPersonaConsul($bd); 
             
-            $resultados = $tipoPersonaConsul->getInstancia(array($id));
-            $tipoPersona = $resultados[0];
-            $permiso = $tipoPersona->getPermiso();
+        //     $resultados = $tipoPersonaConsul->getInstancia(array($id));
+        //     $tipoPersona = $resultados[0];
+        //     $permiso = $tipoPersona->getPermiso();
 
-            $botones = "";
-            $botones = $botones.crearBoton("inicio", "Inicio");
-            $botones = $botones.crearBoton("gestionar-usuario", "Usuario");
-            if($permiso==2) {       //PROFESOR
-                $botones = $botones.crearBoton("gestionar-clase", "Clase");
-            }
-            else if($permiso==3) {  //PROFESOR Y REPRESENTANTE
-                $botones = $botones.crearBoton("gestionar-clase", "Clase");
-                $botones = $botones.crearBoton("gestionar-pago", "Pagos");
-                $botones = $botones.crearBoton("gestionar-deuda", "Deudas");
-                $botones = $botones.crearBoton("gestionar-estudiante", "Estudiante");
-            }
-            else if($permiso==4) {  //ADMINISTRADOR
-                $botones = $botones.crearBoton("gestionar-clase", "Clase");
-                $botones = $botones.crearBoton("gestionar-persona", "Personas");
-                $botones = $botones.crearBoton("gestionar-pago", "Pagos");
-                $botones = $botones.crearBoton("gestionar-deuda", "Deudas");
-                $botones = $botones.crearBoton("gestionar-estudiante", "Estudiante");
-                $botones = $botones.crearBoton("gestionar-profesor", "Profesor");
-            }
-            else {                  //REPRESENTANTE
-                $botones = $botones.crearBoton("gestionar-pago", "Pagos");
-                $botones = $botones.crearBoton("gestionar-deuda", "Deudas");
-                $botones = $botones.crearBoton("gestionar-estudiante", "Estudiante");
-            }
-            $botones = $botones.crearBoton("salir", "Salir");
+        //     $botones = "";
+        //     $botones = $botones.crearBoton("inicio", "Inicio");
+        //     $botones = $botones.crearBoton("gestionar-usuario", "Usuario");
+        //     if($permiso==2) {       //PROFESOR
+        //         $botones = $botones.crearBoton("gestionar-clase", "Clase");
+        //     }
+        //     else if($permiso==3) {  //PROFESOR Y REPRESENTANTE
+        //         $botones = $botones.crearBoton("gestionar-clase", "Clase");
+        //         $botones = $botones.crearBoton("gestionar-pago", "Pagos");
+        //         $botones = $botones.crearBoton("gestionar-deuda", "Deudas");
+        //         $botones = $botones.crearBoton("gestionar-estudiante", "Estudiante");
+        //     }
+        //     else if($permiso==4) {  //ADMINISTRADOR
+        //         $botones = $botones.crearBoton("gestionar-clase", "Clase");
+        //         $botones = $botones.crearBoton("gestionar-persona", "Personas");
+        //         $botones = $botones.crearBoton("gestionar-pago", "Pagos");
+        //         $botones = $botones.crearBoton("gestionar-deuda", "Deudas");
+        //         $botones = $botones.crearBoton("gestionar-estudiante", "Estudiante");
+        //         $botones = $botones.crearBoton("gestionar-profesor", "Profesor");
+        //     }
+        //     else {                  //REPRESENTANTE
+        //         $botones = $botones.crearBoton("gestionar-pago", "Pagos");
+        //         $botones = $botones.crearBoton("gestionar-deuda", "Deudas");
+        //         $botones = $botones.crearBoton("gestionar-estudiante", "Estudiante");
+        //     }
+        //     $botones = $botones.crearBoton("salir", "Salir");
 
-            echo $botones;
-        }
-        catch(Exception $e) {
-            echo $e;
-        }
+        //     echo $botones;
+        //}
+        // catch(Exception $e) {
+        //     echo $e;
+        // }
     }
 
     function crearBoton($name, $texto){
