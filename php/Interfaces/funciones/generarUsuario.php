@@ -1,7 +1,7 @@
 <?php
     include_once(GENERAL_PATH.'deserializarUsuario.php');
     include_once(DTO_PATH.'Usuario.php');
-    include_once(FUNCIONES_IG_PATH.'botones/GeneradorMenu.php');
+    include_once(FUNCIONES_IG_PATH.'generador/boton/GeneradorBotonMenu.php');
 
     function generarUsuario() {
         $usuario = deserializarUsuario();
@@ -18,8 +18,8 @@
                     <form action="" method="POST" class="usuario__elemento">';
                             include_once('getPermiso.php');
                             $permiso = getPermiso($usuario);
-                            $genMenu = new GeneradorMenu($permiso);
-                            $genMenu->generarBotones();
+                            $genMenu = new GeneradorBotonMenu($permiso);
+                            $genMenu->generarItems();
         echo        '</form>
                 </div>
             </nav>';

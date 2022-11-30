@@ -146,11 +146,12 @@
 
             <div class="botones">
                 <h2 class="botones__titulo">Acciones</h2>
-                <button name="consultar" class="boton">consultar</button>
-                <button name="cargar" class="boton">cargar</button>
-                <button name="modificar" class="boton">modificar</button>
-                <button name="eliminar" class="boton">eliminar</button>
-                <button name="actualizar" class="boton">actualizar</button>
+                <?php
+                    include_once(FUNCIONES_IG_PATH.'generador/boton/GeneradorBotonEstudiante.php');
+                    $permiso = getPermiso($usuario);
+                    $genMenu = new GeneradorBotonEstudiante($permiso);
+                    $genMenu->generarItems();
+                ?>
             </div>
         </form>
     </div>
