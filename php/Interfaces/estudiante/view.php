@@ -135,8 +135,3 @@
     </div>
 </body>
 </html>
-
-
-//include_once('optionClases.php');
-//optionClases();
-//Ver como añado esto al generadorInputEstudiante

@@ -8,7 +8,7 @@
 
         //Por defecto crea tipo texto
         protected function crearItem($name, $texto) {
-            echo '
+            return '
             <div class="input__grupo">
                     <label for="'.$name.'" class="input__label">'.$texto.'</label>
                     <input type="text" id="'.$name.'" name="'.$name.'" class="input__input input__input--texto">
@@ -16,7 +16,7 @@
         }
 
         protected function crearItemTipo($name, $texto, $tipo) {
-            echo '
+            return '
             <div class="input__grupo">
                     <label for="'.$name.'" class="input__label">'.$texto.'</label>
                     <input type="'.$tipo.'" id="'.$name.'" name="'.$name.'" class="input__input input__input--texto">

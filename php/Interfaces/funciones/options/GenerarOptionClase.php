@@ -1,25 +1,34 @@
 <?php
+    include_once(OPTIONS_IG_PATH.'/GenerarOption.php');
     include_once(DAO_PATH.'IConsultor.php');
 
-    class GenerarOption {
-        private IConsultor $consultor;
+    class GenerarOptionClase extends GenerarOption {
 
         public function __construct(IConsultor $consultor) {
-            $this->consultor = $consultor;
+            parent::__construct($consultor);
         }
 
-        function generar() {
+
+
+        function generar($name, $text) {
             $opciones = $this->consultor->getTodos();
-    
+            $options = '';
+            $options = '<label for="'.$name.'" class="input__label">'.$text.'</label>
+                        <select class="input__select" id="'.$name.'" name="'.$name.'">';
+            
             for($i=0; $i<count($opciones); $i++) {
                 $opcion = $opciones[$i];
                 $idOpcion = $opcion->getId();
                 $descripcionOpcion = $opcion->getDescripcion();
-                echo 
+                $options = $options. 
                     "
                         <option value=\"$idOpcion\" class=\"input__select\">$descripcionOpcion</option>
                     ";
             }
+            
+            $options = $options.'</select> </div>';
+            return $options;
         }
     }
+
 ?>
