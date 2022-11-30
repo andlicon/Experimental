@@ -1,0 +1,24 @@
+.mensaje {
+    height: 3em;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+    padding: 0.4em;
+
+    position: fixed;
+    top: 0;
+
+    font-weight: 600;
+    color: white;
+}
+
+.mensaje--exito {
+    background-color: green;
+}  
+
+.mensaje--error {
+    background-color: red;
+}

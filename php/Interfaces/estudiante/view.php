@@ -27,7 +27,7 @@
         generarUsuario();
     ?>
     <div class="body-main">
-        <h1>
+        <h1 class="vista__titulo">
             Estudiantes
         </h1>
         <?php

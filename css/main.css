@@ -296,6 +296,32 @@ body {
   display: none;
 }
 
+.mensaje {
+  height: 3em;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  padding: 0.4em;
+  position: fixed;
+  top: 0;
+  font-weight: 600;
+  color: white;
+}
+
+.mensaje--exito {
+  background-color: green;
+}
+
+.mensaje--error {
+  background-color: red;
+}
+
 /*
     El formulario esta siendo empleado en este proyecto para 
 */
@@ -420,7 +446,17 @@ body {
 }
 
 .vista__titulo {
-  height: 5%;
+  background-color: red;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 2em;
   padding: 0.3em;
   margin-bottom: 0.5em;
   background-color: purple;
@@ -430,29 +466,6 @@ body {
   padding: 0.3em;
   height: 91%;
   background-color: brown;
-}
-
-.mensaje {
-  height: 3em;
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row nowrap;
-          flex-flow: row nowrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -ms-flex-line-pack: center;
-      align-content: center;
-  padding: 0.4em;
-  position: absolute;
-  font-weight: 600;
-  text-align: center;
-  color: white;
-  background-color: red;
 }
 
 .boton {
