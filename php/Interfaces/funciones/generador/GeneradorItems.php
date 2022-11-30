@@ -22,14 +22,7 @@
             return $permiso;
         }
 
-        protected function crearItem($name, $texto) {
-            return
-            '<button class="boton" name="'.$name.'">
-                        <span class="boton__span">'.
-                            $texto
-                        .'</span>
-            </button>';
-        }
+        protected abstract function crearItem($name, $texto);
 
     }
 ?>

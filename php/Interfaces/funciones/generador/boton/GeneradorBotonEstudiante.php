@@ -1,7 +1,7 @@
 <?php 
-    include_once(FUNCIONES_IG_PATH.'generador/GeneradorItems.php');
+    include_once(FUNCIONES_IG_PATH.'generador/boton/GeneradorBoton.php');
 
-    class GeneradorBotonEstudiante extends GeneradorItems {
+    final class GeneradorBotonEstudiante extends GeneradorBoton {
         public function __construct($idTipoPermiso) {
             parent::__construct($idTipoPermiso);
         }
