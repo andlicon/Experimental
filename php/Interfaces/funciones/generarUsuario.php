@@ -1,7 +1,7 @@
 <?php
     include_once(GENERAL_PATH.'deserializarUsuario.php');
     include_once(DTO_PATH.'Usuario.php');
-    include('generarBotones.php');
+    include(FUNCIONES_IG_PATH.'botones/generarBotones.php');
 
     function generarUsuario() {
         $usuario = deserializarUsuario();

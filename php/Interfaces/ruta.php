@@ -8,4 +8,5 @@
     define('MENSAJE_PATH', ROOT_PATH.'/mensaje/');  //Leva a los mensajes
     define('FUNCIONES_DAO_PATH', ROOT_PATH.'/funcionesDao/');  //Leva a las funciones DAO
     define('IMAGEN_PATH', '../'.ROOT_PATH.'/img/');  //Leva a las funciones DAO
+    define('FUNCIONES_IG_PATH', ROOT_PATH.'/interfaces/funciones/');  //Leva a las funciones para interfaz grafica
 ?>
