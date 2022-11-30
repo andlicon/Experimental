@@ -23,7 +23,7 @@
         }
 
         protected function crearBoton($name, $texto) {
-            echo 
+            return
             '<button class="boton" name="'.$name.'">
                         <span class="boton__span">'.
                             $texto
