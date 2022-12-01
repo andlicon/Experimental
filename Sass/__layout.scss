@@ -8,16 +8,25 @@
     align-items: center;
 }
 
+body {
+    background-color: #F6F6F6;
+}
+
 .body-page {
    height: 100vh;
+
    display: flex;
 }
 
 .body-main {
     height: 100%;
     width: 100%;
+    position: relative;
 
-    background-color: red;
+    display: grid;
+    grid-template-rows: 4em 1fr;
+
+    background-color: #F6F6F6;
 }
 
 $login-row: (

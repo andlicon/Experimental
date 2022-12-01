@@ -153,6 +153,10 @@ html, body {
           align-items: center;
 }
 
+body {
+  background-color: #F6F6F6;
+}
+
 .body-page {
   height: 100vh;
   display: -webkit-box;
@@ -163,7 +167,12 @@ html, body {
 .body-main {
   height: 100%;
   width: 100%;
-  background-color: red;
+  position: relative;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 4em 1fr;
+  grid-template-rows: 4em 1fr;
+  background-color: #F6F6F6;
 }
 
 .login__display {
@@ -258,10 +267,6 @@ html, body {
   grid-template-rows: 1fr 6em;
 }
 
-.body-page {
-  background-image: URL("/img/interfaz/background/background-l.jpg");
-}
-
 .login {
   display: -ms-grid;
   display: grid;
@@ -291,24 +296,30 @@ html, body {
   display: none;
 }
 
-.display--centrado {
-  --width: 20em;
-  --height: 40em;
-  width: var(--width);
-  height: var(--height);
-  border-radius: 3em;
-  padding: 2em;
-  background-color: red;
-}
-@media screen and (min-width: 1024px) {
-  .display--centrado {
-    --width: 40em;
-    --height: 45em;
-  }
+.mensaje {
+  height: 3em;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  padding: 0.4em;
+  position: fixed;
+  top: 0;
+  font-weight: 600;
+  color: white;
 }
 
-.display--oculto {
-  display: none;
+.mensaje--exito {
+  background-color: green;
+}
+
+.mensaje--error {
+  background-color: red;
 }
 
 /*
@@ -349,18 +360,33 @@ html, body {
 }
 
 .output {
+  width: 90%;
+  height: 500px;
+  table-layout: fixed;
+  border-collapse: collapse;
+  border: 3px solid purple;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.output__table {
   width: 100%;
   height: 100%;
-  overflow: scroll;
-  background-color: grey;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+.output__table td, .output__table th {
+  padding: 5px;
+}
+.output__table tr, .output__table col, .output__table th {
+  border: 3px solid purple;
+}
+.output__table tr {
+  border-left: 0px hidden;
 }
 
 .output__renglon {
   height: 1em;
-}
-
-.output__body {
-  overflow: scroll;
 }
 
 .output__celda--centrado {
@@ -376,10 +402,14 @@ html, body {
           justify-content: center;
 }
 
-/*
-    *-NECESTIO HACER QUE SALGA UN SCROLL CUANDO SE DESBORDE LA LISTA
-    *-NECESITO QUE LOS TR SEAN DEL MISMO TAMAÑO SIEMPRE
-*/
+.output__col--seleccion, .output__col--clase {
+  width: 8em;
+}
+
+.output__col--fechaNacimiento {
+  width: 10em;
+}
+
 .input {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -416,7 +446,17 @@ html, body {
 }
 
 .vista__titulo {
-  height: 5%;
+  background-color: red;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 2em;
   padding: 0.3em;
   margin-bottom: 0.5em;
   background-color: purple;
@@ -428,22 +468,10 @@ html, body {
   background-color: brown;
 }
 
-.vista__mensaje {
-  height: 3%;
-  padding: 0.4em;
-  margin-bottom: 0.3em;
-  font-weight: 600;
-  text-align: center;
-  color: white;
-  background-color: red;
-}
-
 .boton {
-  width: 300px;
-  height: 35px;
-  background-color: #1B1C1E;
-  color: white;
   border: none;
+  width: 200px;
+  height: 2em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -458,10 +486,17 @@ html, body {
   font-weight: 500;
   text-transform: uppercase;
 }
-.boton:hover .boton__span {
+
+.boton--menu {
+  width: 300px;
+  height: 35px;
+  background-color: #1B1C1E;
+  color: white;
+}
+.boton--menu:hover .boton__span {
   left: 15px;
 }
-.boton:hover .boton__imagen {
+.boton--menu:hover .boton__imagen {
   opacity: 1;
   left: calc(100% - 40px);
 }
@@ -470,11 +505,11 @@ html, body {
   margin-bottom: 0.3em;
 }
 
-.boton:hover {
+.boton--menu:hover {
   color: gold;
 }
 
-.boton:active {
+.boton--menu:active {
   color: lightgoldenrodyellow;
 }
 
@@ -513,7 +548,7 @@ svg {
 
 .usuario {
   width: 300px;
-  height: 100%;
+  height: 100vh;
   color: white;
   position: sticky;
   top: 0;
@@ -579,4 +614,60 @@ svg {
   width: 75px;
   height: 75px;
   z-index: 0;
+}
+
+.contenido {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  background-color: #dfe3f6;
+  margin-bottom: 1.3em;
+}
+
+.contenido__bloque {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 1em;
+}
+
+.contenido__titulo {
+  margin-bottom: 1.5em;
+}
+
+.display--centrado {
+  --width: 20em;
+  --height: 40em;
+  width: var(--width);
+  height: var(--height);
+  border-radius: 3em;
+  padding: 2em;
+  background-color: red;
+}
+@media screen and (min-width: 1024px) {
+  .display--centrado {
+    --width: 40em;
+    --height: 45em;
+  }
+}
+
+.display {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.display--oculto {
+  display: none;
 }

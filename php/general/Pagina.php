@@ -10,10 +10,11 @@
         const DEUDA = 3;
         const CONTACTO = 4;
         const LOGIN = 5;
-        const OPCION = 6;
+        const INICIO = 6;
         const PROFESOR = 7;
         const CLASE = 8;
         const PAGO = 9;
+        const USUARIO = 10;
     
         const USUARIO_OBJ = "usuario";
 
@@ -51,8 +52,8 @@
                     $this->pagina = "Location: /php/interfaces/contacto/view.php";
                     $this->objSerializar = "contactos";
                 }
-                else if($pagina==self::OPCION) {
-                    $this->pagina =  "Location: /php/interfaces/opcion/view.php";
+                else if($pagina==self::INICIO) {
+                    $this->pagina =  "Location: /php/interfaces/inicio/view.php";
                     $this->objSerializar = "tipo_usuario";
                 }
                 else if($pagina==self::PROFESOR) {
@@ -66,6 +67,10 @@
                 else if($pagina==self::PAGO) {
                     $this->pagina =  "Location: /php/interfaces/pago/view.php";
                     $this->objSerializar = "pagos";
+                }
+                else if($pagina==self::USUARIO) {
+                    $this->pagina =  "Location: /php/interfaces/usuario/view.php";
+                    $this->objSerializar = "persona";
                 }
                 else {
                     throw new Exception("No se introdujo ninguna pagina valida.");

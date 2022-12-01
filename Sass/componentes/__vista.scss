@@ -12,7 +12,13 @@
 }
 
 .vista__titulo {
-    height: 5%;
+    background-color: red;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 2em;
 
     padding: 0.3em;
 
@@ -27,17 +33,4 @@
     height: 91%;
 
     background-color: brown;
-}
-
-.vista__mensaje {
-    height: 3%;
-
-    padding: 0.4em;
-    margin-bottom: 0.3em;
-
-    font-weight: 600;
-    text-align: center;
-    color: white;
-
-    background-color: red;
 }
