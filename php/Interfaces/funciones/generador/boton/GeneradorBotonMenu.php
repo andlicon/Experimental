@@ -22,7 +22,6 @@
                 $botones = $botones.$this->crearItem("gestionar-estudiante", "Estudiante");
             }
             else if($permiso==4) {  //ADMINISTRADOR
-                $botones = $botones.$this->crearItem("gestionar-clase", "Clase");
                 $botones = $botones.$this->crearItem("gestionar-persona", "Personas");
                 $botones = $botones.$this->crearItem("gestionar-pago", "Pagos");
                 $botones = $botones.$this->crearItem("gestionar-deuda", "Deudas");
