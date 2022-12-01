@@ -1,7 +1,10 @@
 <?php 
     include_once(FUNCIONES_IG_PATH.'generador/GeneradorItems.php');
-
+    //RESTIRCCIONES
     abstract class GeneradorInput extends GeneradorItems {
+        public const TELEFONO = 0;
+        public const CORREO = 1;
+
         public function __construct($idTipoPermiso) {
             parent::__construct($idTipoPermiso);
         }
@@ -32,8 +35,34 @@
                     <option value="E-" class="input__select">E-</option>
                 </select>
                 <label for="cedulaInput" class="input__label">Cedula</label>
-                <input type="text" id="cedulaInput" name="cedulaInput" class="input__input input__input--texto">
+                <input type="text" id="cedulaInput" name="cedulaInput" class="input__input input__input--texto" onKeypress="">     <!-- aca poner la funcionde solo numeros --!>
             </div>';
+        }
+
+        protected function crearItemRestriccion($name, $texto, $restriccion) {
+
+            if (!$this->restriccionValida($restriccion)) {
+                return "";
+            }
+
+            $funcion = "";
+
+            if($restriccion == GeneradorInput::TELEFONO) {
+                //Función que solo permita números
+            }
+            else if($restriccion == GeneradorInput::CORREO) {
+                //no sé xd
+            }
+           
+            return '
+            <div class="input__grupo">
+                    <label for="'.$name.'" class="input__label">'.$texto.'</label>
+                    <input type="text" id="'.$name.'" name="'.$name.'" class="input__input input__input--texto" onKeypress="'.$funcion.'">
+            </div>';
+        }
+
+        private function restriccionValida($restriccion) {
+            return $restriccion > GeneradorInput::TELEFONO && $restriccion<=GeneradorInput::CORREO;
         }
         
     }
