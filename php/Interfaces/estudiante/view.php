@@ -4,9 +4,9 @@
 <?php
     include_once('../ruta.php');
     include('../funciones/redireccionarPagina.php');
-
     include('evento/actualizarEstu.php');
     include('evento/consultar.php');
+    include('evento/consultarAll.php');
     include('evento/cargarEstu.php');
     include('evento/modificarEstu.php');
     include('evento/eliminarEstu.php');
@@ -120,7 +120,6 @@
                         $genMenu = new GeneradorInputEstudiante($permiso);
                         $genMenu->generarItems();
                     ?>
-
             </div>
 
             <div class="botones">

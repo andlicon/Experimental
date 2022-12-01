@@ -4,7 +4,6 @@
 <?php
     include_once('../ruta.php');
     include('../funciones/redireccionarPagina.php');
-    include_once('../ruta.php');
     include_once('evento/actualizarProf.php');
     include_once('evento/consultarProf.php');
     include_once(GENERAL_PATH.'/accionVolver.php');
