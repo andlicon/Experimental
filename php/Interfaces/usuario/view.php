@@ -21,9 +21,6 @@
         generarUsuario();
     ?>
     <div class="body-main">
-        <nav>
-            Opciones(Título), volver, opciones de la pagina
-        </nav>
         <main>
             <?php
                 //Realiziar query de persona, usuario y contacto.
