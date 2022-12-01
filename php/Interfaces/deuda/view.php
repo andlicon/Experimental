@@ -172,6 +172,7 @@
 
 <!-- 
     
+
 <div class="input">
     <h2>Introducir informacion</h2>
     <div class="input__grupo">
@@ -217,5 +218,7 @@ botones
     <button name="cargarPago" class="boton">Cargar pago</button>
     <button name="volver" class="boton">volver</button>
 </div>
-
--->
+        </form>
+    </div>
+</body>
+</html> -->
