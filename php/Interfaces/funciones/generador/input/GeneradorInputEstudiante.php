@@ -23,7 +23,7 @@
                     $inputs = $inputs.$this->crearItem("nombreInput", "Nombre");
                     $inputs = $inputs.$this->crearItem("apellidoInput", "Apellido");
                     $inputs = $inputs.$this->crearItemTipo("fechaInput", "Fecha nacimiento", "date");
-                    $inputs = $inputs.$generador->generar("clase-input", "Clases");
+                    $inputs = $inputs.$generador->generar("claseInput", "Clases");
                     $inputs = $inputs.$this->crearItemRepresentante();
                 }
                 else {                  //REPRESENTANTE y REPRESENTANTE-PROFESOR
