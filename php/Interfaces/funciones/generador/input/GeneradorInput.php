@@ -73,7 +73,7 @@
 
                 $select = '<div class="input__grupo">
                                 <label for="representanteInput">Representante</label>
-                                <select id="representanteInput">';
+                                <select id="representanteInput" name="representanteInput">';
 
                 for($i=0; $i<count($resultado); $i++) {
                     $persona = $resultado[$i];
@@ -82,7 +82,7 @@
                     $apellido = $persona->getApellido();
 
                     $select = $select.'
-                                        <option value="'.$cedula.'">
+                                        <option value="'.$cedula.'" Class="input__select">
                                             '."$cedula - $nombre - $apellido".'
                                         </option>';
                 }

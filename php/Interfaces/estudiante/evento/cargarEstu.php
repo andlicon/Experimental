@@ -16,10 +16,7 @@
             $apellido = comprobarInput('apellidoInput', $pagina);
             $fecha = comprobarInput('fechaInput', $pagina);
             $claseInput = comprobarInput('claseInput', $pagina);
-
-            echo $_POST['representanteInput'];
-
-            //$cedula = comprobarInput('representanteInput', $pagina);
+            $cedula = comprobarInput('representanteInput', $pagina);
 
             $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
                 //PERSONA
