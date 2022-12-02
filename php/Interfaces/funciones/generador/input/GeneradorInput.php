@@ -66,15 +66,36 @@
         }
 
         protected function crearItemRepresentante() {
-            return '
-                <div>
-                    <select>
-                        <option>
-                            a
-                        </option>
-                    </select>
-                </div>
-            ';
+            try {
+                $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
+                $personaDAO = new PersonaDAO($bd);
+                $resultado = $personaDAO->getTodos();
+                echo count($resultado);
+
+                $select = '<div class="input__grupo">
+                                <label for="representanteInput">Representante</label>
+                                <select id="representanteInput">';
+
+                for($i=0; $i<count($resultado); $i++) {
+                    $persona = $resultado[$i];
+                    $cedula = $persona->getCedula();
+                    $nombre = $persona->getNombre();
+                    $apellido = $persona->getApellido();
+
+                    $select = $select.'
+                                        <option value="'.$cedula.'">
+                                            '."$cedula $nombre $apellido".'
+                                        </option>';
+                }
+
+                $select = $select.'</select>
+                            </div>';
+            }
+            catch(Exception $e) {
+                echo $e;
+            }
+
+            return $select;
         }
         
     }
