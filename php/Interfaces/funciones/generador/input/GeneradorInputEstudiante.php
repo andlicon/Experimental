@@ -25,7 +25,7 @@
                     $inputs = $inputs.$this->crearItemTipo("fechaInput", "Fecha nacimiento", "date");
                     $inputs = $inputs.$generador->generar("clase-input", "Clases");
                     $inputs = $inputs.'<h3>Información representante</h3>';
-                    $inputs = $inputs.$this->crearItemCedula("Cedula representante");
+                    $inputs = $inputs.$this->crearItemRepresentante();
                 }
                 else {                  //REPRESENTANTE y REPRESENTANTE-PROFESOR
                     $inputs = $inputs.$this->crearItem("consultar-rep", "consultar");

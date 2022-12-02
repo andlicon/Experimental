@@ -671,3 +671,22 @@ svg {
 .display--oculto {
   display: none;
 }
+
+.desplegable {
+  position: relative;
+  width: 150px;
+  background-color: blue;
+}
+
+.desplegable__item {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: 150px;
+  display: none;
+  background-color: red;
+}
+
+.desplegable__item--mostrar {
+  display: block;
+}

@@ -64,6 +64,18 @@
         private function restriccionValida($restriccion) {
             return $restriccion > GeneradorInput::TELEFONO && $restriccion<=GeneradorInput::CORREO;
         }
+
+        protected function crearItemRepresentante() {
+            return '
+                <div>
+                    <select>
+                        <option>
+                            a
+                        </option>
+                    </select>
+                </div>
+            ';
+        }
         
     }
 ?>
