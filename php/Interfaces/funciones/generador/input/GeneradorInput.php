@@ -83,7 +83,7 @@
 
                     $select = $select.'
                                         <option value="'.$cedula.'">
-                                            '."$cedula $nombre $apellido".'
+                                            '."$cedula - $nombre - $apellido".'
                                         </option>';
                 }
 
