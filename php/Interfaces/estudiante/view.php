@@ -4,7 +4,6 @@
 <?php
     include_once('../ruta.php');
     include('../funciones/redireccionarPagina.php');
-    include('evento/actualizarEstu.php');
     include('evento/consultar.php');
     include('evento/consultarAll.php');
     include('evento/cargarEstu.php');

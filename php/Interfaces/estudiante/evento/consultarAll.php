@@ -1,5 +1,6 @@
 <?php
     include_once(DAO_PATH.'/EstudianteDAO.php');
+    include_once(DAO_PATH.'/BaseDeDatos.php');
 
     include_once(DTO_PATH.'Usuario.php');
 
