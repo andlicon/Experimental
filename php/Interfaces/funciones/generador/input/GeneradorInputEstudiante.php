@@ -13,22 +13,17 @@
             $permiso = parent::getPermiso();
 
             $inputs = "";
-            if($permiso!=2) {       //PROFESOR
-                if($permiso==4) {  //ADMINISTRADOR
-                    $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
-                    $consultor = new ClaseConsul($bd);
-                    $generador = new GenerarOptionClase($consultor);
+            if($permiso==4) {  //ADMINISTRADOR
+                $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
+                $consultor = new ClaseConsul($bd);
+                $generador = new GenerarOptionClase($consultor);
 
-                    $inputs = $inputs.'<h3>Información estudiante</h3>';
-                    $inputs = $inputs.$this->crearItem("nombreInput", "Nombre");
-                    $inputs = $inputs.$this->crearItem("apellidoInput", "Apellido");
-                    $inputs = $inputs.$this->crearItemTipo("fechaInput", "Fecha nacimiento", "date");
-                    $inputs = $inputs.$generador->generar("claseInput", "Clases");
-                    $inputs = $inputs.$this->crearItemRepresentante();
-                }
-                else {                  //REPRESENTANTE y REPRESENTANTE-PROFESOR
-                    $inputs = $inputs.$this->crearItem("consultar-rep", "consultar");
-                }
+                $inputs = $inputs.'<h3>Información estudiante</h3>';
+                $inputs = $inputs.$this->crearItem("nombreInput", "Nombre");
+                $inputs = $inputs.$this->crearItem("apellidoInput", "Apellido");
+                $inputs = $inputs.$this->crearItemTipo("fechaInput", "Fecha nacimiento", "date");
+                $inputs = $inputs.$generador->generar("claseInput", "Clases");
+                $inputs = $inputs.$this->crearItemRepresentante();
             }
 
             echo $inputs;
