@@ -4,6 +4,8 @@
 <?php
     include_once('../ruta.php');
     include('../funciones/redireccionarPagina.php');
+
+    include('evento/consultar.php');
 ?>
 
 <head>
@@ -68,19 +70,17 @@
                     </thead>
                     <tbody class="output__body">
                         <?php
-                            include_once(DTO_PATH.'/Persona.php');
-                            if( isset($_GET['personas']) ) {
-                                $serialize = $_GET['personas'];     //AHORA SE TIENE QUE PASAR POR HEADER PERSONA
+                            include_once(DTO_PATH.'/Usuario.php');
+                            if( isset($_GET['usuarios']) ) {
+                                $serialize = $_GET['usuarios'];     //AHORA SE TIENE QUE PASAR POR HEADER PERSONA
                             
                                 if($serialize) {
-                                    $personas = unserialize($serialize);
+                                    $usuarios = unserialize($serialize);
                                 
-                                    for($i=0; $i<count($personas); $i++) {
+                                    for($i=0; $i<count($usuarios); $i++) {
                                         /*Obteniendo los datos de la persona*/
-                                        $persona = $personas[$i];
-                                        $cedula = $persona->getCedula();
-                                        $nombre = $persona->getNombre();
-                                        $apellido = $persona->getApellido();
+                                        $usuario = $usuarios[$i];
+                                        $cedula = $usuario->getCedula();
                                         
                                         echo "  <tr class=\"output__renglon\">
                                                     <td class=\"output__celda\ output__celda--centrado\">
@@ -91,10 +91,10 @@
                                                         $cedula
                                                     </td>
                                                     <td class=\"output__celda\">
-                                                        $nombre
+                                                    
                                                     </td>
                                                     <td class=\"output__celda\">
-                                                        $apellido
+                           
                                                     </td>
                                                     <td class=\"output__celda\">";    
                                                         //TIPO PERSONA (DESCRIPCION)

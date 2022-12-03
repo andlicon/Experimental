@@ -75,7 +75,7 @@
                 }
                 else if($pagina==self::USUARIOS) {
                     $this->pagina =  "Location: /php/interfaces/usuarios/view.php";
-                    $this->objSerializar = "usuario";
+                    $this->objSerializar = "usuarios";
                 }
                 else {
                     throw new Exception("No se introdujo ninguna pagina valida.");

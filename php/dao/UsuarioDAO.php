@@ -50,6 +50,32 @@
             return $usuarios;
         }
 
+        public function getInstanciaValidez(array $valido) {
+            $consulta = "SELECT * 
+                        FROM usuario
+                        WHERE valido=?";
+            $registros = $this->bd->sql($consulta, $valido);
+
+            if(!is_array($registros)) {
+                throw new Exception('No existe usuario valido');
+            }
+            
+            $usuarios = [];
+            for($i=0; $i<count($registros); $i++) {
+                $registro = $registros[$i];
+
+                $cedula = $registro['cedula'];
+                $nickname = $registro['nickname'];
+                $contrasena = $registro['contrasena'];
+                $valido = $registro['valido'];
+                $us = new Usuario($cedula, $nickname, $contrasena, $valido);
+
+                $usuarios[] = $us;
+            }
+            
+            return $usuarios;
+        }
+
         public function getInstanciaNickname(array $nickname) {
             $consulta = "SELECT * 
                         FROM usuario
