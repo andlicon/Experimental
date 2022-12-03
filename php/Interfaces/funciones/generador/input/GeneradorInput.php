@@ -69,7 +69,7 @@
             try {
                 $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
                 $personaDAO = new PersonaDAO($bd);
-                $resultado = $personaDAO->getTodos();
+                $resultado = $personaDAO->getTodosRepresentantes();
 
                 $select = '<div class="input__grupo">
                                 <label for="representanteInput">Representante</label>

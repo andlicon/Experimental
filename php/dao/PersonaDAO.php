@@ -37,17 +37,16 @@
 
         public function getTodosRepresentantes() {
             $consulta = "SELECT * 
-                        FROM    persona
-                        WHERE   cedula=?";
-            $registros = $this->bd->sql($consulta, $cedula);
+                        FROM    v_representante_valido";
+            $registros = $this->bd->sql($consulta, null);
 
             if(empty($registros)) {
                 throw new Exception('No existe el representante con dicha cedula');
             }
 
             $personas = [];
-            if(!empty($registros)) {
-                $renglon = $registros[0];
+            for($i=0; $i<count($registros); $i++) {
+                $renglon = $registros[$i];
                 $cedula = $renglon['cedula'];
                 $nombre = $renglon['nombre'];
                 $apellido = $renglon['apellido'];
