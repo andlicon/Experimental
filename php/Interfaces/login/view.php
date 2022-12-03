@@ -71,15 +71,11 @@
             </div>
             <!-- usuario -->
             <h2>Datos usuario</h2>
-            <div class="input__grupo">
-                <label for="tipoPersonaInput" class="input__label">Tipo</label>
-                <select class="input__select" id="tipoPersonaInput" name="tipoPersonaInput">
-                    <?php 
-                        include_once(FORMULARIO_PATH.'optionTipoPersona.php');
-                        optionTipoPersona();
-                    ?>
-                </select>
-            </div>
+            <?php 
+                include_once(GENERADOR_IG_PATH.'/option/GeneradorOptionTipoPersona.php');
+                $option = new GeneradorOptionTipoPersona();
+                $option->generarItems();
+            ?>
             <div class="input__grupo">
                 <label for="nicknameInput" class="input__label">Nickname</label>
                <input type="text" id="nicknameInput" name="nicknameInput" class="input__input input__input--texto">
