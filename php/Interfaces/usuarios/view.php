@@ -127,47 +127,13 @@
 
             <div class="botones">
                 <?php
-                    //include_once(FUNCIONES_IG_PATH.'generador/boton/GeneradorBotonEstudiante.php');
-                    //$permiso = getPermiso($usuario);
-                    //$genMenu = new GeneradorBotonEstudiante($permiso);
-                    //$genMenu->generarItems();
+                    include_once(FUNCIONES_IG_PATH.'generador/boton/GeneradorBotonUsuario.php');
+                    $permiso = getPermiso($usuario);
+                    $genMenu = new GeneradorBotonUsuario($permiso);
+                    $genMenu->generarItems();
                 ?>
             </div>
         </form>
     </div>
 </body>
 </html>
-
-<!--
-
-<h2>Introducir informacion</h2>
-<div class="input__grupo">
-    <label for="nacionalidadInput" class="input__label">Nacionalidad</label>
-    <select name="nacionalidadInput" id="nacionalidadInput" class="input__select">
-        <option value="V-" class="input__select">V-</option>
-        <option value="E-" class="input__select">E-</option>
-    </select>
-    <label for="cedulaInput" class="input__label">Cedula</label>
-    <input type="text" id="cedulaInput" name="cedulaInput" class="input__input input__input--texto">
-</div>
-<div class="input__grupo">
-    <label for="nombreInput" class="input__label">Nombre</label>
-    <input type="text" id="nombreInput" name="nombreInput" class="input__input input__input--texto">
-</div>
-<div class="input__grupo">
-    <label for="apellidoInput" class="input__label">Apellido</label>
-    <input type="text" id="apellidoInput" name="apellidoInput" class="input__input input__input--texto">
-</div>
-        
- 
-<div class="botones">
-    <h2 class="botones__titulo">Acciones</h2>
-    <button name="consultar" class="boton">consultar</button>
-    <button name="cargar" class="boton">cargar</button>
-    <button name="modificar" class="boton">modificar</button>
-    <button name="eliminar" class="boton">eliminar</button>
-    <button name="actualizar" class="boton">actualizar</button>
-    <button name="volver" class="boton">volver</button>
-</div>
-
--->
