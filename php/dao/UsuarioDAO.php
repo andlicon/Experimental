@@ -145,8 +145,22 @@
 
         }
 
+        public function modificarValidez(array $parametros) {
+            $update =  "UPDATE  usuario
+                        SET     valido=?
+                        WHERE cedula=?";
+            $this->bd->sql($update, $parametros);
+        }
+
         public function eliminar($parametros) {
-            
+            try {
+                $delete =  "DELETE FROM usuario
+                            WHERE cedula=?";
+                $this->bd->sql($delete, $parametros);
+            }
+            catch(PDOException $e) {
+                throw new DaoException(DaoException::USUARIOS, DaoException::ELIMINAR, "Existe alguna dependencia que impide borrar al usuario.");
+            }
         }
     }
 ?>

@@ -6,6 +6,8 @@
     include('../funciones/redireccionarPagina.php');
 
     include('evento/consultar.php');
+    include('evento/validez.php');
+    include('evento/eliminar.php');
 ?>
 
 <head>
@@ -66,11 +68,17 @@
                             <th class="output__celda output__celda--header">
                                Nickname
                             </th>
+                            <th class="output__celda output__celda--header">
+                               Valido
+                            </th>
                         </tr>
                     </thead>
                     <tbody class="output__body">
                         <?php
                             include_once(DTO_PATH.'/Usuario.php');
+                            include_once(DTO_PATH.'/Persona.php');
+                            include_once(DTO_PATH.'/Usuario.php');
+
                             if( isset($_GET['usuarios']) ) {
                                 $serialize = $_GET['usuarios'];     //AHORA SE TIENE QUE PASAR POR HEADER PERSONA
                             
@@ -81,6 +89,22 @@
                                         /*Obteniendo los datos de la persona*/
                                         $usuario = $usuarios[$i];
                                         $cedula = $usuario->getCedula();
+
+                                        $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
+
+                                        $personaDAO = new PersonaDAO($bd);
+                                        $resultados = $personaDAO->getInstancia(array($cedula));
+                                        $persona = $resultados[0];
+                                        $nombre = $persona->getNombre();
+                                        $apellido = $persona->getApellido();
+                                        $idTipoPersona = $persona->getIdTipoPersona();
+
+                                        $usuarioDAO = new UsuarioDAO($bd);
+                                        $resultados = $usuarioDAO->getInstancia(array($cedula));
+                                        $usuario = $resultados[0];
+                                        $nickname = $usuario->getNickname();
+                                        $valido = $usuario->getValido();
+                                        $valido = $valido==true ? "valido" : "invalido";
                                         
                                         echo "  <tr class=\"output__renglon\">
                                                     <td class=\"output__celda\ output__celda--centrado\">
@@ -91,10 +115,10 @@
                                                         $cedula
                                                     </td>
                                                     <td class=\"output__celda\">
-                                                    
+                                                        $nombre
                                                     </td>
                                                     <td class=\"output__celda\">
-                           
+                                                        $apellido
                                                     </td>
                                                     <td class=\"output__celda\">";    
                                                         //TIPO PERSONA (DESCRIPCION)
@@ -102,10 +126,11 @@
                                                         //generarTablaContactos($cedula);
                                         echo       "</td>
                                                     <td class=\"output__celda\">";
-                                                        //NICKNAME (nickname)
-                                                        //include_once(ROOT_PATH.'/general/generarTablaContactos.php');
-                                                        //generarTablaContactos($cedula);
-                                        echo       "</td>            
+                                        echo       "$nickname
+                                                    </td> 
+                                                    <td class=\"output__celda\">
+                                                        $valido
+                                                    </td>         
                                                 </tr>";
                                     }
                                 } 
