@@ -1,6 +1,6 @@
 <?php
     include_once(DAO_PATH.'/ContactoDAO.php');
-    include_once(DAO_PATH.'/PersonaDAO.php');
+    include_once(DAO_PATH.'/UsuarioDAO.php');
 
     include_once(GENERAL_PATH.'/Pagina.php');
     include_once(GENERAL_PATH.'/comprobarChecks.php');
@@ -10,25 +10,24 @@
         $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
 
         try {
-            $pagina = new Pagina(Pagina::PERSONA);
+            $pagina = new Pagina(Pagina::USUARIOS);
 
-            $cedulas = comprobarChecks(true, $pagina);
+            $cedulas = comprobarChecks(false, $pagina);
 
-            $contactoDAO = new ContactoDAO($bd);
-            $personaDAO = new PersonaDAO($bd);
+            $usuarioDAO = new UsuarioDAO($bd);
+            $resultado = $usuarioDAO->getInstancia($cedulas);
+            $usuario = $resultado[0];
 
-            for($i=0; $i<count($cedulas); $i++) {
-                $cedula = $cedulas[$i];
-
-                $personaDAO->eliminar(array($cedula));
-                $contactoDAO->eliminarPorCedula(array($cedula));
-                $bd->guardarCambios();
+            if($usuario->getValido()) {
+                $pagina->imprimirMensaje(null, Mensaje::ERROR, "Para eliminar a un usuario, este debe ser inválido.");
+                die();
             }
 
-            $pagina->imprimirMensaje(null, Mensaje::EXITO, "Se ha eliminado exitosamente a la persona.");
+            $usuarioDAO->eliminar($cedulas);
+            $pagina->imprimirMensaje(null, Mensaje::EXITO, "Se ha eliminado exitosamente al usuario.");
         }
         catch(SelectException $e) {
-            echo $e->imprimirError();
+            $pagina->imprimirMensaje(null, Mensaje::ERROR, $e->getMessage());
         }
         catch(PDOException $e) {
             $codigo = $e->getCode();

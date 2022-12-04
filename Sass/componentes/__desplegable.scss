@@ -1,0 +1,26 @@
+$width: 150px;
+
+.desplegable {
+    position: relative;
+
+    //borrar
+    width: $width;
+
+    background-color: blue;
+}
+
+.desplegable__item {
+    width: 100px;
+    height: 100px;
+    
+    position: absolute;
+    left: $width;
+
+    display: none;
+
+    background-color: red;
+}
+
+.desplegable__item--mostrar {
+    display: block;
+}

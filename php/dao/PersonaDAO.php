@@ -34,19 +34,43 @@
 
             return $personas;
         }
-        
-        public function getTodos() {
+
+        public function getTodosRepresentantes() {
             $consulta = "SELECT * 
-                        FROM persona";
-            $registros = $this->bd->sql($consulta, $cedula);
+                        FROM    v_representante_valido";
+            $registros = $this->bd->sql($consulta, null);
 
             if(empty($registros)) {
                 throw new Exception('No existe el representante con dicha cedula');
             }
 
             $personas = [];
-            if(!empty($registros)) {
-                $renglon = $registros[0];
+            for($i=0; $i<count($registros); $i++) {
+                $renglon = $registros[$i];
+                $cedula = $renglon['cedula'];
+                $nombre = $renglon['nombre'];
+                $apellido = $renglon['apellido'];
+                $idTipoPersona = $renglon['id_tipo_persona'];
+                
+                $per= new Persona($cedula, $nombre, $apellido, $idTipoPersona);
+                $personas[] = $per;
+            }
+
+            return $personas;
+        }
+        
+        public function getTodos() {
+            $consulta = "SELECT * 
+                        FROM persona";
+            $registros = $this->bd->sql($consulta, null);
+
+            if(empty($registros)) {
+                throw new Exception('No existe el representante con dicha cedula');
+            }
+
+            $personas = [];
+            for($i=0; $i<count($registros); $i++) {
+                $renglon = $registros[$i];
                 $cedula = $renglon['cedula'];
                 $nombre = $renglon['nombre'];
                 $apellido = $renglon['apellido'];

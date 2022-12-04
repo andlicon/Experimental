@@ -1,5 +1,5 @@
 <?php
-    include_once(FUNCIONES_IG_PATH.'generador/boton/GeneradorBoton.php');
+    include_once(GENERADOR_PATH.'boton/GeneradorBoton.php');
 
     final class GeneradorBotonMenu extends GeneradorBoton {
 
@@ -11,7 +11,7 @@
             $permiso = parent::getPermiso();
             $botones = "";
             $botones = $botones.$this->crearItem("inicio", "Inicio");
-            $botones = $botones.$this->crearItem("gestionar-usuario", "Usuario");
+            $botones = $botones.$this->crearItem("gestionar-perfil", "Perfil");
             if($permiso==2) {       //PROFESOR
                 $botones = $botones.$this->crearItem("gestionar-clase", "Clase");
             }
@@ -22,7 +22,7 @@
                 $botones = $botones.$this->crearItem("gestionar-estudiante", "Estudiante");
             }
             else if($permiso==4) {  //ADMINISTRADOR
-                $botones = $botones.$this->crearItem("gestionar-persona", "Personas");
+                $botones = $botones.$this->crearItem("gestionar-usuarios", "Usuarios");
                 $botones = $botones.$this->crearItem("gestionar-pago", "Pagos");
                 $botones = $botones.$this->crearItem("gestionar-deuda", "Deudas");
                 $botones = $botones.$this->crearItem("gestionar-estudiante", "Estudiante");

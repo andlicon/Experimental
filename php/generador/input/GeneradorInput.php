@@ -1,5 +1,5 @@
 <?php 
-    include_once(FUNCIONES_IG_PATH.'generador/GeneradorItems.php');
+    include_once(GENERADOR_PATH.'/GeneradorItems.php');
     //RESTIRCCIONES
     abstract class GeneradorInput extends GeneradorItems {
         public const TELEFONO = 0;
@@ -63,6 +63,38 @@
 
         private function restriccionValida($restriccion) {
             return $restriccion > GeneradorInput::TELEFONO && $restriccion<=GeneradorInput::CORREO;
+        }
+
+        protected function crearItemRepresentante() {
+            try {
+                $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
+                $personaDAO = new PersonaDAO($bd);
+                $resultado = $personaDAO->getTodosRepresentantes();
+
+                $select = '<div class="input__grupo">
+                                <label for="representanteInput">Representante</label>
+                                <select id="representanteInput" name="representanteInput">';
+
+                for($i=0; $i<count($resultado); $i++) {
+                    $persona = $resultado[$i];
+                    $cedula = $persona->getCedula();
+                    $nombre = $persona->getNombre();
+                    $apellido = $persona->getApellido();
+
+                    $select = $select.'
+                                        <option value="'.$cedula.'" Class="input__select">
+                                            '."$cedula - $nombre - $apellido".'
+                                        </option>';
+                }
+
+                $select = $select.'</select>
+                            </div>';
+            }
+            catch(Exception $e) {
+                echo $e;
+            }
+
+            return $select;
         }
         
     }

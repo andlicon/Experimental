@@ -4,6 +4,8 @@
     include_once(GENERAL_PATH.'/Pagina.php');
     include_once(GENERAL_PATH.'/comprobarChecks.php');
 
+    include_once(EXCEPTION_PATH.'DaoException.php');
+
     if( isset($_POST['eliminar']) ) {
         $pagina = new Pagina(Pagina::ESTUDIANTE);
 
@@ -26,6 +28,9 @@
         }
         catch(SelectException $e) {
             $e->imprimirError();
+        }
+        catch(DaoException $e) {
+            $pagina->imprimirMensaje(null, Mensaje::ERROR, $e->getMessage());
         }
         catch(PDOException $e) {
             $codigo = $e->getCode();

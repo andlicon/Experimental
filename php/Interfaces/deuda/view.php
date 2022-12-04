@@ -20,6 +20,10 @@
 
     <title>Deuda</title>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+
     <link rel="stylesheet" href="/css/main.css">
 </head>
 <body class="body-page">
@@ -54,6 +58,9 @@
                             </th>
                             <th class="output__celda output__celda--header">
                                Cedula 
+                            </th>
+                            <th class="output__celda output__celda--header">
+                               Estudiante
                             </th>
                             <th class="output__celda output__celda--header">
                                Motivo
@@ -112,6 +119,9 @@
                                                         $cedula
                                                     </td>
                                                     <td class=\"output__celda\">
+                                                        estudiante
+                                                    </td>
+                                                    <td class=\"output__celda\">
                                                         $motivo
                                                     </td>
                                                     <td class=\"output__celda\">
@@ -148,7 +158,7 @@
             <div class="input">
                 <h2>Introducir informacion</h2>
                     <?php
-                        include_once(FUNCIONES_IG_PATH.'generador/input/GeneradorInputProfesor.php');
+                        include_once(GENERADOR_PATH.'/input/GeneradorInputProfesor.php');
                         $permiso = getPermiso($usuario);
                         $genMenu = new GeneradorInputProfesor($permiso);
                         $genMenu->generarItems();
@@ -158,7 +168,7 @@
 
             <div class="botones">
                 <?php
-                    include_once(FUNCIONES_IG_PATH.'generador/boton/GeneradorBotonProfesor.php');
+                    include_once(GENERADOR_PATH.'/boton/GeneradorBotonProfesor.php');
                     $permiso = getPermiso($usuario);
                     $genMenu = new GeneradorBotonProfesor($permiso);
                     $genMenu->generarItems();
@@ -172,6 +182,7 @@
 
 <!-- 
     
+
 <div class="input">
     <h2>Introducir informacion</h2>
     <div class="input__grupo">
@@ -217,5 +228,7 @@ botones
     <button name="cargarPago" class="boton">Cargar pago</button>
     <button name="volver" class="boton">volver</button>
 </div>
-
--->
+        </form>
+    </div>
+</body>
+</html> -->

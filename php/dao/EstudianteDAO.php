@@ -1,6 +1,7 @@
 <?php
     include_once('IDAO.php');
     include_once(DTO_PATH.'/Estudiante.php');
+    include_once(EXCEPTION_PATH.'DaoException.php');
 
     class EstudianteDAO implements IDAO {
         private $bd;
@@ -144,9 +145,9 @@
         
         public function eliminar($parametros) {
             try {
-                $insert = "INSERT INTO estudiante (nombre, apellido, fecha_nacimiento, id_clase, cedula_representante)
-                       VALUES                 (?, ?,  ?, ?, ?)";
-            $this->bd->sql($insert, $parametros);
+                $delete =  "DELETE FROM estudiante
+                            WHERE id=?";
+                $this->bd->sql($delete, $parametros);
             }
             catch(PDOException $e) {
                 throw new DaoException(DaoException::ESTUDIANTE, DaoException::ELIMINAR, "No se puede eliminar estudiante por alguna dependencia.");

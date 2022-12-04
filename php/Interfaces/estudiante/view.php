@@ -4,9 +4,8 @@
 <?php
     include_once('../ruta.php');
     include('../funciones/redireccionarPagina.php');
-
-    include('evento/actualizarEstu.php');
     include('evento/consultar.php');
+    include('evento/consultarAll.php');
     include('evento/cargarEstu.php');
     include('evento/modificarEstu.php');
     include('evento/eliminarEstu.php');
@@ -19,6 +18,9 @@
 
     <title>Estudiante</title>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
     <link rel="stylesheet" href="/css/main.css">
 </head>
 <body class="body-page">
@@ -115,17 +117,16 @@
             <div class="input">
                 <h2>Introducir informacion</h2>
                     <?php
-                        include_once(FUNCIONES_IG_PATH.'generador/input/GeneradorInputEstudiante.php');
+                        include_once(GENERADOR_PATH.'input/GeneradorInputEstudiante.php');
                         $permiso = getPermiso($usuario);
                         $genMenu = new GeneradorInputEstudiante($permiso);
                         $genMenu->generarItems();
                     ?>
-
             </div>
 
             <div class="botones">
                 <?php
-                    include_once(FUNCIONES_IG_PATH.'generador/boton/GeneradorBotonEstudiante.php');
+                    include_once(GENERADOR_PATH.'/boton/GeneradorBotonEstudiante.php');
                     $permiso = getPermiso($usuario);
                     $genMenu = new GeneradorBotonEstudiante($permiso);
                     $genMenu->generarItems();
@@ -135,3 +136,11 @@
     </div>
 </body>
 </html>
+
+
+<script>
+    $(document).ready(function () {
+    //change selectboxes to selectize mode to be searchable
+    $('select').select2();
+    });
+</script>

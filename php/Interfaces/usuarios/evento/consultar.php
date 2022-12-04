@@ -1,5 +1,5 @@
 <?php
-    include_once(DAO_PATH.'/PersonaDAO.php');
+    include_once(DAO_PATH.'/UsuarioDAO.php');
     include_once(GENERAL_PATH.'/crearCedula.php');
     include_once(GENERAL_PATH.'/comprobarInput.php');
     include_once(GENERAL_PATH.'/Pagina.php');
@@ -8,18 +8,24 @@
         consulta única instancia para Representante
     */
     if( isset($_POST['consultar']) ) {
-        $pagina = new Pagina(Pagina::PERSONA);
+        $pagina = new Pagina(Pagina::USUARIOS);
 
         try {   
-            //Cedula introducida por el usuario
-            $nacionalidadInput = comprobarInput('nacionalidadInput', $pagina);
-            $cedulaInput = comprobarInput('cedulaInput', $pagina);
-            $cedula = crearCedula($nacionalidadInput, $cedulaInput);
+            $tipoConsulta = comprobarInput('tipoConsulta', $pagina);
 
             $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
-            $personaDAO = new PersonaDAO($bd);
+            $usuarioDAO = new usuarioDAO($bd);
 
-            $resultado = $personaDAO->getInstancia(array ($cedula));
+            if($tipoConsulta=="validos") {
+                $resultado = $usuarioDAO->getInstanciaValidez(array(1));
+            }
+            else if($tipoConsulta=="invalidos") {
+                $resultado = $usuarioDAO->getInstanciaValidez(array(0));
+            }
+            else {
+                $resultado = $usuarioDAO->getTodos();
+            }
+
             $pagina->actualizarPagina($resultado);
         }
         catch(InputException $e) {
