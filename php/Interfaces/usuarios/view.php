@@ -147,7 +147,7 @@
             <div class="botones">
                 <h2>Acción</h2>
                 <?php
-                    include_once(FUNCIONES_IG_PATH.'generador/boton/GeneradorBotonUsuario.php');
+                    include_once(GENERADOR_PATH.'boton/GeneradorBotonUsuario.php');
                     $permiso = getPermiso($usuario);
                     $genMenu = new GeneradorBotonUsuario($permiso);
                     $genMenu->generarItems();

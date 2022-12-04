@@ -1,5 +1,5 @@
 <?php 
-    include_once(FUNCIONES_IG_PATH.'generador/option/GeneradorOption.php');
+    include_once(GENERADOR_PATH.'option/GeneradorOption.php');
     include_once(DAO_PATH.'/BaseDeDatos.php');
     include_once(DAO_PATH.'/TipoPersonaConsul.php');
 

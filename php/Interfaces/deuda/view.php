@@ -152,7 +152,7 @@
             <div class="input">
                 <h2>Introducir informacion</h2>
                     <?php
-                        include_once(FUNCIONES_IG_PATH.'generador/input/GeneradorInputProfesor.php');
+                        include_once(GENERADOR_PATH.'/input/GeneradorInputProfesor.php');
                         $permiso = getPermiso($usuario);
                         $genMenu = new GeneradorInputProfesor($permiso);
                         $genMenu->generarItems();
@@ -162,7 +162,7 @@
 
             <div class="botones">
                 <?php
-                    include_once(FUNCIONES_IG_PATH.'generador/boton/GeneradorBotonProfesor.php');
+                    include_once(GENERADOR_PATH.'/boton/GeneradorBotonProfesor.php');
                     $permiso = getPermiso($usuario);
                     $genMenu = new GeneradorBotonProfesor($permiso);
                     $genMenu->generarItems();

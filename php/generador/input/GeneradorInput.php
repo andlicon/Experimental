@@ -1,5 +1,5 @@
 <?php 
-    include_once(FUNCIONES_IG_PATH.'generador/GeneradorItems.php');
+    include_once(GENERADOR_PATH.'/GeneradorItems.php');
     //RESTIRCCIONES
     abstract class GeneradorInput extends GeneradorItems {
         public const TELEFONO = 0;

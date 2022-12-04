@@ -1,5 +1,5 @@
 <?php 
-    include_once(GENERADOR_IG_PATH.'input/GeneradorInput.php');
+    include_once(GENERADOR_PATH.'input/GeneradorInput.php');
     include_once(OPTIONS_IG_PATH.'/GenerarOptionClase.php');
     include_once(DAO_PATH.'/BaseDeDatos.php');
     include_once(DAO_PATH.'/ClaseConsul.php');

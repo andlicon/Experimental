@@ -1,5 +1,5 @@
 <?php 
-    include_once(FUNCIONES_IG_PATH.'generador/boton/GeneradorBoton.php');
+    include_once(GENERADOR_PATH.'/boton/GeneradorBoton.php');
 
     final class GeneradorBotonProfesor extends GeneradorBoton {
         public function __construct($idTipoPermiso) {
