@@ -77,7 +77,7 @@
                         <?php
                             include_once(DTO_PATH.'/Usuario.php');
                             include_once(DTO_PATH.'/Persona.php');
-                            include_once(DTO_PATH.'/Usuario.php');
+                            include_once(DTO_PATH.'/TipoPersona.php');
 
                             if( isset($_GET['usuarios']) ) {
                                 $serialize = $_GET['usuarios'];     //AHORA SE TIENE QUE PASAR POR HEADER PERSONA
@@ -92,6 +92,7 @@
 
                                         $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
 
+                                        //Info persona.
                                         $personaDAO = new PersonaDAO($bd);
                                         $resultados = $personaDAO->getInstancia(array($cedula));
                                         $persona = $resultados[0];
@@ -99,12 +100,18 @@
                                         $apellido = $persona->getApellido();
                                         $idTipoPersona = $persona->getIdTipoPersona();
 
+                                        //Info usuario.
                                         $usuarioDAO = new UsuarioDAO($bd);
                                         $resultados = $usuarioDAO->getInstancia(array($cedula));
                                         $usuario = $resultados[0];
                                         $nickname = $usuario->getNickname();
                                         $valido = $usuario->getValido();
                                         $valido = $valido==true ? "valido" : "invalido";
+
+                                        //Info TipoUsuario
+                                        $tipoPersonaConsul = new TipoPersonaConsul($bd);
+                                        $resultados = $tipoPersonaConsul->getInstancia(array($idTipoPersona));
+                                        $tipoUsuario = $resultados[0]->getDescripcion();
                                         
                                         echo "  <tr class=\"output__renglon\">
                                                     <td class=\"output__celda\ output__celda--centrado\">
@@ -120,13 +127,11 @@
                                                     <td class=\"output__celda\">
                                                         $apellido
                                                     </td>
-                                                    <td class=\"output__celda\">";    
-                                                        //TIPO PERSONA (DESCRIPCION)
-                                                        //include_once(ROOT_PATH.'/general/generarTablaContactos.php');
-                                                        //generarTablaContactos($cedula);
-                                        echo       "</td>
-                                                    <td class=\"output__celda\">";
-                                        echo       "$nickname
+                                                    <td class=\"output__celda\">  
+                                                        $tipoUsuario
+                                                   </td>
+                                                    <td class=\"output__celda\">
+                                                      $nickname
                                                     </td> 
                                                     <td class=\"output__celda\">
                                                         $valido
@@ -139,18 +144,8 @@
                     </tbody>
                 </table>
             </div>
-            <div class="input">
-                <h2>Introducir informacion</h2>
-                    <?php
-                        //include_once(FUNCIONES_IG_PATH.'generador/input/GeneradorInputEstudiante.php');
-                        //$permiso = getPermiso($usuario);
-                        //$genMenu = new GeneradorInputEstudiante($permiso);
-                        //$genMenu->generarItems();
-                    ?>
-
-            </div>
-
             <div class="botones">
+                <h2>Acción</h2>
                 <?php
                     include_once(FUNCIONES_IG_PATH.'generador/boton/GeneradorBotonUsuario.php');
                     $permiso = getPermiso($usuario);
