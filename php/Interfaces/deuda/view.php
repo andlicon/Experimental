@@ -60,6 +60,9 @@
                                Cedula 
                             </th>
                             <th class="output__celda output__celda--header">
+                               Estudiante
+                            </th>
+                            <th class="output__celda output__celda--header">
                                Motivo
                             </th>
                             <th class="output__celda output__celda--header">
@@ -114,6 +117,9 @@
                                                     </td>
                                                     <td class=\"output__celda\">
                                                         $cedula
+                                                    </td>
+                                                    <td class=\"output__celda\">
+                                                        estudiante
                                                     </td>
                                                     <td class=\"output__celda\">
                                                         $motivo
