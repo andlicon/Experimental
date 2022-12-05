@@ -19,7 +19,8 @@
                 <div class=\"popOver__contenido\">";
                     
             $popOver = $popOver.
-            "       <span class=\"popOver__elemento\">$id</span>
+            "       <span class=\"popOver__informacion\">Informacion</span>
+                    <span class=\"popOver__elemento\">$id</span>
                     <span class=\"popOver__elemento\">$nombre</span>
                     <span class=\"popOver__elemento\">$apellido</span>
                 </div>

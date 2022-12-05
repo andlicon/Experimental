@@ -690,3 +690,32 @@ svg {
 .desplegable__item--mostrar {
   display: block;
 }
+
+.popOver {
+  position: relative;
+  overflow-wrap: normal;
+}
+.popOver:hover .popOver__contenido {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+}
+
+.popOver__contenido {
+  position: absolute;
+  top: 0;
+  left: 6em;
+  padding: 0em 0.5em;
+  display: none;
+  width: 10em;
+  background-color: red;
+}
+
+.popOver__informacion {
+  font-weight: 600;
+  margin: auto;
+}
