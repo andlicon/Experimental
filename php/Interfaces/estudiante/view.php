@@ -71,6 +71,9 @@
                     </thead>
                     <tbody class="output__body">
                         <?php
+                            include_once(FUNCIONES_IG_PATH.'popOver/RepresentantePop.php');
+                            include_once(DAO_PATH.'/BaseDeDatos.php');
+                            include_once(DAO_PATH.'/PersonaDAO.php');
                             include_once(DTO_PATH.'/Estudiante.php');
                             include_once('getNombreClase.php');
 
@@ -79,6 +82,11 @@
                             
                                 if($serialize) {
                                     $estudiantes = unserialize($serialize);
+
+                                    //Generador popOver
+                                    $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
+                                    $personaDAO = new PersonaDAO($bd);
+                                    $popOverRep = new RepresentantePop($personaDAO);
                                 
                                     for($i=0; $i<count($estudiantes); $i++) {
                                         $estudiante = $estudiantes[$i];
@@ -104,8 +112,9 @@
                                                         $apellido
                                                     </td>
                                                     <td class=\"output__celda\">
-                                                        $cedulaRepresentante
-                                                    </td>
+                                                        <!--acá importar-->";
+                                                        echo $popOverRep->generarPop($cedulaRepresentante, $cedulaRepresentante);
+                                        echo        "</td>
                                                     <td class=\"output__celda\">
                                                         $fechaNacimiento
                                                     </td>
