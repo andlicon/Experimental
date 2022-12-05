@@ -22,11 +22,10 @@
             $apellidoInput = $_POST['apellidoInput'];
             $fechaInput = $_POST['fechaInput'];
             $idClaseInput = $_POST['claseInput'];
-            $nacionalidadInput = $_POST['nacionalidadInput'];
-            $cedulaNumInput = $_POST['cedulaInput'];
-            $cedulaInput = $cedulaNumInput=="" ? "" : crearCedula($nacionalidadInput, $cedulaNumInput);
+            $cedulaInput = $_POST['representanteInput'];
+
             $estudianteInput = new Estudiante($idEstudiante, $nombreInput, 
-                                                $apellidoInput, $fechaInput, $idClaseInput, $cedulaInput);
+                                                $apellidoInput, $fechaInput, $cedulaInput, $idClaseInput);
 
             //Comprobando que exista algun cambio comparado con la bd.
             //Solo se modificaran los atributos que sean distintos a la bd.
@@ -37,14 +36,12 @@
             $nombre = $nombreInput=="" ? $estudiante->getNombre() : $nombreInput;
             $apellido = $apellidoInput=="" ? $estudiante->getApellido() : $apellidoInput;
             $fecha = $fechaInput=="" ? $estudiante->getFechaNacimiento() : $fechaInput;
-            $idClase = $idClaseInput=="" ? $estudiante->getClase()->getId() : $idClaseInput;
+            $idClase = $idClaseInput=="" ? $estudiante->getIdClase() : $idClaseInput;
             $cedula = $cedulaInput=="" ? $estudiante->getCedulaRepresentante() : $cedulaInput;
             
 
             $estudianteDAO->modificar(array($nombre, $apellido, $fecha, 
                                             $idClase, $cedula, $idEstudiante));
-            
-            $bd->guardarCambios();
 
             $pagina->imprimirMensaje(null, Mensaje::EXITO, "Se ha emodificado exitosamente a los estudiantes.");
         }

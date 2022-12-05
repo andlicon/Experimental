@@ -59,6 +59,9 @@
                                Apellido 
                             </th>
                             <th class="output__celda output__celda--header">
+                               Representante
+                            </th>
+                            <th class="output__celda output__celda--header">
                                Fecha nacimiento
                             </th>
                             <th class="output__celda output__celda--header">
@@ -99,6 +102,9 @@
                                                     </td>
                                                     <td class=\"output__celda\">
                                                         $apellido
+                                                    </td>
+                                                    <td class=\"output__celda\">
+                                                        $cedulaRepresentante
                                                     </td>
                                                     <td class=\"output__celda\">
                                                         $fechaNacimiento

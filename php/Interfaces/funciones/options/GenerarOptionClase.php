@@ -15,7 +15,8 @@
             $options = '';
             $options = '<div class="input__grupo">
                             <label for="'.$name.'" class="input__label">'.$text.'</label>
-                            <select class="input__select" id="'.$name.'" name="'.$name.'">';
+                            <select class="input__select" id="'.$name.'" name="'.$name.'">
+                                <option value=""></option>';
             
             for($i=0; $i<count($opciones); $i++) {
                 $opcion = $opciones[$i];

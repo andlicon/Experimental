@@ -73,7 +73,8 @@
 
                 $select = '<div class="input__grupo">
                                 <label for="representanteInput">Representante</label>
-                                <select id="representanteInput" name="representanteInput">';
+                                <select id="representanteInput" name="representanteInput">
+                                    <option value=""></option>';
 
                 for($i=0; $i<count($resultado); $i++) {
                     $persona = $resultado[$i];
