@@ -169,9 +169,9 @@
 
             <div class="botones">
                 <?php
-                    include_once(GENERADOR_PATH.'/boton/GeneradorBotonProfesor.php');
+                    include_once(GENERADOR_PATH.'/boton/GeneradorBotonDeuda.php');
                     $permiso = getPermiso($usuario);
-                    $genMenu = new GeneradorBotonProfesor($permiso);
+                    $genMenu = new GeneradorBotonDeuda($permiso);
                     $genMenu->generarItems();
                 ?>
             </div>

@@ -1,30 +1,37 @@
 <?php
     include_once(DAO_PATH.'/BaseDeDatos.php');
     include_once(DAO_PATH.'/DeudaDAO.php');
+    include_once(DAO_PATH.'/EstudianteDAO.php');
 
     include_once(GENERAL_PATH.'/crearCedula.php');
     include_once(GENERAL_PATH.'/comprobarInput.php');
     include_once(GENERAL_PATH.'/crearCedula.php');
     include_once(GENERAL_PATH.'/Pagina.php');
 
-    if( isset($_POST['cargarDeuda']) ) {
+
+
+    if( isset($_POST['cargar']) ) {
         $pagina = new Pagina(Pagina::DEUDA);
 
             try {
                 //INPUTS
-                $nacionalidadInput = comprobarInput('nacionalidadInput', $pagina);
-                $cedulaInput = comprobarInput('cedulaInput', $pagina);
-                $cedula = crearCedula($nacionalidadInput, $cedulaInput);
+                $idEstudiante = comprobarInput('estudianteInput', $pagina);
                 $idMotivo = comprobarInput('motivoInput', $pagina);
-                $descripcion = $_POST['descripcionInput'];
                 $fecha = comprobarInput('fechaInput', $pagina);
-                $monto = comprobarInput('montoInput', $pagina);
+                $descripcion = $_POST['descripcionInput'];
+                $monto = comprobarInput('montoInicialInput', $pagina);
 
+                //Representante
                 $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
+                $estudianteDAO = new EstudianteDAO($bd);
+                $resultado = $estudianteDAO->getInstancia(array($idEstudiante));
+                $estudiante = $resultado[0];
+                $cedulaRep = $estudiante->getCedulaRepresentante();
+
                 $deudaDAO = new DeudaDAO($bd);
 
                 $resultado = $deudaDAO->cargar(
-                                                array($cedula, $idMotivo, $fecha, $descripcion, $monto)    
+                                                array($cedulaRep, $idEstudiante, $idMotivo, $fecha, $descripcion, $monto)    
                                               );
 
                 $bd->guardarCambios();
