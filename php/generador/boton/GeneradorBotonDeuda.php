@@ -27,11 +27,24 @@
             $item = $item.$this->crearItem("consultar", "Consultar");;
             $item = $item.
                 '
-                <label for="tipoConsulta" class="input__label">Tipo consulta</label>
-                <select class="input__select" id="tipoConsulta" name="tipoConsulta">
-                    <option>todos</option>
-                    <option>cedula</option>
-                ';
+                <label for="representanteInput" class="input__label">Representante(s)</label>
+                <select class="input__select" id="representanteInput" name="representanteInput">
+                    <option value="todos">todos</option>';
+
+                    $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
+                    $personaDAO = new PersonaDAO($bd);
+                    $resultados = $personaDAO->getTodosRepresentantes();
+
+                    for($i=0; $i<count($resultados); $i++) {
+                        $rep = $resultados[$i];
+                        $nombre = $rep->getNombre();
+                        $apellido = $rep->getApellido();
+                        $cedula = $rep->getCedula();
+
+                        $item = $item."<option value=\"$cedula\">$cedula - $nombre - $apellido</option>";
+
+                    }
+
             $item = $item.
                 '</select>
             </div>';
