@@ -181,7 +181,6 @@
 
 
 <!-- 
-    
 
 <div class="input">
     <h2>Introducir informacion</h2>
@@ -231,4 +230,6 @@ botones
         </form>
     </div>
 </body>
-</html> -->
+</html>
+
+-->
