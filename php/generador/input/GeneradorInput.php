@@ -53,9 +53,11 @@
             }
             else if($restriccion == GeneradorInput::CORREO) {
                 //no sé xd
+                $funcion = "return soloTelefono(event)";
             }
             else if($restriccion == GeneradorInput::MONTO) {
                 //no sé xd
+                $funcion = "return soloMonto(event)";
             }
            
             return '
