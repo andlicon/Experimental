@@ -158,9 +158,9 @@
             <div class="input">
                 <h2>Introducir informacion</h2>
                     <?php
-                        include_once(GENERADOR_PATH.'/input/GeneradorInputProfesor.php');
+                        include_once(GENERADOR_PATH.'/input/GeneradorInputDeuda.php');
                         $permiso = getPermiso($usuario);
-                        $genMenu = new GeneradorInputProfesor($permiso);
+                        $genMenu = new GeneradorInputDeuda($permiso);
                         $genMenu->generarItems();
                     ?>
 
@@ -179,57 +179,9 @@
 </body>
 </html>
 
-
-<!-- 
-
-<div class="input">
-    <h2>Introducir informacion</h2>
-    <div class="input__grupo">
-        <label for="nacionalidadInput" class="input__label">Nacionalidad</label>
-        <select name="nacionalidadInput" id="nacionalidadInput" class="input__select">
-            <option value="V-" class="input__select">V-</option>
-            <option value="E-" class="input__select">E-</option>
-        </select>
-        <label for="cedulaInput" class="input__label">Cedula</label>
-        <input type="text" id="cedulaInput" name="cedulaInput" class="input__input input__input--texto">
-    </div>
-    <div class="input__grupo">
-        <label for="motivoInput" class="input__label">Motivo</label>
-        <select class="input__select" id="motivoInput" name="motivoInput">
-            <?php 
-                //include_once('optionMotivo.php');
-                //optionMotivo();
-            ?>
-        </select>
-    </div>
-    <div class="input__grupo">
-        <label for="fechaInput" class="input__label">Fecha</label>
-        <input type="date" id="fechaInput" name="fechaInput" class="input__input">
-    </div>
-    <div class="input__grupo">
-        <label for="montoInput" class="input__label">Monto inicial</label>
-        <input type="text" id="montoInput" name="montoInput" class="input__input">
-    </div>
-    <div class="input__grupo">
-        <label for="descripcionInput" class="input__label">Descripcion</label>
-        <input type="text" id="descripcionInput" name="descripcionInput" class="input__input">
-    </div>
-</div>
-botones
-<div class="botones">
-    <h2 class="botones__titulo">Acciones</h2>
-    <button name="consultarDeudor" class="boton">Consultar Deudores</button>
-    <button name="consultarCedula" class="boton">Deuda por representante</button>
-    <button name="modificar" class="boton">modificar</button>
-    <button name="eliminar" class="boton">eliminar</button>
-    <button name="cargarDeuda" class="boton">Cargar deuda</button>
-    <button name="cobrar" class="boton">Cobrar mensualidad</button>
-    <button name="cargarPago" class="boton">Cargar pago</button>
-    <button name="volver" class="boton">volver</button>
-</div>
-        </form>
-    </div>
-</body>
-</html>
-
--->
+<script>
+    $(document).ready(function () {
+    //change selectboxes to selectize mode to be searchable
+        $('#estudianteInput').select2();
+    });
+</script>

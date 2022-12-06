@@ -1,5 +1,6 @@
 <?php
     include_once('IConsultor.php');
+    include_once(DTO_PATH.'/Clase.php');
 
     class ClaseConsul implements IConsultor {
         private BaseDeDatos $bd;
