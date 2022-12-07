@@ -8,6 +8,7 @@
     include('evento/cargarPago.php');
     include('evento/eliminarDeuda.php');
     include('evento/modificarDeuda.php');
+    include('evento/consultar.php');
     include('evento/consultarDeudaRep.php');
     include('evento/consultarRepDeudor.php');
     include('evento/cobrarMensualidad.php');
@@ -44,13 +45,16 @@
         <form action="" method="POST" class="display">
             <div class="output">
                 <table class="output__table">
-                    <colgroup> 
+                <colgroup> 
                         <col class="output__col output__col--seleccion">
                         <col class="output__col output__col--cedula">
-                        <col class="output__col output__col--nombre">
-                        <col class="output__col output__col--apellido">
-                        <col class="output__col output__col--tipo">
-                        <col class="output__col output__col--contacto">
+                        <col class="output__col output__col--estudiante">
+                        <col class="output__col output__col--motivo">
+                        <col class="output__col output__col--descripcion">
+                        <col class="output__col output__col--fecha">
+                        <col class="output__col output__col--montoInicial">
+                        <col class="output__col output__col--pagado">
+                        <col class="output__col output__col--debe">
                     </colgroup>
                     <thead class="output__header">
                         <tr class="output__renglon">
@@ -85,6 +89,11 @@
                     </thead>
                     <tbody class="output__body">
                         <?php
+                            include_once(FUNCIONES_IG_PATH.'popOver/RepresentantePop.php');
+                            include_once(FUNCIONES_IG_PATH.'popOver/EstudiantePop.php');
+                            include_once(DAO_PATH.'/BaseDeDatos.php');
+                            include_once(DAO_PATH.'/PersonaDAO.php');
+                            include_once(DAO_PATH.'/EstudianteDAO.php');
                             include_once(DTO_PATH.'/Deuda.php');
                             include_once('getDescripcionMotivo.php');
                             $deudaTotal = 0;
@@ -94,6 +103,15 @@
                 
                                 if($serialize) {
                                     $deudas = unserialize($serialize);
+
+                                    //persona
+                                    $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
+                                    $personaDAO = new PersonaDAO($bd);
+                                    $popOverRep = new RepresentantePop($personaDAO);
+
+                                    //estudiante
+                                    $estudianteDAO = new EstudianteDAO($bd);
+                                    $popOverEstu = new EstudiantePop($estudianteDAO);
     
                                     for($i=0; $i<count($deudas); $i++) {
                                         //Deuda
@@ -105,6 +123,8 @@
                                         $montoInicial = $deuda->getMontoInicial();
                                         $montoEstado = $deuda->getMontoEstado();
                                         $debe = $deuda->getDeuda();
+                                        $idEstudiante = $deuda->getIdEstudiante();
+
                                         //motivo
                                         $idMotivo = $deuda->getIdMotivo();
                                         $motivo = getDescripcionMotivo($idMotivo);
@@ -116,12 +136,12 @@
                                                         <input type=\"checkbox\" name=\"check[]\" value=\"$id\" 
                                                                 id=\"check$i\" class=\"output__check\">
                                                     </td>
-                                                    <td class=\"output__celda\">
-                                                        $cedula
-                                                    </td>
-                                                    <td class=\"output__celda\">
-                                                        estudiante
-                                                    </td>
+                                                    <td class=\"output__celda\">";
+                                                        echo $popOverRep->generarPop($cedula, $cedula);
+                                        echo        "</td>
+                                                    <td class=\"output__celda\">";
+                                                        echo $popOverEstu->generarPop($idEstudiante, $idEstudiante);
+                                        echo        "</td>
                                                     <td class=\"output__celda\">
                                                         $motivo
                                                     </td>
@@ -148,7 +168,7 @@
                     </tbody>
                     <tfoot>
                     <tr>
-                        <td colspan="7"></td>
+                        <td colspan="8"></td>
                         <td>
                             <?php echo"Deuda total: $deudaTotal"?>
                         </td>

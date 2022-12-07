@@ -6,7 +6,7 @@
             $this->consultor = $consultor;
         }
 
-        public abstract function generarPop($id, $textoSpan);
+        public abstract function generarPop($id);
     }
 
 ?>

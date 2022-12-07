@@ -111,8 +111,7 @@
                                                     <td class=\"output__celda\">
                                                         $apellido
                                                     </td>
-                                                    <td class=\"output__celda\">
-                                                        <!--acá importar-->";
+                                                    <td class=\"output__celda\">";
                                                         echo $popOverRep->generarPop($cedulaRepresentante, $cedulaRepresentante);
                                         echo        "</td>
                                                     <td class=\"output__celda\">
