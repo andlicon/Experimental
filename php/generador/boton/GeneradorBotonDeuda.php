@@ -17,6 +17,9 @@
                 $botones = $botones.$this->crearItem("eliminar", "eliminar");
                 $botones = $botones.$this->crearItem("cargar", "cargar");
             }
+            else if($permiso==1 || $permiso==2) {  //ADMINISTRADOR
+                $botones = $botones.$this->crearItem("consultar-rep", "consultar");
+            }
 
             echo $botones;
         }

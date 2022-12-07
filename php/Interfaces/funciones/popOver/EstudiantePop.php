@@ -17,7 +17,6 @@
             $id = $estudiante->getId();
             $nombre = $estudiante->getNombre();
             $apellido = $estudiante->getApellido();
-            $fecha = $estudiante->getFechaNacimiento();
             $idClase = $estudiante->getIdClase();
 
             //
@@ -37,7 +36,6 @@
             "       <span class=\"popOver__informacion\">Informacion</span>
                     <span class=\"popOver__elemento\">$nombre</span>
                     <span class=\"popOver__elemento\">$apellido</span>
-                    <span class=\"popOver__elemento\">$fecha</span>
                     <span class=\"popOver__elemento\">$claseNombre</span>
                 </div>
             </div>";
