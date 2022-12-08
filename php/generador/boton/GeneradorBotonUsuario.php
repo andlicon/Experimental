@@ -19,22 +19,7 @@
 
             echo $botones;
         }
-
-        private function crearItemValidez() {
-            $item = 
-            '<div class="input__grupo">';
-            $item = $item.$this->crearItem("validez", "Validar");;
-            $item = $item.
-                '
-                <label for="validezInput" class="input__label">Validez</label>
-                <select class="input__select" id="validezInput" name="validezInput">
-                    <option>valido</option>
-                    <option>invalido</option>';
-            $item = $item.
-                '</select>
-            </div>';
-            return $item;
-        }
+        
     }
 
 ?>

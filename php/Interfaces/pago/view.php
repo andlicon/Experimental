@@ -140,10 +140,10 @@
 
             <div class="botones">
                 <?php
-                    //include_once(GENERADOR_PATH.'boton/GeneradorBotonEstudiante.php');
-                    //$permiso = getPermiso($usuario);
-                    //$genMenu = new GeneradorBotonEstudiante($permiso);
-                    //$genMenu->generarItems();
+                    include_once(GENERADOR_PATH.'boton/GeneradorBotonPago.php');
+                    $permiso = getPermiso($usuario);
+                    $genMenu = new GeneradorBotonPago($permiso);
+                    $genMenu->generarItems();
                 ?>
             </div>
         </form>
