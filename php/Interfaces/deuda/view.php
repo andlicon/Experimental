@@ -10,8 +10,6 @@
     include('evento/modificarDeuda.php');
     include('evento/consultar.php');
     include('evento/consultarRep.php');
-    include('evento/consultarRepDeudor.php');
-    include('evento/cobrarMensualidad.php');
 ?>
 
 <head>

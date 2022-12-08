@@ -130,10 +130,10 @@
             <div class="input">
                 <h2>Introducir informacion</h2>
                     <?php
-                        //include_once(GENERADOR_PATH.'/input/GeneradorInputEstudiante.php');
-                        //$permiso = getPermiso($usuario);
-                        //$genMenu = new GeneradorInputEstudiante($permiso);
-                        //$genMenu->generarItems();
+                        include_once(GENERADOR_PATH.'/input/GeneradorInputPago.php');
+                        $permiso = getPermiso($usuario);
+                        $genMenu = new GeneradorInputPago($permiso);
+                        $genMenu->generarItems();
                     ?>
 
             </div>
