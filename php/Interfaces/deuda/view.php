@@ -9,7 +9,7 @@
     include('evento/eliminarDeuda.php');
     include('evento/modificarDeuda.php');
     include('evento/consultar.php');
-    include('evento/consultarDeudaRep.php');
+    include('evento/consultarRep.php');
     include('evento/consultarRepDeudor.php');
     include('evento/cobrarMensualidad.php');
 ?>
@@ -131,8 +131,14 @@
     
                                         $deudaTotal += $debe;
     
-                                        echo "  <tr class=\"output__renglon\">
-                                                    <td class=\"output__celda\ output__celda--centrado\">
+                                        if($debe<=0) {
+                                            echo "  <tr class=\"output__renglon\">";
+                                        }
+                                        else {
+                                            echo "  <tr class=\"output__renglon output__deuda\">";
+                                        }
+
+                                        echo "    <td class=\"output__celda output__celda--centrado\">
                                                         <input type=\"checkbox\" name=\"check[]\" value=\"$id\" 
                                                                 id=\"check$i\" class=\"output__check\">
                                                     </td>

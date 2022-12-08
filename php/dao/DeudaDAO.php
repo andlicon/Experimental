@@ -45,7 +45,8 @@
         public function getInstanciaCedula($cedula) {
             $consulta = "SELECT * 
                         FROM deuda
-                        WHERE cedula_representante=?";
+                        WHERE cedula_representante=?
+                        ORDER BY fecha DESC";
             $registros = $this->bd->sql($consulta, $cedula);
 
             if(empty($registros)) {
@@ -108,7 +109,8 @@
         
         public function getTodos() {
             $consulta = "SELECT * 
-                        FROM deuda";
+                        FROM deuda
+                        ORDER BY fecha DESC";
             $registros = $this->bd->sql($consulta, $cedula);
 
             if(empty($registros)) {
@@ -174,6 +176,7 @@
         public function modificar($parametros) {
             $update =  "UPDATE deuda
                         SET cedula_representante=?, 
+                            id_estudiante=?,
                             id_motivo=?,
                             fecha=?,
                             descripcion=?,

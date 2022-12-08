@@ -15,29 +15,38 @@
             $deudaDAO = new DeudaDAO($bd);
 
             //INPUTS
-            $nacionalidadInput = $_POST['nacionalidadInput'];
-            $cedulaNumInput = $_POST['cedulaInput'];
-            $cedulaInput = $cedulaNumInput=="" ? "" : crearCedula($nacionalidadInput, $cedulaNumInput);
+            $idEstudianteInput = $_POST['estudianteInput'];
             $idMotivoInput = $_POST['motivoInput'];
             $descripcionInput = $_POST['descripcionInput'];
             $fechaInput = $_POST['fechaInput'];
-            $montoInput = $_POST['montoInput'];
+            $montoInput = $_POST['montoInicialInput'];
 
             for($i=0; $i<count($idsDeudas); $i++) {
                 $idDeuda = $idsDeudas[$i];
                 $deudas = $deudaDAO->getInstancia(array($idDeuda));
                 $deuda = $deudas[0];
 
-                $cedula = $cedulaInput=="" ? $deuda->getCedula() : $cedulaInput;
                 $idMotivo = $idMotivoInput=="" ? $deuda->getIdMotivo() : $idMotivoInput;
                 $descripcion = $descripcionInput=="" ? $deuda->getDescripcion() : $descripcionInput;
                 $fecha = $fechaInput=="" ? $deuda->getFecha() : $fechaInput;
-                $monto = $montoInput=="" ? $deuda->getMontoInicial() : $montoInicial;
+                $monto = $montoInput=="" ? $deuda->getMontoInicial() : $montoInput;
 
-                $deudaDAO->modificar( array($cedula, $idMotivo, $fecha, 
+                $idEstudiante = "";
+                $cedulaRep = "";
+                if($idEstudianteInput == "") { 
+                    $idEstudiante = $deuda->getIdEstudiante();
+                    $cedulaRep = $deuda->getCedula();
+                }
+                else {
+                    $idEstudiante = $idEstudianteInput;
+
+                    $estudianteDAO = new EstudianteDAO($bd);
+                    $resultado = $estudianteDAO->getInstancia(array($idEstudiante));
+                    $cedulaRep = $resultado[0]->getCedulaRepresentante();
+                }
+
+                $deudaDAO->modificar( array($cedulaRep, $idEstudiante, $idMotivo, $fecha, 
                                             $descripcion, $monto, $idDeuda));
-
-                $bd->guardarCambios();
             }
 
             $pagina->imprimirMensaje(null, Mensaje::EXITO, "La deuda fue modificada con exito.");
@@ -50,8 +59,8 @@
 
             if($codigo==23000) {
                 $bd->revertirCambios();
-                $pagina->imprimirMensaje(null, Mensaje::ERROR, "Existe alguna dependencia que impide eliminar a la persona.");
-
+                $pagina->imprimirMensaje(null, Mensaje::ERROR, "Existe alguna dependencia que impide modificar a la deuda.");
+        
                 die();
             }
             

@@ -410,6 +410,10 @@ body {
   width: 10em;
 }
 
+.output__deuda {
+  background-color: red;
+}
+
 .input {
   display: -webkit-box;
   display: -ms-flexbox;

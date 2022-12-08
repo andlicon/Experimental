@@ -7,14 +7,13 @@
     include_once(GENERAL_PATH.'/crearCedula.php');
     include_once(GENERAL_PATH.'/Pagina.php');
 
-    if( isset($_POST['consultarCedula']) ) {
+    if( isset($_POST['consultar-rep']) ) {
         $pagina = new Pagina(Pagina::DEUDA);
 
             try {
                 //INPUTS
-                $nacionalidadInput = comprobarInput('nacionalidadInput', $pagina);
-                $cedulaInput = comprobarInput('cedulaInput', $pagina);
-                $cedula = crearCedula($nacionalidadInput, $cedulaInput);
+                $usuario = deserializarUsuario();
+                $cedula = $usuario->getCedula();
 
                 $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
                 $deudaDAO = new DeudaDAO($bd);
