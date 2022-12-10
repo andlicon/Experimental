@@ -1,0 +1,17 @@
+.tabla {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.tabla__td {
+    padding: 0.3em;
+}
+
+.tabla__th {
+    font-weight: 900;
+    text-align: left;
+}
+
+.tabla__td--deuda {
+    color: red;
+}

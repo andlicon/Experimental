@@ -267,6 +267,16 @@ body {
   grid-template-rows: 1fr 6em;
 }
 
+.body-main--estado {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+}
+
 .login {
   display: -ms-grid;
   display: grid;
@@ -722,4 +732,27 @@ svg {
 .popOver__informacion {
   font-weight: 600;
   margin: auto;
+}
+
+.tabla {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+}
+
+.tabla__td {
+  padding: 0.3em;
+}
+
+.tabla__th {
+  font-weight: 900;
+  text-align: left;
+}
+
+.tabla__td--deuda {
+  color: red;
 }

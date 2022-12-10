@@ -24,7 +24,7 @@
         include_once('../funciones/generarUsuario.php');
         generarUsuario();
     ?>
-    <div class="body-main">
+    <div class="body-main body-main--estado">
         <h1 class="vista__titulo">
             Estado
         </h1>

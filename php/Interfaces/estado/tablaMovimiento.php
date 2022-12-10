@@ -20,17 +20,17 @@
         $deudaPop = new DeudaPop($deudaDAO);
 
         $tabla = "
-        <div>
-            <h2>Movimientos</h2>
-            <table>
+        <div class=\"tabla\">
+            <h2 class=\"tabla__titulo\">Movimientos</h2>
+            <table class=\"tabla__table\">
                 <thead>
-                    <tr>
-                        <th>Referencia pago</th>
-                        <th>Referencia deuda</th>
-                        <th>Descripcion</th>
-                        <th>Fecha</th>
-                        <th>Monto</th>
-                        <th>Estado</th>
+                    <tr class=\"tabla__tr\">
+                        <th class=\"tabla__td tabla__th\">Referencia pago</th>
+                        <th class=\"tabla__td tabla__th\">Referencia deuda</th>
+                        <th class=\"tabla__td tabla__th\">Descripcion</th>
+                        <th class=\"tabla__td tabla__th\">Fecha</th>
+                        <th class=\"tabla__td tabla__th\">Monto</th>
+                        <th class=\"tabla__td tabla__th\">Estado</th>
                     </tr>
                 </thead>
                 <tbody>";
@@ -63,13 +63,13 @@
             //InfoEstudiante
 
             $fila = "
-                    <tr>
-                        <td>$idPago </td>
-                        <td>$pop</td>
-                        <td>$descripcion</td>
-                        <td>$fecha</td>
-                        <td>$monto</td>
-                        <td>$estado</td>
+                    <tr class=\"tabla__tr\">
+                        <td class=\"tabla__td\">$idPago </td>
+                        <td class=\"tabla__td\">$pop</td>
+                        <td class=\"tabla__td\">$descripcion</td>
+                        <td class=\"tabla__td\">$fecha</td>
+                        <td class=\"tabla__td\">$monto</td>
+                        <td class=\"tabla__td\">$estado</td>
                     </tr>";
 
             $tabla = $tabla.$fila;

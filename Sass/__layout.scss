@@ -16,6 +16,7 @@ body {
    height: 100vh;
 
    display: flex;
+   
 }
 
 .body-main {
@@ -101,4 +102,9 @@ $login-row: (
     grid-template-rows: 
                 1fr
                 6em;
+}
+
+.body-main--estado {
+    display: flex;
+    flex-flow: column nowrap;
 }

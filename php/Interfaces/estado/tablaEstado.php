@@ -22,16 +22,16 @@
         $deudaTotal = 0;
 
         $tabla = "
-        <div>
-            <h2>Estado cuenta</h2>
-            <table>
+        <div class=\"tabla\">
+            <h2 class=\"tabla__titulo\">Estado cuenta</h2>
+            <table class=\"tabla__table\">
                 <thead>
-                    <tr>
-                        <th>Estudiante</th>
-                        <th>Días de retraso</th>
-                        <th>Monto inicial</th>
-                        <th>Monto pagado</th>
-                        <th>Monto faltante</th>
+                    <tr class=\"tabla__tr\">
+                        <th class=\"tabla__td tabla__th\">Estudiante</th>
+                        <th class=\"tabla__td tabla__th\">Días de retraso</th>
+                        <th class=\"tabla__td tabla__th\">Monto inicial</th>
+                        <th class=\"tabla__td tabla__th\">Monto pagado</th>
+                        <th class=\"tabla__td tabla__th\">Monto faltante</th>
                     </tr>
                 </thead>
                 <tbody>";
@@ -48,12 +48,12 @@
             $popOver = $estudiantePop->generarPop($idEstudiante);
 
             $fila = "
-                    <tr>
-                        <td>$popOver</td>
-                        <td>$fechaRetraso</td>
-                        <td>$montoInicial</td>
-                        <td>$montoEstado</td>
-                        <td>$debe</td>
+                    <tr class=\"tabla__tr\">
+                        <td class=\"tabla__td\">$popOver</td>
+                        <td class=\"tabla__td\">$fechaRetraso</td>
+                        <td class=\"tabla__td\">$montoInicial</td>
+                        <td class=\"tabla__td\">$montoEstado</td>
+                        <td class=\"tabla__td tabla__td--deuda\">$debe</td>
                     </tr>";
 
             $tabla = $tabla.$fila;
@@ -64,8 +64,9 @@
         $tabla = $tabla."
                 </tbody>
                 <tfoot>
-                    <tr>
-                        <td>Deuda total: $deudaTotal</td>
+                    <tr class=\"tabla__tr\">
+                        <td colspan=\"4\"></td>
+                        <td class=\"tabla__td\">Deuda total: <span class=\"tabla__td--deuda\">$deudaTotal</span></td>
                     </tr>
                 </tfoot>
             </table>

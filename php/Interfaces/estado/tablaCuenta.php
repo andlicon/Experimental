@@ -11,7 +11,6 @@
         $cedula = $usuario->getCedula();
 
                             //C O N S U L T A S
-
         //informacion de persona
         $personaDAO = new PersonaDAO($bd);
         $resultado = $personaDAO->getInstancia(array($cedula));
@@ -31,28 +30,28 @@
         $telefono = count($resultado)>1 ? $resultado[1]->getContacto() : "";
 
         echo "
-            <div>
-                <h2>Cuenta virtual</h2>
-                <table class=\"\">
-                    <tr>
-                        <td>Cedula</td>
-                        <td>Nombre</td>
-                        <td>Apellido</td>
+            <div class=\"tabla\">
+                <h2 class=\"tabla__titulo\">Cuenta virtual</h2>
+                <table class=\"tabla__table\">
+                    <tr class=\"tabla__tr\">
+                        <td class=\"tabla__td tabla__th\">Cedula</td>
+                        <td class=\"tabla__td tabla__th\">Nombre</td>
+                        <td class=\"tabla__td tabla__th\">Apellido</td>
                     </tr>
-                    <tr>
-                        <td>$cedula</td>
-                        <td>$nombre</td>
-                        <td>$apellido</td>
+                    <tr class=\"tabla__tr\">
+                        <td class=\"tabla__td\">$cedula</td>
+                        <td class=\"tabla__td\">$nombre</td>
+                        <td class=\"tabla__td\">$apellido</td>
                     </tr>
-                    <tr>
-                        <td>Usuario</td>
-                        <td>Correo</td>
-                        <td>Telefono</td>
+                    <tr class=\"tabla__tr\">
+                        <td class=\"tabla__td tabla__th\">Usuario</td>
+                        <td class=\"tabla__td tabla__th\">Correo</td>
+                        <td class=\"tabla__td tabla__th\">Telefono</td>
                     </tr>
-                    <tr>
-                        <td>$usuario</td>
-                        <td>$correo</td>
-                        <td>$telefono</td>
+                    <tr class=\"tabla__tr\">
+                        <td class=\"tabla__td\">$usuario</td>
+                        <td class=\"tabla__td\">$correo</td>
+                        <td class=\"tabla__td\">$telefono</td>
                     </tr>
                 </table>
             </div>";
