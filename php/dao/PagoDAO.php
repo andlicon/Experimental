@@ -40,6 +40,38 @@
             return $pagos;
         }
 
+        public function getInstanciaCedulaValidez(array $cedula) {
+            $consulta = "SELECT * 
+                        FROM    pago
+                        WHERE   cedula=?
+                            AND valido=false";
+            $registros = $this->bd->sql($consulta, $cedula);
+
+            if(empty($registros)) {
+                throw new Exception('No existe pago asociado al id deuda');
+            }
+
+            $pagos = [];
+            if(!empty($registros)) {
+                $renglon = $registros[0];
+                $id = $renglon['id'];
+                $idDeuda = $renglon['id_deuda'];
+                $fecha = $renglon['fecha'];
+                $cedula = $renglon['cedula'];
+                $monto = $renglon['monto'];
+                $idCuenta = $renglon['id_cuenta'];
+                $idTipoPago = $renglon['id_tipo_pago'];
+                $ref = $renglon['ref'];
+                $valido = $renglon['valido'];
+                
+                $pag= new Pago($id, $idDeuda, $fecha, $cedula, $monto, 
+                                $idCuenta, $idTipoPago, $ref, $valido);
+                $pagos[] = $pag;
+            }
+
+            return $pagos;
+        }
+
         public function getInstanciaDeuda($idDeuda) {
             $consulta = "SELECT * 
                          FROM    pago

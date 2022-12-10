@@ -26,7 +26,7 @@
     ?>
     <div class="body-main body-main--estado">
         <h1 class="vista__titulo">
-            Estado
+            Estado General
         </h1>
         <?php
             include_once(MENSAJE_PATH.'/imprimirMensaje.php');

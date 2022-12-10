@@ -4,6 +4,13 @@
 <?php
     include_once('../ruta.php');
     include('../funciones/redireccionarPagina.php');
+    include_once(DAO_PATH.'DeudaDAO.php');
+    include_once(DAO_PATH.'EstudianteDAO.php');
+    include_once(DAO_PATH.'CuentaConsul.php');
+    include_once(DAO_PATH.'TipoPagoConsul.php');
+    include_once(FUNCIONES_IG_PATH.'popOver/DeudaPop.php');
+
+    include_once('eventos/consultar-rep.php');
 ?>
 
 <head>
@@ -43,6 +50,8 @@
                         <col class="output__col output__col--apellido">
                         <col class="output__col output__col--tipo">
                         <col class="output__col output__col--contacto">
+                        <col class="output__col output__col--contacto">
+                        <col class="output__col output__col--contacto">
                     </colgroup>
                     <thead class="output__header">
                         <tr class="output__renglon">
@@ -50,48 +59,69 @@
                                Seleccionar 
                             </th>
                             <th class="output__celda output__celda--header">
+                               Referencia deuda
+                            </th>
+                            <th class="output__celda output__celda--header">
+                               Cedula
+                            </th>
+                            <th class="output__celda output__celda--header">
                                Fecha
                             </th>
                             <th class="output__celda output__celda--header">
-                               Monto
+                                Monto
                             </th>
                             <th class="output__celda output__celda--header">
-                               Cuenta
+                                Cuenta
                             </th>
                             <th class="output__celda output__celda--header">
-                                Tipo_pago
+                                Tipo pago
                             </th>
                             <th class="output__celda output__celda--header">
                                 Referencia
+                            </th>
+                            <th class="output__celda output__celda--header">
+                                Estado
                             </th>
                         </tr>
                     </thead>
                     <tbody class="output__body">
                         <?php
-                            include_once(DTO_PATH.'/Deuda.php');
-                            $deudaTotal = 0;
+                            include_once(DTO_PATH.'/Pago.php');
                         
                             if( isset($_GET['pagos']) ) {
                                 $serialize = $_GET['pagos'];
             
                                 if($serialize) {
-                                    $deudas = unserialize($serialize);
+                                    $pagos = unserialize($serialize);
 
-                                    for($i=0; $i<count($deudas); $i++) {
-                                        //Deuda
-                                        $deuda = $deudas[$i];
-                                        $id = $deuda->getId();
-                                        $cedula = $deuda->getCedula();
-                                        $descripcion = $deuda->getDescripcion();
-                                        $fecha = $deuda->getFecha();
-                                        $montoInicial = $deuda->getMontoInicial();
-                                        $montoEstado = $deuda->getMontoEstado();
-                                        $debe = $deuda->getDeuda();
-                                        //motivo
-                                        $idMotivo = $deuda->getIdMotivo();
-                                        $motivo = getDescripcionMotivo($idMotivo);
+                                    $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
+                                    $deudaDAO = new DeudaDAO($bd);
+                                    $deudaPop = new DeudaPop($deudaDAO);
+                                    $cuentaConsul = new CuentaConsul($bd);
+                                    $tipoPagoConsul = new TipoPagoConsul($bd);
 
-                                        $deudaTotal += $debe;
+                                    for($i=0; $i<count($pagos); $i++) {
+                                        //Pago
+                                        $pago = $pagos[$i];
+                                        $id = $pago->getId();
+
+                                        $popDeuda = $deudaPop->generarPop($pago->getIdDeuda());
+                                        $cedula = $pago->getCedula();
+                                        $fecha = $pago->getFecha();
+                                        $monto = $pago->getMonto();
+                                        $estado = $pago->getValido();
+                                        $estado = $estado==false ? "por confirmar" : "confirmado";
+                                        //cuenta
+                                        $idCuenta = $pago->getIdCuenta();
+                                        $resultado = $cuentaConsul->getInstancia(array($idCuenta));
+                                        $cuenta = $resultado[0]->getDescripcion();
+                                        $banco = $resultado[0]->getBanco();
+                                        $cuentaImp = $banco.' '.$cuenta;
+                                        //pago
+                                        $resultado = $tipoPagoConsul->getInstancia(array($pago->getIdTipoPago()));
+                                        $tipoPago = $resultado[0]->getDescripcion();
+
+                                        $referencia = $pago->getRef();
 
                                         echo "  <tr class=\"output__renglon\">
                                                     <td class=\"output__celda\ output__celda--centrado\">
@@ -99,25 +129,28 @@
                                                             id=\"check$i\" class=\"output__check\">
                                                     </td>
                                                     <td class=\"output__celda\">
+                                                        $popDeuda
+                                                    </td>
+                                                    <td class=\"output__celda\">
                                                         $cedula
-                                                    </td>
-                                                    <td class=\"output__celda\">
-                                                        $motivo
-                                                    </td>
-                                                    <td class=\"output__celda\">
-                                                        $descripcion
                                                     </td>
                                                     <td class=\"output__celda\">
                                                         $fecha
                                                     </td>
                                                     <td class=\"output__celda\">
-                                                        $montoInicial
+                                                        $monto
                                                     </td>
                                                     <td class=\"output__celda\">
-                                                        $montoEstado
+                                                        $cuentaImp 
                                                     </td>
                                                     <td class=\"output__celda\">
-                                                        $debe
+                                                        $tipoPago
+                                                    </td>
+                                                    <td class=\"output__celda\">
+                                                        $referencia
+                                                    </td>
+                                                    <td class=\"output__celda\">
+                                                        $estado
                                                     </td>
                                             </tr>";
                                     }
@@ -150,55 +183,3 @@
     </div>
 </body>
 </html>
-
-<!--
-
-<div class="input__grupo">
-    <label for="nacionalidadInput" class="input__label">Nacionalidad</label>
-    <select name="nacionalidadInput" id="nacionalidadInput" class="input__select">
-        <option value="V-" class="input__select">V-</option>
-        <option value="E-" class="input__select">E-</option>
-    </select>
-    <label for="cedulaInput" class="input__label">Cedula</label>
-    <input type="text" id="cedulaInput" name="cedulaInput" class="input__input input__input--texto">
-</div>
-<div class="input__grupo">
-    <label for="fechaInput" class="input__label">Fecha</label>
-    <input type="date" id="fechaInput" name="fechaInput" class="input__input">
-</div>
-<div class="input__grupo">
-    <label for="montoInput" class="input__label">Monto inicial</label>
-    <input type="text" id="montoInput" name="montoInput" class="input__input">
-</div>
-<div class="input__grupo">
-    <label for="cuentaInput" class="input__label">Cuenta</label>
-    <select class="input__select" id="cuentaInput" name="cuentaInput">
-    <?php 
-            //include('generarCuenta.php');
-            //optionCuenta();
-        ?>
-    </select>
-</div>
-<div class="input__grupo">
-    <label for="tipoPagoInput" class="input__label">Tipo Pago</label>
-    <select class="input__select" id="tipoPagoInput" name="tipoPagoInput">
-        <?php 
-            //include('generarTipoPago.php');
-            //optionTipoPago();
-        ?>
-    </select>
-</div>
-<div class="input__grupo">
-    <label for="refInput" class="input__label">Referencia</label>
-    <input type="text" id="refInput" name="refInput" class="input__input">
-</div>
-
-
-<h2 class="botones__titulo">Acciones</h2>
-<button name="consultarDeudor" class="boton">Consultar por cedula</button>
-<button name="consultarCedula" class="boton">Actualizar</button>
-<button name="modificar" class="boton">modificar</button>
-<button name="eliminar" class="boton">eliminar</button>
-<button name="cargarDeuda" class="boton">Cargar</button>
-
--->

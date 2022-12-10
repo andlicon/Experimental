@@ -33,7 +33,7 @@
     ?>
     <div class="body-main">
         <h1 class="vista__titulo">
-            Deuda
+            Deudas Vigentes Detalladas
         </h1>
         <?php
             include_once(MENSAJE_PATH.'/imprimirMensaje.php');
@@ -128,15 +128,9 @@
                                         $motivo = getDescripcionMotivo($idMotivo);
     
                                         $deudaTotal += $debe;
-    
-                                        if($debe<=0) {
-                                            echo "  <tr class=\"output__renglon\">";
-                                        }
-                                        else {
-                                            echo "  <tr class=\"output__renglon output__deuda\">";
-                                        }
 
-                                        echo "    <td class=\"output__celda output__celda--centrado\">
+                                        echo "  <tr class=\"output__renglon\">
+                                                    <td class=\"output__celda output__celda--centrado\">
                                                         <input type=\"checkbox\" name=\"check[]\" value=\"$id\" 
                                                                 id=\"check$i\" class=\"output__check\">
                                                     </td>
