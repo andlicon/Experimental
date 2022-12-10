@@ -30,6 +30,7 @@
                         <th>Descripcion</th>
                         <th>Fecha</th>
                         <th>Monto</th>
+                        <th>Estado</th>
                     </tr>
                 </thead>
                 <tbody>";
@@ -41,6 +42,8 @@
             $descripcion = "";
             $fecha = $pago->getFecha();
             $monto = $pago->getMonto();
+            $valido = $pago->getValido();
+            $estado = $valido ? "Confirmado" : "Por confirmar";
 
             //Descripcion
             $resultado = $deudaDAO->getInstancia(array($idDeuda));
@@ -66,6 +69,7 @@
                         <td>$descripcion</td>
                         <td>$fecha</td>
                         <td>$monto</td>
+                        <td>$estado</td>
                     </tr>";
 
             $tabla = $tabla.$fila;

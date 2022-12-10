@@ -30,9 +30,10 @@
                 $idCuenta = $renglon['id_cuenta'];
                 $idTipoPago = $renglon['id_tipo_pago'];
                 $ref = $renglon['ref'];
+                $valido = $renglon['valido'];
                 
                 $pag= new Pago($id, $idDeuda, $fecha, $cedula, $monto, 
-                                $idCuenta, $idTipoPago, $ref);
+                                $idCuenta, $idTipoPago, $ref, $valido);
                 $pagos[] = $pag;
             }
 
@@ -60,9 +61,10 @@
                 $idCuenta = $renglon['id_cuenta'];
                 $idTipoPago = $renglon['id_tipo_pago'];
                 $ref = $renglon['ref'];
+                $valido = $renglon['valido'];
                 
                 $pag= new Pago($id, $idDeuda, $fecha, $cedula, $monto, 
-                                $idCuenta, $idTipoPago, $ref);
+                                $idCuenta, $idTipoPago, $ref, $valido);
                 $pagos[] = $pag;
             }
 
@@ -89,9 +91,10 @@
                 $idCuenta = $renglon['id_cuenta'];
                 $idTipoPago = $renglon['id_tipo_pago'];
                 $ref = $renglon['ref'];
+                $valido = $renglon['valido'];
                 
                 $pag= new Pago($id, $idDeuda, $fecha, $cedula, $monto, 
-                                $idCuenta, $idTipoPago, $ref);
+                                $idCuenta, $idTipoPago, $ref, $valido);
                 $pagos[] = $pag;
             }
 

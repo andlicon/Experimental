@@ -8,10 +8,11 @@
         private $idCuenta;
         private $idTipoPago;
         private $ref;
+        private $valido;
 
         public function __construct($id, $idDeuda, $fecha, $cedula, 
                                     $monto, $idCuenta, $idTipoPago, 
-                                    $ref) {
+                                    $ref, $valido) {
             $this->id = $id;
             $this->idDeuda = $idDeuda;
             $this->fecha = $fecha;
@@ -20,6 +21,7 @@
             $this->idCuenta = $idCuenta;
             $this->idTipoPago = $idTipoPago;
             $this->ref = $ref;
+            $this->valido = $valido;
         }
 
         public function getId() {
@@ -46,6 +48,9 @@
         public function getRef() {
             return $this->ref;
         }
+        public function getValido() {
+            return $this->valido;
+        }
         
         public function setId($id) {
             $this->id = $id;
@@ -70,6 +75,9 @@
         }
         public function setRef($ref) {
             $this->ref = $ref;
+        }
+        public function setValido($valido) {
+            $this->valido = $valido;
         }
     }
 ?>
