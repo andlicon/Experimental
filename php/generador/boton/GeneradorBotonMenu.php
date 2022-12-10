@@ -11,7 +11,6 @@
             $permiso = parent::getPermiso();
             $botones = "";
             $botones = $botones.$this->crearItem("inicio", "Inicio");
-            $botones = $botones.$this->crearItem("gestionar-perfil", "Perfil");
             if($permiso==2) {       //PROFESOR
                 $botones = $botones.$this->crearItem("gestionar-clase", "Clase");
             }
@@ -30,11 +29,12 @@
                 $botones = $botones.$this->crearItem("gestionar-profesor", "Profesor");
             }
             else {                  //REPRESENTANTE
-                $botones = $botones.$this->crearItem("gestionar-pago", "Pagos");
-                $botones = $botones.$this->crearItem("gestionar-deuda", "Deudas");
-                $botones = $botones.$this->crearItem("gestionar-estudiante", "Estudiante");
                 $botones = $botones.$this->crearItem("gestionar-estado", "Estado");
+                $botones = $botones.$this->crearItem("gestionar-deuda", "Deudas");
+                $botones = $botones.$this->crearItem("gestionar-pago", "Pagos");
+                $botones = $botones.$this->crearItem("gestionar-estudiante", "Estudiante");
             }
+            $botones = $botones.$this->crearItem("gestionar-perfil", "Perfil");
             $botones = $botones.$this->crearItem("salir", "Salir");
 
             echo $botones;
