@@ -20,7 +20,6 @@
             $idEstudiante = $deuda->getIdEstudiante();
             $fecha = $deuda->getFecha();
             $montoInicial = $deuda->getMontoInicial();
-            $descripcion = $deuda->getDescripcion();
             $idMotivo = $deuda->getidMotivo();
 
             $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
@@ -29,8 +28,6 @@
             $motivoConsul = new MotivoConsul($bd);
             $resultado = $motivoConsul->getInstancia(array($idMotivo));
             $motivo = $resultado[0]->getDescripcion();
-
-            $deudaDescripcion = $descripcion==null ? $motivo : $motivo.': '.$descripcion;
 
             //Estudiante
             $estudianteDAO = new EstudianteDAO($bd);
@@ -48,7 +45,7 @@
                     <span class=\"popOver__elemento\">Estudiante: $estudianteNombre</span>
                     <span class=\"popOver__elemento\">Fecha: $fecha</span>
                     <span class=\"popOver__elemento\">Monto inicial: $montoInicial</span>
-                    <span class=\"popOver__elemento\">$deudaDescripcion</span>
+                    <span class=\"popOver__elemento\">Motivo: $motivo</span>
                 </div>
             </div>";
 

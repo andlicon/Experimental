@@ -41,6 +41,19 @@
             $fecha = $pago->getFecha();
             $monto = $pago->getMonto();
 
+            //Descripcion
+            $resultado = $deudaDAO->getInstancia(array($idDeuda));
+            $deuda = $resultado[$i];
+
+            $descripcionDeuda = $deuda->getDescripcion();
+            $motivoId = $deuda->getidMotivo();
+
+            $motivoConsul = new MotivoConsul($bd);
+            $mot = $motivoConsul->getInstancia(array($motivoId));
+            $motivoDeuda = $mot[0]->getDescripcion();
+
+            $descripcion = $descripcionDeuda==null ? $motivoDeuda : $motivoDeuda.': '.$descripcionDeuda;
+
             $pop = $deudaPop->generarPop($idDeuda);
 
             //InfoEstudiante
