@@ -16,6 +16,7 @@
         const PAGO = 9;
         const PERFIL = 10;
         const USUARIOS = 11;
+        const ESTADO = 12;
     
         const USUARIO_OBJ = "usuario";
 
@@ -76,6 +77,10 @@
                 else if($pagina==self::USUARIOS) {
                     $this->pagina =  "Location: /php/interfaces/usuarios/view.php";
                     $this->objSerializar = "usuarios";
+                }
+                else if($pagina==self::ESTADO) {
+                    $this->pagina =  "Location: /php/interfaces/estado/view.php";
+                    $this->objSerializar = "a";
                 }
                 else {
                     throw new Exception("No se introdujo ninguna pagina valida.");

@@ -37,6 +37,9 @@
     elseif( isset($_POST['gestionar-usuarios']) ) {
         $pagina = new Pagina(Pagina::USUARIOS);
     }
+    elseif( isset($_POST['gestionar-estado']) ) {
+        $pagina = new Pagina(Pagina::ESTADO);
+    }
     elseif( isset($_POST['inicio']) ) {
         $pagina = new Pagina(Pagina::INICIO);
     }

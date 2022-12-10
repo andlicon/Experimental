@@ -25,12 +25,14 @@
                 $id = $renglon['id'];
                 $idDeuda = $renglon['id_deuda'];
                 $fecha = $renglon['fecha'];
+                $cedula = $renglon['cedula'];
                 $monto = $renglon['monto'];
                 $idCuenta = $renglon['id_cuenta'];
                 $idTipoPago = $renglon['id_tipo_pago'];
                 $ref = $renglon['ref'];
                 
-                $pag= new Pago($id, $idDeuda, $fecha, $monto, $idCuenta, $idTipoPago, $ref);
+                $pag= new Pago($id, $idDeuda, $fecha, $cedula, $monto, 
+                                $idCuenta, $idTipoPago, $ref);
                 $pagos[] = $pag;
             }
 
@@ -53,12 +55,14 @@
                 $id = $renglon['id'];
                 $idDeuda = $renglon['id_deuda'];
                 $fecha = $renglon['fecha'];
+                $cedula = $renglon['cedula'];
                 $monto = $renglon['monto'];
                 $idCuenta = $renglon['id_cuenta'];
                 $idTipoPago = $renglon['id_tipo_pago'];
                 $ref = $renglon['ref'];
-
-                $pag= new Pago($id, $idDeuda, $fecha, $monto, $idCuenta, $idTipoPago, $ref);
+                
+                $pag= new Pago($id, $idDeuda, $fecha, $cedula, $monto, 
+                                $idCuenta, $idTipoPago, $ref);
                 $pagos[] = $pag;
             }
 
@@ -68,24 +72,26 @@
         public function getTodos() {
             $consulta = "SELECT * 
                         FROM pago";
-            $registros = $this->bd->sql($consulta, $cedula);
+            $registros = $this->bd->sql($consulta, null);
 
             if(empty($registros)) {
                 throw new Exception('No existe pago asociado al id deuda');
             }
 
             $pagos = [];
-            if(!empty($registros)) {
+            for($i=0; $i<count($registros); $i++) {
                 $renglon = $registros[0];
                 $id = $renglon['id'];
                 $idDeuda = $renglon['id_deuda'];
                 $fecha = $renglon['fecha'];
+                $cedula = $renglon['cedula'];
                 $monto = $renglon['monto'];
                 $idCuenta = $renglon['id_cuenta'];
                 $idTipoPago = $renglon['id_tipo_pago'];
                 $ref = $renglon['ref'];
                 
-                $pag= new Pago($id, $idDeuda, $fecha, $monto, $idCuenta, $idTipoPago, $ref);
+                $pag= new Pago($id, $idDeuda, $fecha, $cedula, $monto, 
+                                $idCuenta, $idTipoPago, $ref);
                 $pagos[] = $pag;
             }
 
