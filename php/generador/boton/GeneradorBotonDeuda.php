@@ -18,7 +18,7 @@
                 $botones = $botones.$this->crearItem("cargar", "cargar");
             }
             else if($permiso==1 || $permiso==2) {  //ADMINISTRADOR
-                $botones = $botones.$this->crearItem("consultar-rep", "consultar");
+                $botones = $botones.$this->crearItemConsultaEstudiante();
             }
 
             echo $botones;
@@ -45,6 +45,39 @@
                         $cedula = $rep->getCedula();
 
                         $item = $item."<option value=\"$cedula\">$cedula - $nombre - $apellido</option>";
+
+                    }
+
+            $item = $item.
+                '</select>
+            </div>';
+            return $item;
+        }
+
+        protected function crearItemConsultaEstudiante() {
+            $usuario = deserializarUsuario();
+            $cedula = $usuario->getCedula();
+
+            $item = 
+            '<div class="input__grupo">';
+            $item = $item.$this->crearItem("consultar-rep", "Consultar");;
+            $item = $item.
+                '
+                <label for="estudianteInput" class="input__label">Estudiante(s)</label>
+                <select class="input__select" id="estudianteInput" name="estudianteInput">
+                    <option value="todos">todos</option>';
+
+                    $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
+                    $estudianteDAO = new EstudianteDAO($bd);
+                    $resultados = $estudianteDAO->getInstanciaCedula(array($cedula));
+
+                    for($i=0; $i<count($resultados); $i++) {
+                        $estudiante = $resultados[$i];
+                        $idEstudiante = $estudiante->getId();
+                        $nombre = $estudiante->getNombre();
+                        $apellido = $estudiante->getApellido();
+
+                        $item = $item."<option value=\"$idEstudiante\">$nombre - $apellido</option>";
 
                     }
 

@@ -15,10 +15,17 @@
                 $usuario = deserializarUsuario();
                 $cedula = $usuario->getCedula();
 
+                $idEstudiante = $_POST['estudianteInput'];
+
                 $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
                 $deudaDAO = new DeudaDAO($bd);
 
-                $resultado = $deudaDAO->getInstanciaCedula(array($cedula));
+                if($idEstudiante=="todos") {
+                    $resultado = $deudaDAO->getInstanciaCedula(array($cedula));
+                }
+                else {
+                    $resultado = $deudaDAO->getDeudaRepEstu(array($cedula, $idEstudiante));
+                }
 
                 $pagina->actualizarPagina($resultado);
             }
