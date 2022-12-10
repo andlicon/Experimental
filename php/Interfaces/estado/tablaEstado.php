@@ -23,6 +23,7 @@
 
         $tabla = "
         <div>
+            <h2>Estado cuenta</h2>
             <table>
                 <thead>
                     <tr>

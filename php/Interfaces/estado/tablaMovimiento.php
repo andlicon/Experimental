@@ -21,6 +21,7 @@
 
         $tabla = "
         <div>
+            <h2>Movimientos</h2>
             <table>
                 <thead>
                     <tr>

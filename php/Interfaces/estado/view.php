@@ -26,7 +26,7 @@
     ?>
     <div class="body-main">
         <h1 class="vista__titulo">
-            Estado cuenta
+            Estado
         </h1>
         <?php
             include_once(MENSAJE_PATH.'/imprimirMensaje.php');
