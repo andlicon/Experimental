@@ -47,13 +47,15 @@
             //InfoEstudiante
             $popOver = $estudiantePop->generarPop($idEstudiante);
 
+            $claseDeuda = $debe>0 ? "tabla__td--deuda" : "";
+
             $fila = "
                     <tr class=\"tabla__tr\">
                         <td class=\"tabla__td\">$popOver</td>
                         <td class=\"tabla__td\">$fechaRetraso</td>
                         <td class=\"tabla__td\">$montoInicial</td>
                         <td class=\"tabla__td\">$montoEstado</td>
-                        <td class=\"tabla__td tabla__td--deuda\">$debe</td>
+                        <td class=\"tabla__td $claseDeuda\">$debe</td>
                     </tr>";
 
             $tabla = $tabla.$fila;
@@ -61,12 +63,14 @@
             $deudaTotal += $debe;
         }
 
+        $claseDeuda = $deudaTotal>0 ? "tabla__td--deuda" : "";
+
         $tabla = $tabla."
                 </tbody>
                 <tfoot>
                     <tr class=\"tabla__tr\">
                         <td colspan=\"4\"></td>
-                        <td class=\"tabla__td\">Deuda total: <span class=\"tabla__td--deuda\">$deudaTotal</span></td>
+                        <td class=\"tabla__td\">Deuda total: <span class=\"$claseDeuda\">$deudaTotal</span></td>
                     </tr>
                 </tfoot>
             </table>
