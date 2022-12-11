@@ -11,6 +11,8 @@
     include_once(FUNCIONES_IG_PATH.'popOver/DeudaPop.php');
 
     include_once('eventos/consultar-rep.php');
+    include_once('eventos/consultar.php');
+    include_once('eventos/validar.php');
 ?>
 
 <head>
@@ -156,6 +158,9 @@
                                     }
                                 }
                             }
+                            else {
+                                
+                            }
                         ?>
                     </tbody>
                 </table>
@@ -183,3 +188,10 @@
     </div>
 </body>
 </html>
+
+<script>
+    $(document).ready(function () {
+    //change selectboxes to selectize mode to be searchable
+        $('#representanteInput').select2();
+    });
+</script>

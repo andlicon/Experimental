@@ -17,8 +17,6 @@
                 $usuario = deserializarUsuario();
                 $cedula = $usuario->getCedula();
 
-                $idEstudiante = $_POST['estudianteInput'];
-
                 $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
                 $pagoDAO = new PagoDAO($bd);
 
@@ -30,7 +28,7 @@
                 $e->imprimirError();
             }
             catch(Exception $e) {   //De no conectarse a la bd
-                echo $e;
+                $pagina->imprimirMensaje(null, Mensaje::ERROR, $e->getMessage());
             }
     }
 ?>

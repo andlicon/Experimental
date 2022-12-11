@@ -112,7 +112,7 @@
             $consulta = "SELECT * 
                         FROM deuda
                         ORDER BY fecha DESC";
-            $registros = $this->bd->sql($consulta, $cedula);
+            $registros = $this->bd->sql($consulta, null);
 
             if(empty($registros)) {
                 throw new Exception('No existe el representante con dicha cedula');

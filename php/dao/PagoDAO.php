@@ -52,8 +52,42 @@
             }
 
             $pagos = [];
-            if(!empty($registros)) {
+            for($i=0; $i<count($registros); $i++) {
                 $renglon = $registros[0];
+
+                $id = $renglon['id'];
+                $idDeuda = $renglon['id_deuda'];
+                $fecha = $renglon['fecha'];
+                $cedula = $renglon['cedula'];
+                $monto = $renglon['monto'];
+                $idCuenta = $renglon['id_cuenta'];
+                $idTipoPago = $renglon['id_tipo_pago'];
+                $ref = $renglon['ref'];
+                $valido = $renglon['valido'];
+                
+                $pag= new Pago($id, $idDeuda, $fecha, $cedula, $monto, 
+                                $idCuenta, $idTipoPago, $ref, $valido);
+                $pagos[] = $pag;
+            }
+
+            return $pagos;
+        }
+
+        public function getInstanciaCedula(array $cedula) {
+            $consulta = "SELECT * 
+                        FROM    pago
+                        WHERE   cedula=?
+                        ORDER BY valido";
+            $registros = $this->bd->sql($consulta, $cedula);
+
+            if(empty($registros)) {
+                throw new Exception('No existe pago asociado al id deuda');
+            }
+
+            $pagos = [];
+            for($i=0; $i<count($registros); $i++) {
+                $renglon = $registros[0];
+                
                 $id = $renglon['id'];
                 $idDeuda = $renglon['id_deuda'];
                 $fecha = $renglon['fecha'];
@@ -105,7 +139,8 @@
         
         public function getTodos() {
             $consulta = "SELECT * 
-                        FROM pago";
+                        FROM pago
+                        ORDER BY cedula, valido";
             $registros = $this->bd->sql($consulta, null);
 
             if(empty($registros)) {
@@ -148,10 +183,17 @@
             $this->bd->sql($update, $parametros);
         }
 
+        public function validar($parametros) {
+            $update =  "UPDATE pago
+                        SET  valido=?
+                        WHERE id=?";
+            $this->bd->sql($update, $parametros);
+        }
+
         public function eliminar($parametros) {
             try {
                 $delete =  "DELETE FROM pago
-                        WHERE id=?";
+                            WHERE id=?";
                 $this->bd->sql($delete, $parametros);
             }
             catch(PDOException $e) {

@@ -40,8 +40,8 @@
                 '
                 <label for="validezInput" class="input__label">Validez</label>
                 <select class="input__select" id="validezInput" name="validezInput">
-                    <option>valido</option>
-                    <option>invalido</option>';
+                    <option value="1">valido</option>
+                    <option value="0">invalido</option>';
             $item = $item.
                 '</select>
             </div>';
