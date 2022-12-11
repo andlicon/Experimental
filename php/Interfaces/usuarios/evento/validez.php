@@ -12,7 +12,7 @@
         $pagina = new Pagina(Pagina::USUARIOS);
 
         try {   
-            $validezInput = comprobarInput('validezInput', $pagina);
+            $validezInput = $_POST['validezInput'];
             $cedulas = comprobarChecks(true, $pagina);
 
             $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
@@ -22,11 +22,11 @@
             for($i=0; $i<count($cedulas); $i++) {
                 $cedula = $cedulas[$i];
 
-                if($validezInput=="invalido") {
-                    $resultado = $usuarioDAO->modificarValidez(array(false, $cedula));
+                if($validezInput) {
+                    $resultado = $usuarioDAO->modificarValidez(array(true, $cedula));
                 }
                 else {
-                    $resultado = $usuarioDAO->modificarValidez(array(true, $cedula));
+                    $resultado = $usuarioDAO->modificarValidez(array(false, $cedula));
                 }
             }
 
