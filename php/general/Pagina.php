@@ -28,10 +28,10 @@
 
         
         public function __construct($pagina) {
-            $this->$usuario = null;
+            $usuario = null;
             if(isset($_GET['usuario'])) {
                 $usuarioGet = $_GET['usuario'];
-                $this->usuario = unserialize($usuarioGet);
+                $usuario = unserialize($usuarioGet);
             }
 
             if($pagina==self::LOGIN) {
@@ -116,7 +116,8 @@
 
         public function setUsuario($usuario) {
             if($usuario!=null) {
-                $serialize = serialize($usuario);
+                $this->usuario = $usuario;
+                $serialize = serialize($this->usuario);
 
                 $this->pagina = $this->pagina.'?'.self::USUARIO_OBJ.'='.urlencode($serialize);
             }
