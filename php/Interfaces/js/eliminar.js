@@ -1,7 +1,7 @@
 $(".eliminar").click(function() {
         let id = $(this).attr("id");
         let pagina = window.location.pathname;
-        let usuario = sessionStorage.getItem('usuario');
+        let usuario = localStorage.getItem('usuario');
 
         $.ajax ( {
                 url : '../../accion/eliminar/Eliminar.php',
