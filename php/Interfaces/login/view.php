@@ -8,8 +8,9 @@
     <title>Login</title>
 
     <link rel="stylesheet" href="/css/main.css">
+
     <script type="text/javascript" src="../js/cambiarLamina.js"></script>
-    <script type="text/javascript" src="../js/autoEliminar.js"></script>
+    <!-- <script type="text/javascript" src="../js/autoEliminar.js"></script> -->
 </head>
 
 <?php
@@ -29,9 +30,9 @@
         <h2 class="login__titulo">Unidad Educativa Instituto Experimental.</h2>
         <img class="login__imagen" src="#" alt="Logo del colegio">
         <form class="login__formulario formulario" method="POST">
-            <input class="formulario__input" type="text" placeholder="nickname" name="nicknameEntrar">
-            <input class="formulario__input" type="password" placeholder="contraseña" name="contrasenaEntrar">
-            <input class="login__boton" type="submit" name="login" value="Acceder">
+            <input class="formulario__input" type="text" placeholder="nickname" name="nicknameEntrar" id="nicknameEntrar">
+            <input class="formulario__input" type="password" placeholder="contraseña" name="contrasenaEntrar" id="contrasenaEntrar">
+            <input class="login__boton" type="submit" id="iniciarSesion" name="login" value="Acceder">
         </form>
         <button class="login__boton" name="crear-usuario" onclick="cambiarVisibilidiad('login', 'registrar');">Crear usuario</button>
     </div>

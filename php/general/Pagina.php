@@ -24,13 +24,14 @@
         /*ATRIBUTOS*/
         private $pagina;
         private $objSerializar;
+        private $usuario;
 
         
         public function __construct($pagina) {
-            $usuario = null;
+            $this->$usuario = null;
             if(isset($_GET['usuario'])) {
                 $usuarioGet = $_GET['usuario'];
-                $usuario = unserialize($usuarioGet);
+                $this->usuario = unserialize($usuarioGet);
             }
 
             if($pagina==self::LOGIN) {
@@ -98,6 +99,7 @@
         public function actualizarPagina($parametros) {
             if($parametros==null) {
                 header($this->pagina);
+                
                 die();
             }
 
@@ -110,20 +112,6 @@
             }
 
             die();
-            
-            // if($parametros!=null) {
-            //     $serialize = serialize($parametros);
-            //     if( str_contains($this->pagina, "?") ) {
-            //         header($this->pagina.'&'.$this->objSerializar.'='.urlencode($serialize));
-            //     }
-            //     else {
-            //         header($this->pagina.'?'.$this->objSerializar.'='.urlencode($serialize));
-            //     }
-            // }
-            // else {
-            //     header($this->pagina);
-            // }
-            // die();
         }
 
         public function setUsuario($usuario) {

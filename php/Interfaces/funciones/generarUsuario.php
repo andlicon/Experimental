@@ -6,6 +6,20 @@
     function generarUsuario() {
         $usuario = deserializarUsuario();
 
+        $cedula = $usuario->getCedula();
+        $nickname = $usuario->getNickname();
+        $valido = $usuario->getValido();
+
+        echo "
+        <script>
+            const usuario = {
+                cedula : \"$cedula\",
+                nickname: \"$nickname\",
+                valido: \"$valido\"
+            };
+            localStorage.setItem('usuario', JSON.stringify(usuario));
+        </script>";
+
         echo '<nav class="usuario">
                 <div class="usuario__contenido">
                     <div class="usuario__elemento">
