@@ -94,6 +94,7 @@
                             include_once(DAO_PATH.'/EstudianteDAO.php');
                             include_once(DTO_PATH.'/Deuda.php');
                             include_once('getDescripcionMotivo.php');
+                
                             $deudaTotal = 0;
                             
                             if( isset($_GET['deudas']) ) {
@@ -128,6 +129,10 @@
                                         $motivo = getDescripcionMotivo($idMotivo);
     
                                         $deudaTotal += $debe;
+
+                                        //Acciones
+                                        $eliminador = new EliminadorPago();
+                        
 
                                         echo "  <tr class=\"output__renglon\">
                                                     <td class=\"output__celda output__celda--centrado\">
