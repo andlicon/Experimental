@@ -1,5 +1,5 @@
 <?php
-    class EliminadorPago  {
+    class EliminarPago  {
         public function eliminar(array $id) {
             try {
                 $conn = new PDO("mysql:host=127.0.0.1:3306;dbname=Experimental", "root", "");

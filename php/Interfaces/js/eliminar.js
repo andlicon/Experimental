@@ -3,7 +3,7 @@ $(".eliminar").click(function() {
         let pagina = window.location.pathname;
 
         $.ajax ( {
-                url : '../../tabla/boton/eliminador/Eliminador.php',
+                url : '../../accion/eliminar/Eliminar.php',
                 type : 'POST',
                 data : {id: id, pagina: pagina},
                 success : function(response) {
