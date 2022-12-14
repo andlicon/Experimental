@@ -1,6 +1,9 @@
 <?php
     include_once(GENERAL_PATH.'deserializarUsuario.php');
     include_once(DTO_PATH.'Usuario.php');
+    include_once(DAO_PATH.'BaseDeDatos.php');
+    include_once(DAO_PATH.'TipoPersonaConsul.php');
+    include_once(DAO_PATH.'PersonaDAO.php');
     include_once(GENERADOR_PATH.'boton/GeneradorBotonMenu.php');
 
     function generarUsuario() {
@@ -10,12 +13,23 @@
         $nickname = $usuario->getNickname();
         $valido = $usuario->getValido();
 
+        $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
+
+        $personaDAO = new PersonaDAO($bd);
+        $resultado = $personaDAO->getInstancia(array($cedula));
+        $idTipooPersona = $resultado[0]->getIdTipoPersona();
+
+        $tipoPersonaConsul = new TipoPersonaConsul($bd);
+        $resultado = $tipoPersonaConsul->getInstancia(array($idTipooPersona));
+        $permiso = $resultado[0]->getPermiso();
+
         echo "
         <script>
-            const usuario = {
+            let usuario = {
                 cedula : \"$cedula\",
                 nickname: \"$nickname\",
-                valido: \"$valido\"
+                valido: \"$valido\",
+                permiso: \"$permiso\"
             };
             localStorage.setItem('usuario', JSON.stringify(usuario));
         </script>";
@@ -29,11 +43,9 @@
                             echo $nickname;
         echo            '</p>
                     </div>
-                    <form action="" method="POST" class="usuario__elemento">';
-                            include_once('getPermiso.php');
-                            $permiso = getPermiso($usuario);
-                            $genMenu = new GeneradorBotonMenu($permiso);
-                            $genMenu->generarItems();
+                    <form action="" method="POST" class="usuario__elemento" id="menu">';
+        echo "
+                        <script src=\"../js/menu/menu.js\"></script>";
         echo        '</form>
                 </div>
             </nav>';
