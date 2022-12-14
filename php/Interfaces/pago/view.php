@@ -49,21 +49,18 @@
             <div class="input">
                 <h2>Introducir informacion</h2>
                     <?php
-                        include_once(GENERADOR_PATH.'/input/GeneradorInputPago.php');
-                        $permiso = getPermiso($usuario);
-                        $genMenu = new GeneradorInputPago($permiso);
-                        $genMenu->generarItems();
+                        //include_once(GENERADOR_PATH.'/input/GeneradorInputPago.php');
+                        //$permiso = getPermiso($usuario);
+                        //$genMenu = new GeneradorInputPago($permiso);
+                        //$genMenu->generarItems();
                     ?>
 
             </div>
 
             <div class="botones">
-                <?php
-                    include_once(GENERADOR_PATH.'boton/GeneradorBotonPago.php');
-                    $permiso = getPermiso($usuario);
-                    $genMenu = new GeneradorBotonPago($permiso);
-                    $genMenu->generarItems();
-                ?>
+                <div id="botones">
+                    <script src="../js/menu/crearBoton.js"></script>;
+                </div>
             </div>
         </form>
     </div>
