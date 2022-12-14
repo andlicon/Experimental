@@ -6,9 +6,7 @@
             parent::__construct($idTipoPermiso);
         }
 
-        public function generarItems() {
-            $permiso = parent::getPermiso();
-
+        public function crearBotones() {
             $botones = '<h2 class="botones__titulo">Acciones</h2>';
             if($this->permiso!=2) {       //PROFESOR
                 if($this->permiso==4) {  //ADMINISTRADOR

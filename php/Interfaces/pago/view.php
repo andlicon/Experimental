@@ -56,7 +56,6 @@
                     ?>
 
             </div>
-
             <div class="botones">
                 <div id="botones">
                     <script src="../js/menu/crearBoton.js"></script>;
