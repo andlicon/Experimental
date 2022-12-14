@@ -1,13 +1,15 @@
 $(".eliminar").click(function() {
         let id = $(this).attr("id");
         let pagina = window.location.pathname;
-        let usuario = localStorage.getItem('usuario');
+        let usuario = JSON.parse(localStorage.getItem('usuario'));
+        let cedula = usuario.cedula;
 
         $.ajax ( {
                 url : '../../accion/eliminar/Eliminar.php',
                 type : 'POST',
-                data : {id: id, pagina: pagina, usuario: usuario},
+                data : {id: id, pagina: pagina, cedula: cedula},
                 success : function(response) {
+                        alert(response);
                         window.location.href = response;
                 }
         })

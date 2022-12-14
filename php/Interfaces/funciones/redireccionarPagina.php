@@ -3,12 +3,6 @@
     include_once(DTO_PATH.'usuario.php');
 
     $pagina = null;
-    $usuario = null;
-
-    if(isset($_GET['usuario']) ) {
-        $usuario = $_GET['usuario'];
-        $usuario = unserialize($usuario);
-    }
 
     if( isset($_POST['gestionar-persona']) ) {
         $pagina = new Pagina(Pagina::PERSONA);

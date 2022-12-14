@@ -13,6 +13,6 @@
         }
 
         $eliminador->eliminar(array($id));
-        echo($pagina.'?usuario='.$_POST['usuario']);
+        echo($pagina.'?usuario='.$_POST['cedula']);
     }
 ?>
