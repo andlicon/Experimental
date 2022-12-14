@@ -1,10 +1,8 @@
 <?php
     include_once(TABLA_PATH.'/Tabla.php');
-    include_once(DTO_PATH.'/Pago.php');
+    include_once(DTO_PATH.'/Deuda.php');
     include_once(DAO_PATH.'DeudaDAO.php');
     include_once(DAO_PATH.'EstudianteDAO.php');
-    include_once(DAO_PATH.'CuentaConsul.php');
-    include_once(DAO_PATH.'TipoPagoConsul.php');
     include_once(DTO_PATH.'Motivo.php');
     include_once(FUNCIONES_IG_PATH.'popOver/RepresentantePop.php');
     include_once(FUNCIONES_IG_PATH.'popOver/EstudiantePop.php');
