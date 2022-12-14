@@ -146,13 +146,9 @@
                 </table>
             </div>
             <div class="botones">
-                <h2>Acción</h2>
-                <?php
-                    include_once(GENERADOR_PATH.'boton/GeneradorBotonUsuario.php');
-                    $permiso = getPermiso($usuario);
-                    $genMenu = new GeneradorBotonUsuario($permiso);
-                    $genMenu->generarItems();
-                ?>
+                <div id="botones">
+                    <script src="../js/menu/crearBoton.js"></script>;
+                </div>
             </div>
         </form>
     </div>

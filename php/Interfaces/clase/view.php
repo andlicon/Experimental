@@ -102,10 +102,9 @@
             </table>
             <!-- botones -->
             <div class="botones">
-                <h2 class="botones__titulo">Acciones</h2>
-                <button name="citar" class="boton">Citar representante</button>
-                <button name="consultar-clase" class="boton">Consultar estudiantes</button>
-                <button name="volver" class="boton">volver</button>
+                <div id="botones">
+                    <script src="../js/menu/crearBoton.js"></script>;
+                </div>
             </div>
         </form>
     </div>

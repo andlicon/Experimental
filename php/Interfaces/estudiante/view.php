@@ -141,12 +141,9 @@
             </div>
 
             <div class="botones">
-                <?php
-                    include_once(GENERADOR_PATH.'/boton/GeneradorBotonEstudiante.php');
-                    $permiso = getPermiso($usuario);
-                    $genMenu = new GeneradorBotonEstudiante($permiso);
-                    $genMenu->generarItems();
-                ?>
+                <div id="botones">
+                    <script src="../js/menu/crearBoton.js"></script>;
+                </div>
             </div>
         </form>
     </div>
