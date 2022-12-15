@@ -7,6 +7,7 @@
     include_once(GENERADOR_PATH.'boton/GeneradorBotonMenu.php');
 
     function generarUsuario() {
+        if(isset($_POST['usuario'])) {
         $usuario = deserializarUsuario();
 
         $cedula = $usuario->getCedula();
@@ -33,14 +34,20 @@
             };
             localStorage.setItem('usuario', JSON.stringify(usuario));
         </script>";
+        }
 
         echo '<nav class="usuario">
                 <div class="usuario__contenido">
                     <div class="usuario__elemento">
                         <img class="usuario__imagen" src="../../../img/interfaz/background/background-s.jpg">
-                        <p class="usuario__nickname">';
-                            $nickname = $usuario->getNickname();
-                            echo $nickname;
+                        <p class="usuario__nickname">
+                            <script>
+                                let user = localStorage.getItem("usuario");
+                                let userObject = JSON.parse(user);
+                                let nickname = userObject.nickname;
+
+                                $(".usuario__nickname").html(nickname);
+                            </script>';
         echo            '</p>
                     </div>
                     <form action="" method="POST" class="usuario__elemento" id="menu">';
