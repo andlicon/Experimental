@@ -6,6 +6,7 @@
     include_once(DAO_PATH.'DeudaDAO.php');
     include_once(DAO_PATH.'CuentaConsul.php');
     include_once(DAO_PATH.'TipoPagoConsul.php');
+    include_once(POP_PATH.'DeudaPop.php');
 
     final class ConsultarPagoRep implements Consultor {
         private $dao;
@@ -16,7 +17,7 @@
 
         public function consultar(array $cedula) {
             $deudaDAO = new DeudaDAO(BaseDeDatos::getInstancia());
-            //$deudaPop = new DeudaPop($deudaDAO);
+            $deudaPop = new DeudaPop($deudaDAO);
             $cuentaConsul = new CuentaConsul(BaseDeDatos::getInstancia());
             $tipoPagoConsul = new TipoPagoConsul(BaseDeDatos::getInstancia());
 
@@ -27,7 +28,7 @@
 
             for($i=0; $i<count($registros); $i++) {
                 $pago = $registros[$i];
-                //$popDeuda = $deudaPop->generarPop($pago->getIdDeuda());
+                $popDeuda = $deudaPop->generarPop($pago->getIdDeuda());
                 
                 $id = $pago->getId();
                 $cedula = $pago->getCedula();
@@ -46,6 +47,8 @@
                 $tipoPago = $resultado[0]->getDescripcion();
                 $referencia = $pago->getRef();
 
+                $eliminador = "<input type=\"button\" class=\"eliminar\" id=\"$id\" value=\"eliminar\">";
+
                 //acciones
                 $html = $html."
                 <td class=\"output__celda\ output__celda--centrado\">
@@ -53,7 +56,7 @@
                         id=\"check$i\" class=\"output__check\">
                 </td>
                 <td class=\"output__celda\">
-                    popDeuda
+                    $popDeuda
                 </td>
                 <td class=\"output__celda\">
                     $cedula
@@ -78,7 +81,7 @@
                 </td>
                 <td class=\"output__celda\">
                     $eliminador
-                </td>TERMINAAA";
+                </td>TERMINAACA";
             }
 
             echo $html;
