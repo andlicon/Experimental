@@ -68,7 +68,7 @@
 </html>
 
 
-<script src="../js/consulta/consultarPago.js"></script>
+<script src="../js/consulta/consultar.js"></script>
 <script src="../js/eliminar.js"></script>
 
 <script>
