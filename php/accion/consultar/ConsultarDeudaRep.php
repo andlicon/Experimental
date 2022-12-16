@@ -89,6 +89,10 @@
                     </td>TERMINAACA";
             }
 
+            $html = $html.="
+                $deudaTotal
+            ";
+
             echo $html;
         }
     }       

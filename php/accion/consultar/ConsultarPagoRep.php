@@ -46,7 +46,6 @@
                 $tipoPago = $resultado[0]->getDescripcion();
                 $referencia = $pago->getRef();
 
-                $deudaTotal += $debe;
                 //acciones
                 $html = $html."
                 <td class=\"output__celda\ output__celda--centrado\">
@@ -81,11 +80,6 @@
                     $eliminador
                 </td>TERMINAAA";
             }
-            
-            $html = $html.="
-            <script>
-                $('.deuda__span').html($deudaTotal);
-            </script>";
 
             echo $html;
         }
