@@ -25,86 +25,31 @@
                     <col class=\"output__col output__col--fechaNacimiento\">
                     <col class=\"output__col output__col--clase\">
                 </colgroup>
-            <thead class=\"output__header\">
-                <tr class=\"output__renglon\">
-                    <th class=\"output__celda output__celda--header\">
-                       Seleccionar 
-                    </th>
-                    <th class=\"output__celda output__celda--header\">
-                       Nombre
-                    </th>
-                    <th class=\"output__celda output__celda--header\">
-                       Apellido 
-                    </th>
-                    <th class=\"output__celda output__celda--header\">
-                       Representante
-                    </th>
-                    <th class=\"output__celda output__celda--header\">
-                       Fecha nacimiento
-                    </th>
-                    <th class=\"output__celda output__celda--header\">
-                       Clase
-                    </th>
-                </tr>
-            </thead>
-            <tbody class=\"output__body\">";
-
-            if( isset($_GET['estudiantes']) ) {
-                $serialize = $_GET['estudiantes'];
-            
-                if($serialize) {
-                    $estudiantes = unserialize($serialize);
-
-                    //Generador popOver
-                    $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
-                    $personaDAO = new PersonaDAO($bd);
-                    $popOverRep = new RepresentantePop($personaDAO);
-                
-                    for($i=0; $i<count($estudiantes); $i++) {
-                        $estudiante = $estudiantes[$i];
-
-                        //Informacion Estudiante
-                        $idEstudiante = $estudiante->getId();
-                        $nombre = $estudiante->getNombre();
-                        $apellido = $estudiante->getApellido();
-                        $fechaNacimiento = $estudiante->getFechaNacimiento();
-                        $idClase = $estudiante->getIdClase();
-                        $cedulaRepresentante = $estudiante->getCedulaRepresentante();
-                        //Informacion clase
-                        $nombreClase = getNombreClase($idClase);
-                        //pop
-                        $popRep = $popOverRep->generarPop($cedulaRepresentante, $cedulaRepresentante);
-                    
-                       $tabla = $tabla."  
-                       <tr class=\"output__renglon\">
-                            <td class=\"output__celda output__celda--centrado\">
-                                <input type=\"checkbox\" name=\"check[]\" value=\"$idEstudiante\" id=\"check$i\">
-                            </td>
-                            <td class=\"output__celda\">
-                                $nombre
-                            </td>
-                            <td class=\"output__celda\">
-                                $apellido
-                            </td>
-                            <td class=\"output__celda\">
-                                $popRep
-                            </td>
-                            <td class=\"output__celda\">
-                                $fechaNacimiento
-                            </td>
-                            <td class=\"output__celda\">
-                                $nombreClase
-                            </td>
-                        </tr>";
-                    }
-                }
-            }
-
-            $tabla = $tabla."
+                <thead class=\"output__header\">
+                    <tr class=\"output__renglon\">
+                        <th class=\"output__celda output__celda--header\">
+                           Seleccionar 
+                        </th>
+                        <th class=\"output__celda output__celda--header\">
+                           Nombre
+                        </th>
+                        <th class=\"output__celda output__celda--header\">
+                           Apellido 
+                        </th>
+                        <th class=\"output__celda output__celda--header\">
+                           Representante
+                        </th>
+                        <th class=\"output__celda output__celda--header\">
+                           Fecha nacimiento
+                        </th>
+                        <th class=\"output__celda output__celda--header\">
+                           Clase
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class=\"output__body\">
                 </tbody>
             </table>";
-
-
 
             echo $tabla;
         }
