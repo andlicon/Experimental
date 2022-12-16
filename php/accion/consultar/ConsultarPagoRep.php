@@ -22,6 +22,7 @@
 
             $registros = $this->dao->getInstanciaCedulaValidez($cedula);
 
+            $deudaTotal = 0;
             $html = "";
 
             for($i=0; $i<count($registros); $i++) {
@@ -44,10 +45,9 @@
                 $resultado = $tipoPagoConsul->getInstancia(array($pago->getIdTipoPago()));
                 $tipoPago = $resultado[0]->getDescripcion();
                 $referencia = $pago->getRef();
+
+                $deudaTotal += $debe;
                 //acciones
-                $eliminador = "
-                                <input type=\"button\" id=\"$id\" class=\"eliminar\" value=\"Eliminar\">
-                            ";
                 $html = $html."
                 <td class=\"output__celda\ output__celda--centrado\">
                     <input type=\"checkbox\" name=\"check[]\" value=\"$id\" 
@@ -79,8 +79,13 @@
                 </td>
                 <td class=\"output__celda\">
                     $eliminador
-                </td>TERMINAACA";
+                </td>TERMINAAA";
             }
+            
+            $html = $html.="
+            <script>
+                $('.deuda__span').html($deudaTotal);
+            </script>";
 
             echo $html;
         }
