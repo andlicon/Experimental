@@ -46,6 +46,12 @@
                     $tabla->crearTabla();
                 ?>
             </div>
+            <div class="botones">
+                <div id="botones">
+                    <script src="../js/menu/crearBoton.js"></script>;
+                </div>
+            </div>
+
             <div class="input">
                 <h2>Introducir informacion</h2>
                     <?php
@@ -56,22 +62,22 @@
                     ?>
 
             </div>
-            <div class="botones">
-                <div id="botones">
-                    <script src="../js/menu/crearBoton.js"></script>;
-                </div>
-            </div>
         </form>
     </div>
 </body>
 </html>
+
+
+<script src="../js/consulta/consultar.js"></script>
+<script src="../js/eliminar.js"></script>
 
 <script>
     $(document).ready(function () {
     //change selectboxes to selectize mode to be searchable
         $('#representanteInput').select2();
     });
+
+    $('.boton.consultar').click(function() {
+        alert('a');
+    });
 </script>
-
-
-<script src="../js/eliminar.js"></script>

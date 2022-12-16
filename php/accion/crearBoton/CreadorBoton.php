@@ -10,11 +10,7 @@
 
         protected function crearItem($name, $texto) {
             return
-            '<button class="boton" name="'.$name.'">
-                        <span class="boton__span">'.
-                            $texto
-                        .'</span>
-            </button>';
+            '<input type="button" class="boton consultar" value="'.$texto.'">';
         }
 
         protected function crearItemConsulta() {

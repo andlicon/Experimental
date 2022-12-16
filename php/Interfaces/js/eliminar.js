@@ -10,7 +10,6 @@ $(".eliminar").click(function() {
                 data : {id: id, pagina: pagina, cedula: cedula},
                 success : function(response) {
                         alert(response);
-                        window.location.href = response;
                 }
         })
 });

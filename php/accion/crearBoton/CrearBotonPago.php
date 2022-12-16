@@ -12,14 +12,10 @@
             if($this->permiso==3 || $this->permiso==1) {  //Profesor y representante - representante
                 $botones = $botones.$this->crearItem("consultar-rep", "deudas no confirmadas");
                 $botones = $botones.$this->crearItem("cargar", "cargar");
-                $botones = $botones.$this->crearItem("modificar", "modificar");
-                $botones = $botones.$this->crearItem("eliminar", "eliminar");
             }
             else if($this->permiso==4) {   //administrador
                 $botones = $botones.$this->crearItemConsulta();
                 $botones = $botones.$this->crearItemValidez();
-                $botones = $botones.$this->crearItem("modificar", "modificar");
-                $botones = $botones.$this->crearItem("eliminar", "eliminar");
             }
 
             return $botones;
@@ -29,8 +25,7 @@
             $item = 
             '<div class="input__grupo">';
             $item = $item.$this->crearItem("consultar", "Consultar");;
-            $item = $item.
-                '
+            $item = $item.'
                 <label for="representanteInput" class="input__label">Representante(s)</label>
                 <select class="input__select" id="representanteInput" name="representanteInput">
                     <option value="todos">todos</option>';
