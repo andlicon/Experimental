@@ -1,4 +1,4 @@
-$(".eliminar").click(function() {
+$(document).on('click', '.eliminar', function() {
         let id = $(this).attr("id");
         let pagina = window.location.pathname;
         let usuario = JSON.parse(localStorage.getItem('usuario'));

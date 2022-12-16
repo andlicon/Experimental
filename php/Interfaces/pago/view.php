@@ -68,16 +68,12 @@
 </html>
 
 
-<script src="../js/consulta/consultar.js"></script>
+<script src="../js/consulta/consultarPago.js"></script>
 <script src="../js/eliminar.js"></script>
 
 <script>
     $(document).ready(function () {
     //change selectboxes to selectize mode to be searchable
         $('#representanteInput').select2();
-    });
-
-    $('.boton.consultar').click(function() {
-        alert('a');
     });
 </script>

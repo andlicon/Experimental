@@ -9,10 +9,9 @@
         $consultor;
 
         if(str_contains($pagina, "pago") && str_contains($texto, "deudas no confirmadas")) {
-            $consultor = "REP";
+            $consultor = new ConsultarPagoRep();
         }
 
-        //$consultor->consultar(array($id));
-        echo($consultor);
+        $consultor->consultar(array($cedula));
     }
 ?>

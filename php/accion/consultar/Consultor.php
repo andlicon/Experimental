@@ -1,5 +1,5 @@
 <?php
-    abstract class Consultor {
-        public abstract function consultar();
+    interface Consultor {
+        public function consultar(array $id);
     }
 ?>

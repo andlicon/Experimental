@@ -58,86 +58,9 @@
                             Acciones
                         </th>
                     </tr>
-                </thead>";
-
-            if( isset($_GET['pagos']) ) {
-                $serialize = $_GET['pagos'];
-
-                if($serialize) {
-                    $pagos = unserialize($serialize);
-
-                    //Conexiones que se utilizaran
-                    $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
-                    $deudaDAO = new DeudaDAO($bd);
-                    $deudaPop = new DeudaPop($deudaDAO);
-                    $cuentaConsul = new CuentaConsul($bd);
-                    $tipoPagoConsul = new TipoPagoConsul($bd);
-                    $pagoDAO = new PagoDAO($bd);
-
-                    for($i=0; $i<count($pagos); $i++) {
-                        $pago = $pagos[$i];
-                        $popDeuda = $deudaPop->generarPop($pago->getIdDeuda());
-                        //info
-                        $id = $pago->getId();
-                        $cedula = $pago->getCedula();
-                        $fecha = $pago->getFecha();
-                        $monto = $pago->getMonto();
-                        $estado = $pago->getValido();
-                        $estado = $estado==false ? "por confirmar" : "confirmado";
-                        //info cuenta
-                        $idCuenta = $pago->getIdCuenta();
-                        $resultado = $cuentaConsul->getInstancia(array($idCuenta));
-                        $cuenta = $resultado[0]->getDescripcion();
-                        $banco = $resultado[0]->getBanco();
-                        $cuentaImp = $banco.' '.$cuenta;
-                        //tipo pago
-                        $resultado = $tipoPagoConsul->getInstancia(array($pago->getIdTipoPago()));
-                        $tipoPago = $resultado[0]->getDescripcion();
-                        $referencia = $pago->getRef();
-                        //acciones
-                        $eliminador = "
-                                        <input type=\"button\" id=\"$id\" class=\"eliminar\" value=\"Eliminar\">
-                                    ";
-
-                        $tabla = $tabla.="
-                <tr class=\"output__renglon\">
-                    <td class=\"output__celda\ output__celda--centrado\">
-                        <input type=\"checkbox\" name=\"check[]\" value=\"$id\" 
-                            id=\"check$i\" class=\"output__check\">
-                    </td>
-                    <td class=\"output__celda\">
-                        $popDeuda
-                    </td>
-                    <td class=\"output__celda\">
-                        $cedula
-                    </td>
-                    <td class=\"output__celda\">
-                        $fecha
-                    </td>
-                    <td class=\"output__celda\">
-                        $monto
-                    </td>
-                    <td class=\"output__celda\">
-                        $cuentaImp 
-                    </td>
-                    <td class=\"output__celda\">
-                        $tipoPago
-                    </td>
-                    <td class=\"output__celda\">
-                        $referencia
-                    </td>
-                    <td class=\"output__celda\">
-                        $estado
-                    </td>
-                    <td class=\"output__celda\">
-                        $eliminador
-                    </td>
-                </tr>";
-                    }
-                }
-            }
-
-            $tabla = $tabla."
+                </thead>
+                <tbody class=\"tbody\">
+                </tbody>
             </table>";
 
             echo $tabla;
