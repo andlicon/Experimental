@@ -70,6 +70,7 @@
 
 <script src="../js/consulta/consultar.js"></script>
 <script src="../js/eliminar.js"></script>
+<script src="../js/modificar/modificar.js"></script>
 
 <script>
     $(document).ready(function () {

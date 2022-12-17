@@ -1,5 +1,5 @@
 <?php
-    include_once(FUNCIONES_IG_PATH.'popOver/GenerarPopOver.php');
+    include_once(POP_PATH.'GenerarPopOver.php');
 
     class RepresentantePop extends GenerarPopOver {
 

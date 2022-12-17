@@ -6,6 +6,8 @@
     include_once(DAO_PATH.'DeudaDAO.php');
     include_once(DAO_PATH.'CuentaConsul.php');
     include_once(DAO_PATH.'TipoPagoConsul.php');
+    include_once(POP_PATH.'RepresentantePop.php');
+    include_once(POP_PATH.'EstudiantePop.php');
 
     final class ConsultarDeudaRep implements Consultor {
         private $dao;
@@ -24,22 +26,20 @@
                 $registros = $this->dao->getInstanciaCedula($cedula);
             }
 
-            //$deudaPop = new DeudaPop($deudaDAO);
             $cuentaConsul = new CuentaConsul(BaseDeDatos::getInstancia());
             $tipoPagoConsul = new TipoPagoConsul(BaseDeDatos::getInstancia());
+            $motivoConsul = new MotivoConsul(BaseDeDatos::getInstancia());
 
             $personaDAO = new PersonaDAO(BaseDeDatos::getInstancia());
-            //$popOverRep = new RepresentantePop($personaDAO);
-            //estudiante
+            $popOverRep = new RepresentantePop($personaDAO);
             $estudianteDAO = new EstudianteDAO(BaseDeDatos::getInstancia());
-            //$popOverEstu = new EstudiantePop($estudianteDAO);
+            $popOverEstu = new EstudiantePop($estudianteDAO);
 
             $deudaTotal = 0;
             $html = "";
 
             for($i=0; $i<count($registros); $i++) {
                 $deuda = $registros[$i];
-                //$popDeuda = $deudaPop->generarPop($pago->getIdDeuda());
 
                 $id = $deuda->getId();
                 $cedula = $deuda->getCedula();
@@ -51,10 +51,10 @@
                 $idEstudiante = $deuda->getIdEstudiante();
                 //motivo
                 $idMotivo = $deuda->getIdMotivo();
-                //$motivo = getDescripcionMotivo($idMotivo);
+                $motivo = $motivoConsul->getInstancia(array($idMotivo))[0]->getDescripcion();
                 //popOvers
-                //$popRep = $popOverRep->generarPop($cedula, $cedula);
-                //$popEstu = $popOverEstu->generarPop($idEstudiante, $idEstudiante);
+                $popRep = $popOverRep->generarPop($cedula, $cedula);
+                $popEstu = $popOverEstu->generarPop($idEstudiante, $idEstudiante);
 
                 $deudaTotal += $debe;
 
@@ -64,13 +64,13 @@
                         id=\"check$i\" class=\"output__check\">
                     </td>
                     <td class=\"output__celda\">
-                        popRep
+                        $popRep
                     </td>
                     <td class=\"output__celda\">
-                        popEstu
+                        $popEstu
                     </td>
                     <td class=\"output__celda\">
-                        motivo
+                        $motivo
                     </td>
                     <td class=\"output__celda\">
                         $descripcion

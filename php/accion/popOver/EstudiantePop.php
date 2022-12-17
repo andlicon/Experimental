@@ -1,5 +1,5 @@
 <?php
-    include_once(FUNCIONES_IG_PATH.'popOver/GenerarPopOver.php');
+    include_once(POP_PATH.'/GenerarPopOver.php');
     include_once(DAO_PATH.'/ClaseConsul.php');
     include_once(DAO_PATH.'/BaseDeDatos.php');
     include_once(DTO_PATH.'/Estudiante.php');
