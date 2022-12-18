@@ -11,8 +11,8 @@
             parent::__construct($deudaeDAO);
         }
 
-        public function generarPop($id) {
-            $resultado = $this->consultor->getInstancia(array($id));
+        public function generarPop($val, $id) {
+            $resultado = $this->consultor->getInstancia(array($val));
             $deuda = $resultado[0];
 
             $deudaId = $deuda->getId();
@@ -34,7 +34,7 @@
 
             $popOver = 
             "<div class=\"popOver\">
-                <span class=\"popOver__trigger\">$deudaId</span>
+                <span id=\"deuda$id\" class=\"popOver__trigger\">$deudaId</span>
                 <div class=\"popOver__contenido\">";
                     
             $popOver = $popOver.

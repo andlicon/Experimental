@@ -10,8 +10,8 @@
             parent::__construct($estudianteDAO);
         }
 
-        public function generarPop($id) {
-            $resultado = $this->consultor->getInstancia(array($id));
+        public function generarPop($val, $id) {
+            $resultado = $this->consultor->getInstancia(array($val));
             $estudiante = $resultado[0];
 
             $id = $estudiante->getId();
@@ -29,7 +29,7 @@
 
             $popOver = 
             "<div class=\"popOver\">
-                <span class=\"popOver__trigger\">$nombre</span>
+                <span id=\"estudiante$id\"class=\"popOver__trigger\">$nombre</span>
                 <div class=\"popOver__contenido\">";
                     
             $popOver = $popOver.

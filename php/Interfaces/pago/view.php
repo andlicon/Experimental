@@ -64,7 +64,7 @@
 <script src="../js/consulta/consultar.js"></script>
 <script src="../js/eliminar.js"></script>
 <script src="../js/modificar/habilitarModificacion.js"></script>
-<script src="../js/modificar/aceptar.js"></script>
+<script src="../js/modificar/modificarPago.js"></script>
 <script src="../js/modificar/cancelar.js"></script>
 
 <script>

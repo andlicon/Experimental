@@ -33,7 +33,6 @@
 
             for($i=0; $i<count($registros); $i++) {
                 $pago = $registros[$i];
-                $popDeuda = $deudaPop->generarPop($pago->getIdDeuda());
             
                 $id = $pago->getId();
                 $cedula = $pago->getCedula();
@@ -52,7 +51,8 @@
                 $tipoPago = $resultado[0]->getDescripcion();
                 $referencia = $pago->getRef();
             
-                $popRep = $popOverRep->generarPop($cedula, $cedula);
+                $popRep = $popOverRep->generarPop($cedula, $id);
+                $popDeuda = $deudaPop->generarPop($pago->getIdDeuda(), $id);
             
                 $eliminador = "<input type=\"button\" class=\"eliminar\" value=\"$id\">";
                 $modificador = "<input type=\"button\" class=\"modificar habilitarModif\" value=\"$id\">";
@@ -72,12 +72,12 @@
                     <span class=\"modificable\">$popRep</span>
                 </td>
                 <td class=\"output__celda\">
-                    <span class=\"modificable modificable--estado$id\">$fecha</span>
-                    <input type=\"date\" value=\"$fecha\" disabled class=\"modificable modificable$id ocultar\">
+                    <span  id=\"fecha$id\" class=\"modificable modificable--estado$id\">$fecha</span>
+                    <input id=\"fechaInput$id\" type=\"date\" value=\"$fecha\" disabled class=\"modificable modificable$id ocultar\">
                 </td>
                 <td class=\"output__celda\">
-                    <span class=\"modificable modificable--estado$id\">$monto</span>
-                    <input type=\"text\" value=\"$monto\" disabled class=\"modificable modificable$id ocultar\">
+                    <span id=\"monto$id\" class=\"modificable modificable--estado$id\">$monto</span>
+                    <input id=\"montoInput$id\" type=\"text\" value=\"$monto\" disabled class=\"modificable modificable$id ocultar\">
                 </td>
                 <td class=\"output__celda\">
                     <span class=\"modificable\">$cuentaImp </span>
@@ -86,8 +86,8 @@
                     <span class=\"modificable\">$tipoPago</span>
                 </td>
                 <td class=\"output__celda\">
-                    <span class=\"modificable modificable--estado$id\">$referencia</span>
-                    <input type=\"text\" value=\"$referencia\" disabled class=\"modificable modificable$id ocultar\">
+                    <span id=\"referencia$id\"class=\"modificable modificable--estado$id\">$referencia</span>
+                    <input id=\"referenciaInput$id\" type=\"text\" value=\"$referencia\" disabled class=\"modificable modificable$id ocultar\">
                 </td>
                 <td class=\"output__celda\">
                     <span class=\"modificable\">$estado</span>

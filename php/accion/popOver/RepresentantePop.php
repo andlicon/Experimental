@@ -7,8 +7,8 @@
             parent::__construct($personaDAO);
         }
 
-        public function generarPop($id) {
-            $resultado = $this->consultor->getInstancia(array($id));
+        public function generarPop($val, $id) {
+            $resultado = $this->consultor->getInstancia(array($val));
             $persona = $resultado[0];
             $cedula = $persona->getCedula();
             $nombre = $persona->getNombre();
@@ -16,7 +16,7 @@
 
             $popOver = 
             "<div class=\"popOver\">
-                <span class=\"popOver__trigger\">$cedula</span>
+                <span id=\"cedula$id\" class=\"popOver__trigger\">$cedula</span>
                 <div class=\"popOver__contenido\">";
                     
             $popOver = $popOver.
