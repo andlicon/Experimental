@@ -172,14 +172,16 @@
             //HACER UN LLAMADO A UN PROCEDURE
         }
 
-        public function modificar($parametros) {
+        public function modificar(array $parametros) {
             $update =  "UPDATE pago
-                        SET  fecha=?, 
-                             monto=?,
-                             id_cuenta=?,
-                             id_tipo_pago=?,
-                             ref=?
-                        WHERE id=?";
+                         SET  idDeuda=?, 
+                              fecha=?,
+                              monto=?,
+                              id_cuenta=?,
+                              id_tipo_pago=?,
+                              ref=?,
+                              valido=?
+                         WHERE id=?";
             $this->bd->sql($update, $parametros);
         }
 

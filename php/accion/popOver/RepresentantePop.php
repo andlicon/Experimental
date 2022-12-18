@@ -15,8 +15,8 @@
             $apellido = $persona->getApellido();
 
             $popOver = 
-            "<div class=\"popOver .modificable modificable--estado$id\">
-                <span id=\"cedula$id\" class=\"popOver__trigger\">$cedula</span>
+            "<div class=\"popOver modificable modificable--estado$id\">
+                <input type=\"text\" id=\"cedula$id\" class=\"popOver__trigger\" value=\"$cedula\" disabled>
                 <div class=\"popOver__contenido\">";
                     
             $popOver = $popOver.

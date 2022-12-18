@@ -28,8 +28,8 @@
 
 
             $popOver = 
-            "<div class=\"popOver\">
-                <span id=\"estudiante$id\" class=\"popOver__trigger\" modificable--estado$id >$nombre</span>
+            "<div class=\"popOver modificable modificable--estado$id\">
+                <input type=\"text\" id=\"estudiante$id\" class=\"popOver__trigger\" value=\"$nombre\"/>
                 <div class=\"popOver__contenido\">";
                     
             $popOver = $popOver.

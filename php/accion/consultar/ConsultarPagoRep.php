@@ -72,11 +72,11 @@
                     $popRep
                 </td>
                 <td class=\"output__celda\">
-                    <span  id=\"fecha$id\" class=\"modificable modificable--estado$id\">$fecha</span>
+                    <input  id=\"fecha$id\" class=\"modificable modificable--estado$id\" value=\"$fecha\" disabled>
                     <input id=\"fechaInput$id\" type=\"date\" value=\"$fecha\" disabled class=\"modificable modificable$id ocultar\">
                 </td>
                 <td class=\"output__celda\">
-                    <span id=\"monto$id\" class=\"modificable modificable--estado$id\">$monto</span>
+                    <input type=\"text\" id=\"monto$id\" class=\"modificable modificable--estado$id\" value=\"$monto\" disabled>
                     <input id=\"montoInput$id\" type=\"text\" value=\"$monto\" disabled class=\"modificable modificable$id ocultar\">
                 </td>
                 <td class=\"output__celda\">
@@ -86,7 +86,7 @@
                     <span class=\"modificable\">$tipoPago</span>
                 </td>
                 <td class=\"output__celda\">
-                    <span id=\"referencia$id\"class=\"modificable modificable--estado$id\">$referencia</span>
+                    <input type=\"text\" id=\"referencia$id\"class=\"modificable modificable--estado$id\ value=\"$referencia\" disabled>
                     <input id=\"referenciaInput$id\" type=\"text\" value=\"$referencia\" disabled class=\"modificable modificable$id ocultar\">
                 </td>
                 <td class=\"output__celda\">

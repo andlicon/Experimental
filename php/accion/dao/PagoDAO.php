@@ -174,12 +174,14 @@
 
         public function modificar($parametros) {
             $update =  "UPDATE pago
-                        SET  fecha=?, 
-                             monto=?,
-                             id_cuenta=?,
-                             id_tipo_pago=?,
-                             ref=?
-                        WHERE id=?";
+            SET id_deuda=?, 
+                fecha=?,
+                monto=?,
+                id_cuenta=?,
+                id_tipo_pago=?,
+                ref=?,
+                valido=?
+            WHERE id=?";
             $this->bd->sql($update, $parametros);
         }
 

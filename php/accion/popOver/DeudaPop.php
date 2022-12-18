@@ -34,7 +34,7 @@
 
             $popOver = 
             "<div class=\"popOver modificable modificable--estado$id\">
-                <span id=\"deuda$id\" class=\"popOver__trigger\">$deudaId</span>
+                <input type=\"text\" id=\"deuda$id\" class=\"popOver__trigger\" value=\"$deudaId\" disabled/>
                 <div class=\"popOver__contenido\">";
             $popOver = $popOver.
             "       <span class=\"popOver__informacion\">Informacion</span>
