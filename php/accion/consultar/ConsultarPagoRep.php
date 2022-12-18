@@ -69,7 +69,7 @@
                     <span class=\"modificable\">$popDeuda</span>
                 </td>
                 <td class=\"output__celda\">
-                    <span class=\"modificable\">$popRep</span>
+                    $popRep
                 </td>
                 <td class=\"output__celda\">
                     <span  id=\"fecha$id\" class=\"modificable modificable--estado$id\">$fecha</span>

@@ -33,10 +33,9 @@
             $estudianteNombre = $resultado[0]->getNombre();
 
             $popOver = 
-            "<div class=\"popOver\">
+            "<div class=\"popOver modificable modificable--estado$id\">
                 <span id=\"deuda$id\" class=\"popOver__trigger\">$deudaId</span>
                 <div class=\"popOver__contenido\">";
-                    
             $popOver = $popOver.
             "       <span class=\"popOver__informacion\">Informacion</span>
                     <span class=\"popOver__elemento\">Cedula: $cedula</span>
