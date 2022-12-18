@@ -53,14 +53,7 @@
             </div>
 
             <div class="input">
-                <h2>Introducir informacion</h2>
-                    <?php
-                        //include_once(GENERADOR_PATH.'/input/GeneradorInputPago.php');
-                        //$permiso = getPermiso($usuario);
-                        //$genMenu = new GeneradorInputPago($permiso);
-                        //$genMenu->generarItems();
-                    ?>
-
+                <!-- <script src="../js/menu/crearInput.js"></script>; -->
             </div>
         </form>
     </div>
@@ -70,7 +63,9 @@
 
 <script src="../js/consulta/consultar.js"></script>
 <script src="../js/eliminar.js"></script>
-<script src="../js/modificar/modificar.js"></script>
+<script src="../js/modificar/habilitarModificacion.js"></script>
+<script src="../js/modificar/aceptar.js"></script>
+<script src="../js/modificar/cancelar.js"></script>
 
 <script>
     $(document).ready(function () {

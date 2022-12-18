@@ -1,9 +1,6 @@
 $(document).on('click', '.habilitarModif', function(){
-    let pagina = window.location.pathname;
-    let usuario = JSON.parse(localStorage.getItem('usuario'));
-    let cedula = usuario.cedula;
-    let texto = $(this).val();
-
-    alert('a');
-    
+    var id = $(this).val();
+    $('.cancelar'+id).removeClass("ocultar");
+    $('.aceptar'+id).removeClass("ocultar");
+    //ACA METERÉ EL HABILITAR LOS INPUTS QUE SERÁN LOS MODIFICADORES
 });

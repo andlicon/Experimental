@@ -1,5 +1,5 @@
 $(document).on('click', '.eliminar', function() {
-        let id = $(this).attr("id");
+        let id = $(this).val();
         let pagina = window.location.pathname;
         let usuario = JSON.parse(localStorage.getItem('usuario'));
         let cedula = usuario.cedula;

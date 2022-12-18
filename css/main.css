@@ -424,6 +424,10 @@ body {
   background-color: red;
 }
 
+.output__celda--modificar {
+  display: inline-block;
+}
+
 .input {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -558,6 +562,38 @@ body {
 svg {
   width: 35px;
   height: 35px;
+}
+
+.eliminar {
+  font-size: 0px;
+  width: 24px;
+  height: 24px;
+  background-image: url("../../img/interfaz/boton/delete24px.png");
+}
+
+.modificar {
+  font-size: 0px;
+  width: 24px;
+  height: 24px;
+  background-image: url("../../img/interfaz/boton/update24px.png");
+}
+
+.aceptar {
+  font-size: 0px;
+  width: 24px;
+  height: 24px;
+  background-image: url("../../img/interfaz/boton/si24px.png");
+}
+
+.cancelar {
+  font-size: 0px;
+  width: 24px;
+  height: 24px;
+  background-image: url("../../img/interfaz/boton/no24px.png");
+}
+
+.ocultar {
+  display: none;
 }
 
 .usuario {

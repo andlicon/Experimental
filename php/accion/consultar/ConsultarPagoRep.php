@@ -54,8 +54,10 @@
 
                 $popRep = $popOverRep->generarPop($cedula, $cedula);
 
-                $eliminador = "<input type=\"button\" class=\"eliminar\" id=\"$id\" value=\"eliminar\">";
-                $modificador = "<input type=\"button\" class=\"modificar\" id=\"$id\" value=\"modificar\">";
+                $eliminador = "<input type=\"button\" class=\"eliminar\" value=\"$id\">";
+                $modificador = "<input type=\"button\" class=\"modificar habilitarModif\" value=\"$id\">";
+                $aceptar = "<input type=\"button\" class=\"aceptar aceptar$id ocultar\" value=\"$id\">";
+                $cancelar = "<input type=\"button\" class=\"cancelar cancelar$id  ocultar\" value=\"$id\">";
 
                 //acciones
                 $html = $html."
@@ -90,6 +92,8 @@
                 <td class=\"output__celda\">
                     $eliminador
                     $modificador
+                    $aceptar
+                    $cancelar
                 </td>TERMINAACA";
             }
 
