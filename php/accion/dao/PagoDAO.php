@@ -53,7 +53,7 @@
 
             $pagos = [];
             for($i=0; $i<count($registros); $i++) {
-                $renglon = $registros[0];
+                $renglon = $registros[$i];
 
                 $id = $renglon['id'];
                 $idDeuda = $renglon['id_deuda'];

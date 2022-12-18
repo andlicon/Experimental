@@ -7,7 +7,10 @@
         $pagina = $_POST['pagina'] ;
         $cedula = $_POST['cedula'];
         $texto = $_POST['texto'];
-        $infoAdd = $_POST['infoAdd'];
+        $infoAdd = null;
+        if(isset($_POST['infoAdd'])) {
+            $infoAdd = $_POST['infoAdd'];
+        }
 
         $consultor;
 

@@ -34,7 +34,7 @@
             for($i=0; $i<count($registros); $i++) {
                 $pago = $registros[$i];
                 $popDeuda = $deudaPop->generarPop($pago->getIdDeuda());
-                
+            
                 $id = $pago->getId();
                 $cedula = $pago->getCedula();
                 $fecha = $pago->getFecha();
@@ -51,14 +51,14 @@
                 $resultado = $tipoPagoConsul->getInstancia(array($pago->getIdTipoPago()));
                 $tipoPago = $resultado[0]->getDescripcion();
                 $referencia = $pago->getRef();
-
+            
                 $popRep = $popOverRep->generarPop($cedula, $cedula);
-
+            
                 $eliminador = "<input type=\"button\" class=\"eliminar\" value=\"$id\">";
                 $modificador = "<input type=\"button\" class=\"modificar habilitarModif\" value=\"$id\">";
                 $aceptar = "<input type=\"button\" class=\"aceptar aceptar$id ocultar\" value=\"$id\">";
                 $cancelar = "<input type=\"button\" class=\"cancelar cancelar$id  ocultar\" value=\"$id\">";
-
+            
                 //acciones
                 $html = $html."
                 <td class=\"output__celda\ output__celda--centrado\">
