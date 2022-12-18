@@ -56,3 +56,12 @@
 .output__celda--modificar {
     display: inline-block;
 }
+
+.output__celda {
+    position: relative;
+}
+
+.modificable {
+    position: absolute;
+    top: 0;
+}

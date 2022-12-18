@@ -66,28 +66,31 @@
                         id=\"check$i\" class=\"output__check\">
                 </td>
                 <td class=\"output__celda\">
-                    $popDeuda
+                    <span class=\"modificable\">$popDeuda</span>
                 </td>
                 <td class=\"output__celda\">
-                    $popRep
+                    <span class=\"modificable\">$popRep</span>
                 </td>
                 <td class=\"output__celda\">
-                    $fecha
+                    <span class=\"modificable modificable--estado$id\">$fecha</span>
+                    <input type=\"date\" value=\"$fecha\" disabled class=\"modificable modificable$id ocultar\">
                 </td>
                 <td class=\"output__celda\">
-                    $monto
+                    <span class=\"modificable modificable--estado$id\">$monto</span>
+                    <input type=\"text\" value=\"$monto\" disabled class=\"modificable modificable$id ocultar\">
                 </td>
                 <td class=\"output__celda\">
-                    $cuentaImp 
+                    <span class=\"modificable\">$cuentaImp </span>
                 </td>
                 <td class=\"output__celda\">
-                    $tipoPago
+                    <span class=\"modificable\">$tipoPago</span>
                 </td>
                 <td class=\"output__celda\">
-                    $referencia
+                    <span class=\"modificable modificable--estado$id\">$referencia</span>
+                    <input type=\"text\" value=\"$referencia\" disabled class=\"modificable modificable$id ocultar\">
                 </td>
                 <td class=\"output__celda\">
-                    $estado
+                    <span class=\"modificable\">$estado</span>
                 </td>
                 <td class=\"output__celda\">
                     $eliminador

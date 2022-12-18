@@ -369,65 +369,6 @@ body {
   height: 100%;
 }
 
-.output {
-  width: 90%;
-  height: 500px;
-  table-layout: fixed;
-  border-collapse: collapse;
-  border: 3px solid purple;
-  overflow: scroll;
-  overflow-x: hidden;
-}
-
-.output__table {
-  width: 100%;
-  height: 100%;
-  table-layout: fixed;
-  border-collapse: collapse;
-}
-.output__table td, .output__table th {
-  padding: 5px;
-}
-.output__table tr, .output__table col, .output__table th {
-  border: 3px solid purple;
-}
-.output__table tr {
-  border-left: 0px hidden;
-}
-
-.output__renglon {
-  height: 1em;
-}
-
-.output__celda--centrado {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row nowrap;
-          flex-flow: row nowrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.output__col--seleccion, .output__col--clase {
-  width: 8em;
-}
-
-.output__col--fechaNacimiento {
-  width: 10em;
-}
-
-.output__deuda {
-  background-color: red;
-}
-
-.output__celda--modificar {
-  display: inline-block;
-}
-
 .input {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -791,4 +732,72 @@ svg {
 
 .tabla__td--deuda {
   color: red;
+}
+
+.output {
+  width: 90%;
+  height: 500px;
+  table-layout: fixed;
+  border-collapse: collapse;
+  border: 3px solid purple;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.output__table {
+  width: 100%;
+  height: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+.output__table td, .output__table th {
+  padding: 5px;
+}
+.output__table tr, .output__table col, .output__table th {
+  border: 3px solid purple;
+}
+.output__table tr {
+  border-left: 0px hidden;
+}
+
+.output__renglon {
+  height: 1em;
+}
+
+.output__celda--centrado {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.output__col--seleccion, .output__col--clase {
+  width: 8em;
+}
+
+.output__col--fechaNacimiento {
+  width: 10em;
+}
+
+.output__deuda {
+  background-color: red;
+}
+
+.output__celda--modificar {
+  display: inline-block;
+}
+
+.output__celda {
+  position: relative;
+}
+
+.modificable {
+  position: absolute;
+  top: 0;
 }
