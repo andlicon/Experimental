@@ -16,7 +16,7 @@
                 $idOpcion = $opcion->getId();
                 $descripcionOpcion = $opcion->getDescripcion();
                 
-                $options = "<option value=\"$idOpcion\">$descripcionOpcion</option>";
+                $options = $options."<option value=\"$idOpcion\">$descripcionOpcion</option>";
             }
 
             return $options;

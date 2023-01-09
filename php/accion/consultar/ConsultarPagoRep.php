@@ -27,7 +27,7 @@
             $popOverRep = new RepresentantePop($personaDAO);
             $deudaPop = new DeudaPop($deudaDAO);
             //Creador de select
-            //$selectTipoPago = new CreadorSelectTipoPago();
+            $selectTipoPago = new CreadorSelectTipoPago();
 
             $registros = $this->dao->getInstanciaCedulaValidez($cedula);
 
@@ -62,6 +62,8 @@
                 $aceptar = "<input type=\"button\" class=\"aceptar aceptar$id ocultar\" value=\"$id\">";
                 $cancelar = "<input type=\"button\" class=\"cancelar cancelar$id  ocultar\" value=\"$id\">";
             
+                $tipoPagoSelect = $selectTipoPago->crearItemAtributos("class=\"modificable modificable$id ocultar\"", "tipoPagoInput$id");
+
                 //acciones
                 $html = $html."
                 <td class=\"output__celda\ output__celda--centrado\">
@@ -86,9 +88,8 @@
                     <span class=\"modificable\">$cuentaImp </span>
                 </td>
                 <td class=\"output__celda\">
-
                     <span class=\"modificable\">$tipoPago</span>
-
+                    $tipoPagoSelect
                 </td>
                 <td class=\"output__celda\">
                     <input type=\"text\" id=\"referencia$id\"class=\"modificable modificable--estado$id\ value=\"$referencia\" disabled>

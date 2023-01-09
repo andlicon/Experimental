@@ -15,8 +15,7 @@
             $consulta = $this->dao->getTodos();
 
             $html = "<div class=\"input__grupo\">
-                        <label for=\"$id\" class=\"input__label\">Persona</label>
-                        <select class=\"input__select\" id=\"$id\" name=\"tipoPago\" $atributos>";
+                        <select $atributos id=\"$id\" name=\"tipoPago\" $atributos>";
             $html = $html.$this->crearOption($consulta);
 
             return $html;

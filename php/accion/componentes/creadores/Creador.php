@@ -3,5 +3,9 @@
 
     abstract class Creador implements ICreador {
         protected $bd;
+
+        public function __construct($bd) {
+            $this->bd = $bd;
+        }
     }
 ?>

@@ -43,6 +43,7 @@
             }
 
             $tiposCuentas = [];
+            
             for($i=0; $i<count($registros); $i++) {
                 $tipoCuenta = $registros[$i];
 
