@@ -8,6 +8,7 @@
     include_once(DAO_PATH.'TipoPagoConsul.php');
     include_once(POP_PATH.'DeudaPop.php');
     include_once(POP_PATH.'RepresentantePop.php');
+    include_once(CREADORES_PATH.'/select/CreadorSelectTipoPago.php');
 
     final class ConsultarPagoRep implements Consultor {
         private $dao;
@@ -25,6 +26,8 @@
             //popOvers
             $popOverRep = new RepresentantePop($personaDAO);
             $deudaPop = new DeudaPop($deudaDAO);
+            //Creador de select
+            //$selectTipoPago = new CreadorSelectTipoPago();
 
             $registros = $this->dao->getInstanciaCedulaValidez($cedula);
 
@@ -83,7 +86,9 @@
                     <span class=\"modificable\">$cuentaImp </span>
                 </td>
                 <td class=\"output__celda\">
+
                     <span class=\"modificable\">$tipoPago</span>
+
                 </td>
                 <td class=\"output__celda\">
                     <input type=\"text\" id=\"referencia$id\"class=\"modificable modificable--estado$id\ value=\"$referencia\" disabled>
@@ -102,5 +107,6 @@
 
             echo $html;
         }
-    }       
+    }      
+    //Debo crear unos metodos que creren todos los options. 
 ?>
