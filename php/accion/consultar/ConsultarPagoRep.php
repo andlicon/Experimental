@@ -85,10 +85,10 @@
                     <input id=\"montoInput$id\" type=\"text\" value=\"$monto\" disabled class=\"modificable modificable$id ocultar\">
                 </td>
                 <td class=\"output__celda\">
-                    <span class=\"modificable\">$cuentaImp </span>
+                    <span class=\"modificable modificable--estado$id\">$cuentaImp</span>
                 </td>
                 <td class=\"output__celda\">
-                    <span class=\"modificable\">$tipoPago</span>
+                    <span class=\"modificable modificable--estado$id\">$tipoPago</span>
                     $tipoPagoSelect
                 </td>
                 <td class=\"output__celda\">
