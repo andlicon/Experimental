@@ -9,6 +9,7 @@
     include_once(POP_PATH.'DeudaPop.php');
     include_once(POP_PATH.'RepresentantePop.php');
     include_once(CREADORES_PATH.'/select/CreadorSelectTipoPago.php');
+    include_once(CREADORES_PATH.'/select/CreadorSelectCuenta.php');
 
     final class ConsultarPagoRep implements Consultor {
         private $dao;
@@ -28,6 +29,7 @@
             $deudaPop = new DeudaPop($deudaDAO);
             //Creador de select
             $selectTipoPago = new CreadorSelectTipoPago();
+            $selectCuenta = new CreadorSelectCuenta();
 
             $registros = $this->dao->getInstanciaCedulaValidez($cedula);
 
@@ -63,6 +65,7 @@
                 $cancelar = "<input type=\"button\" class=\"cancelar cancelar$id  ocultar\" value=\"$id\">";
             
                 $tipoPagoSelect = $selectTipoPago->crearItemAtributos("class=\"modificable modificable$id ocultar\"", "tipoPagoInput$id");
+                $tipoCuentaSelect = $selectCuenta->crearItemAtributos("class=\"modificable modificable$id ocultar\"", "tipoCuentaInput$id");
 
                 //acciones
                 $html = $html."
@@ -86,6 +89,7 @@
                 </td>
                 <td class=\"output__celda\">
                     <span class=\"modificable modificable--estado$id\">$cuentaImp</span>
+                    $tipoCuentaSelect
                 </td>
                 <td class=\"output__celda\">
                     <span class=\"modificable modificable--estado$id\">$tipoPago</span>

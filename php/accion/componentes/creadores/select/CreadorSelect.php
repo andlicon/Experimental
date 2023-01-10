@@ -1,11 +1,26 @@
 <?php
     include_once('../../../rutaAcciones.php');
-    include_once(CREADORES_PATH.'Creador.php');
+    include_once(CREADORES_PATH.'ICreador.php');
 
-    abstract class CreadorSelect extends Creador {
+    abstract class CreadorSelect implements ICreador {
+        protected $dao;
 
-        public function __construct($bd) {
-            parent::__construct($bd);
+        public function __construct($dao) {
+            $this->dao = $dao;
+        }
+
+        public function crearItemAtributos($atributos, $id) {
+            $consulta = $this->dao->getTodos();
+
+            $html = "<div class=\"input__grupo\">
+                        <select $atributos id=\"$id\" name=\"tipoPago\" $atributos>";
+            $html = $html.$this->crearOption($consulta);
+
+            return $html;
+        }
+
+        public function crearItem($id) {
+            return $this->crearItemAtributos($id);
         }
 
         protected function crearOption($consulta) {

@@ -8,4 +8,6 @@
             $this->bd = $bd;
         }
     }
+
+    //DE MOMENTO NO ESTÁ EN USO
 ?>
