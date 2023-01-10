@@ -53,7 +53,9 @@
             </div>
 
             <div class="input">
-                <!-- <script src="../js/menu/crearInput.js"></script>; -->
+                <div id="input">
+                    <script src="../js/menu/crearInput.js"></script>;
+                </div>
             </div>
         </form>
     </div>
@@ -66,10 +68,3 @@
 <script src="../js/modificar/habilitarModificacion.js"></script>
 <script src="../js/modificar/modificarPago.js"></script>
 <script src="../js/modificar/cancelar.js"></script>
-
-<script>
-    $(document).ready(function () {
-    //change selectboxes to selectize mode to be searchable
-        $('#representanteInput').select2();
-    });
-</script>

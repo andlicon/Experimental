@@ -15,12 +15,15 @@
             $html = "<div class=\"input__grupo\">
                         <select $atributos id=\"$id\" name=\"tipoPago\" $atributos>";
             $html = $html.$this->crearOption($consulta);
+            $html = $html."
+                        </select>
+                    </div>";
 
             return $html;
         }
 
         public function crearItem($id) {
-            return $this->crearItemAtributos($id);
+            return $this->crearItemAtributos("", $id);
         }
 
         protected function crearOption($consulta) {

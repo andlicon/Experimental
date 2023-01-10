@@ -1,14 +1,15 @@
 $(document).ready(function () {
     let usuario = JSON.parse(localStorage.getItem('usuario'));
     let permiso = usuario.permiso;
+    let cedula = usuario.cedula;
     let pagina = window.location.pathname;
 
     $.ajax ( {
-        url : '../../accion/crearBoton/CrearInput.php',
+        url : '../../accion/componentes/creadores/input/CrearInputJs.php',
         type : 'POST',
-        data : {permiso: permiso, pagina: pagina},
+        data : {permiso: permiso, pagina: pagina, cedula: cedula},
         success : function(response) {
-                $('#botones').html(response);
+            $('#input').html(response);
         }
     })
 });
