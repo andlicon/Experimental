@@ -96,7 +96,7 @@
                     $tipoPagoSelect
                 </td>
                 <td class=\"output__celda\">
-                    <input type=\"text\" id=\"referencia$id\"class=\"modificable modificable--estado$id\ value=\"$referencia\" disabled>
+                    <input type=\"text\" id=\"referencia$id\"class=\"modificable modificable--estado$id\" value=\"$referencia\" disabled>
                     <input id=\"referenciaInput$id\" type=\"text\" value=\"$referencia\" disabled class=\"modificable modificable$id ocultar\">
                 </td>
                 <td class=\"output__celda\">
@@ -113,5 +113,5 @@
             echo $html;
         }
     }      
-    //Debo crear unos metodos que creren todos los options. 
+    
 ?>
