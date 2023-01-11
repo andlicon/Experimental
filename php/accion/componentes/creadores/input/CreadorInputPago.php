@@ -17,7 +17,7 @@
             $selectCuenta = $creadorSelectCuenta->crearItem("cuentaInput");
 
             $creadorSelectTipoPago = new CreadorSelectTipoPago();
-            $selectTipoPago = $creadorSelectTipoPago->crearItem("tipoCuentaInput");
+            $selectTipoPago = $creadorSelectTipoPago->crearItem("tipoPagoInput");
 
             $creadorSelectDeuda = new CreadorSelectDeuda();
             $selectDeuda = $creadorSelectDeuda->crearItemCedula("deudaInput", "", $this->cedula);
@@ -41,7 +41,7 @@
 	                $selectCuenta
                 </div>
                 <div class=\"contenido__bloque\">
-	                <label for=\"tipoCuentaInput\">Tipo Pago</label>
+	                <label for=\"tipoPagoInput\">Tipo Pago</label>
 	                $selectTipoPago
                 </div>
                 <div class=\"contenido__bloque\">

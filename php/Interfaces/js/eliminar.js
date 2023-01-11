@@ -10,6 +10,7 @@ $(document).on('click', '.eliminar', function() {
                 data : {id: id, pagina: pagina, cedula: cedula},
                 success : function(response) {
                         alert(response);
+                        $('#consultar-rep').click();
                 }
         })
 });
