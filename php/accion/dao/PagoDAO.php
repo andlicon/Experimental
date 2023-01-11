@@ -169,9 +169,11 @@
         }
 
         public function cargar($parametros) {
-            $insert = " INSERT INTO pago (id_deuda, cedula, fecha,  monto,  id_cuenta,  id_tipo_pago,   ref,    valido)
-                        VALUES           (?,        ?,      ?,      ?,      ?,          ?,              ?,      ?)";
-            $this->bd->sql($insert, $parametros);
+            /*                        id_deuda  cedula, fecha,  monto,  id_cuenta, 
+                id_tipo_pago,   ref,    valido*/
+            $insert = "CALL p_cargar_pago(?,        ?,      ?,      ?,      ?, 
+                ?,              ?,      ?);";
+            $this->bd->procedure($insert, $parametros);
         }
 
         public function modificar($parametros) {
