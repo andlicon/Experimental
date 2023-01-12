@@ -1,5 +1,6 @@
 <?php
     include_once('CreadorInputPago.php');
+    include_once('CreadorInputEstudiante.php');
 
     
     if(isset($_POST['permiso']) && isset($_POST['pagina'])) {
@@ -7,11 +8,16 @@
         $pagina = $_POST['pagina'];
         $cedula = $_POST['cedula'];
 
-        $creador;
+        $creador = null;
 
         if(str_contains($pagina, "pago")) {
             if($permiso==1 || $permiso==3) {
                 $creador = new CreadorInputPago($permiso, $cedula);
+            }
+        }
+        else if(str_contains($pagina, "estudiante")) {
+            if($permiso==1 || $permiso==3) {
+                $creador = new CreadorInputEstudiante($permiso, $cedula);
             }
         }
 

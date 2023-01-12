@@ -50,17 +50,6 @@
                     $tabla->crearTabla();
                 ?>
             </div>
-            <div class="input">
-                <h2>Introducir informacion</h2>
-                    <?php
-                        //include_once(GENERADOR_PATH.'/input/GeneradorInputDeuda.php');
-                        //$permiso = getPermiso($usuario);
-                        //$genMenu = new GeneradorInputDeuda($permiso);
-                        //$genMenu->generarItems();
-                    ?>
-
-            </div>
-
             <div class="botones">
                 <div id="botones">
                     <script src="../js/menu/crearBoton.js"></script>;

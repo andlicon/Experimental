@@ -53,7 +53,9 @@
                 </div>
             </div>
             <div class="input">
-                <h2>Introducir informacion</h2>
+                <div id="input">
+                    <script src="../js/menu/crearInput.js"></script>;
+                </div>
             </div>
         </form>
     </div>
