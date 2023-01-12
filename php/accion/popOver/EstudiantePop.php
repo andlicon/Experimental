@@ -26,10 +26,9 @@
             $clase = $resultado[0];
             $claseNombre = $clase->getDescripcion();
 
-
             $popOver = 
             "<div class=\"popOver modificable modificable--estado$id\">
-                <input type=\"text\" id=\"estudiante$id\" class=\"popOver__trigger\" value=\"$nombre\"/>
+                <input type=\"text\" id=\"estudiante$id\" class=\"popOver__trigger\" value=\"$nombre\" disabled/>
                 <div class=\"popOver__contenido\">";
                     
             $popOver = $popOver.

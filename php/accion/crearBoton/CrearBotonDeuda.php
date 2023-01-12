@@ -60,7 +60,7 @@
         protected function crearItemConsultaEstudiante() {
             $item = 
             '<div class="input__grupo">';
-            $item = $item.$this->crearItem("consultar-rep", "Consultar");;
+            $item = $item.$this->crearItem("consultar", "Consultar");;
             $item = $item.
                 '
                 <label for="estudianteInput" class="input__label">Estudiante(s)</label>
