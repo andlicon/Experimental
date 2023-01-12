@@ -31,7 +31,7 @@
     ?>
     <div class="body-main">
         <h1 class="vista__titulo">
-            Pagos
+            <script src="TituloPago.js"></script>
         </h1>
         <?php
             include_once(MENSAJE_PATH.'/imprimirMensaje.php');
