@@ -28,6 +28,7 @@
                 $apellido = $estudiante['apellido'];
                 $fechaNacimiento = $estudiante['fecha_nacimiento'];
                 $cedulaRepresentante = $estudiante['cedula_representante'];
+                $idClase = $estudiante['id_clase'];
                 $valido = $estudiante['valido'];
      
                 $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento, 
