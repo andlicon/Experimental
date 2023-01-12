@@ -37,9 +37,6 @@
                 $nombreClase = $claseConsul->getInstancia(array($idClase))[0]->getDescripcion($idClase);
 
                 $html = $html."  
-                     <td class=\"output__celda output__celda--centrado\">
-                         <input type=\"checkbox\" name=\"check[]\" value=\"$idEstudiante\" id=\"check$i\">
-                     </td>
                      <td class=\"output__celda\">
                          $nombre
                      </td>

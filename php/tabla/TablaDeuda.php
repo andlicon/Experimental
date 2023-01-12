@@ -14,7 +14,6 @@
             $tabla = "
             <table class=\"output__table\">
             <colgroup> 
-                <col class=\"output__col output__col--seleccion\">
                 <col class=\"output__col output__col--cedula\">
                 <col class=\"output__col output__col--estudiante\">
                 <col class=\"output__col output__col--motivo\">
@@ -26,9 +25,6 @@
             </colgroup>
             <thead class=\"output__header\">
                 <tr class=\"output__renglon\">
-                    <th class=\"output__celda output__celda--header\">
-                       Seleccionar 
-                    </th>
                     <th class=\"output__celda output__celda--header\">
                        Cedula 
                     </th>

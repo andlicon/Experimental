@@ -69,10 +69,6 @@
 
                 //acciones
                 $html = $html."
-                <td class=\"output__celda\ output__celda--centrado\">
-                    <input type=\"checkbox\" name=\"check[]\" value=\"$id\" 
-                        id=\"check$i\" class=\"output__check\">
-                </td>
                 <td class=\"output__celda\">
                     <span class=\"modificable\">$popDeuda</span>
                 </td>
