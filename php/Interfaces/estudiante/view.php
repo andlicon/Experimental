@@ -64,6 +64,7 @@
 
 <script src="../js/consulta/consultar.js"></script>
 <script src="../js/eliminar.js"></script>
+<script src="../js/cargar/cargarEstudiante.js"></script>
 
 <script>
     $(document).ready(function () {

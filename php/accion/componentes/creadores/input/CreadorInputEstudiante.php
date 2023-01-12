@@ -15,7 +15,6 @@
             $creadorSelectClase = new CreadorSelectClase();
             $selectClase = $creadorSelectClase->crearItem("claseInput");
 
-
             $html = 
                 "
                 <div class=\"contenido__bloque\">
@@ -29,6 +28,10 @@
                 <div class=\"contenido__bloque\">
 	                <label for=\"fechaInput\">Fecha nacimiento</label>
 	                <input type=\"date\" id=\"fechaInput\">
+                </div>
+                <div class=\"contenido__bloque\">
+	                <label for=\"claseInput\">Clase</label>
+	                $selectClase
                 </div>
 
                 <script>
