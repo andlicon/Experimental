@@ -6,15 +6,17 @@
         private $fechaNacimiento;
         private $cedulaRepresentante;
         private $idClase;
+        private $valido;
 
         public function __construct($id, $nombre, $apellido, $fechaNacimiento, 
-                                    $cedulaRepresentante, $idClase) {
+                                    $cedulaRepresentante, $idClase, $valido) {
             $this->id = $id;
             $this->nombre = $nombre;
             $this->apellido = $apellido;
             $this->fechaNacimiento = $fechaNacimiento;
             $this->cedulaRepresentante = $cedulaRepresentante;
             $this->idClase = $idClase;
+            $this->valido = $valido;
         }
 
         public function getId() {
@@ -34,6 +36,9 @@
         }
         public function getIdClase() {
             return $this->idClase;
+        }
+        public function getValido() {
+            return $this->valido;
         }
         
         public function setId($id) {

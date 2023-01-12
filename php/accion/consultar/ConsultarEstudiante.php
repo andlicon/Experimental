@@ -20,7 +20,6 @@
 
             //Generador popOver
             $personaDAO = new PersonaDAO(BaseDeDatos::getInstancia());
-            //$popOverRep = new RepresentantePop($personaDAO);
             $claseConsul = new ClaseConsul(BaseDeDatos::getInstancia());
         
             for($i=0; $i<count($registros); $i++) {
@@ -33,10 +32,9 @@
                 $fechaNacimiento = $estudiante->getFechaNacimiento();
                 $idClase = $estudiante->getIdClase();
                 $cedulaRepresentante = $estudiante->getCedulaRepresentante();
+                $valido = $estudiante->getValido() == 0 ? "Por validar" : "Inscrito";
                 //Informacion clase
                 $nombreClase = $claseConsul->getInstancia(array($idClase))[0]->getDescripcion($idClase);
-
-                //$popRep = $popOverRep->generarPop($cedulaRepresentante, $cedulaRepresentante);
 
                 $html = $html."  
                      <td class=\"output__celda output__celda--centrado\">
@@ -49,13 +47,13 @@
                          $apellido
                      </td>
                      <td class=\"output__celda\">
-                        popRep
-                     </td>
-                     <td class=\"output__celda\">
                         $fechaNacimiento
                      </td>
                      <td class=\"output__celda\">
                         $nombreClase
+                     </td>
+                     <td class=\"output__celda\">
+                        $valido
                      </td>TERMINAACA";
             }
 

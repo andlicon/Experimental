@@ -37,13 +37,13 @@
                            Apellido 
                         </th>
                         <th class=\"output__celda output__celda--header\">
-                           Representante
-                        </th>
-                        <th class=\"output__celda output__celda--header\">
                            Fecha nacimiento
                         </th>
                         <th class=\"output__celda output__celda--header\">
                            Clase
+                        </th>
+                        <th class=\"output__celda output__celda--header\">
+                           Estado
                         </th>
                     </tr>
                 </thead>
