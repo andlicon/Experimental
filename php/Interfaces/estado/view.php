@@ -34,6 +34,9 @@
         <div id="tablaCuenta">
             <script src="../js/estado/genTablaCuenta.js"></script>
         </div>
+        <div id="tablaEstado">
+            <script src="../js/estado/genTablaEstado.js"></script>
+        </div>
         <?php
             // include_once(MENSAJE_PATH.'/imprimirMensaje.php');
             // imprimirMensaje();
