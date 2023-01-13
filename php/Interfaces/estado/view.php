@@ -4,7 +4,7 @@
 <?php
     include_once('../ruta.php');
     include('../funciones/redireccionarPagina.php');
-    include('tablaCuenta.php');
+    // include('tablaCuenta.php');
 
 ?>
 
@@ -31,18 +31,21 @@
         <h1 class="vista__titulo">
             Estado General
         </h1>
+        <div id="tablaCuenta">
+            <script src="../js/estado/genTablaCuenta.js"></script>
+        </div>
         <?php
-            include_once(MENSAJE_PATH.'/imprimirMensaje.php');
-            imprimirMensaje();
+            // include_once(MENSAJE_PATH.'/imprimirMensaje.php');
+            // imprimirMensaje();
 
-            include_once('tablaCuenta.php');
-            tablaCuenta();
+            // include_once('tablaCuenta.php');
+            // tablaCuenta();
 
-            include_once('tablaEstado.php');
-            tablaEstado();
+            // include_once('tablaEstado.php');
+            // tablaEstado();
 
-            include_once('tablaMovimiento.php');
-            tablaMovimiento();
+            // include_once('tablaMovimiento.php');
+            // tablaMovimiento();
         ?>
     </div>
 </body>
