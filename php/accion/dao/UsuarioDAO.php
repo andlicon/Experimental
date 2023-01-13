@@ -102,6 +102,54 @@
             return $usuarios;
         }
 
+        public function getInstanciaSesion(array $parametros) {
+            $consulta = "SELECT * 
+                        FROM usuario
+                        WHERE nickname=? AND contrasena=?";
+            $registros = $this->bd->sql($consulta, $parametros);
+
+            if(!is_array($registros)) {
+                throw new Exception('No existe usuario con dicho nickname.');
+            }
+            
+            $usuarios = [];
+            for($i=0; $i<count($registros); $i++) {
+                $registro = $registros[$i];
+
+                $cedula = $registro['cedula'];
+                $nickname = $registro['nickname'];
+                $contrasena = $registro['contrasena'];
+                $valido = $registro['valido'];
+                $us = new Usuario($cedula, $nickname, $contrasena, $valido);
+
+                $usuarios[] = $us;
+            }
+            
+            return $usuarios;
+        }
+
+        public function getPermisoUsuario(array $cedula) {
+            $consulta = "SELECT t.permisos
+                        FROM persona		p
+                        JOIN tipo_persona	t
+                        ON (p.id_tipo_persona = t.id)
+                        WHERE p.cedula = ?";
+            $registros = $this->bd->sql($consulta, $cedula);
+
+            if(!is_array($registros)) {
+                throw new Exception('No existe usuario valido');
+            }
+            
+            $permiso = 0;
+            for($i=0; $i<count($registros); $i++) {
+                $registro = $registros[$i];
+
+                $permiso = $registro['permisos'];
+            }
+            
+            return $permiso;
+        }
+
         /*
             Retorna a todos los usuarios existentes dentro de la base de datos
         */

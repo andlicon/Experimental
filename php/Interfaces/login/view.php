@@ -14,12 +14,15 @@
     
     <script type="text/javascript" src="../js/cambiarLamina.js"></script>
     <!-- <script type="text/javascript" src="../js/autoEliminar.js"></script> -->
+
+
+    <script src="../js/iniciarSesion.js"></script>
 </head>
 
 <?php
     include_once('../ruta.php');
-    include("evento/comprobarLogin.php");
-    include("evento/registrar.php");
+    // include("evento/comprobarLogin.php");
+    // include("evento/registrar.php");
 ?>
 
 <body class="body-page">
