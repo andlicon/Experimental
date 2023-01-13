@@ -37,19 +37,9 @@
         <div id="tablaEstado">
             <script src="../js/estado/genTablaEstado.js"></script>
         </div>
-        <?php
-            // include_once(MENSAJE_PATH.'/imprimirMensaje.php');
-            // imprimirMensaje();
-
-            // include_once('tablaCuenta.php');
-            // tablaCuenta();
-
-            // include_once('tablaEstado.php');
-            // tablaEstado();
-
-            // include_once('tablaMovimiento.php');
-            // tablaMovimiento();
-        ?>
+        <div id="tablaMovimiento">
+            <script src="../js/estado/genTablaMovimiento.js"></script>
+        </div>
     </div>
 </body>
 </html>

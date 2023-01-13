@@ -1,23 +1,17 @@
 <?php
-    include_once(FUNCIONES_IG_PATH.'popOver/DeudaPop.php');
+    include_once('../../accion/rutaAcciones.php');
+    include_once(POP_PATH.'DeudaPop.php');
     include_once(DAO_PATH.'BaseDeDatos.php');
     include_once(DAO_PATH.'MovimientoConsul.php');
     include_once(DAO_PATH.'DeudaDAO.php');
     include_once(DAO_PATH.'PagoDAO.php');
 
-    //Acá debo hacer que imprima tanto deudas como pago
-        //Cambiar el formato de la tabla para que acepte a ambos.
+    if(isset($_POST['cedula'])) {
+        $cedula = $_POST['cedula'];
 
-    function tablaMovimiento() {
-        $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
-
-        $usuario = deserializarUsuario();
-        $cedula = $usuario->getCedula();
-
-        $movimientoConsul = new MovimientoConsul($bd);
+        $movimientoConsul = new MovimientoConsul(BaseDeDatos::getInstancia());
         $resultados = $movimientoConsul->getInstancia(array($cedula));
 
-        
         $tabla = "
         <div class=\"tabla\">
             <h2 class=\"tabla__titulo\">Movimientos</h2>
@@ -31,7 +25,6 @@
                     </tr>
                 </thead>
                 <tbody>";
-
         for($i=0; $i<count($resultados); $i++) {
             $movimiento = $resultados[$i];
             $referencia = $movimiento->getReferencia();
@@ -50,62 +43,6 @@
             $tabla = $tabla.$fila;
 
         }
-
-                            //C O N S U L T A S
-        // //Informacion de usuario
-        // $pagoDAO = new PagoDAO($bd);
-        // $resultado = $pagoDAO->getTodos(array($cedula));
-
-        // //creara popOvers para estudiantes en cada iteracion
-        // $deudaDAO = new DeudaDAO($bd);
-        // $deudaPop = new DeudaPop($deudaDAO);
-
-        // for($i=0; $i<count($resultado); $i++) {
-        //     //Info Deuda
-        //     $pago = $resultado[0];
-        //     $idPago = $pago->getId();
-        //     $idDeuda = $pago->getIdDeuda();
-        //     $descripcion = "";
-        //     $fecha = $pago->getFecha();
-        //     $monto = $pago->getMonto();
-        //     $valido = $pago->getValido();
-        //     $estado = $valido ? "Confirmado" : "Por confirmar";
-
-        //     //Descripcion
-        //     $resultado = $deudaDAO->getInstancia(array($idDeuda));
-        //     $deuda = $resultado[$i];
-
-        //     $descripcionDeuda = $deuda->getDescripcion();
-        //     $motivoId = $deuda->getidMotivo();
-
-        //     $motivoConsul = new MotivoConsul($bd);
-        //     $mot = $motivoConsul->getInstancia(array($motivoId));
-        //     $motivoDeuda = $mot[0]->getDescripcion();
-
-        //     $descripcion = $descripcionDeuda==null ? $motivoDeuda : $motivoDeuda.': '.$descripcionDeuda;
-
-        //     $pop = $deudaPop->generarPop($idDeuda);
-
-        //     //InfoEstudiante
-
-        //     $fila = "
-        //             <tr class=\"tabla__tr\">
-        //                 <td class=\"tabla__td\">$idPago </td>
-        //                 <td class=\"tabla__td\">$pop</td>
-        //                 <td class=\"tabla__td\">$descripcion</td>
-        //                 <td class=\"tabla__td\">$fecha</td>
-        //                 <td class=\"tabla__td\">$monto</td>
-        //                 <td class=\"tabla__td\">$estado</td>
-        //             </tr>";
-
-        //     $tabla = $tabla.$fila;
-        // }
-
-        $tabla = $tabla."
-                </tbody>
-            </table>
-        </div>
-        ";
 
         echo $tabla;
     }
