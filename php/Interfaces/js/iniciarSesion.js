@@ -12,13 +12,9 @@ $(document).on('click', '#iniciarSesion', function() {
                     alert(respuesta.error);
                 }
                 else {
-                    let jsonString = '{"cedula":' + respuesta.cedula + 
-                                       ',"nickname:"' + respuesta.nickname +
-                                       ',"valido:"' + respuesta.valido +
-                                       ',"permiso:"' + respuesta.permiso;
-                    localStorage.setItem('usuario', jsonString);
+                    localStorage.setItem('usuario', response);
 
-                    
+                    window.location.replace('../inicio/view.php');
                 }
             }
     })
