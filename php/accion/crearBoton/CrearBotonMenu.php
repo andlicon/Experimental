@@ -9,7 +9,7 @@
 
         public function crearBotones() {
             $botones = "";
-            $botones = $botones.$this->crearItem("Inicio", "Inicio");
+            $botones = $botones.$this->crearItem("inicio", "Inicio");
             if($this->permiso==2) {       //PROFESOR
                 $botones = $botones.$this->crearItem("clase", "Clase");
             }

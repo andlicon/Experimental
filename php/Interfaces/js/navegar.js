@@ -6,7 +6,6 @@ $(document).on('click', '.boton--menu', function() {
             type : 'POST',
             data : {pagina: pagina},
             success : function(response) {
-                alert(response);
                 $(location).attr('href', response)
             }
     })
