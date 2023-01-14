@@ -3,11 +3,9 @@
     
 <?php
     include_once('../ruta.php');
-    include('../funciones/redireccionarPagina.php');
-
-    include_once('eventos/consultar-rep.php');
-    include_once('eventos/consultar.php');
-    include_once('eventos/validar.php');
+    // include_once('eventos/consultar-rep.php');
+    // include_once('eventos/consultar.php');
+    // include_once('eventos/validar.php');
 ?>
 
 <head>
@@ -33,10 +31,6 @@
         <h1 class="vista__titulo">
             <script src="TituloPago.js"></script>
         </h1>
-        <?php
-            include_once(MENSAJE_PATH.'/imprimirMensaje.php');
-            imprimirMensaje();
-        ?>
         <!-- Display -->
         <form action="" method="POST" class="display">
             <div class="output">

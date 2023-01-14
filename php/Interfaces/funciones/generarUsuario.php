@@ -1,11 +1,4 @@
 <?php
-    include_once(GENERAL_PATH.'deserializarUsuario.php');
-    include_once(DTO_PATH.'Usuario.php');
-    include_once(DAO_PATH.'BaseDeDatos.php');
-    include_once(DAO_PATH.'TipoPersonaConsul.php');
-    include_once(DAO_PATH.'PersonaDAO.php');
-    include_once(GENERADOR_PATH.'boton/GeneradorBotonMenu.php');
-
     function generarUsuario() {
         echo '<nav class="usuario">
                 <div class="usuario__contenido">

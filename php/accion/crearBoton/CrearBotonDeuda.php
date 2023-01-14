@@ -1,6 +1,7 @@
 <?php 
         include_once('CreadorBoton.php');
-        include_once('../../dao/BaseDeDatos.php');
+        include_once('../rutaAcciones.php');
+        include_once(DAO_PATH.'BaseDeDatos.php');
 
     final class CrearBotonDeuda extends CreadorBoton {
         private $cedula; 
