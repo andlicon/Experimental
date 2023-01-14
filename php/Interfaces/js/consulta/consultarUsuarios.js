@@ -2,8 +2,6 @@ $(document).on('click', '#consultar', function(){
     let pagina = window.location.pathname;
     let usuario = JSON.parse(localStorage.getItem('usuario'));
     let cedula = usuario.cedula;
-    let texto = $(this).val();
-    let infoAdd = $('#consultar+label+select').val();
 
     $.ajax ( {
             url : '../../accion/consultar/Consultar.php',

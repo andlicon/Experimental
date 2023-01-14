@@ -23,6 +23,9 @@
         else if(str_contains($pagina, "deuda") && str_contains($texto, "Consultar")) {
             $consultor = new ConsultarDeudaRep();
         }
+        else if(str_contains($pagina, "") && str_contains($texto, "Consultar")) {
+            $consultor = new ConsultarDeudaRep();
+        }
 
         $consultor->consultar(array($cedula));
     }
