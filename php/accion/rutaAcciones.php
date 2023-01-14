@@ -7,4 +7,6 @@
     define('COMPONENTES_PATH', ROOT_PATH.'/componentes/');  //lleva a componentes
     define('CREADORES_PATH', COMPONENTES_PATH.'/creadores/');  //lleva a componentes
     define('ITEMS_PATH', COMPONENTES_PATH.'/items/');  //lleva a componentes
+    define('PHP_PATH', dirname(ROOT_PATH).'/');  //lleva a componentes
+    define('INTERFAZ_PATH', PHP_PATH.'/interfaces/');  //lleva a componentes
 ?>

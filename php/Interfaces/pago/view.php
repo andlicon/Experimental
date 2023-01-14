@@ -63,3 +63,4 @@
 <script src="../js/modificar/cancelar.js"></script>
 <script src="../js/cargar/cargarPago.js"></script>
 <script src="../js/consulta/consultar.js"></script>
+<script src="../js/navegar.js"></script>
