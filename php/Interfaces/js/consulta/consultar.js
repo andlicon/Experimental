@@ -1,16 +1,14 @@
-$(document).on('click', '.boton[id*="consultar"]', function(){
+$(document).ready(function () {
         let pagina = window.location.pathname;
         let usuario = JSON.parse(localStorage.getItem('usuario'));
         let cedula = usuario.cedula;
-        let texto = $(this).val();
-        let infoAdd = $('consultar+label+select').val();
-
+        let permiso = usuario.permiso;
+    
         $.ajax ( {
                 url : '../../accion/consultar/Consultar.php',
-                type : 'POST',
-                data : {pagina: pagina, cedula: cedula, texto: texto, infoAdd: infoAdd},
-                async: false,
-                success : function(response) {
+            type : 'POST',
+            data : {pagina: pagina, cedula: cedula, permiso: permiso},
+            success : function(response) {
                         var renglones = response.split('TERMINAACA');
                         var html = "";
 
@@ -19,6 +17,6 @@ $(document).on('click', '.boton[id*="consultar"]', function(){
                         }
 
                         $('tbody').html(html);
-                }
+            }
         })
 });
