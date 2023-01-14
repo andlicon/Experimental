@@ -3,11 +3,10 @@
     
 <?php
     include_once('../ruta.php');
-    include('../funciones/redireccionarPagina.php');
-
-    include('evento/consultar.php');
-    include('evento/validez.php');
-    include('evento/eliminar.php');
+    // include('../funciones/redireccionarPagina.php');
+    // include('evento/consultar.php');
+    // include('evento/validez.php');
+    // include('evento/eliminar.php');
 ?>
 
 <head>
@@ -58,3 +57,4 @@
 
 <script src="../js/consulta/consultarUsuarios.js"></script>
 <script src="../js/eliminar.js"></script>
+<script src="../js/navegar.js"></script>

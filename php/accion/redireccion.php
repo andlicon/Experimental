@@ -27,13 +27,16 @@
             $redireccion = "../perfil/view.php";
         }
         else if(str_contains($pagina, "profesor")) {
-            $redireccion = "../profesor/view.php.php";
+            $redireccion = "../profesor/view.php";
         }
         else if(str_contains($pagina, "estudiante")) {
-            $redireccion = "../estudiante/view.phpew.php";
+            $redireccion = "../estudiante/view.php";
         }
         else if(str_contains($pagina, "inicio")) {
             $redireccion = "../inicio/view.php";
+        }
+        else if(str_contains($pagina, "usuarios")) {
+            $redireccion = "../usuarios/view.php";
         }
         else {
             $redireccion = "../login/view.php";

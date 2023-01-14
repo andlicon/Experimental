@@ -3,7 +3,7 @@
 
 <?php
     include_once('../ruta.php');
-    include('../funciones/redireccionarPagina.php');
+    // include('../funciones/redireccionarPagina.php');
 ?>
 
 <head>
@@ -32,3 +32,5 @@
     </div>
 </body>
 </html>
+
+<script src="../js/navegar.js"></script>

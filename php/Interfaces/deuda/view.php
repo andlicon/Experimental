@@ -3,13 +3,13 @@
     
 <?php
     include_once('../ruta.php');
-    include('../funciones/redireccionarPagina.php');
-    include('evento/cargarDeuda.php');
-    include('evento/cargarPago.php');
-    include('evento/eliminarDeuda.php');
-    include('evento/modificarDeuda.php');
-    include('evento/consultar.php');
-    include('evento/consultarRep.php');
+    //include('../funciones/redireccionarPagina.php');
+    // include('evento/cargarDeuda.php');
+    // include('evento/cargarPago.php');
+    // include('evento/eliminarDeuda.php');
+    // include('evento/modificarDeuda.php');
+    // include('evento/consultar.php');
+    // include('evento/consultarRep.php');
 ?>
 
 <head>
@@ -62,6 +62,7 @@
 
 <script src="../js/consulta/consultarDeuda.js"></script>
 <script src="../js/eliminar.js"></script>
+<script src="../js/navegar.js"></script>
 
 <script>
     $(document).ready(function () {

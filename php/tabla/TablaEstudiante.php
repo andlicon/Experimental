@@ -1,17 +1,17 @@
 <?php
     include_once(TABLA_PATH.'/Tabla.php');
-    include_once(DTO_PATH.'/Deuda.php');
-    include_once(DAO_PATH.'DeudaDAO.php');
-    include_once(DAO_PATH.'EstudianteDAO.php');
-    include_once(DTO_PATH.'Motivo.php');
-    include_once(FUNCIONES_IG_PATH.'popOver/RepresentantePop.php');
-    include_once(FUNCIONES_IG_PATH.'popOver/EstudiantePop.php');
-    include_once(INTERFACES_PATH.'/deuda/getDescripcionMotivo.php');
-    include_once(FUNCIONES_IG_PATH.'popOver/RepresentantePop.php');
-    include_once(DAO_PATH.'/BaseDeDatos.php');
-    include_once(DAO_PATH.'/PersonaDAO.php');
-    include_once(DTO_PATH.'/Estudiante.php');
-    include_once('getNombreClase.php');
+    // include_once(DTO_PATH.'/Deuda.php');
+    // include_once(DAO_PATH.'DeudaDAO.php');
+    // include_once(DAO_PATH.'EstudianteDAO.php');
+    // include_once(DTO_PATH.'Motivo.php');
+    // include_once(FUNCIONES_IG_PATH.'popOver/RepresentantePop.php');
+    // include_once(FUNCIONES_IG_PATH.'popOver/EstudiantePop.php');
+    // include_once(INTERFACES_PATH.'/deuda/getDescripcionMotivo.php');
+    // include_once(FUNCIONES_IG_PATH.'popOver/RepresentantePop.php');
+    // include_once(DAO_PATH.'/BaseDeDatos.php');
+    // include_once(DAO_PATH.'/PersonaDAO.php');
+    // include_once(DTO_PATH.'/Estudiante.php');
+    // include_once('getNombreClase.php');
 
     class TablaEstudiante extends Tabla {
 

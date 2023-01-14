@@ -3,12 +3,12 @@
     
 <?php
     include_once('../ruta.php');
-    include('../funciones/redireccionarPagina.php');
-    include('evento/consultar.php');
-    include('evento/consultarAll.php');
-    include('evento/cargarEstu.php');
-    include('evento/modificarEstu.php');
-    include('evento/eliminarEstu.php');
+    // include('../funciones/redireccionarPagina.php');
+    // include('evento/consultar.php');
+    // include('evento/consultarAll.php');
+    // include('evento/cargarEstu.php');
+    // include('evento/modificarEstu.php');
+    // include('evento/eliminarEstu.php');
 ?>
 
 <head>
@@ -35,8 +35,6 @@
             Estudiantes
         </h1>
         <?php
-            include_once(MENSAJE_PATH.'/imprimirMensaje.php');
-            imprimirMensaje();
         ?>
         <!-- Display -->
         <form action="" method="POST" class="display">
@@ -65,6 +63,7 @@
 <script src="../js/consulta/consultar.js"></script>
 <script src="../js/eliminar.js"></script>
 <script src="../js/cargar/cargarEstudiante.js"></script>
+<script src="../js/navegar.js"></script>
 
 <script>
     $(document).ready(function () {
