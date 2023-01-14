@@ -14,8 +14,6 @@ $(document).on('click', '#consultar', function(){
                     var renglones = response.split('TERMINAACA');
                     var html = "";
 
-                    console.log(response);
-
                     for(var i=0; i<renglones.length-1; i++) {
                             html += "<tr>"+renglones[i]+"</tr>";
                     }

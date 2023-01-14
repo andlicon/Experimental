@@ -14,8 +14,6 @@
 
         if(isset($_POST['infoAdd'])) {
             $infoAdd = $_POST['infoAdd'];
-
-            echo $infoAdd;
             
             if(str_contains($pagina, "deuda") && ($permiso==1 || $permiso==3)) {
                 $consultor = new ConsultarDeudaRep();
@@ -29,6 +27,10 @@
         else {
             if(str_contains($pagina, "pago") && ($permiso==1 || $permiso==3)) {
                 $consultor = new ConsultarPagoRep();
+            }
+            else if(str_contains($pagina, "pago") && ($permiso==4)) {
+                //Aún no sé cómo lo nombraré
+                //$consultor = new ConsultarPagoRep();
             }
             else if(str_contains($pagina, "estudiante") && ($permiso==1 || $permiso==3)) {
                 $consultor = new ConsultarEstudiante();

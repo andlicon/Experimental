@@ -1,4 +1,7 @@
 <?php 
+    include_once('../rutaAcciones.php');
+    include_once(DAO_PATH.'PersonaDAO.php');
+    include_once(DAO_PATH.'BaseDeDatos.php');
     include_once('CreadorBoton.php');
 
     final class CrearBotonPago extends CreadorBoton {
@@ -10,12 +13,11 @@
             $botones = '<h2 class="botones__titulo">Acciones</h2>';
             
             if($this->permiso==3 || $this->permiso==1) {  //Profesor y representante - representante
-                $botones = $botones.$this->crearItem("consultar-rep", "deudas no confirmadas");
+                $botones = $botones.$this->crearItem("consultar", "deudas no confirmadas");
                 $botones = $botones.$this->crearItem("cargar", "cargar");
             }
             else if($this->permiso==4) {   //administrador
-                $botones = $botones.$this->crearItemConsulta();
-                $botones = $botones.$this->crearItemValidez();
+                $botones = $botones.$this->crearItemGestionPago();
             }
 
             return $botones;
@@ -43,6 +45,37 @@
                         $item = $item."<option value=\"$cedula\">$cedula - $nombre - $apellido</option>";
 
                     }
+
+            $item = $item.
+                '</select>
+            </div>';
+            return $item;
+        }
+
+        protected function crearItemGestionPago() {
+            $item = 
+            '<div class="input__grupo">';
+            $item = $item.$this->crearItem("consultar", "Consultar");
+            $item = $item.'
+                <label for="validezPagoInput" class="input__label">Validez del pago</label>
+                <select class="input__select" id="validezPagoInput" name="validezPagoInput">
+                    <option value="todos">todos</option>
+                    <option value="validos">validos</option>
+                    <option value="invalidos">invalidos</option>
+                </select>
+                <label for="representanteInput" class="input__label">Representante</label>
+                <select class="input__select" id="representanteInput" name="representanteInput">';
+
+            $personaDAO = new PersonaDAO(BaseDeDatos::getInstancia());
+            $resultados = $personaDAO->getTodosRepresentantes();
+
+            for($i=0; $i<count($resultados); $i++) {
+                $rep = $resultados[$i];
+                $nombre = $rep->getNombre();
+                $apellido = $rep->getApellido();
+                $cedula = $rep->getCedula();
+                $item = $item."<option value=\"$cedula\">$cedula - $nombre - $apellido</option>";
+            }
 
             $item = $item.
                 '</select>
