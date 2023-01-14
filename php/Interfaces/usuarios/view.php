@@ -55,3 +55,6 @@
     </div>
 </body>
 </html>
+
+<script src="../js/consulta/consultarUsuarios.js"></script>
+<script src="../js/eliminar.js"></script>
