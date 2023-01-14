@@ -7,7 +7,7 @@ $(document).on('click', '.boton--menu', function() {
             data : {pagina: pagina},
             success : function(response) {
                 alert(response);
-                $(location).attr('href', "../estudiante/view.php")
+                $(location).attr('href', response)
             }
     })
 });

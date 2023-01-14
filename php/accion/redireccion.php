@@ -35,6 +35,9 @@
         else if(str_contains($pagina, "inicio")) {
             $redireccion = "../inicio/view.php";
         }
+        else {
+            $redireccion = "../login/view.php";
+        }
 
         echo $redireccion;
     }
