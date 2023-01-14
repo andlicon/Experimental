@@ -2,6 +2,7 @@
     include_once('ConsultarPagoRep.php');
     include_once('ConsultarEstudiante.php');
     include_once('ConsultarDeudaRep.php');
+    include_once('ConsultarUsuariosValidez.php');
 
     if(isset($_POST['pagina']) && isset($_POST['cedula']) && 
        isset($_POST['permiso'])) {
@@ -13,10 +14,17 @@
 
         if(isset($_POST['infoAdd'])) {
             $infoAdd = $_POST['infoAdd'];
+
+            echo $infoAdd;
             
             if(str_contains($pagina, "deuda") && ($permiso==1 || $permiso==3)) {
                 $consultor = new ConsultarDeudaRep();
             }
+            else if(str_contains($pagina, "usuarios") && $permiso==4) {
+                $consultor = new ConsultarUsuariosValidez();
+            }
+
+            $cedula = $infoAdd;
         }
         else {
             if(str_contains($pagina, "pago") && ($permiso==1 || $permiso==3)) {

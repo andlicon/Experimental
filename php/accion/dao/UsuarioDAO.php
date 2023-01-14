@@ -170,8 +170,7 @@
                 $nickname = $registro['nickname'];
                 $contrasena = $registro['contrasena'];
                 $valido = $registro['valido'];
-                $idTipoUsuario = $registro['id_tipo_usuario'];
-                $us = new Usuario($cedula, $nickname, $contrasena, $idTipoUsuario);
+                $us = new Usuario($cedula, $nickname, $contrasena,  $valido);
 
                 $usuarios[] = $us;
             }
