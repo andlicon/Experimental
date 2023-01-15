@@ -79,7 +79,8 @@
         public function getInstanciaEstudiante($idEstudiante) {
             $consulta = "SELECT * 
                         FROM deuda
-                        WHERE id_estudiante=?";
+                        WHERE id_estudiante=?
+                                AND deuda>0";
             $registros = $this->bd->sql($consulta, $idEstudiante);
 
             if(empty($registros)) {

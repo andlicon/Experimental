@@ -3,13 +3,6 @@
     
 <?php
     include_once('../ruta.php');
-    //include('../funciones/redireccionarPagina.php');
-    // include('evento/cargarDeuda.php');
-    // include('evento/cargarPago.php');
-    // include('evento/eliminarDeuda.php');
-    // include('evento/modificarDeuda.php');
-    // include('evento/consultar.php');
-    // include('evento/consultarRep.php');
 ?>
 
 <head>

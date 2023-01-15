@@ -21,8 +21,6 @@
             else if(str_contains($pagina, "usuarios") && $permiso==4) {
                 $consultor = new ConsultarUsuariosValidez();
             }
-
-            $cedula = $infoAdd;
         }
         else {
             if(str_contains($pagina, "pago") && ($permiso==1 || $permiso==3)) {
