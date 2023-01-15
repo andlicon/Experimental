@@ -21,6 +21,8 @@ $(document).on('click', '.boton[id*="cargar"]', function(){
                 tipoPago: tipoPago, valido: valido, pagina: pagina},
         success : function(response) {
                 alert(response);
+
+                location.reload();
         }
     });
 });

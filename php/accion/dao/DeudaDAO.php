@@ -84,7 +84,7 @@
             $registros = $this->bd->sql($consulta, $idEstudiante);
 
             if(empty($registros)) {
-                throw new Exception('No existe el representante con dicha cedula');
+                throw new Exception('No existe deuda alguna a dicho estudiante');
             }
 
             $deudas = [];

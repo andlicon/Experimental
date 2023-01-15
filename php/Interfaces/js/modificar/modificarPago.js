@@ -18,12 +18,13 @@ $(document).on('click', '.aceptar', function(){
                 tipoPago: tipoPago, valido: valido},
         success : function(response) {
                 if(response) {
-                    $('#consultar-rep').click();
                     alert("Se ha modficiado el registro con éxito");
                 }
                 else {
                     alert("No se ha podido modificar el registro");
                 }
+
+                location.reload();
         }
     });
     //Ocultar modificables
