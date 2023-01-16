@@ -1,5 +1,5 @@
 <?php
-    include_once('../../../rutaAcciones.php');
+    include_once(__DIR__.'/../../../rutaAcciones.php');
     include_once('CreadorSelect.php');
     include_once(DAO_PATH.'/TipoPagoConsul.php');
 

@@ -68,6 +68,8 @@
 
             $personaDAO = new PersonaDAO(BaseDeDatos::getInstancia());
             $resultados = $personaDAO->getTodosRepresentantes();
+            
+            $item = $item."<option value=\"todos\">todos</option>";
 
             for($i=0; $i<count($resultados); $i++) {
                 $rep = $resultados[$i];

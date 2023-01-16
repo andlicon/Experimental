@@ -3,9 +3,6 @@
     
 <?php
     include_once('../ruta.php');
-    // include_once('eventos/consultar-rep.php');
-    // include_once('eventos/consultar.php');
-    // include_once('eventos/validar.php');
 ?>
 
 <head>
@@ -56,11 +53,10 @@
 </body>
 </html>
 
-
 <script src="../js/eliminar.js"></script>
 <script src="../js/modificar/habilitarModificacion.js"></script>
 <script src="../js/modificar/modificarPago.js"></script>
 <script src="../js/modificar/cancelar.js"></script>
 <script src="../js/cargar/cargarPago.js"></script>
-<script src="../js/consulta/consultar.js"></script>
+<script src="../js/consulta/consultarPago.js"></script>
 <script src="../js/navegar.js"></script>
