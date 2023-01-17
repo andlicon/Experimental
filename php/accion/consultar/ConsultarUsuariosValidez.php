@@ -8,23 +8,27 @@
 
     final class ConsultarUsuariosValidez implements Consultor {
         private $dao;
+        private $validez;
 
-        public function __construct() {
+        public function __construct($validez) {
             $this->dao = new UsuarioDAO(BaseDeDatos::getInstancia());
+            $this->validez = $validez;
         }
 
         public function consultar(array $filtro) {
             $registros;
 
-            if(str_contains($filtro[0], "invalidos")) {
-                $registros = $this->dao->getInstancia(array(0));
-            }
-            else if(str_contains($filtro[0], "validos")) {
-                $registros = $this->dao->getInstanciaValidez(array(1));
-            }
-            else {
+            if(str_contains($this->validez, "todos")) {
+                echo "TODOS";
                 $registros = $this->dao->getTodos();
             }
+            else {
+                $valido = str_contains($this->validez, "invalido") ? 0 : 1;
+                echo $valido;
+                $registros = $this->dao->getInstanciaValidez(array($valido));
+            }
+
+            $html = "";
 
             for($i=0; $i<count($registros); $i++) {
                 $usuario = $registros[$i];

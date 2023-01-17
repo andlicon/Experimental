@@ -3,10 +3,6 @@
     
 <?php
     include_once('../ruta.php');
-    // include('../funciones/redireccionarPagina.php');
-    // include('evento/consultar.php');
-    // include('evento/validez.php');
-    // include('evento/eliminar.php');
 ?>
 
 <head>
