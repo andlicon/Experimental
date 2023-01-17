@@ -58,13 +58,13 @@
             $item = $item.$this->crearItem("consultar", "Consultar");
             $item = $item.'
                 <label for="validezPagoInput" class="input__label">Validez del pago</label>
-                <select class="input__select" id="validezPagoInput" name="validezPagoInput">
+                <select class="input__select consultor" id="validezPagoInput" name="validezPagoInput">
                     <option value="todos">todos</option>
                     <option value="1">validos</option>
                     <option value="0">invalidos</option>
                 </select>
                 <label for="representanteInput" class="input__label">Representante</label>
-                <select class="input__select" id="representanteInput" name="representanteInput">';
+                <select class="input__select consultor"  id="representanteInput" name="representanteInput">';
 
             $personaDAO = new PersonaDAO(BaseDeDatos::getInstancia());
             $resultados = $personaDAO->getTodosRepresentantes();

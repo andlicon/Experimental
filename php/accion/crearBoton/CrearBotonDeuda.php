@@ -35,7 +35,7 @@
             $item = $item.
                 '
                 <label for="representanteInput" class="input__label">Representante(s)</label>
-                <select class="input__select" id="representanteInput" name="representanteInput">
+                <select class="input__select .consultor" id="representanteInput" name="representanteInput">
                     <option value="todos">todos</option>';
 
                     $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
@@ -65,7 +65,7 @@
             $item = $item.
                 '
                 <label for="estudianteInput" class="input__label">Estudiante(s)</label>
-                <select class="input__select" id="estudianteInput" name="estudianteInput">
+                <select class="input__select .consultor" id="estudianteInput" name="estudianteInput">
                     <option value="todos">todos</option>';
 
                     $conn = new PDO("mysql:host=127.0.0.1:3306;dbname=Experimental", "root", "");

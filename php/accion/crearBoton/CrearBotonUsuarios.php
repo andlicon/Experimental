@@ -22,7 +22,7 @@
             $item = $item.
                 '
                 <label for="tipoUsuarioInput" class="input__label">tipoUsuario(s)</label>
-                <select class="input__select" id="tipoUsuarioInput" name="tipoUsuarioInput">
+                <select class="input__select consultor" id="tipoUsuarioInput" name="tipoUsuarioInput">
                     <option value="todos">todos</option>
                     <option value="validos">validos</option>;
                     <option value="invalidos">invalidos</option>';
