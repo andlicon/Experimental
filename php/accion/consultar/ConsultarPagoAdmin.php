@@ -33,11 +33,23 @@
             $selectTipoPago = new CreadorSelectTipoPago();
             $selectCuenta = new CreadorSelectCuenta();
 
-            if(str_contains($cedula[0], "todos")) {
-                $registros = $this->dao->getTodosValidez(array($this->validez));
+            $cedula = $cedula[0];
+
+            if(str_contains($cedula, "todos")) {
+                if(str_contains($this->validez, "todos")) {
+                    $registros = $this->dao->getTodos();
+                }
+                else {
+                    $registros = $this->dao->getInstanciaValidezCedula(array($cedula[0], $this->validez));
+                }
             }
             else {
-                $registros = $this->dao->getInstanciaValidezCedula(array($cedula[0], $this->validez));
+                if(str_contains($this->validez, "todos")) {
+                    $registros = $this->dao->getInstanciaCedula(array($cedula));
+                }
+                else {
+                    $registros = $this->dao->getInstanciaCedulaValidez(array($cedula[0], $this->validez));
+                }
             }
 
             $html = "";

@@ -33,12 +33,11 @@ $(document).on('click', '#consultar', function(){
     let representante = $('#representanteInput').val();
 
     $.ajax ( {
-            url : '../../accion/consultar/Consultar.php',
+        url : '../../accion/consultar/Consultar.php',
         type : 'POST',
         data : {pagina: pagina, cedula: cedula, permiso: permiso, 
             validez: validez, representante: representante},
         success : function(response) {
-                    alert(response);
                     var renglones = response.split('TERMINAACA');
                     var html = "";
 

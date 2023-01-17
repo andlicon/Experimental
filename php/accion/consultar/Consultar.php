@@ -28,13 +28,9 @@
                 $consultor = new ConsultarPagoRep();
             }
             if(str_contains($pagina, "pago") && ($permiso==4)) {
-                echo 'a';
-                die();
                 if(isset($_POST['validez']) && isset($_POST['representante'])) {
-                    echo 'a';
-                    die();
                     $validez = $_POST['validez'];
-                    $representante = $_POST['representante'];
+                    $cedula = $_POST['representante'];
                     $consultor = new ConsultarPagoAdmin($validez);
                 }
             }

@@ -60,8 +60,8 @@
                 <label for="validezPagoInput" class="input__label">Validez del pago</label>
                 <select class="input__select" id="validezPagoInput" name="validezPagoInput">
                     <option value="todos">todos</option>
-                    <option value="validos">validos</option>
-                    <option value="invalidos">invalidos</option>
+                    <option value="1">validos</option>
+                    <option value="0">invalidos</option>
                 </select>
                 <label for="representanteInput" class="input__label">Representante</label>
                 <select class="input__select" id="representanteInput" name="representanteInput">';

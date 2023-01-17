@@ -39,12 +39,12 @@
 
             return $pagos;
         }
-
+        
         public function getInstanciaCedulaValidez(array $cedula) {
             $consulta = "SELECT * 
                         FROM    pago
                         WHERE   cedula=?
-                            AND valido=false";
+                            AND valido=?";
             $registros = $this->bd->sql($consulta, $cedula);
 
             if(empty($registros)) {
