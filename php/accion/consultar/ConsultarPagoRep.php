@@ -31,7 +31,8 @@
             $selectTipoPago = new CreadorSelectTipoPago();
             $selectCuenta = new CreadorSelectCuenta();
 
-            $registros = $this->dao->getInstanciaCedulaValidez($cedula);
+            $cedula = $cedula[0];
+            $registros = $this->dao->getInstanciaCedulaValidez(array($cedula, 0));
 
             $deudaTotal = 0;
             $html = "";
