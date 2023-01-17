@@ -40,15 +40,15 @@
             return $pagos;
         }
         
-        public function getInstanciaCedulaValidez(array $cedula) {
+        public function getInstanciaCedulaValidez(array $parametros) {
             $consulta = "SELECT * 
-                        FROM    pago
-                        WHERE   cedula=?
+                        FROM    pago 
+                        WHERE   cedula=? 
                             AND valido=?";
-            $registros = $this->bd->sql($consulta, $cedula);
+            $registros = $this->bd->sql($consulta, $parametros);
 
             if(empty($registros)) {
-                throw new Exception('No existe pago asociado al id deuda');
+                throw new Exception('No existe pago asociado a la cedula y validez');
             }
 
             $pagos = [];
@@ -86,41 +86,7 @@
 
             $pagos = [];
             for($i=0; $i<count($registros); $i++) {
-                $renglon = $registros[0];
-                
-                $id = $renglon['id'];
-                $idDeuda = $renglon['id_deuda'];
-                $fecha = $renglon['fecha'];
-                $cedula = $renglon['cedula'];
-                $monto = $renglon['monto'];
-                $idCuenta = $renglon['id_cuenta'];
-                $idTipoPago = $renglon['id_tipo_pago'];
-                $ref = $renglon['ref'];
-                $valido = $renglon['valido'];
-                
-                $pag= new Pago($id, $idDeuda, $fecha, $cedula, $monto, 
-                                $idCuenta, $idTipoPago, $ref, $valido);
-                $pagos[] = $pag;
-            }
-
-            return $pagos;
-        }
-
-        public function getInstanciaValidezCedula(array $cedula) {
-            $consulta = "SELECT * 
-                        FROM    pago
-                        WHERE   cedula=?
-                                AND valido=?
-                        ORDER BY valido";
-            $registros = $this->bd->sql($consulta, $cedula);
-
-            if(empty($registros)) {
-                throw new Exception('No existe pago asociado al id deuda');
-            }
-
-            $pagos = [];
-            for($i=0; $i<count($registros); $i++) {
-                $renglon = $registros[0];
+                $renglon = $registros[$i];
                 
                 $id = $renglon['id'];
                 $idDeuda = $renglon['id_deuda'];
@@ -183,7 +149,7 @@
 
             $pagos = [];
             for($i=0; $i<count($registros); $i++) {
-                $renglon = $registros[0];
+                $renglon = $registros[$i];
                 $id = $renglon['id'];
                 $idDeuda = $renglon['id_deuda'];
                 $fecha = $renglon['fecha'];
@@ -215,7 +181,7 @@
 
             $pagos = [];
             for($i=0; $i<count($registros); $i++) {
-                $renglon = $registros[0];
+                $renglon = $registros[$i];
                 $id = $renglon['id'];
                 $idDeuda = $renglon['id_deuda'];
                 $fecha = $renglon['fecha'];

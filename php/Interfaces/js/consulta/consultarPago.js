@@ -38,6 +38,7 @@ $(document).on('click', '#consultar', function(){
         data : {pagina: pagina, cedula: cedula, permiso: permiso, 
             validez: validez, representante: representante},
         success : function(response) {
+                    console.log(response);
                     var renglones = response.split('TERMINAACA');
                     var html = "";
 

@@ -40,7 +40,7 @@
                     $registros = $this->dao->getTodos();
                 }
                 else {
-                    $registros = $this->dao->getInstanciaValidezCedula(array($cedula[0], $this->validez));
+                    $registros = $this->dao->getTodosValidez(array($this->validez));
                 }
             }
             else {
@@ -48,7 +48,7 @@
                     $registros = $this->dao->getInstanciaCedula(array($cedula));
                 }
                 else {
-                    $registros = $this->dao->getInstanciaCedulaValidez(array($cedula[0], $this->validez));
+                    $registros = $this->dao->getInstanciaCedulaValidez(array($cedula, $this->validez));
                 }
             }
 
