@@ -7,9 +7,8 @@ $(document).on('click', '.aceptar', function(){
     var cuenta = $('#tipoCuentaInput'+id).val();
     var tipoPago = $('#tipoPagoInput'+id).val();
     var referencia = $('#referenciaInput'+id).val();
-    var valido = 0;
-
-    //Enviar la informacion a php
+    var valido = $('#estadoInput'+id).val().includes("por confirmar") ? 0 : 1;
+    
     $.ajax ( {
         url : '../../accion/modificar/ModificarPago.php',
         type : 'POST',

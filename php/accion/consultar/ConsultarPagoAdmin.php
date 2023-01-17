@@ -114,7 +114,7 @@
                     <input id=\"referenciaInput$id\" type=\"text\" value=\"$referencia\" disabled class=\"modificable modificable$id ocultar\">
                 </td>
                 <td class=\"output__celda\">
-                    <span class=\"modificable\">$estado</span>
+                <input type=\"text\" id=\"estadoInput$id\"class=\"modificable\" value=\"$estado\" disabled/>
                 </td>
                 <td class=\"output__celda\">
                     $eliminador

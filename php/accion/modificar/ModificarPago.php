@@ -16,6 +16,6 @@
         $pagoDAO = new PagoDAO(BaseDeDatos::getInstancia());
         $pagoDAO->modificar(array($idDeuda, $fecha, $monto, $cuenta, $tipoPago, $referencia, $valido, $id));
 
-        echo(true);
+        echo "true";
     }
 ?>
