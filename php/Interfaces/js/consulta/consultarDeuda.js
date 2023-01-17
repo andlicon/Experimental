@@ -1,31 +1,71 @@
-$(document).on('click', '#consultar', function(){
-    let pagina = window.location.pathname;
-    let usuario = JSON.parse(localStorage.getItem('usuario'));
-    let permiso = usuario.permiso
-    let cedula = usuario.cedula;
-    let infoAdd = $('#consultar+label+select').val();
-
-    $.ajax ( {
-            url : '../../accion/consultar/Consultar.php',
-            type : 'POST',
-            data : {pagina: pagina, cedula: cedula, permiso: permiso, infoAdd: infoAdd},
-            async: false,
-            success : function(response) {
-                if(response.search("XXvacioXX") == -1) {
-                        var renglones = response.split('TERMINAACA');
-                        var html = "";
-
-                        for(var i=0; i<renglones.length-1; i++) {
-                                html += "<tr>"+renglones[i]+"</tr>";
+$(function(){
+        setTimeout(() => {
+                let pagina = window.location.pathname;
+                let usuario = JSON.parse(localStorage.getItem('usuario'));
+                let permiso = usuario.permiso
+                let cedula = permiso==4 ? $('#representanteInput').val() : usuario.cedula;
+                let infoAdd = $('#consultar+label+select').val();
+                        
+                $.ajax ( {
+                        url : '../../accion/consultar/Consultar.php',
+                        type : 'POST',
+                        data : {pagina: pagina, cedula: cedula, permiso: permiso, infoAdd: infoAdd},
+                        async: false,
+                        success : function(response) {
+                            var renglones = response.split('TERMINAACA');
+                        
+                            let htmlContenido = "";
+                            let deudaTotal = "";
+                        
+                            if(renglones.length > 1 ) {
+                                    var html = "";
+                                
+                                    for(var i=0; i<renglones.length-1; i++) {
+                                            html += "<tr>"+renglones[i]+"</tr>";
+                                    }
+                            
+                                    htmlContenido = html;
+                                    deudaTotal = renglones[renglones.length-1];
+                            }
+                            
+                            $('tbody').html(htmlContenido);
+                            $('.deuda__span').html(deudaTotal);
                         }
-
-                        $('tbody').html(html);
-                        console.log(renglones[renglones.length-1]);
-                        $('.deuda__span').html(renglones[renglones.length-1]);
-                }
-                else {
-                        $('tbody').html("");
-                }
-            }
-    })
+                })
+        }, 300);
 });
+
+$(document).change(function(){
+        let pagina = window.location.pathname;
+        let usuario = JSON.parse(localStorage.getItem('usuario'));
+        let permiso = usuario.permiso
+        let cedula = permiso==4 ? $('#representanteInput').val() : usuario.cedula;
+        let infoAdd = $('#consultar+label+select').val();
+    
+        $.ajax ( {
+                url : '../../accion/consultar/Consultar.php',
+                type : 'POST',
+                data : {pagina: pagina, cedula: cedula, permiso: permiso, infoAdd: infoAdd},
+                async: false,
+                success : function(response) {
+                    var renglones = response.split('TERMINAACA');
+    
+                    let htmlContenido = "";
+                    let deudaTotal = "";
+    
+                    if(renglones.length > 1 ) {
+                            var html = "";
+    
+                            for(var i=0; i<renglones.length-1; i++) {
+                                    html += "<tr>"+renglones[i]+"</tr>";
+                            }
+    
+                            htmlContenido = html;
+                            deudaTotal = renglones[renglones.length-1];
+                    }
+                    
+                    $('tbody').html(htmlContenido);
+                    $('.deuda__span').html(deudaTotal);
+                }
+        })
+    });

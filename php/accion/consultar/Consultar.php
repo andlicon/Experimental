@@ -19,6 +19,9 @@
             if(str_contains($pagina, "deuda") && ($permiso==1 || $permiso==3)) {
                 $consultor = new ConsultarDeudaRep();
             }
+            else if(str_contains($pagina, "deuda") && $permiso==4) {
+                $consultor = new ConsultarDeudaRep();
+            }
             else if(str_contains($pagina, "usuarios") && $permiso==4) {
                 $consultor = new ConsultarUsuariosValidez($infoAdd);
             }
