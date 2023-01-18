@@ -17,11 +17,8 @@
             
             if($this->permiso==4) {  //ADMINISTRADOR
                 $botones = $botones.$this->crearItemConsulta();
-                $botones = $botones.$this->crearItem("modificar", "modificar");
-                $botones = $botones.$this->crearItem("eliminar", "eliminar");
-                $botones = $botones.$this->crearItem("cargar", "cargar");
             }
-            else if($this->permiso==1 || $this->permiso==2) {  //ADMINISTRADOR
+            else if($this->permiso==1 || $this->permiso==2) {  //REPRESENTANTE
                 $botones = $botones.$this->crearItemConsultaEstudiante();
             }
 
@@ -31,11 +28,11 @@
         protected function crearItemConsulta() {
             $item = 
             '<div class="input__grupo">';
-            $item = $item.$this->crearItem("consultar", "Consultar");;
+            $item = $item.$this->crearItem("consultar", "Consultar");
             $item = $item.
                 '
                 <label for="representanteInput" class="input__label">Representante(s)</label>
-                <select class="input__select .consultor" id="representanteInput" name="representanteInput">
+                <select class="input__select consultor" id="representanteInput" name="representanteInput">
                     <option value="todos">todos</option>';
 
                     $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
@@ -54,6 +51,12 @@
 
             $item = $item.
                 '</select>
+                <label for="tipoDeudaInput">deuda</label>
+                <select class="input__select consultor" id="tipoDeudaInput">
+                    <option value="todas">todas</option>
+                    <option value="saldadas">saldadas</option>
+                    <option value="vigentes">vigentes</option>
+                </select>
             </div>';
             return $item;
         }
@@ -65,7 +68,7 @@
             $item = $item.
                 '
                 <label for="estudianteInput" class="input__label">Estudiante(s)</label>
-                <select class="input__select .consultor" id="estudianteInput" name="estudianteInput">
+                <select class="input__select consultor" id="estudianteInput" name="estudianteInput">
                     <option value="todos">todos</option>';
 
                     $conn = new PDO("mysql:host=127.0.0.1:3306;dbname=Experimental", "root", "");
