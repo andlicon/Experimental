@@ -21,7 +21,6 @@ $(function(){
                         data : {pagina: pagina, cedula: cedula, permiso: permiso, infoAdd: infoAdd},
                         async: false,
                         success : function(response) {
-                                alert(response);
                                 var renglones = response.split('TERMINAACA');
                         
                                 let htmlContenido = "";
@@ -69,25 +68,24 @@ $(function() {
                         data : {pagina: pagina, cedula: cedula, permiso: permiso, infoAdd: infoAdd},
                         async: false,
                         success : function(response) {
-                                alert(response);
-                            var renglones = response.split('TERMINAACA');
+                                var renglones = response.split('TERMINAACA');
     
-                            let htmlContenido = "";
-                            let deudaTotal = "";
-    
-                            if(renglones.length > 1 ) {
-                                    var html = "";
-    
-                                    for(var i=0; i<renglones.length-1; i++) {
-                                            html += "<tr>"+renglones[i]+"</tr>";
-                                    }
-    
-                                    htmlContenido = html;
-                                    deudaTotal = renglones[renglones.length-1];
-                            }
+                                let htmlContenido = "";
+                                let deudaTotal = "";
+                                
+                                if(renglones.length > 1 ) {
+                                        var html = "";
+                                
+                                        for(var i=0; i<renglones.length-1; i++) {
+                                                html += "<tr>"+renglones[i]+"</tr>";
+                                        }
+                                    
+                                        htmlContenido = html;
+                                        deudaTotal = renglones[renglones.length-1];
+                                }
 
-                            $('tbody').html(htmlContenido);
-                            $('.deuda__span').html(deudaTotal);
+                                $('tbody').html(htmlContenido);
+                                $('.deuda__span').html(deudaTotal);
                         }
                 })
             });

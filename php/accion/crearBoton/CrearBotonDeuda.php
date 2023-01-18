@@ -28,7 +28,6 @@
         protected function crearItemConsulta() {
             $item = 
             '<div class="input__grupo">';
-            $item = $item.$this->crearItem("consultar", "Consultar");
             $item = $item.
                 '
                 <label for="representanteInput" class="input__label">Representante(s)</label>
@@ -63,7 +62,6 @@
         protected function crearItemConsultaEstudiante() {
             $item = 
             '<div class="input__grupo">';
-            $item = $item.$this->crearItem("consultar", "Consultar");;
             $item = $item.
                 '
                 <label for="estudianteInput" class="input__label">Estudiante(s)</label>

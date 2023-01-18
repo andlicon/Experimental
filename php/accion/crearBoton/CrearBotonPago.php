@@ -13,7 +13,7 @@
             $botones = '<h2 class="botones__titulo">Acciones</h2>';
             
             if($this->permiso==3 || $this->permiso==1) {  //Profesor y representante - representante
-                $botones = $botones.$this->crearItem("consultar", "deudas no confirmadas");
+                // $botones = $botones.$this->crearItem("consultar", "deudas no confirmadas");
                 $botones = $botones.$this->crearItem("cargar", "cargar");
             }
             else if($this->permiso==4) {   //administrador
@@ -26,7 +26,7 @@
         protected function crearItemConsulta() {
             $item = 
             '<div class="input__grupo">';
-            $item = $item.$this->crearItem("consultar", "Consultar");;
+            // $item = $item.$this->crearItem("consultar", "Consultar");
             $item = $item.'
                 <label for="representanteInput" class="input__label">Representante(s)</label>
                 <select class="input__select" id="representanteInput" name="representanteInput">
@@ -55,7 +55,7 @@
         protected function crearItemGestionPago() {
             $item = 
             '<div class="input__grupo">';
-            $item = $item.$this->crearItem("consultar", "Consultar");
+            // $item = $item.$this->crearItem("consultar", "Consultar");
             $item = $item.'
                 <label for="validezPagoInput" class="input__label">Validez del pago</label>
                 <select class="input__select consultor" id="validezPagoInput" name="validezPagoInput">

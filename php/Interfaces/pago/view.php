@@ -30,6 +30,11 @@
         </h1>
         <!-- Display -->
         <form action="" method="POST" class="display">
+            <div class="botones">
+                <div id="botones">
+                    <script src="../js/menu/crearBoton.js"></script>;
+                </div>
+            </div>
             <div class="output">
                 <?php
                     include_once(TABLA_PATH.'/TablaPago.php');
@@ -37,12 +42,6 @@
                     $tabla->crearTabla();
                 ?>
             </div>
-            <div class="botones">
-                <div id="botones">
-                    <script src="../js/menu/crearBoton.js"></script>;
-                </div>
-            </div>
-
             <div class="input">
                 <div id="input">
                     <script src="../js/menu/crearInput.js"></script>;

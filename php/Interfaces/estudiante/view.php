@@ -3,12 +3,6 @@
     
 <?php
     include_once('../ruta.php');
-    // include('../funciones/redireccionarPagina.php');
-    // include('evento/consultar.php');
-    // include('evento/consultarAll.php');
-    // include('evento/cargarEstu.php');
-    // include('evento/modificarEstu.php');
-    // include('evento/eliminarEstu.php');
 ?>
 
 <head>
@@ -38,17 +32,17 @@
         ?>
         <!-- Display -->
         <form action="" method="POST" class="display">
+            <div class="botones">
+                <div id="botones">
+                    <script src="../js/menu/crearBoton.js"></script>;
+                </div>
+            </div>
             <div class="output">
                 <?php
                     include_once(TABLA_PATH.'/TablaEstudiante.php');
                     $tabla = new TablaEstudiante();
                     $tabla->crearTabla();
                 ?>
-            </div>
-            <div class="botones">
-                <div id="botones">
-                    <script src="../js/menu/crearBoton.js"></script>;
-                </div>
             </div>
             <div class="input">
                 <div id="input">
@@ -67,7 +61,6 @@
 
 <script>
     $(document).ready(function () {
-    //change selectboxes to selectize mode to be searchable
         $('#representanteInput').select2();
     });
 </script>
