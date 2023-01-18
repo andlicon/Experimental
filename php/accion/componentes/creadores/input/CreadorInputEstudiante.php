@@ -17,6 +17,7 @@
 
             $html = 
                 "
+                <input class=\"boton\" id=\"cargar\" value=\"cargar\" />
                 <div class=\"contenido__bloque\">
 	                <label for=\"nombreInput\">Nombre</label>
 	                <input type=\"text\" id=\"nombreInput\">

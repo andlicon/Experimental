@@ -24,6 +24,7 @@
 
             $html = 
                 "
+                <input class=\"boton\" id=\"cargar\" value=\"cargar\" />
                 <div class=\"contenido__bloque\">
 	                <label>Deuda</label>
 	                $selectDeuda

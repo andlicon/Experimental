@@ -12,17 +12,26 @@ $(document).on('click', '.boton[id*="cargar"]', function(){
     var usuario = JSON.parse(localStorage.getItem('usuario'));
     var cedula = usuario.cedula;
 
-    //Enviar la informacion a php
-    $.ajax ( {
-        url : '../../accion/cargar/CargarJs.php',
-        type : 'POST',
-        data : {idDeuda: idDeuda, fecha: fecha, cedula: cedula,
-                monto: monto, referencia: referencia, cuenta: cuenta,
-                tipoPago: tipoPago, valido: valido, pagina: pagina},
-        success : function(response) {
-                alert(response);
+    let seguir = confirm("Seguro que desea cargar el pago con los siguientes datos:\n" + 
+            "Referencia deuda: D" + idDeuda + "\n" +
+            "Fecha: " + fecha + "\n" +
+            "Cuenta: " + cuenta + "\n" +
+            "Tipo Pago: " + tipoPago + "\n" +
+            "Referencia: " + referencia + "\n");
 
-                location.reload();
-        }
-    });
+    //Enviar la informacion a php
+    if(seguir) {
+        $.ajax ( {
+            url : '../../accion/cargar/CargarJs.php',
+            type : 'POST',
+            data : {idDeuda: idDeuda, fecha: fecha, cedula: cedula,
+                    monto: monto, referencia: referencia, cuenta: cuenta,
+                    tipoPago: tipoPago, valido: valido, pagina: pagina},
+            success : function(response) {
+                    alert(response);
+    
+                    location.reload();
+            }
+        });
+    }
 });
