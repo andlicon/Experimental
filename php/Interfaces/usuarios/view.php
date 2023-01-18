@@ -34,17 +34,17 @@
         ?>
         <!-- Display -->
         <form action="" method="POST" class="display">
+            <div class="botones">
+                <div id="botones">
+                    <script src="../js/menu/crearBoton.js"></script>;
+                </div>
+            </div>
             <div class="output">
                 <?php
                     include_once(TABLA_PATH.'/TablaUsuarios.php');
                     $tabla = new TablaUsuarios();
                     $tabla->crearTabla();
                 ?>
-            </div>
-            <div class="botones">
-                <div id="botones">
-                    <script src="../js/menu/crearBoton.js"></script>;
-                </div>
             </div>
         </form>
     </div>

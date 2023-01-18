@@ -13,7 +13,7 @@
         }
 
         public function crearBotones() {
-            $botones = '<h2 class="botones__titulo">Acciones</h2>';
+            $botones = '<h2 class="botones__titulo">Consultar</h2>';
             
             if($this->permiso==4) {  //ADMINISTRADOR
                 $botones = $botones.$this->crearItemConsulta();
@@ -49,7 +49,7 @@
 
             $item = $item.
                 '</select>
-                <label for="tipoDeudaInput">deuda</label>
+                <label for="tipoDeudaInput">Tipio Deuda</label>
                 <select class="input__select consultor" id="tipoDeudaInput">
                     <option value="todas">todas</option>
                     <option value="saldadas">saldadas</option>

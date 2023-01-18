@@ -7,8 +7,9 @@
         }
 
         public function crearBotones() {
-            $botones = '<h2 class="botones__titulo">Acciones</h2>';
+            $botones = "";
             if($this->permiso==4) {  //ADMINISTRADOR
+                $botones = $botones.'<h2 class="botones__titulo">Consultar</h2>';
                 $botones = $botones.$this->crearItemConsultatipoUsuario();
             }
 
@@ -18,10 +19,10 @@
         protected function crearItemConsultatipoUsuario() {
             $item = 
             '<div class="input__grupo">';
-            $item = $item.$this->crearItem("consultar", "Consultar");;
+            // $item = $item.$this->crearItem("consultar", "Consultar");
             $item = $item.
                 '
-                <label for="tipoUsuarioInput" class="input__label">tipoUsuario(s)</label>
+                <label for="tipoUsuarioInput" class="input__label">Tipo Usuario(s)</label>
                 <select class="input__select consultor" id="tipoUsuarioInput" name="tipoUsuarioInput">
                     <option value="todos">todos</option>
                     <option value="validos">validos</option>;
