@@ -46,7 +46,6 @@
                         $cedula = $rep->getCedula();
 
                         $item = $item."<option value=\"$cedula\">$cedula - $nombre - $apellido</option>";
-
                     }
 
             $item = $item.

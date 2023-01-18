@@ -4,7 +4,10 @@
     include_once('ConsultarDeudaRep.php');
     include_once('ConsultarUsuariosValidez.php');
     include_once('ConsultarPagoAdmin.php');
-    
+    include_once('ConsultarDeudaAdmin.php');
+
+    echo 'ta';
+
     if(isset($_POST['pagina']) && isset($_POST['cedula']) && 
        isset($_POST['permiso'])) {
         $pagina = $_POST['pagina'];
@@ -20,7 +23,7 @@
                 $consultor = new ConsultarDeudaRep();
             }
             else if(str_contains($pagina, "deuda") && $permiso==4) {
-                $consultor = new ConsultarDeudaRep();
+                $consultor = new ConsultarDeudaAdmin();
             }
             else if(str_contains($pagina, "usuarios") && $permiso==4) {
                 $consultor = new ConsultarUsuariosValidez($infoAdd);
