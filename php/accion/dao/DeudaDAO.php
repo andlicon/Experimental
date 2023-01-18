@@ -296,6 +296,39 @@
             return $deudas;
         }
 
+        public function getInstanciaDeudaSaldadaCedula($cedula) {
+            $consulta = "SELECT * 
+                        FROM deuda
+                        WHERE cedula_representante=?
+                            AND deuda<=0";
+            $registros = $this->bd->sql($consulta, $cedula);
+
+            if(empty($registros)) {
+                throw new Exception('No existe ninguna deuda saldada.');
+            }
+
+            $deudas = [];
+            for($i=0; $i<count($registros); $i++) {
+                $deuda = $registros[$i];
+
+                $id = 0;
+                $cedula = $deuda['cedula_representante'];
+                $idEstudiante = $deuda['id_estudiante'];
+                $fecha = $deuda['fecha'];
+                $idMotivo = $deuda['id_motivo'];
+                $descripcion = $deuda['descripcion'];
+                $montoInicial = $deuda['monto_inicial'];
+                $montoEstado = $deuda['monto_estado'];
+                $deuda = $deuda['deuda'];
+                
+                $deb= new Deuda($id, $cedula, $idEstudiante, $idMotivo, $descripcion, 
+                                $fecha, $montoInicial, $montoEstado, $deuda);
+                $deudas[] = $deb;
+            }
+            
+            return $deudas;
+        }
+
         public function getInstanciaDeudaVigente() {
             $consulta = "SELECT * 
                         FROM deuda
@@ -328,10 +361,75 @@
             return $deudas;
         }
 
+        public function getInstanciaDeudaVigenteCedula($cedula) {
+            $consulta = "SELECT * 
+                        FROM deuda
+                        WHERE cedula_representante=?
+                            AND deuda>0";
+            $registros = $this->bd->sql($consulta, $cedula);
+            
+            if(empty($registros)) {
+                throw new Exception('No existe el representante con dicha cedula');
+            }
+
+            $deudas = [];
+            for($i=0; $i<count($registros); $i++) {
+                $deuda = $registros[$i];
+
+                $id = 0;
+                $cedula = $deuda['cedula_representante'];
+                $idEstudiante = $deuda['id_estudiante'];
+                $fecha = $deuda['fecha'];
+                $idMotivo = $deuda['id_motivo'];
+                $descripcion = $deuda['descripcion'];
+                $montoInicial = $deuda['monto_inicial'];
+                $montoEstado = $deuda['monto_estado'];
+                $deuda = $deuda['deuda'];
+                
+                $deb= new Deuda($id, $cedula, $idEstudiante, $idMotivo, $descripcion, 
+                                $fecha, $montoInicial, $montoEstado, $deuda);
+                $deudas[] = $deb;
+            }
+            
+            return $deudas;
+        }
+
         public function getInstanciaDeudaTodas() {
             $consulta = "SELECT * 
                         FROM deuda";
             $registros = $this->bd->sql($consulta, null);
+            
+            if(empty($registros)) {
+                throw new Exception('No existe el representante con dicha cedula');
+            }
+
+            $deudas = [];
+            for($i=0; $i<count($registros); $i++) {
+                $deuda = $registros[$i];
+
+                $id = 0;
+                $cedula = $deuda['cedula_representante'];
+                $idEstudiante = $deuda['id_estudiante'];
+                $fecha = $deuda['fecha'];
+                $idMotivo = $deuda['id_motivo'];
+                $descripcion = $deuda['descripcion'];
+                $montoInicial = $deuda['monto_inicial'];
+                $montoEstado = $deuda['monto_estado'];
+                $deuda = $deuda['deuda'];
+                
+                $deb= new Deuda($id, $cedula, $idEstudiante, $idMotivo, $descripcion, 
+                                $fecha, $montoInicial, $montoEstado, $deuda);
+                $deudas[] = $deb;
+            }
+            
+            return $deudas;
+        }
+
+        public function getInstanciaDeudaTodasCedula($cedula) {
+            $consulta = "SELECT * 
+                        FROM deuda
+                        WHERE cedula_representante=?";
+            $registros = $this->bd->sql($consulta, $cedula);
             
             if(empty($registros)) {
                 throw new Exception('No existe el representante con dicha cedula');

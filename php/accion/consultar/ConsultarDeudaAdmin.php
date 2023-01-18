@@ -23,9 +23,6 @@
 
             $infoAdd = $_POST['infoAdd'];
 
-            echo "$cedula $infoAdd";
-
-
             if(str_contains($cedula, "todos")) {
                 if(str_contains($infoAdd, "todas")) {
                     $registros = $this->dao->getInstanciaDeudaTodas();
@@ -38,14 +35,17 @@
                 }
             }
             else {
-                if($_POST['infoAdd'] != "todas") {
-                    $registros = $this->dao->getInstanciaEstudiante(array($_POST['infoAdd']));
+                if(str_contains($infoAdd, "todas")) {
+                    //CÉDULA xXx    deuda TODAS
+                    $registros = $this->dao->getInstanciaDeudaTodasCedula(array($cedula));
                 }
-                else if($_POST['infoAdd'] != "saldadas") {
-                    $registros = $this->dao->getInstanciaEstudiante(array($_POST['infoAdd']));
+                else if(str_contains($infoAdd, "saldadas")) {
+                    //CÉDULA xXx    deuda<=0
+                    $registros = $this->dao->getInstanciaDeudaSaldadaCedula(array($cedula));
                 }
                 else {
-                    $registros = $this->dao->getInstanciaEstudiante(array($_POST['infoAdd']));
+                    //CÉDULA xXx    deuda>0
+                    $registros = $this->dao->getInstanciaDeudaVigenteCedula(array($cedula));
                 }
             }
 
