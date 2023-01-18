@@ -36,15 +36,12 @@
             }
             else {
                 if(str_contains($infoAdd, "todas")) {
-                    //CÉDULA xXx    deuda TODAS
                     $registros = $this->dao->getInstanciaDeudaTodasCedula(array($cedula));
                 }
                 else if(str_contains($infoAdd, "saldadas")) {
-                    //CÉDULA xXx    deuda<=0
                     $registros = $this->dao->getInstanciaDeudaSaldadaCedula(array($cedula));
                 }
                 else {
-                    //CÉDULA xXx    deuda>0
                     $registros = $this->dao->getInstanciaDeudaVigenteCedula(array($cedula));
                 }
             }
