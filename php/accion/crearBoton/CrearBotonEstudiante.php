@@ -10,6 +10,11 @@
             $botones = '';
             if($this->permiso==4) {
                 $botones = $botones.'<h2 class="botones__titulo">Consultar</h2>';
+                $botones = $botones.'<div class="input__grupo">';
+                $botones = $botones.$this->crearItemValidez();
+                $botones = $botones.$this->itemConsultaRepresentante();
+                $botones = $botones.$this->itemClase();
+                $botones = $botones.'</div>';
             }
 
             return $botones;

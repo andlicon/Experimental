@@ -1,4 +1,8 @@
 <?php
+    include_once(__DIR__.'/../rutaAcciones.php');
+    include_once(DAO_PATH.'/ClaseConsul.php');
+    include_once(DAO_PATH.'/PersonaDAO.php');
+
     abstract class CreadorBoton {
         protected $permiso;
 
@@ -33,16 +37,78 @@
         protected function crearItemValidez() {
             $item = 
             '<div class="input__grupo">';
-            $item = $item.$this->crearItem("validez", "Validar");;
+            // $item = $item.$this->crearItem("validez", "Validar");
             $item = $item.
                 '
                 <label for="validezInput" class="input__label">Validez</label>
                 <select class="input__select" id="validezInput" name="validezInput">
-                    <option value="1">valido</option>
-                    <option value="0">invalido</option>';
+                    <option value="todos">Todos</option>
+                    <option value="1">Valido</option>
+                    <option value="0">Invalido</option>';
             $item = $item.
                 '</select>
             </div>';
+            return $item;
+        }
+
+        protected function itemConsultaRepresentante() {
+            $item = 
+                '
+                <label for="representanteInput" class="input__label">Representante(s)</label>
+                <select class="input__select consultor" id="representanteInput" name="representanteInput">
+                    <option value="todos">todos</option>';
+
+                    $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
+                    $personaDAO = new PersonaDAO($bd);
+                    $resultados = $personaDAO->getTodosRepresentantes();
+
+                    for($i=0; $i<count($resultados); $i++) {
+                        $rep = $resultados[$i];
+                        $nombre = $rep->getNombre();
+                        $apellido = $rep->getApellido();
+                        $cedula = $rep->getCedula();
+
+                        $item = $item."<option value=\"$cedula\">$cedula - $nombre - $apellido</option>";
+                    }
+
+            $item = $item.
+                '</select>';
+
+            return $item;
+        }
+
+        protected function itemDeuda() {
+            return  
+                "<label for=\"tipoDeudaInput\">Tipio Deuda</label>
+            <select class=\"input__select consultor\" id=\"tipoDeudaInput\">
+                <option value=\"todas\">todas</option>
+                <option value=\"saldadas\">saldadas</option>
+                <option value=\"vigentes\">vigentes</option>
+            </select>";
+        }
+
+        protected function itemClase() {
+            $item = 
+                '
+                <label for="representanteInput" class="input__label">Representante(s)</label>
+                <select class="input__select consultor" id="representanteInput" name="representanteInput">
+                    <option value="todos">todos</option>';
+
+                    $personaDAO = new ClaseConsul(BaseDeDatos::getInstancia());
+                    $resultados = $personaDAO->getTodos();
+
+                    for($i=0; $i<count($resultados); $i++) {
+                        $rep = $resultados[$i];
+                        $id = $rep->getId();
+                        $descripcion = $rep->getDescripcion();
+                        $salon = $rep->getSalon();
+
+                        $item = $item."<option value=\"$id\">$id - $descripcion - $salon</option>";
+                    }
+
+            $item = $item.
+                '</select>';
+
             return $item;
         }
     }

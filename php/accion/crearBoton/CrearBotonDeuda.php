@@ -14,13 +14,15 @@
 
         public function crearBotones() {
             $botones = '<h2 class="botones__titulo">Consultar</h2>';
-            
+            $botones = $botones.'<div class="input__grupo">';
             if($this->permiso==4) {  //ADMINISTRADOR
-                $botones = $botones.$this->crearItemConsulta();
+                $botones = $botones.$this->itemConsultaRepresentante();
+                $botones = $botones.$this->itemDeuda();
             }
             else if($this->permiso==1 || $this->permiso==2) {  //REPRESENTANTE
                 $botones = $botones.$this->crearItemConsultaEstudiante();
             }
+            $botones = $botones."</div>";
 
             echo $botones;
         }
