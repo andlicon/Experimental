@@ -12,6 +12,7 @@ class TablaUsuarios extends Tabla {
                     <col class=\"output__col output__col--apellido\">
                     <col class=\"output__col output__col--tipo\">
                     <col class=\"output__col output__col--contacto\">
+                    <col class=\"output__col output__col--acciones\">
                 </colgroup>
                 <thead class=\"output__header\">
                     <tr class=\"output__renglon\">
@@ -32,6 +33,9 @@ class TablaUsuarios extends Tabla {
                         </th>
                         <th class=\"output__celda output__celda--header\">
                            Valido
+                        </th>
+                        <th class=\"output__celda output__celda--header\">
+                           Acciones
                         </th>
                     </tr>
                 </thead>

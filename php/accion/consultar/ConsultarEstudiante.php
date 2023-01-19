@@ -36,22 +36,33 @@
                 //Informacion clase
                 $nombreClase = $claseConsul->getInstancia(array($idClase))[0]->getDescripcion($idClase);
 
+                $eliminador = "<input type=\"button\" class=\"eliminar\" value=\"$idEstudiante\">";
+                $modificador = "<input type=\"button\" class=\"modificar habilitarModif\" value=\"$idEstudiante\">";
+                $aceptar = "<input type=\"button\" class=\"aceptar aceptar$idEstudiante ocultar\" value=\"$idEstudiante\">";
+                $cancelar = "<input type=\"button\" class=\"cancelar cancelar$idEstudiante  ocultar\" value=\"$idEstudiante\">";
+
                 $html = $html."  
-                     <td class=\"output__celda\">
-                         $nombre
-                     </td>
-                     <td class=\"output__celda\">
-                         $apellido
-                     </td>
-                     <td class=\"output__celda\">
+                    <td class=\"output__celda\">
+                        $nombre
+                    </td>
+                    <td class=\"output__celda\">
+                        $apellido
+                    </td>
+                    <td class=\"output__celda\">
                         $fechaNacimiento
-                     </td>
-                     <td class=\"output__celda\">
+                    </td>
+                    <td class=\"output__celda\">
                         $nombreClase
-                     </td>
-                     <td class=\"output__celda\">
+                    </td>
+                    <td class=\"output__celda\">
                         $valido
-                     </td>TERMINAACA";
+                    </td>
+                    <td class=\"output__celda\">
+                        $eliminador
+                        $modificador
+                        $aceptar
+                        $cancelar
+                    </td>TERMINAACA";
             }
 
             echo $html;

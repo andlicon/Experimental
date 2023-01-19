@@ -63,25 +63,30 @@
                 $resultados = $tipoPersonaConsul->getInstancia(array($idTipoPersona));
                 $tipoUsuario = $resultados[0]->getDescripcion();
 
+                $eliminador = "<input type=\"button\" class=\"eliminar\" value=\"$cedula\">";
+
                 $html = $html."  
-                     <td class=\"output__celda\">
-                         $cedula
-                     </td>
-                     <td class=\"output__celda\">
-                         $nombre
-                     </td>
-                     <td class=\"output__celda\">
-                         $apellido
-                     </td>
-                     <td class=\"output__celda\">
-                        $tipoUsuario
-                     </td>
-                     <td class=\"output__celda\">
-                        $nickname
-                     </td>
-                     <td class=\"output__celda\">
-                        $valido
-                     </td>TERMINAACA";
+                    <td class=\"output__celda\">
+                        $cedula
+                    </td>
+                    <td class=\"output__celda\">
+                        $nombre
+                    </td>
+                    <td class=\"output__celda\">
+                        $apellido
+                    </td>
+                    <td class=\"output__celda\">
+                       $tipoUsuario
+                    </td>
+                    <td class=\"output__celda\">
+                       $nickname
+                    </td>
+                    <td class=\"output__celda\">
+                       $valido
+                    </td>
+                    <td class=\"output__celda\">
+                        $eliminador
+                    </td>TERMINAACA";
             }
 
             echo $html;

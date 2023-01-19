@@ -12,6 +12,7 @@
                     <col class=\"output__col output__col--fechaNacimiento\">
                     <col class=\"output__col output__col--clase\">
                     <col class=\"output__col output__col--estado\">
+                    <col class=\"output__col output__col--acciones\">
                 </colgroup>
                 <thead class=\"output__header\">
                     <tr class=\"output__renglon\">
@@ -29,6 +30,9 @@
                         </th>
                         <th class=\"output__celda output__celda--header\">
                            Estado
+                        </th>
+                        <th class=\"output__celda output__celda--header\">
+                           Acciones
                         </th>
                     </tr>
                 </thead>

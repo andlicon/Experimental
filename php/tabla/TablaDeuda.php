@@ -15,6 +15,7 @@
                 <col class=\"output__col output__col--montoInicial\">
                 <col class=\"output__col output__col--pagado\">
                 <col class=\"output__col output__col--debe\">
+                <col class=\"output__col output__col--acciones\">
             </colgroup>
             <thead class=\"output__header\">
                 <tr class=\"output__renglon\">
@@ -41,6 +42,9 @@
                     </th>
                     <th class=\"output__celda output__celda--header\">
                         Debe
+                    </th>
+                    <th class=\"output__celda output__celda--header\">
+                        Acciones
                     </th>
                 </tr>
             </thead>
