@@ -42,16 +42,24 @@
         }
 
         public function crearItemCedula($id, $atributos, $cedula) {
-            $consulta = $this->dao->getInstanciaCedula(array($cedula));
+            $html = "";
+            try {
+                $consulta = $this->dao->getInstanciaCedula(array($cedula));
 
-            $html = "<div class=\"input__grupo\">
-                        <select $atributos id=\"$id\" name=\"tipoPago\" $atributos>";
-            $html = $html.$this->crearOption($consulta);
-            $html = $html."
-                        </select>
-                    </div>";
-
-            return $html;
+                $html = "<div class=\"input__grupo\">
+                            <select $atributos id=\"$id\" name=\"tipoPago\" $atributos>";
+                $html = $html.$this->crearOption($consulta);
+                $html = $html."
+                            </select>
+                        </div>";
+            }catch(Exception $e) {
+                $html="
+                    <select>
+                        <option>No existe deuda registrada.</option>
+                    </select>";
+            }finally {
+                return $html;
+            }
         }
 
     }

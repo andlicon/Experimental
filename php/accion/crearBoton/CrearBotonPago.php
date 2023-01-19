@@ -12,11 +12,7 @@
         public function crearBotones() {
             $botones = "";
             
-            if($this->permiso==3 || $this->permiso==1) {  //Profesor y representante - representante
-                // $botones = $botones.$this->crearItem("consultar", "deudas no confirmadas");
-                // $botones = $botones.$this->crearItem("cargar", "cargar");
-            }
-            else if($this->permiso==4) {   //administrador
+            if($this->permiso==4) {   //administrador
                 $botones = $botones.'<h2 class="botones__titulo">Consultar</h2>';
                 $botones = $botones.$this->crearItemGestionPago();
             }

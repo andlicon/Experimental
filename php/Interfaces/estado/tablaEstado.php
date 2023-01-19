@@ -8,59 +8,71 @@
     if(isset($_POST['cedula'])) {
         $cedula = $_POST['cedula'];
 
-        $deudaDAO = new DeudaDAO(BaseDeDatos::getInstancia());
-        $resultado = $deudaDAO->getDeudaGeneralCedula(array($cedula));
-
-        $estudianteDAO = new EstudianteDAO(BaseDeDatos::getInstancia());
-        $estudiantePop = new EstudiantePop($estudianteDAO);
-
-        $deudaTotal = 0;
-
         $tabla = "
-            <div class=\"tabla\">
-                <h2 class=\"tabla__titulo\">Estado cuenta</h2>
-                <table class=\"tabla__table\">
-                    <thead>
-                        <tr class=\"tabla__tr\">
-                            <th class=\"tabla__td tabla__th\">Estudiante</th>
-                            <th class=\"tabla__td tabla__th\">Días de retraso</th>
-                            <th class=\"tabla__td tabla__th\">Monto inicial</th>
-                            <th class=\"tabla__td tabla__th\">Monto pagado</th>
-                            <th class=\"tabla__td tabla__th\">Monto faltante</th>
-                        </tr>
-                    </thead>
-                    <tbody>";
-            for($i=0; $i<count($resultado); $i++) {
-            //Info Deuda
-            $deuda = $resultado[$i];
-            $idEstudiante = $deuda->getIdEstudiante();
-            $fechaRetraso = $deuda->getFecha();
-            $montoInicial = $deuda->getMontoInicial();
-            $montoEstado = $deuda->getMontoEstado();
-            $debe = $deuda->getDeuda();
-
-            //InfoEstudiante
-            $popOver = $estudiantePop->generarPop($idEstudiante, $i);
-
-            $claseDeuda = $debe>0 ? "tabla__td--deuda" : "";
-
-            $fila = "
+        <div class=\"tabla\">
+            <h2 class=\"tabla__titulo\">Estado cuenta</h2>
+            <table class=\"tabla__table\">
+                <thead>
                     <tr class=\"tabla__tr\">
-                        <td class=\"tabla__td\" style=\"position:relative;\">$popOver</td>
-                        <td class=\"tabla__td\">$fechaRetraso</td>
-                        <td class=\"tabla__td\">$montoInicial</td>
-                        <td class=\"tabla__td\">$montoEstado</td>
-                        <td class=\"tabla__td $claseDeuda\">$debe</td>
-                    </tr>";
+                        <th class=\"tabla__td tabla__th\">Estudiante</th>
+                        <th class=\"tabla__td tabla__th\">Días de retraso</th>
+                        <th class=\"tabla__td tabla__th\">Monto inicial</th>
+                        <th class=\"tabla__td tabla__th\">Monto pagado</th>
+                        <th class=\"tabla__td tabla__th\">Monto faltante</th>
+                    </tr>
+                </thead>
+                <tbody>";
+                
+        $deudaTotal = 0;
+        $claseDeuda = "";
 
-            $tabla = $tabla.$fila;
+        try {
+            $deudaDAO = new DeudaDAO(BaseDeDatos::getInstancia());
+            $resultado = $deudaDAO->getDeudaGeneralCedula(array($cedula));
 
-            $deudaTotal += $debe;
+            $estudianteDAO = new EstudianteDAO(BaseDeDatos::getInstancia());
+            $estudiantePop = new EstudiantePop($estudianteDAO);
+
+            for($i=0; $i<count($resultado); $i++) {
+                //Info Deuda
+                $deuda = $resultado[$i];
+                $idEstudiante = $deuda->getIdEstudiante();
+                $fechaRetraso = $deuda->getFecha();
+                $montoInicial = $deuda->getMontoInicial();
+                $montoEstado = $deuda->getMontoEstado();
+                $debe = $deuda->getDeuda();
+    
+                //InfoEstudiante
+                $popOver = $estudiantePop->generarPop($idEstudiante, $i);
+    
+                $claseDeuda = $debe>0 ? "tabla__td--deuda" : "";
+    
+                $fila = "
+                        <tr class=\"tabla__tr\">
+                            <td class=\"tabla__td\" style=\"position:relative;\">$popOver</td>
+                            <td class=\"tabla__td\">$fechaRetraso</td>
+                            <td class=\"tabla__td\">$montoInicial</td>
+                            <td class=\"tabla__td\">$montoEstado</td>
+                            <td class=\"tabla__td $claseDeuda\">$debe</td>
+                        </tr>";
+    
+                $tabla = $tabla.$fila;
+    
+                $deudaTotal += $debe;
+            }
+    
+            $claseDeuda = $deudaTotal>0 ? "tabla__td--deuda" : "";
+
         }
-
-        $claseDeuda = $deudaTotal>0 ? "tabla__td--deuda" : "";
-
-        $tabla = $tabla."
+        catch(Exception $e) {
+            /*
+            *    Tanto los <tr></tr> de respuesta como posibles errores (como lo es este caso) deberían
+            *    ser JSON para así poder manejar mejor el error en JQUERY.
+            *    Por cómo está hecho, acá no puedo hacer ningún aviso de error.
+            */
+        }
+        finally {
+            $tabla = $tabla."
                 </tbody>
                 <tfoot>
                     <tr class=\"tabla__tr\">
@@ -71,8 +83,8 @@
             </table>
         </div>
         ";
-
-        echo $tabla;
+            echo $tabla;
+        }
     }
 
 ?>
