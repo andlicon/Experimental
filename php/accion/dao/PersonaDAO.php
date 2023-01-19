@@ -37,7 +37,10 @@
 
         public function getTodosRepresentantes() {
             $consulta = "SELECT * 
-                        FROM    v_representante_valido";
+                         FROM persona		p
+                         JOIN tipo_persona	tp
+                            ON p.id_tipo_persona = tp.id
+                        WHERE tp.descripcion LIKE '%profesor%';";
             $registros = $this->bd->sql($consulta, null);
 
             if(empty($registros)) {

@@ -7,8 +7,6 @@ $(window).on('pageshow', function() {
         let clase = $('#claseInput').val();
         let representante = (permiso==4) ? $('#representanteInput').val() : null;
         let validez = (permiso==4) ? $('#validezInput').val() : null;
-    
-        alert(clase + " " + representante + " " + validez);
 
         $.ajax ( {
                 url : '../../accion/consultar/Consultar.php',
@@ -16,7 +14,6 @@ $(window).on('pageshow', function() {
             data : {pagina: pagina, cedula: cedula, permiso: permiso, 
                 validez: validez, representante: representante, clase: clase},
             success : function(response) {
-                alert(response);
                 var renglones = response.split('TERMINAACA');
                 var html = "";
     
@@ -40,8 +37,6 @@ $(function() {
             let clase = $('#claseInput').val();
             let representante = (permiso==4) ? $('#representanteInput').val() : null;
             let validez = (permiso==4) ? $('#validezInput').val() : null;
-
-            alert('CHANGE');
             
             $.ajax ( {
                     url : '../../accion/consultar/Consultar.php',
@@ -49,15 +44,14 @@ $(function() {
                 data : {pagina: pagina, cedula: cedula, permiso: permiso, 
                     validez: validez, representante: representante, clase: clase},
                     success : function(response) {
-                        alert(response);
-                            var renglones = response.split('TERMINAACA');
-                            var html = "";
+                        var renglones = response.split('TERMINAACA');
+                        var html = "";
         
-                            for(var i=0; i<renglones.length; i++) {
-                                    html += "<tr>"+renglones[i]+"</tr>";
-                            }
+                        for(var i=0; i<renglones.length; i++) {
+                                html += "<tr>"+renglones[i]+"</tr>";
+                        }
         
-                            $('tbody').html(html);
+                        $('tbody').html(html);
                 }
             })
         });
