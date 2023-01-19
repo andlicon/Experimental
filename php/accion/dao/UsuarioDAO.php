@@ -76,6 +76,36 @@
             return $usuarios;
         }
 
+        public function getInstanciaValidezTipoPersona(array $valido) {
+            $consulta = 
+                    "SELECT t.permisos
+                    FROM persona		p
+                    JOIN tipo_persona	t
+                    ON (p.id_tipo_persona = t.id)
+                    WHERE p.cedula = ?
+                        AND valido=?";
+            $registros = $this->bd->sql($consulta, $valido);
+
+            if(!is_array($registros)) {
+                throw new Exception('No existe usuario valido');
+            }
+            
+            $usuarios = [];
+            for($i=0; $i<count($registros); $i++) {
+                $registro = $registros[$i];
+
+                $cedula = $registro['cedula'];
+                $nickname = $registro['nickname'];
+                $contrasena = $registro['contrasena'];
+                $valido = $registro['valido'];
+                $us = new Usuario($cedula, $nickname, $contrasena, $valido);
+
+                $usuarios[] = $us;
+            }
+            
+            return $usuarios;
+        }
+
         public function getInstanciaNickname(array $nickname) {
             $consulta = "SELECT * 
                         FROM usuario
@@ -157,6 +187,34 @@
             $consulta = "SELECT * 
                          FROM usuario";
              $registros = $this->bd->sql($consulta, null);
+
+             if(empty($registros)) {
+                throw new Exception('No existen registros de Usuarios.');
+            }
+            
+            $usuarios = [];
+            for($i=0; $i<count($registros); $i++) {
+                $registro = $registros[$i];
+
+                $cedula = $registro['cedula'];
+                $nickname = $registro['nickname'];
+                $contrasena = $registro['contrasena'];
+                $valido = $registro['valido'];
+                $us = new Usuario($cedula, $nickname, $contrasena,  $valido);
+
+                $usuarios[] = $us;
+            }
+            
+            return $usuarios;
+        }
+
+        public function getTodosTipoPersona($tipoPersona) {
+            $consulta = "SELECT *
+                        FROM usuario	u
+                        JOIN persona	p
+                        ON u.cedula = p.cedula
+                        WHERE id_tipo_persona=?;";
+             $registros = $this->bd->sql($consulta, $tipoPersona);
 
              if(empty($registros)) {
                 throw new Exception('No existen registros de Usuarios.');

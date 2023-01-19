@@ -4,12 +4,13 @@ $(function(){
                 let usuario = JSON.parse(localStorage.getItem('usuario'));
                 let permiso = usuario.permiso
                 let cedula = usuario.cedula;
-                let infoAdd =  $('#tipoUsuarioInput').val();
+                let infoAdd = $('#tipoUsuarioInput').val();
+                let tipoPersona = $('#tipoPersonaInput').val();
 
                 $.ajax ( {
                     url : '../../accion/consultar/Consultar.php',
                     type : 'POST',
-                    data : {pagina: pagina, cedula: cedula, permiso: permiso, infoAdd: infoAdd},
+                    data : {pagina: pagina, cedula: cedula, permiso: permiso, infoAdd: infoAdd, tipoPersona: tipoPersona},
                     async: false,
                     success : function(response) {
                         var renglones = response.split('TERMINAACA');
@@ -33,12 +34,15 @@ $(function() {
                 let usuario = JSON.parse(localStorage.getItem('usuario'));
                 let permiso = usuario.permiso
                 let cedula = usuario.cedula;
-                let infoAdd =  $('#tipoUsuarioInput').val();
+                let infoAdd = $('#tipoUsuarioInput').val();
+                let tipoPersona = $('#tipoPersonaInput').val();
+
+                alert(infoAdd + " " + tipoPersona);
 
                 $.ajax ( {
                     url : '../../accion/consultar/Consultar.php',
                     type : 'POST',
-                    data : {pagina: pagina, cedula: cedula, permiso: permiso, infoAdd: infoAdd},
+                    data : {pagina: pagina, cedula: cedula, permiso: permiso, infoAdd: infoAdd, tipoPersona: tipoPersona},
                     async: false,
                     success : function(response) {
                         var renglones = response.split('TERMINAACA');

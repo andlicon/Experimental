@@ -18,14 +18,27 @@
         public function consultar(array $filtro) {
             $registros;
 
+            $tipoPersona = $_POST['tipoPersona'];
+
+            //Acá debo mejorar la query para que consulte por cada caso QUE LADILLA
             if(str_contains($this->validez, "todos")) {
-                echo "TODOS";
-                $registros = $this->dao->getTodos();
+                if(str_contains($tipoPersona, "todos")) { 
+                    $registros = $this->dao->getTodos();
+                }
+                else {
+                    $registros = $this->dao->getTodosTipoPersona(array($tipoPersona));
+                }
             }
             else {
                 $valido = str_contains($this->validez, "invalido") ? 0 : 1;
-                echo $valido;
-                $registros = $this->dao->getInstanciaValidez(array($valido));
+
+                if(str_contains($tipoPersona, "todos")) { 
+                    $registros = $this->dao->getInstanciaValidez(array($valido));
+                }
+                else {
+                    //Acá el tipo de persona lleva un ?
+                    $registros = $this->dao->getInstanciaValidez(array($valido));
+                }
             }
 
             $html = "";
@@ -49,6 +62,7 @@
                 $tipoPersonaConsul = new TipoPersonaConsul(BaseDeDatos::getInstancia());
                 $resultados = $tipoPersonaConsul->getInstancia(array($idTipoPersona));
                 $tipoUsuario = $resultados[0]->getDescripcion();
+
                 $html = $html."  
                      <td class=\"output__celda\">
                          $cedula
