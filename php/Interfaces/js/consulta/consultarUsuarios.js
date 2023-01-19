@@ -37,8 +37,6 @@ $(function() {
                 let infoAdd = $('#tipoUsuarioInput').val();
                 let tipoPersona = $('#tipoPersonaInput').val();
 
-                alert(infoAdd + " " + tipoPersona);
-
                 $.ajax ( {
                     url : '../../accion/consultar/Consultar.php',
                     type : 'POST',
