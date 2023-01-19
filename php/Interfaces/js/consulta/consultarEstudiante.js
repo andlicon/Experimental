@@ -5,14 +5,18 @@ $(window).on('pageshow', function() {
         let cedula = usuario.cedula;
         let permiso = usuario.permiso;
         let clase = $('#claseInput').val();
-        let representante = $('#representanteInput').val();
+        let representante = (permiso==4) ? $('#representanteInput').val() : null;
+        let validez = (permiso==4) ? $('#validezInput').val() : null;
     
+        alert(clase + " " + representante + " " + validez);
+
         $.ajax ( {
                 url : '../../accion/consultar/Consultar.php',
             type : 'POST',
             data : {pagina: pagina, cedula: cedula, permiso: permiso, 
                 validez: validez, representante: representante, clase: clase},
             success : function(response) {
+                alert(response);
                 var renglones = response.split('TERMINAACA');
                 var html = "";
     
@@ -34,7 +38,10 @@ $(function() {
             let cedula = usuario.cedula;
             let permiso = usuario.permiso;
             let clase = $('#claseInput').val();
-            let representante = $('#representanteInput').val();
+            let representante = (permiso==4) ? $('#representanteInput').val() : null;
+            let validez = (permiso==4) ? $('#validezInput').val() : null;
+
+            alert('CHANGE');
             
             $.ajax ( {
                     url : '../../accion/consultar/Consultar.php',
@@ -42,7 +49,7 @@ $(function() {
                 data : {pagina: pagina, cedula: cedula, permiso: permiso, 
                     validez: validez, representante: representante, clase: clase},
                     success : function(response) {
-                            console.log(response);
+                        alert(response);
                             var renglones = response.split('TERMINAACA');
                             var html = "";
         

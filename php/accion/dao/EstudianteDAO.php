@@ -96,11 +96,191 @@
  
             return $estudiantes;
         }
+
+        public function getInstanciaCedulaValidez($cedulaRep) {
+            $consulta = "SELECT * 
+                         FROM estudiante
+                         WHERE cedula_representante=?
+                            AND valido=?";
+            $registros = $this->bd->sql($consulta, $cedulaRep);
+
+            if(empty($registros)) {
+                throw new Exception('No existe estudiante asociado al usuario.');
+            }
+
+            $estudiantes = [];
+            for($i=0; $i<count($registros); $i++) {
+                $estudiante = $registros[$i];
+                $id = $estudiante['id'];
+                $nombre = $estudiante['nombre'];
+                $apellido = $estudiante['apellido'];
+                $fechaNacimiento = $estudiante['fecha_nacimiento'];
+                $cedulaRepresentante = $estudiante['cedula_representante'];
+                $idClase = $estudiante['id_clase'];
+                $valido = $estudiante['valido'];
+     
+                $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento, 
+                                        $cedulaRepresentante, $idClase, $valido);
+                $estudiantes[] = $est;
+            }
+ 
+            return $estudiantes;
+        }
+
+        public function getInstanciaCedulaValidezClase($cedulaRep) {
+            $consulta = "SELECT * 
+                         FROM estudiante
+                         WHERE cedula_representante=?
+                            AND valido=?
+                            AND id_clase=?";
+            $registros = $this->bd->sql($consulta, $cedulaRep);
+
+            if(empty($registros)) {
+                throw new Exception('No existe estudiante asociado al usuario.');
+            }
+
+            $estudiantes = [];
+            for($i=0; $i<count($registros); $i++) {
+                $estudiante = $registros[$i];
+                $id = $estudiante['id'];
+                $nombre = $estudiante['nombre'];
+                $apellido = $estudiante['apellido'];
+                $fechaNacimiento = $estudiante['fecha_nacimiento'];
+                $cedulaRepresentante = $estudiante['cedula_representante'];
+                $idClase = $estudiante['id_clase'];
+                $valido = $estudiante['valido'];
+     
+                $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento, 
+                                        $cedulaRepresentante, $idClase, $valido);
+                $estudiantes[] = $est;
+            }
+ 
+            return $estudiantes;
+        }
+
+        public function getInstanciaCedulaClase($cedulaRep) {
+            $consulta = "SELECT * 
+                         FROM estudiante
+                         WHERE cedula_representante=?
+                            AND id_clase=?";
+            echo $cedulaRep[0].' '.$cedulaRep[1];
+            $registros = $this->bd->sql($consulta, $cedulaRep);
+
+            if(empty($registros)) {
+                throw new Exception('No existe estudiante asociado al usuario.');
+            }
+
+            $estudiantes = [];
+            for($i=0; $i<count($registros); $i++) {
+                $estudiante = $registros[$i];
+                $id = $estudiante['id'];
+                $nombre = $estudiante['nombre'];
+                $apellido = $estudiante['apellido'];
+                $fechaNacimiento = $estudiante['fecha_nacimiento'];
+                $cedulaRepresentante = $estudiante['cedula_representante'];
+                $idClase = $estudiante['id_clase'];
+                $valido = $estudiante['valido'];
+     
+                $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento, 
+                                        $cedulaRepresentante, $idClase, $valido);
+                $estudiantes[] = $est;
+            }
+ 
+            return $estudiantes;
+        }
         
         public function getTodos() {
             $consulta = "SELECT * 
                         FROM estudiante";
             $registros = $this->bd->sql($consulta, null);
+
+            if(empty($registros)) {
+                throw new Exception('No existen estudiante en la base de datos.');
+            }
+           
+            $estudiantes = [];
+            for($i=0; $i<count($registros); $i++) {
+                $estudiante = $registros[$i];
+                $id = $estudiante['id'];
+                $nombre = $estudiante['nombre'];
+                $apellido = $estudiante['apellido'];
+                $fechaNacimiento = $estudiante['fecha_nacimiento'];
+                $cedulaRepresentante = $estudiante['cedula_representante'];
+                $idClase = $estudiante['id_clase'];
+                $valido = $estudiante['valido'];
+     
+                $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento, 
+                                        $cedulaRepresentante, $idClase, $valido);
+                $estudiantes[] = $est;
+            }
+ 
+            return $estudiantes;
+        }
+
+        public function getTodosValidez($validez) {
+            $consulta = "SELECT * 
+                        FROM estudiante
+                        WHERE valido=?";
+            $registros = $this->bd->sql($consulta, $validez);
+
+            if(empty($registros)) {
+                throw new Exception('No existen estudiante en la base de datos.');
+            }
+           
+            $estudiantes = [];
+            for($i=0; $i<count($registros); $i++) {
+                $estudiante = $registros[$i];
+                $id = $estudiante['id'];
+                $nombre = $estudiante['nombre'];
+                $apellido = $estudiante['apellido'];
+                $fechaNacimiento = $estudiante['fecha_nacimiento'];
+                $cedulaRepresentante = $estudiante['cedula_representante'];
+                $idClase = $estudiante['id_clase'];
+                $valido = $estudiante['valido'];
+     
+                $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento, 
+                                        $cedulaRepresentante, $idClase, $valido);
+                $estudiantes[] = $est;
+            }
+ 
+            return $estudiantes;
+        }
+
+        public function getTodosClase($clase) {
+            $consulta = "SELECT * 
+                        FROM estudiante
+                        WHERE id_clase=?";
+            $registros = $this->bd->sql($consulta, $clase);
+
+            if(empty($registros)) {
+                throw new Exception('No existen estudiante en la base de datos.');
+            }
+           
+            $estudiantes = [];
+            for($i=0; $i<count($registros); $i++) {
+                $estudiante = $registros[$i];
+                $id = $estudiante['id'];
+                $nombre = $estudiante['nombre'];
+                $apellido = $estudiante['apellido'];
+                $fechaNacimiento = $estudiante['fecha_nacimiento'];
+                $cedulaRepresentante = $estudiante['cedula_representante'];
+                $idClase = $estudiante['id_clase'];
+                $valido = $estudiante['valido'];
+     
+                $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento, 
+                                        $cedulaRepresentante, $idClase, $valido);
+                $estudiantes[] = $est;
+            }
+ 
+            return $estudiantes;
+        }
+
+        public function getTodosClaseValidez($parametros) {
+            $consulta = "SELECT * 
+                        FROM estudiante
+                        WHERE id_clase=? 
+                            AND valido=?";
+            $registros = $this->bd->sql($consulta, $parametros);
 
             if(empty($registros)) {
                 throw new Exception('No existen estudiante en la base de datos.');

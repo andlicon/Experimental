@@ -41,8 +41,8 @@
             $item = $item.
                 '
                 <label for="validezInput" class="input__label">Validez</label>
-                <select class="input__select" id="validezInput" name="validezInput">
-                    <option value="todos">Todos</option>
+                <select class="input__select consultor" id="validezInput" name="validezInput">
+                    <option value="todas">Todas</option>
                     <option value="1">Valido</option>
                     <option value="0">Invalido</option>';
             $item = $item.
@@ -90,9 +90,9 @@
         protected function itemClase() {
             $item = 
                 '
-                <label for="representanteInput" class="input__label">Representante(s)</label>
-                <select class="input__select consultor" id="representanteInput" name="representanteInput">
-                    <option value="todos">todos</option>';
+                <label for="claseInput" class="input__label">Clase</label>
+                <select class="input__select consultor" id="claseInput" name="claseInput">
+                    <option value="todas">todas</option>';
 
                     $personaDAO = new ClaseConsul(BaseDeDatos::getInstancia());
                     $resultados = $personaDAO->getTodos();

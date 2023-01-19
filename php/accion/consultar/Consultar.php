@@ -5,8 +5,7 @@
     include_once('ConsultarUsuariosValidez.php');
     include_once('ConsultarPagoAdmin.php');
     include_once('ConsultarDeudaAdmin.php');
-
-    echo 'ta';
+    include_once('ConsultarEstudianteAdmin.php');
 
     if(isset($_POST['pagina']) && isset($_POST['cedula']) && 
        isset($_POST['permiso'])) {
@@ -42,6 +41,11 @@
             }
             else if(str_contains($pagina, "estudiante") && ($permiso==1 || $permiso==3)) {
                 $consultor = new ConsultarEstudiante();
+            }
+            else if(str_contains($pagina, "estudiante") && $permiso==4) {
+                if(isset($_POST['validez']) && isset($_POST['representante']) && isset($_POST['clase'])) {
+                    $consultor = new ConsultarEstudianteAdmin();
+                }
             }
         }
 

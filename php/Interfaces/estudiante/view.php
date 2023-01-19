@@ -54,7 +54,7 @@
 </body>
 </html>
 
-<script src="../js/consulta/consultar.js"></script>
+<script src="../js/consulta/consultarEstudiante.js"></script>
 <script src="../js/eliminar.js"></script>
 <script src="../js/cargar/cargarEstudiante.js"></script>
 <script src="../js/navegar.js"></script>
