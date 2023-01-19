@@ -11,23 +11,22 @@ $(function(){
                     data : {pagina: pagina, permiso: permiso, cedula: cedula},
                     async: false,
                     success : function(response) {
-                        alert(response);
-                            var renglones = response.split('TERMINAACA');
+                        var renglones = response.split('TERMINAACA');
                     
-                            let htmlContenido = "";
+                        let htmlContenido = "";
                     
-                            if(renglones.length > 1 ) {
-                                    var html = "";
+                        if(renglones.length > 1 ) {
+                            var html = "";
                             
-                                    for(var i=0; i<renglones.length-1; i++) {
-                                            html += "<tr>"+renglones[i]+"</tr>";
-                                    }
-                        
-                                    htmlContenido = html;
-                                    deudaTotal = renglones[renglones.length-1];
+                            for(var i=0; i<renglones.length-1; i++) {
+                                    html += "<tr>"+renglones[i]+"</tr>";
                             }
                         
-                            $('tbody').html(htmlContenido);
+                            htmlContenido = html;
+                            deudaTotal = renglones[renglones.length-1];
+                        }
+                        
+                        $('tbody').html(htmlContenido);
                     }
             })
     }, 300);
