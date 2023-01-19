@@ -14,18 +14,18 @@
                 $botones = $botones.$this->crearItem("clase", "Clase");
             }
             else if($this->permiso==3) {  //PROFESOR Y REPRESENTANTE
-                $botones = $botones.$this->crearItem("clase", "Clase");
-                $botones = $botones.$this->crearItem("pago", "Pagos");
-                $botones = $botones.$this->crearItem("deuda", "Deudas");
-                $botones = $botones.$this->crearItem("estudiante", "Estudiante");
                 $botones = $botones.$this->crearItem("estado", "Estado");
+                $botones = $botones.$this->crearItem("deuda", "Deudas");
+                $botones = $botones.$this->crearItem("pago", "Pagos");
+                $botones = $botones.$this->crearItem("estudiante", "Estudiante");
+                $botones = $botones.$this->crearItem("clase", "Clase");
             }
             else if($this->permiso==4) {  //ADMINISTRADOR
                 $botones = $botones.$this->crearItem("gestionar-usuarios", "Usuarios");
-                $botones = $botones.$this->crearItem("pago", "Pagos");
                 $botones = $botones.$this->crearItem("deuda", "Deudas");
-                $botones = $botones.$this->crearItem("estudiante", "Estudiante");
+                $botones = $botones.$this->crearItem("pago", "Pagos");
                 $botones = $botones.$this->crearItem("profesor", "Profesor");
+                $botones = $botones.$this->crearItem("estudiante", "Estudiante");
             }
             else {                  //REPRESENTANTE
                 $botones = $botones.$this->crearItem("estado", "Estado");
