@@ -103,7 +103,7 @@
                         $descripcion = $rep->getDescripcion();
                         $salon = $rep->getSalon();
 
-                        $item = $item."<option value=\"$id\">$id - $descripcion - $salon</option>";
+                        $item = $item."<option value=\"$id\">$descripcion - Salon: $salon</option>";
                     }
 
             $item = $item.
