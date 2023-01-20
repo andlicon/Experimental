@@ -12,9 +12,7 @@ $(document).on('click', '.eliminar', function() {
                         type : 'POST',
                         data : {id: id, pagina: pagina, cedula: cedula},
                         success : function(response) {
-                                if(response) {
-                                        alert('Se ha eliminado el registro con éxito!');
-                                }
+                                alert(response);
                                 location.reload();
                         }
                 })

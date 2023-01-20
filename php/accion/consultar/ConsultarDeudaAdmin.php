@@ -76,6 +76,11 @@
                 $popRep = $popOverRep->generarPop($cedula, $cedula);
                 $popEstu = $popOverEstu->generarPop($idEstudiante, $idEstudiante);
 
+                $eliminador = "<input type=\"button\" class=\"eliminar\" value=\"$id\">";
+                $modificador = "<input type=\"button\" class=\"modificar habilitarModif\" value=\"$id\">";
+                $aceptar = "<input type=\"button\" class=\"aceptar aceptar$id ocultar\" value=\"$id\">";
+                $cancelar = "<input type=\"button\" class=\"cancelar cancelar$id  ocultar\" value=\"$id\">";
+
                 $deudaTotal += $debe;
 
                 $html = $html."
@@ -102,6 +107,12 @@
                     </td>
                     <td class=\"output__celda\">
                         $debe
+                    </td>
+                    <td class=\"output__celda\">
+                        $eliminador
+                        $modificador
+                        $aceptar
+                        $cancelar
                     </td>TERMINAACA";
             }
 

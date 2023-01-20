@@ -1,6 +1,7 @@
 <?php
     include_once ('IDAO.php');
     include_once(DTO_PATH.'/Pago.php');
+    include_once(EXCEPTION_PATH.'/DaoException.php');
 
     class PagoDAO implements IDAO {
         private $bd;
@@ -111,14 +112,14 @@
                          FROM    pago
                          WHERE   id_deuda=?";
             $registros = $this->bd->sql($consulta, $idDeuda);
-                
+
             if(empty($registros)) {
-                throw new Exception('No existe pago asociado al id deuda');
+                throw new DaoException(DaoException::PAGO, DaoException::CONSULTAR, "No existe ningún pago asociado al id deuda.");
             }
 
             $pagos = [];
-            if(!empty($registros)) {
-                $renglon = $registros[0];
+            for($i=0; $i<count($registros); $i++) {
+                $renglon = $registros[$i];
                 $id = $renglon['id'];
                 $idDeuda = $renglon['id_deuda'];
                 $fecha = $renglon['fecha'];
@@ -235,6 +236,7 @@
                 $this->bd->sql($delete, $parametros);
             }
             catch(PDOException $e) {
+                echo'No hay pago por borrar.';
                 throw new DaoException(DaoException::PAGO, DaoException::ELIMINAR, "Existe alguna dependencia que impide borrar el pago.");
             }
         }

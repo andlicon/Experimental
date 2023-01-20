@@ -14,16 +14,28 @@
                     $pago = $registros[$i];
                     $idPago = $pago->getId();
 
-                    $daoPago->eliminar($idPago);
+                    $daoPago->eliminar(array($idPago));
                 }
 
                 $daoDeuda = new DeudaDAO(BaseDeDatos::getInstancia());
                 $daoDeuda->eliminar($id);
 
-                return true;
+                return 'Se ha eliminado con éxito la deuda y sus pagos asociados.';
+            }
+            catch(DaoException $e) {
+                $trigger = $e->getDao();
+                $accion = $e->getAccion();
+
+                if($trigger==DaoException::PAGO && $accion==DaoException::CONSULTAR) {
+                    $daoDeuda = new DeudaDAO(BaseDeDatos::getInstancia());
+                    $daoDeuda->eliminar($id);
+                }
+                else {
+                    echo $e->getMessage();
+                }
             }
             catch(Exception $e) {
-                return "Ha ocurrido un error, no se puede eliminar la deuda.";
+                echo "Ha ocurrido un error, no se puede eliminar la deuda.";
             }
         }
     }

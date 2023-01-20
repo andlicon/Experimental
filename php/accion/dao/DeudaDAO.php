@@ -2,6 +2,7 @@
     include_once ('IDAO.php');
     include_once(DTO_PATH.'/Deuda.php');
     include_once(DTO_PATH.'/Motivo.php');
+    include_once(EXCEPTION_PATH.'/DaoException.php');
 
     class DeudaDAO implements IDAO {
         private $bd;
@@ -155,7 +156,7 @@
             for($i=0; $i<count($registros); $i++) {
                 $deuda = $registros[$i];
 
-                $id = 0;
+                $id = $deuda['id'];
                 $cedula = $deuda['cedula_representante'];
                 $idEstudiante = $deuda['id_estudiante'];
                 $fecha = $deuda['fecha'];
@@ -189,7 +190,7 @@
             for($i=0; $i<count($registros); $i++) {
                 $deuda = $registros[$i];
 
-                $id = 0;
+                $id = $deuda['id'];
                 $cedula = $deuda['cedula_representante'];
                 $idEstudiante = $deuda['id_estudiante'];
                 $fecha = $deuda['fecha'];
@@ -278,7 +279,7 @@
             for($i=0; $i<count($registros); $i++) {
                 $deuda = $registros[$i];
 
-                $id = 0;
+                $id = $deuda['id'];
                 $cedula = $deuda['cedula_representante'];
                 $idEstudiante = $deuda['id_estudiante'];
                 $fecha = $deuda['fecha'];
@@ -311,7 +312,7 @@
             for($i=0; $i<count($registros); $i++) {
                 $deuda = $registros[$i];
 
-                $id = 0;
+                $id = $deuda['id'];
                 $cedula = $deuda['cedula_representante'];
                 $idEstudiante = $deuda['id_estudiante'];
                 $fecha = $deuda['fecha'];
@@ -343,7 +344,7 @@
             for($i=0; $i<count($registros); $i++) {
                 $deuda = $registros[$i];
 
-                $id = 0;
+                $id = $deuda['id'];
                 $cedula = $deuda['cedula_representante'];
                 $idEstudiante = $deuda['id_estudiante'];
                 $fecha = $deuda['fecha'];
@@ -376,7 +377,7 @@
             for($i=0; $i<count($registros); $i++) {
                 $deuda = $registros[$i];
 
-                $id = 0;
+                $id = $deuda['id'];
                 $cedula = $deuda['cedula_representante'];
                 $idEstudiante = $deuda['id_estudiante'];
                 $fecha = $deuda['fecha'];
@@ -407,7 +408,7 @@
             for($i=0; $i<count($registros); $i++) {
                 $deuda = $registros[$i];
 
-                $id = 0;
+                $id = $deuda['id'];
                 $cedula = $deuda['cedula_representante'];
                 $idEstudiante = $deuda['id_estudiante'];
                 $fecha = $deuda['fecha'];
@@ -439,7 +440,7 @@
             for($i=0; $i<count($registros); $i++) {
                 $deuda = $registros[$i];
 
-                $id = 0;
+                $id = $deuda['id'];
                 $cedula = $deuda['cedula_representante'];
                 $idEstudiante = $deuda['id_estudiante'];
                 $fecha = $deuda['fecha'];

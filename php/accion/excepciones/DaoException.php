@@ -1,5 +1,4 @@
 <?php
-
     class DaoException extends Exception {
         // CONSTANTES
         const PERSONA = 1;
@@ -11,6 +10,7 @@
         
         const CARGAR = 'cargar';
         const ELIMINAR = 'eliminar';
+        const CONSULTAR = 'consultar';
 
         private $dao;
         private $accion;
@@ -29,5 +29,4 @@
             return $this->accion;
         }
     }
-
 ?>
