@@ -36,8 +36,7 @@
                     $registros = $this->dao->getInstanciaValidez(array($valido));
                 }
                 else {
-                    //Acá el tipo de persona lleva un ?
-                    $registros = $this->dao->getInstanciaValidez(array($valido));
+                    $registros = $this->dao->getTodosTipoPersonaValidez(array($tipoPersona, $valido));
                 }
             }
 

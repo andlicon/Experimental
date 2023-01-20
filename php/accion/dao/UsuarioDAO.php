@@ -236,6 +236,35 @@
             return $usuarios;
         }
 
+        public function getTodosTipoPersonaValidez($tipoPersona) {
+            $consulta = "SELECT *
+                        FROM usuario	u
+                        JOIN persona	p
+                        ON u.cedula = p.cedula
+                        WHERE id_tipo_persona=?
+                            AND valido=?;";
+             $registros = $this->bd->sql($consulta, $tipoPersona);
+
+             if(empty($registros)) {
+                throw new Exception('No existen registros de Usuarios.');
+            }
+            
+            $usuarios = [];
+            for($i=0; $i<count($registros); $i++) {
+                $registro = $registros[$i];
+
+                $cedula = $registro['cedula'];
+                $nickname = $registro['nickname'];
+                $contrasena = $registro['contrasena'];
+                $valido = $registro['valido'];
+                $us = new Usuario($cedula, $nickname, $contrasena,  $valido);
+
+                $usuarios[] = $us;
+            }
+            
+            return $usuarios;
+        }
+
         public function cargar($parametros) {
             try {
                 $cargar= "CALL  p_cargar_usuario(?, ?, ?)";

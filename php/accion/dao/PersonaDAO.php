@@ -40,6 +40,33 @@
                          FROM persona		p
                          JOIN tipo_persona	tp
                             ON p.id_tipo_persona = tp.id
+                        WHERE tp.descripcion LIKE '%representante%';";
+            $registros = $this->bd->sql($consulta, null);
+
+            if(empty($registros)) {
+                throw new Exception('No existe el representante con dicha cedula');
+            }
+
+            $personas = [];
+            for($i=0; $i<count($registros); $i++) {
+                $renglon = $registros[$i];
+                $cedula = $renglon['cedula'];
+                $nombre = $renglon['nombre'];
+                $apellido = $renglon['apellido'];
+                $idTipoPersona = $renglon['id_tipo_persona'];
+                
+                $per= new Persona($cedula, $nombre, $apellido, $idTipoPersona);
+                $personas[] = $per;
+            }
+
+            return $personas;
+        }
+
+        public function getTodosProfesores() {
+            $consulta = "SELECT * 
+                         FROM persona		p
+                         JOIN tipo_persona	tp
+                            ON p.id_tipo_persona = tp.id
                         WHERE tp.descripcion LIKE '%profesor%';";
             $registros = $this->bd->sql($consulta, null);
 

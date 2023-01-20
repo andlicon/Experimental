@@ -77,6 +77,32 @@
             return $item;
         }
 
+        protected function itemConsultaProfesor() {
+            $item = 
+                '
+                <label for="profesorInput" class="input__label">profesor(s)</label>
+                <select class="input__select consultor" id="profesorInput" name="profesorInput">
+                    <option value="todos">todos</option>';
+
+                    $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
+                    $personaDAO = new PersonaDAO($bd);
+                    $resultados = $personaDAO->getTodosProfesores();
+
+                    for($i=0; $i<count($resultados); $i++) {
+                        $rep = $resultados[$i];
+                        $nombre = $rep->getNombre();
+                        $apellido = $rep->getApellido();
+                        $cedula = $rep->getCedula();
+
+                        $item = $item."<option value=\"$cedula\">$cedula - $nombre - $apellido</option>";
+                    }
+
+            $item = $item.
+                '</select>';
+
+            return $item;
+        }
+
         protected function itemDeuda() {
             return  
                 "<label for=\"tipoDeudaInput\">Tipio Deuda</label>
