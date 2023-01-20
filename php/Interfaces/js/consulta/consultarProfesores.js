@@ -11,6 +11,7 @@ $(function(){
                     data : {pagina: pagina, permiso: permiso, cedula: cedula},
                     async: false,
                     success : function(response) {
+                        alert(response);
                         var renglones = response.split('TERMINAACA');
                     
                         let htmlContenido = "";

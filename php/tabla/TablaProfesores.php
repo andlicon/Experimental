@@ -18,19 +18,19 @@
                     <thead class=\"output__header\">
                         <tr class=\"output__renglon\">
                             <th class=\"output__celda output__celda--header\">
-                               Seleccionar 
+                               Clase
                             </th>
                             <th class=\"output__celda output__celda--header\">
-                               Cedula 
+                               Salon
                             </th>
                             <th class=\"output__celda output__celda--header\">
-                               Nombre 
+                               Cedula
+                            </th>
+                            <th class=\"output__celda output__celda--header\">
+                               Nombre
                             </th>
                             <th class=\"output__celda output__celda--header\">
                                Apellido
-                            </th>
-                            <th class=\"output__celda output__celda--header\">
-                               clase
                             </th>
                             <th class=\"output__celda output__celda--header\">
                                Contacto 

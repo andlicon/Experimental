@@ -26,7 +26,7 @@
     ?>
     <div class="body-main">
         <h1 class="vista__titulo">
-            Administrar profesores
+            Administrar clases
         </h1>
         <!-- Display -->
         <form action="" method="POST" class="display">

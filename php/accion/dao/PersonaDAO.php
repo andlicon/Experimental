@@ -21,8 +21,8 @@
             }
 
             $personas = [];
-            if(!empty($registros)) {
-                $renglon = $registros[0];
+            for($i=0; $i<count($registros); $i++) {
+                $renglon = $registros[$i];
                 $cedula = $renglon['cedula'];
                 $nombre = $renglon['nombre'];
                 $apellido = $renglon['apellido'];

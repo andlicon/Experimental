@@ -24,7 +24,7 @@
                 $botones = $botones.$this->crearItem("gestionar-usuarios", "Usuarios");
                 $botones = $botones.$this->crearItem("deuda", "Deudas");
                 $botones = $botones.$this->crearItem("pago", "Pagos");
-                $botones = $botones.$this->crearItem("profesor", "Profesor");
+                $botones = $botones.$this->crearItem("profesor", "Clases");
                 $botones = $botones.$this->crearItem("estudiante", "Estudiante");
             }
             else {                  //REPRESENTANTE

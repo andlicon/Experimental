@@ -9,28 +9,45 @@
         private $dao;
 
         public function __construct() {
-            $this->dao = new PersonaDAO(BaseDeDatos::getInstancia());
+            $this->dao = new ClaseConsul(BaseDeDatos::getInstancia());
         }
 
         public function consultar(array $cedula) {
 
             $html = "";
 
-            $registros = $this->dao->getTodosRepresentantes();
+            $registros = $this->dao->getTodos();
+            $personaDAO = new PersonaDAO(BaseDeDatos::getInstancia());
 
             for($i=0; $i<count($registros); $i++) {
-                $profesor = $registros[$i];
-                $cedula = $profesor->getCedula();
-                $nombre = $profesor->getNombre();
-                $apellido = $profesor->getApellido();
-            
-                $eliminador = "<input type=\"button\" class=\"eliminar\" value=\"$cedula\">";
-                $modificador = "<input type=\"button\" class=\"modificar habilitarModif\" value=\"$cedula\">";
-                $aceptar = "<input type=\"button\" class=\"aceptar aceptar$cedula ocultar\" value=\"$cedula\">";
-                $cancelar = "<input type=\"button\" class=\"cancelar cancelar$cedula  ocultar\" value=\"$cedula\">";
+                $clase = $registros[$i];
+                $idClase = $clase->getId();
+                $salonClase = $clase->getSalon();
+                $descripcionClase = $clase->getDescripcion();
+                $cedulaProfe = $clase->getCedulaProfesor();
 
-                //acciones
+                $modificador = "<input type=\"button\" class=\"modificar habilitarModif\" value=\"$idClase\">";
+                $aceptar = "<input type=\"button\" class=\"aceptar aceptar$idClase ocultar\" value=\"$idClase\">";
+                $cancelar = "<input type=\"button\" class=\"cancelar cancelar$idClase  ocultar\" value=\"$idClase\">";
+
                 $html = $html."
+                    <td class=\"output__celda\">
+                        $descripcionClase
+                    </td>
+                    <td class=\"output__celda\">
+                        $salonClase
+                    </td>
+                ";
+
+                if($cedulaProfe!=null) {
+                    $resultado = $personaDAO->getInstancia(array($cedulaProfe));
+                    $persona = $resultado[0];
+                    $cedula = $persona->getCedula();
+                    $nombre = $persona->getNombre();
+                    $apellido = $persona->getApellido();
+
+                    //acciones
+                    $html = $html."
                     <td class=\"output__celda\">
                         $cedula
                     </td>
@@ -41,11 +58,34 @@
                         $apellido
                     </td>
                     <td class=\"output__celda\">
-                        clase
+                        CONTACTO
+                    </td>";
+                }
+                else {
+                    $html = $html."
+                    <td class=\"output__celda\">
+                        
                     </td>
                     <td class=\"output__celda\">
-                        contactos
+                        
+                    </td>
+                    <td class=\"output__celda\">
+                        
+                    </td>
+                    <td class=\"output__celda\">
+                        
+                    </td>";
+                    ;
+                }
+
+                $html = $html."
+                    <td class=\"output__celda\">
+                        $modificador
+                        $aceptar
+                        $cancelar
                     </td>TERMINAACA";
+
+
             }
 
             echo $html;
