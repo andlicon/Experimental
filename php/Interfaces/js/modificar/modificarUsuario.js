@@ -3,7 +3,7 @@ $(document).on('click', '.aceptar', function(){
     var id = $(this).val();
     var tipoUsuario = $('#tipoUsuarioInput'+id).val();
     var valido = $('#validoInput'+id).val();
-    alert('a');
+    
     $.ajax ( {
         url : '../../accion/modificar/ModificarUsuarioAdmin.php',
         type : 'POST',

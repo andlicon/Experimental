@@ -8,8 +8,7 @@
     include_once(DAO_PATH.'TipoPagoConsul.php');
     include_once(POP_PATH.'DeudaPop.php');
     include_once(POP_PATH.'RepresentantePop.php');
-    include_once(CREADORES_PATH.'/select/CreadorSelectTipoPago.php');
-    include_once(CREADORES_PATH.'/select/CreadorSelectCuenta.php');
+    include_once(CREADORES_PATH.'/select/CreadorSelectValido.php');
 
     final class ConsultarPagoAdmin implements Consultor {
         private $dao;
@@ -29,9 +28,6 @@
             //popOvers
             $popOverRep = new RepresentantePop($personaDAO);
             $deudaPop = new DeudaPop($deudaDAO);
-            //Creador de select
-            $selectTipoPago = new CreadorSelectTipoPago();
-            $selectCuenta = new CreadorSelectCuenta();
 
             $cedula = $cedula[0];
 
@@ -52,6 +48,8 @@
                 }
             }
 
+            $selectValido = new CreadorSelectValido();
+
             $html = "";
 
             for($i=0; $i<count($registros); $i++) {
@@ -62,7 +60,8 @@
                 $fecha = $pago->getFecha();
                 $monto = $pago->getMonto();
                 $estado = $pago->getValido();
-                $estado = $estado==false ? "por confirmar" : "confirmado";
+                $estado = $estado==false ? "Invalido" : "Valido";
+                $idDeuda = $pago->getIdDeuda();
                 //info cuenta
                 $idCuenta = $pago->getIdCuenta();
                 $resultado = $cuentaConsul->getInstancia(array($idCuenta));
@@ -75,46 +74,43 @@
                 $referencia = $pago->getRef();
             
                 $popRep = $popOverRep->generarPop($cedula, $id);
-                $popDeuda = $deudaPop->generarPop($pago->getIdDeuda(), $id);
+                $popDeuda = $deudaPop->generarPop($idDeuda, $id);
             
                 $eliminador = "<input type=\"button\" class=\"eliminar\" value=\"$id\">";
                 $modificador = "<input type=\"button\" class=\"modificar habilitarModif\" value=\"$id\">";
                 $aceptar = "<input type=\"button\" class=\"aceptar aceptar$id ocultar\" value=\"$id\">";
                 $cancelar = "<input type=\"button\" class=\"cancelar cancelar$id  ocultar\" value=\"$id\">";
-            
-                $tipoPagoSelect = $selectTipoPago->crearItemAtributos("class=\"modificable modificable$id ocultar\"", "tipoPagoInput$id");
-                $tipoCuentaSelect = $selectCuenta->crearItemAtributos("class=\"modificable modificable$id ocultar\"", "tipoCuentaInput$id");
+
+                $validez = $selectValido->crearItemAtributos("class=\"modificable modificable$id ocultar\"", "validoInput$id");
 
                 //acciones
                 $html = $html."
                 <td class=\"output__celda\">
                     <span class=\"modificable\">$popDeuda</span>
+                    <span class=\"modificable$id ocultar\">$idDeuda</span>
                 </td>
                 <td class=\"output__celda\">
                     $popRep
+                    <span class=\"modificable$id ocultar\">$cedula</span>
                 </td>
                 <td class=\"output__celda\">
-                    <input  id=\"fecha$id\" class=\"modificable modificable--estado$id\" value=\"$fecha\" disabled>
-                    <input id=\"fechaInput$id\" type=\"date\" value=\"$fecha\" disabled class=\"modificable modificable$id ocultar\">
+                    <span class=\"modificable\">$fecha</span>
                 </td>
                 <td class=\"output__celda\">
-                    <input type=\"text\" id=\"monto$id\" class=\"modificable modificable--estado$id\" value=\"$monto\" disabled>
-                    <input id=\"montoInput$id\" type=\"text\" value=\"$monto\" disabled class=\"modificable modificable$id ocultar\">
+                    <span class=\"modificable\">$monto</span>
                 </td>
                 <td class=\"output__celda\">
-                    <span class=\"modificable modificable--estado$id\">$cuentaImp</span>
-                    $tipoCuentaSelect
+                    <span class=\"modificable\">$cuentaImp</span>
                 </td>
                 <td class=\"output__celda\">
-                    <span class=\"modificable modificable--estado$id\">$tipoPago</span>
-                    $tipoPagoSelect
+                    <span class=\"modificable\">$tipoPago</span>
                 </td>
                 <td class=\"output__celda\">
-                    <input type=\"text\" id=\"referencia$id\"class=\"modificable modificable--estado$id\" value=\"$referencia\" disabled>
-                    <input id=\"referenciaInput$id\" type=\"text\" value=\"$referencia\" disabled class=\"modificable modificable$id ocultar\">
+                    <span class=\"modificable\">$referencia</span>
                 </td>
                 <td class=\"output__celda\">
-                <input type=\"text\" id=\"estadoInput$id\"class=\"modificable\" value=\"$estado\" disabled/>
+                    <input type=\"text\" id=\"estadoInput$id\"class=\"modificable--estado$id\" value=\"$estado\" disabled/>
+                    $validez
                 </td>
                 <td class=\"output__celda\">
                     $eliminador
