@@ -156,7 +156,7 @@
             for($i=0; $i<count($registros); $i++) {
                 $deuda = $registros[$i];
 
-                $id = $deuda['id'];
+                // $id = $deuda['id'];  No está en la vista
                 $cedula = $deuda['cedula_representante'];
                 $idEstudiante = $deuda['id_estudiante'];
                 $fecha = $deuda['fecha'];
@@ -166,7 +166,7 @@
                 $montoEstado = $deuda['monto_estado'];
                 $deuda = $deuda['deuda'];
                 
-                $deb= new Deuda($id, $cedula, $idEstudiante, $idMotivo, $descripcion, 
+                $deb= new Deuda(null,$cedula, $idEstudiante, $idMotivo, $descripcion, 
                                 $fecha, $montoInicial, $montoEstado, $deuda);
                 $deudas[] = $deb;
             }
