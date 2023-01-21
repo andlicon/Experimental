@@ -51,6 +51,9 @@
 </body>
 </html>
 
-<script src="../js/consulta/consultarUsuarios.js"></script>
 <script src="../js/eliminar.js"></script>
+<script src="../js/modificar/habilitarModificacion.js"></script>
+<!-- <script src="../js/modificar/modificarUsuarios.js"></script> -->
+<script src="../js/modificar/cancelar.js"></script>
+<script src="../js/consulta/consultarUsuarios.js"></script>
 <script src="../js/navegar.js"></script>

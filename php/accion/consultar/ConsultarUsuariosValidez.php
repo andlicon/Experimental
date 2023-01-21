@@ -5,6 +5,8 @@
     include_once(DAO_PATH.'/UsuarioDAO.php');
     include_once(DAO_PATH.'/PersonaDAO.php');
     include_once(DAO_PATH.'/TipoPersonaConsul.php');
+    include_once(CREADORES_PATH.'/select/CreadorSelectValido.php');
+    include_once(CREADORES_PATH.'/select/CreadorSelectTipoPersona.php');
 
     final class ConsultarUsuariosValidez implements Consultor {
         private $dao;
@@ -40,6 +42,10 @@
                 }
             }
 
+            //select
+            $selectValido = new CreadorSelectValido();
+            $selectTipoPersona = new CreadorSelectTipoPersona();
+
             $html = "";
 
             for($i=0; $i<count($registros); $i++) {
@@ -62,7 +68,13 @@
                 $resultados = $tipoPersonaConsul->getInstancia(array($idTipoPersona));
                 $tipoUsuario = $resultados[0]->getDescripcion();
 
+                $validez = $selectValido->crearItemAtributos("class=\"modificable modificable$cedula ocultar\"", "validoInput$cedula");
+                $tipoPersona = $selectTipoPersona->crearItemAtributos("class=\"modificable modificable$cedula ocultar\"", "tipoUsuarioInput$cedula");
+
                 $eliminador = "<input type=\"button\" class=\"eliminar\" value=\"$cedula\">";
+                $modificador = "<input type=\"button\" class=\"modificar habilitarModif\" value=\"$cedula\">";
+                $aceptar = "<input type=\"button\" class=\"aceptar aceptar$cedula ocultar\" value=\"$cedula\">";
+                $cancelar = "<input type=\"button\" class=\"cancelar cancelar$cedula  ocultar\" value=\"$cedula\">";
 
                 $html = $html."  
                     <td class=\"output__celda\">
@@ -75,16 +87,21 @@
                         $apellido
                     </td>
                     <td class=\"output__celda\">
-                       $tipoUsuario
+                        <span class=\"modificable modificable--estado$cedula\">$tipoUsuario</span>
+                        $tipoPersona
                     </td>
                     <td class=\"output__celda\">
                        $nickname
                     </td>
                     <td class=\"output__celda\">
-                       $valido
+                        <span class=\"modificable modificable--estado$cedula\">$valido</span>
+                       $validez
                     </td>
                     <td class=\"output__celda\">
                         $eliminador
+                        $modificador
+                        $aceptar
+                        $cancelar
                     </td>TERMINAACA";
             }
 

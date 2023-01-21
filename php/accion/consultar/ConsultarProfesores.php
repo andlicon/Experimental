@@ -20,6 +20,9 @@
             $registros = $this->dao->getTodos();
             $personaDAO = new PersonaDAO(BaseDeDatos::getInstancia());
 
+            //modificadores
+            $selectProfe = new CreadorSelectProfesor();
+
             for($i=0; $i<count($registros); $i++) {
                 $clase = $registros[$i];
                 $idClase = $clase->getId();
@@ -30,10 +33,6 @@
                 $modificador = "<input type=\"button\" class=\"modificar habilitarModif\" value=\"$idClase\">";
                 $aceptar = "<input type=\"button\" class=\"aceptar aceptar$idClase ocultar\" value=\"$idClase\">";
                 $cancelar = "<input type=\"button\" class=\"cancelar cancelar$idClase  ocultar\" value=\"$idClase\">";
-
-                //modificadores
-                $selectProfe = new CreadorSelectProfesor();
-
 
                 $html = $html."
                     <td class=\"output__celda\">

@@ -57,5 +57,5 @@
 <script src="../js/modificar/modificarPago.js"></script>
 <script src="../js/modificar/cancelar.js"></script>
 <script src="../js/cargar/cargarPago.js"></script>
-<script src="../js/navegar.js"></script>
 <script src="../js/consulta/consultarPago.js"></script>
+<script src="../js/navegar.js"></script>
