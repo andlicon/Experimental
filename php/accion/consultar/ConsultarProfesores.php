@@ -4,6 +4,7 @@
     include_once(DAO_PATH.'BaseDeDatos.php');
     include_once(DAO_PATH.'/PersonaDAO.php');
     include_once(DAO_PATH.'/ClaseConsul.php');
+    include_once(CREADORES_PATH.'/select/CreadorSelectProfesor.php');
 
     final class ConsultarProfesores implements Consultor {
         private $dao;
@@ -30,14 +31,21 @@
                 $aceptar = "<input type=\"button\" class=\"aceptar aceptar$idClase ocultar\" value=\"$idClase\">";
                 $cancelar = "<input type=\"button\" class=\"cancelar cancelar$idClase  ocultar\" value=\"$idClase\">";
 
+                //modificadores
+                $selectProfe = new CreadorSelectProfesor();
+
+
                 $html = $html."
                     <td class=\"output__celda\">
                         $descripcionClase
                     </td>
                     <td class=\"output__celda\">
-                        $salonClase
+                        <input  id=\"salon$idClase\" class=\"modificable modificable--estado$idClase\" value=\"$salonClase\" disabled>
+                        <input id=\"salonInput$idClase\" type=\"text\" value=\"$salonClase\" disabled class=\"modificable modificable$idClase ocultar\">
                     </td>
                 ";
+
+                $profe = $selectProfe->crearItemAtributos("class=\"modificable modificable$idClase ocultar\"", "cedulaInput$idClase");
 
                 if($cedulaProfe!=null) {
                     $resultado = $personaDAO->getInstancia(array($cedulaProfe));
@@ -49,7 +57,8 @@
                     //acciones
                     $html = $html."
                     <td class=\"output__celda\">
-                        $cedula
+                        <span class=\"modificable modificable--estado$idClase\">$cedula</span>
+                        $profe
                     </td>
                     <td class=\"output__celda\">
                         $nombre
@@ -64,7 +73,7 @@
                 else {
                     $html = $html."
                     <td class=\"output__celda\">
-                        
+                        $profe
                     </td>
                     <td class=\"output__celda\">
                         

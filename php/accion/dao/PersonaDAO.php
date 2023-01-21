@@ -71,7 +71,7 @@
             $registros = $this->bd->sql($consulta, null);
 
             if(empty($registros)) {
-                throw new Exception('No existe el representante con dicha cedula');
+                throw new Exception('No existe representante registrado.');
             }
 
             $personas = [];
