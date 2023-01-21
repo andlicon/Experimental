@@ -60,7 +60,7 @@
 <script src="../js/eliminar.js"></script>
 <script src="../js/modificar/habilitarModificacion.js"></script>
 <script src="../js/modificar/cancelar.js"></script>
-<!-- <script src="../js/modificar/modificarPago.js"></script> -->
+<script src="../js/modificar/modificarProfesores.js"></script>
 <!-- <script src="../js/cargar/cargarPago.js"></script> -->
 <script src="../js/consulta/consultarProfesores.js"></script>
 <script src="../js/navegar.js"></script>
