@@ -279,6 +279,12 @@
 
         }
 
+        public function modificarAdmin($parametros) {
+            $modificar = 
+                "CALL p_modificar_usuario_admin(?, ?, ?)";
+            $registros = $this->bd->sql($modificar, $parametros);
+        }
+
         public function modificarValidez(array $parametros) {
             $update =  "UPDATE  usuario
                         SET     valido=?
