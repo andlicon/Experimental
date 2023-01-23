@@ -305,6 +305,35 @@
             return $estudiantes;
         }
 
+        public function getTodosValidos($validez) {
+            $consulta = "SELECT * 
+                         FROM estudiante
+                         WHERE valido = ?";
+            $registros = $this->bd->sql($consulta, $validez);
+
+            if(empty($registros)) {
+                throw new Exception('No existe estudiante asociado al usuario.');
+            }
+
+            $estudiantes = [];
+            for($i=0; $i<count($registros); $i++) {
+                $estudiante = $registros[$i];
+                $id = $estudiante['id'];
+                $nombre = $estudiante['nombre'];
+                $apellido = $estudiante['apellido'];
+                $fechaNacimiento = $estudiante['fecha_nacimiento'];
+                $cedulaRepresentante = $estudiante['cedula_representante'];
+                $idClase = $estudiante['id_clase'];
+                $valido = $estudiante['valido'];
+     
+                $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento, 
+                                        $cedulaRepresentante, $idClase, $valido);
+                $estudiantes[] = $est;
+            }
+ 
+            return $estudiantes;
+        }
+
         public function cargar($parametros) {
             try {
                 $insert = "INSERT INTO estudiante (nombre, apellido, fecha_nacimiento, id_clase, cedula_representante)

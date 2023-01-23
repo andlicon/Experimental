@@ -2,29 +2,68 @@
     include_once(__DIR__.'/../../../rutaAcciones.php');
     include_once('CreadorSelect.php');
     include_once(DAO_PATH.'/BaseDeDatos.php');
-    include_once(DAO_PATH.'/MotivoConsul.php');
+    include_once(DAO_PATH.'/EstudianteDAO.php');
+    include_once(DAO_PATH.'/ClaseConsul.php');
+    include_once('CreadorSelectClase.php');
 
-    class CreadorSelectMotivo extends CreadorSelect {
+    class CreadorSelectEstudiante extends CreadorSelect {
         
         public function __construct() {
-            parent::__construct(new MotivoConsul(BaseDeDatos::getInstancia()));
+            parent::__construct(new EstudianteDAO(BaseDeDatos::getInstancia()));
         }
 
 
         protected function crearOption($consulta) {
-            $options = "";
+            $options = "<optgroup label=\"Grupos\">
+                            <option value=\"todos\">Todos</option>";
+            //Consulta a las clases
+            $creadorSelectClase = new CreadorSelectClase();
+            $claseConsul = new ClaseConsul(BaseDeDatos::getInstancia());
+            $registros = $claseConsul->getTodos();
+            $options = $options.$creadorSelectClase->crearOption($registros);
+            
+            $options = $options."</optgroup>
+                        <optgroup label=\"Estudiantes\">";
+
 
             for($i=0; $i<count($consulta); $i++) {
-                $motivo = $consulta[$i];
-                $id = $motivo->getId();
-                $descripcion = $motivo->getDescripcion();
+                $estudiante = $consulta[$i];
+                $id = $estudiante->getId();
+                $nombre = $estudiante->getNombre();
+                $apellido = $estudiante->getApellido();
+                $cedulaRepresentante = $estudiante->getCedulaRepresentante();
+                $idClase = $estudiante->getIdClase();
 
-                $options = $options."<option value=\"$id\">$descripcion</option>";
+                //consultandio por la clase.
+                $clase = $claseConsul->getInstancia(array($idClase));
+                $clase = $clase[0];
+                $claseDescrip = $clase->getDescripcion();
+
+                $options = $options."
+                    <option value=\"$id\">
+                        $nombre $apellido - Representante: $cedulaRepresentante 
+                        - Clase: $claseDescrip
+                    </option>";
             }
 
+            $options = $options."</optGroup>";
+
             return $options;
+            
         }
 
+        public function crearItemAtributos($atributos, $id) {
+            $consulta = $this->dao->getTodosValidos(array(1));
+    
+            $html = "<div class=\"input__grupo\">
+                        <select id=\"$id\" name=\"$id\" $atributos>";
+            $html = $html.$this->crearOption($consulta);
+            $html = $html."
+                        </select>
+                    </div>";
+    
+            return $html;
+        }
     }
 
 ?>

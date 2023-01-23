@@ -1,7 +1,7 @@
 <?php
     include_once('CreadorInput.php');
     include_once('../select/CreadorSelectMotivo.php');
-
+    include_once('../select/CreadorSelectEstudiante.php');
 
     final class CreadorInputDeuda extends CreadorInput {
 
@@ -10,13 +10,20 @@
         }
 
         public function crearItemAtributos($atributos, $id) {
+            //selects
             $creadorSelectMotivo= new CreadorSelectMotivo();
             $selectMotivo = $creadorSelectMotivo->crearItem("motivoInput");
+            $creadorSelectEstudiante = new CreadorSelectEstudiante();
+            $selectEstudiante = $creadorSelectEstudiante->crearItem("estudianteInput");
 
             $html = 
                 "
                 <input class=\"boton\" id=\"cargar\" value=\"cargar\" />
 
+                <div class=\"contenido__bloque\">
+	                <label for=\"estudainteInput\">Estudiante</label>
+	                $selectEstudiante
+                </div>
                 <div class=\"contenido__bloque\">
 	                <label for=\"motivoInput\">Motivo</label>
 	                $selectMotivo
