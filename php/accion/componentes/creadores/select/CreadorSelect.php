@@ -13,7 +13,7 @@
             $consulta = $this->dao->getTodos();
 
             $html = "<div class=\"input__grupo\">
-                        <select $atributos id=\"$id\" name=\"tipoPago\" $atributos>";
+                        <select id=\"$id\" name=\"$id\" $atributos>";
             $html = $html.$this->crearOption($consulta);
             $html = $html."
                         </select>

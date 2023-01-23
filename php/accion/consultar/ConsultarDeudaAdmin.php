@@ -8,6 +8,7 @@
     include_once(DAO_PATH.'TipoPagoConsul.php');
     include_once(POP_PATH.'RepresentantePop.php');
     include_once(POP_PATH.'EstudiantePop.php');
+    include_once(CREADORES_PATH.'/select/CreadorSelectMotivo.php');
 
     final class ConsultarDeudaAdmin implements Consultor {
         private $dao;
@@ -55,6 +56,8 @@
             $estudianteDAO = new EstudianteDAO(BaseDeDatos::getInstancia());
             $popOverEstu = new EstudiantePop($estudianteDAO);
 
+            $selectMotivo = new CreadorSelectMotivo();
+
             $deudaTotal = 0;
             $html = "";
 
@@ -75,6 +78,8 @@
                 //popOvers
                 $popRep = $popOverRep->generarPop($cedula, $cedula);
                 $popEstu = $popOverEstu->generarPop($idEstudiante, $idEstudiante);
+                //select
+                $motivoSelect = $selectMotivo->crearItemAtributos("class=\"modificable modificable$id ocultar\"", "motivoInput$id");
 
                 $eliminador = "<input type=\"button\" class=\"eliminar\" value=\"$id\">";
                 $modificador = "<input type=\"button\" class=\"modificar habilitarModif\" value=\"$id\">";
@@ -91,16 +96,20 @@
                         $popEstu
                     </td>
                     <td class=\"output__celda\">
-                        $motivo
+                        <span class=\"modificable modificable--estado$id\">$motivo</span>
+                        $motivoSelect
                     </td>
                     <td class=\"output__celda\">
-                        $descripcion
+                        <input type=\"text\" id=\"descripcion$id\"class=\"modificable modificable--estado$id\" value=\"$descripcion\" disabled>
+                        <input id=\"descripcionInput$id\" type=\"text\" value=\"$descripcion\" disabled class=\"modificable modificable$id ocultar\">
                     </td>
                     <td class=\"output__celda\">
-                        $fecha
+                        <input  id=\"fecha$id\" class=\"modificable modificable--estado$id\" value=\"$fecha\" disabled>
+                        <input id=\"fechaInput$id\" type=\"date\" value=\"$fecha\" disabled class=\"modificable modificable$id ocultar\">
                     </td>
                     <td class=\"output__celda\">
-                        $montoInicial
+                        <input type=\"text\" id=\"montoInicial$id\" class=\"modificable modificable--estado$id\" value=\"$montoInicial\" disabled>
+                        <input id=\"montoInicialInput$id\" type=\"text\" value=\"$montoInicial\" disabled class=\"modificable modificable$id ocultar\">
                     </td>
                     <td class=\"output__celda\">
                         $montoEstado
