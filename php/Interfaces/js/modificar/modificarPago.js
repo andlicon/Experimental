@@ -7,7 +7,7 @@ $(document).on('click', '.aceptar', function(){
     var cuenta = $('#tipoCuentaInput'+id).val();
     var tipoPago = $('#tipoPagoInput'+id).val();
     var referencia = $('#referenciaInput'+id).val();
-    var valido = $('#estadoInput'+id).val().includes("por confirmar") ? 0 : 1;
+    var valido = $('#validoInput'+id).val();
 
     let usuario = JSON.parse(localStorage.getItem('usuario'));
     let permiso = usuario.permiso;
@@ -18,18 +18,21 @@ $(document).on('click', '.aceptar', function(){
             type : 'POST',
             data : {id: id, valido: valido},
             success : function(response) {
-                    if(response) {
-                        alert("Se ha validado el pago con éxito");
-                    }
-                    else {
-                        alert("No se ha podido validar el pago.");
-                    }
-    
-                    location.reload();
+                alert(response);
+                if(response) {
+                    alert("Se ha validado el pago con éxito");
+                }
+                else {
+                    alert("No se ha podido validar el pago.");
+                }
+
+                location.reload();
             }
         });
     }
     else {
+        valido = 0;
+        
         $.ajax ( {
             url : '../../accion/modificar/ModificarPago.php',
             type : 'POST',
