@@ -244,9 +244,7 @@
 
         public function modificar($parametros) {
             $update =  "UPDATE deuda
-                        SET cedula_representante=?, 
-                            id_estudiante=?,
-                            id_motivo=?,
+                        SET id_motivo=?,
                             fecha=?,
                             descripcion=?,
                             monto_inicial=?

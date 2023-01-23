@@ -13,6 +13,20 @@
 
 
         protected function crearOption($consulta) {
+            $options = "";
+
+            for($i=0; $i<count($consulta); $i++) {
+                $motivo = $consulta[$i];
+                $id = $motivo->getId();
+                $descripcion = $motivo->getDescripcion();
+
+                $options = $options."<option value=\"$id\">$descripcion</option>";
+            }
+
+            return $options;
+        }
+
+        protected function crearOptionConsulta($consulta) {
             $options = "<option value=\"todos\">Todos</option>";
 
             for($i=0; $i<count($consulta); $i++) {
