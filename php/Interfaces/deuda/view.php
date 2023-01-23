@@ -48,6 +48,12 @@
                     $tabla->crearTabla();
                 ?>
             </div>
+
+            <div class="input">
+                <div id="input">
+                    <script src="../js/menu/crearInput.js"></script>;
+                </div>
+            </div>
         </form>
     </div>
 </body>
@@ -57,7 +63,7 @@
 <script src="../js/modificar/habilitarModificacion.js"></script>
 <script src="../js/modificar/modificarDeuda.js"></script>
 <script src="../js/modificar/cancelar.js"></script>
-<!-- <script src="../js/cargar/cargarPago.js"></script> -->
+<script src="../js/cargar/cargarDeuda.js"></script>
 <script src="../js/consulta/consultarDeuda.js"></script>
 <script src="../js/navegar.js"></script>
 

@@ -40,6 +40,19 @@
             return $options;
         }
 
+        public function crearItemInput($id) {
+            $consulta = $this->dao->getTodos();
+
+            $html = "<div class=\"input__grupo\">
+                        <select id=\"$id\" name=\"$id\" $atributos>";
+            $html = $html.$this->crearOptionConsulta($consulta);
+            $html = $html."
+                        </select>
+                    </div>";
+
+            return $html;
+        }
+
     }
 
 ?>
