@@ -78,6 +78,11 @@
 
             $item = $item.
                 '</select>
+                <script>
+                    $(document).ready(function () {
+                        $("#representanteInput").select2();
+                    });
+                </script>
             </div>';
             return $item;
         }

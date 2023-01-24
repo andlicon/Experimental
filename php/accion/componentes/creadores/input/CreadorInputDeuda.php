@@ -43,7 +43,7 @@
 
                 <script>
                     $(document).ready(function () {
-                        $('#deudaInput').select2();
+                        $('#estudianteInput').select2();
                     });
                 </script>
                 ";
@@ -51,10 +51,3 @@
         }
     }
 ?>
-
-<!--
-    <div class=\"contenido__bloque\">
-	    <label for=\"claseInput\">Clase</label>
-	    $selectClase
-    </div> 
--->
