@@ -4,18 +4,20 @@ $(document).on('click', '.aceptar', function(){
     var nombre = $('#nombreInput'+id).val();
     var apellido = $('#apellidoInput'+id).val();
     var fecha = $('#fechaInput'+id).val();
-    var cuenta = $('#cuentaInput'+id).val();
+    var clase = $('#claseInput'+id).val();
     var valido = $('#validoInput'+id).val();
 
     let usuario = JSON.parse(localStorage.getItem('usuario'));
     let permiso = usuario.permiso;
+
+    alert(nombre + " " + apellido + " " + fecha + " " + clase + " " + valido);
 
     if(permiso==4) {
         $.ajax ( {
             url : '../../accion/modificar/ModificarEstudianteAdmin.php',
             type : 'POST',
             data : {id: id, nombre: nombre, apellido: apellido, 
-                    fecha: fecha, cuenta: cuenta, valido: valido},
+                    fecha: fecha, clase: clase, valido: valido},
             success : function(response) {
                 alert(response);
                 if(response) {

@@ -93,12 +93,12 @@
 
                 $html = $html."  
                     <td class=\"output__celda\">
-                        <input  id=\"fecha$idEstudiante\" class=\"modificable modificable--estado$idEstudiante\" value=\"$nombre\" disabled>
-                        <input id=\"fechaInput$idEstudiante\" type=\"text\" value=\"$nombre\" disabled class=\"modificable modificable$idEstudiante ocultar\">
+                        <input  id=\"nombre$idEstudiante\" class=\"modificable modificable--estado$idEstudiante\" value=\"$nombre\" disabled>
+                        <input id=\"nombreInput$idEstudiante\" type=\"text\" value=\"$nombre\" disabled class=\"modificable modificable$idEstudiante ocultar\">
                     </td>
                     <td class=\"output__celda\">
-                        <input  id=\"fecha$idEstudiante\" class=\"modificable modificable--estado$idEstudiante\" value=\"$apellido\" disabled>
-                        <input id=\"fechaInput$idEstudiante\" type=\"text\" value=\"$apellido\" disabled class=\"modificable modificable$idEstudiante ocultar\">
+                        <input  id=\"apellido$idEstudiante\" class=\"modificable modificable--estado$idEstudiante\" value=\"$apellido\" disabled>
+                        <input id=\"apellidoInput$idEstudiante\" type=\"text\" value=\"$apellido\" disabled class=\"modificable modificable$idEstudiante ocultar\">
                     </td>
                     <td class=\"output__celda\">
                         <input  id=\"fecha$idEstudiante\" class=\"modificable modificable--estado$idEstudiante\" value=\"$fechaNacimiento\" disabled>

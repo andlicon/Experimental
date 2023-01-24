@@ -362,6 +362,7 @@
                             apellido=?,
                             fecha_nacimiento=?,
                             id_clase=?,
+                            valido=?
                         WHERE id=?";
             $this->bd->sql($update, $parametros);
         }
