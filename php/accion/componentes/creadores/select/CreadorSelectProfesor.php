@@ -12,7 +12,7 @@
 
 
 
-        protected function crearOption($profesores) {
+        protected function crearOption($profesores, $seleccion) {
             $options = "";
 
             for($i=0; $i<count($profesores); $i++) {
@@ -39,7 +39,7 @@
 
                 $html = "<div class=\"input__grupo\">
                             <select $atributos id=\"$id\" name=\"profe\">";
-                $html = $html.$this->crearOption($profesores);
+                $html = $html.$this->crearOption($profesores, null);
                 $html = $html."
                             </select>
                         </div>";

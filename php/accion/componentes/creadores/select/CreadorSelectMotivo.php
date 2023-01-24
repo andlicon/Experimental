@@ -12,7 +12,7 @@
 
 
 
-        protected function crearOption($consulta) {
+        protected function crearOption($consulta, $seleccion) {
             $options = "";
 
             for($i=0; $i<count($consulta); $i++) {
@@ -45,7 +45,7 @@
 
             $html = "<div class=\"input__grupo\">
                         <select id=\"$id\" name=\"$id\" $atributos>";
-            $html = $html.$this->crearOptionConsulta($consulta);
+            $html = $html.$this->crearOptionConsulta($consulta, null);
             $html = $html."
                         </select>
                     </div>";

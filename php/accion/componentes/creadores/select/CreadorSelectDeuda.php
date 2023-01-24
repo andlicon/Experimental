@@ -13,7 +13,7 @@
 
 
 
-        protected function crearOption($consulta) {
+        protected function crearOption($consulta, $seleccion) {
             $options = "<option value=\"0\"> - </option>";
 
             $estudianteDAO = new EstudianteDAO(new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', ''));
@@ -48,7 +48,7 @@
 
                 $html = "<div class=\"input__grupo\">
                             <select $atributos id=\"$id\" name=\"tipoPago\" $atributos>";
-                $html = $html.$this->crearOption($consulta);
+                $html = $html.$this->crearOption($consulta, null);
                 $html = $html."
                             </select>
                         </div>";

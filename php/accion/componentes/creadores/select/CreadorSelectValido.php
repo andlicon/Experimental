@@ -10,7 +10,7 @@
 
 
 
-        protected function crearOption($consulta) {
+        protected function crearOption($consulta, $seleccion) {
             $options = "";
             $options = $options."
                 <option value=\"1\">Valido</option>
@@ -24,7 +24,7 @@
 
             $html = "<div class=\"input__grupo\">
                         <select $atributos id=\"$id\" name=\"tipoPago\" $atributos>";
-            $html = $html.$this->crearOption(null);
+            $html = $html.$this->crearOption(null, null);
             $html = $html."
                         </select>
                     </div>";

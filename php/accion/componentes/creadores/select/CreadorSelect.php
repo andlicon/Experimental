@@ -14,7 +14,20 @@
 
             $html = "<div class=\"input__grupo\">
                         <select id=\"$id\" name=\"$id\" $atributos>";
-            $html = $html.$this->crearOption($consulta);
+            $html = $html.$this->crearOption($consulta, null);
+            $html = $html."
+                        </select>
+                    </div>";
+
+            return $html;
+        }
+
+        public function crearItemAtributosSeleccion($atributos, $id, $seleccion) {
+            $consulta = $this->dao->getTodos();
+
+            $html = "<div class=\"input__grupo\">
+                        <select id=\"$id\" name=\"$id\" $atributos>";
+            $html = $html.$this->crearOption($consulta, $seleccion);
             $html = $html."
                         </select>
                     </div>";
@@ -26,7 +39,7 @@
             return $this->crearItemAtributos("", $id);
         }
 
-        protected function crearOption($consulta) {
+        protected function crearOption($consulta, $seleccion) {
             $options = "";
 
             for($i=0; $i<count($consulta); $i++) {
@@ -34,7 +47,9 @@
                 $idOpcion = $opcion->getId();
                 $descripcionOpcion = $opcion->getDescripcion();
                 
-                $options = $options."<option value=\"$idOpcion\">$descripcionOpcion</option>";
+                $seleccionar = $seleccion==$idOpcion ? "selected" : "";
+                
+                $options = $options."<option value=\"$idOpcion\" $seleccionar>$descripcionOpcion</option>";
             }
 
             return $options;

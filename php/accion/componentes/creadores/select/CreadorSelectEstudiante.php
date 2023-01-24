@@ -13,14 +13,14 @@
         }
 
 
-        protected function crearOption($consulta) {
+        protected function crearOption($consulta, $seleccion) {
             $options = "<optgroup label=\"Grupos\">
                             <option value=\"todos\">Todos</option>";
             //Consulta a las clases
             $creadorSelectClase = new CreadorSelectClase();
             $claseConsul = new ClaseConsul(BaseDeDatos::getInstancia());
             $registros = $claseConsul->getTodos();
-            $options = $options.$creadorSelectClase->crearOption($registros);
+            $options = $options.$creadorSelectClase->crearOption($registros, null);
             
             $options = $options."</optgroup>
                         <optgroup label=\"Estudiantes\">";
@@ -57,7 +57,7 @@
     
             $html = "<div class=\"input__grupo\">
                         <select id=\"$id\" name=\"$id\" $atributos>";
-            $html = $html.$this->crearOption($consulta);
+            $html = $html.$this->crearOption($consulta, null);
             $html = $html."
                         </select>
                     </div>";
