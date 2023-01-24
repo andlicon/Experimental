@@ -3,6 +3,7 @@
     include_once('CargarEstudiante.php');
     include_once('CargarDeuda.php');
 
+
     if(isset($_POST['pagina'])) {
         $pagina = $_POST['pagina'];
 

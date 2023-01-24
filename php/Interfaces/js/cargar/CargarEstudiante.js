@@ -24,7 +24,8 @@ $(document).on('click', '.boton[id*="cargar"]', function(){
             data : {nombre: nombre, apellido: apellido, fecha: fecha, 
                 clase: clase, cedula: cedula, pagina: pagina},
             success : function(response) {
-                    alert(response);
+                alert(response);
+                location.reload();
             }
         });
     }

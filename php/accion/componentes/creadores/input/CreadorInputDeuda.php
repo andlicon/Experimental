@@ -21,7 +21,7 @@
                 <input class=\"boton\" id=\"cargar\" value=\"cargar\" />
 
                 <div class=\"contenido__bloque\">
-	                <label for=\"estudainteInput\">Estudiante</label>
+	                <label for=\"estudianteInput\">Estudiante</label>
 	                $selectEstudiante
                 </div>
                 <div class=\"contenido__bloque\">

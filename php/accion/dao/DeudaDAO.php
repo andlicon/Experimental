@@ -237,8 +237,7 @@
         }
 
         public function cargar($parametros) {
-            $insert = "INSERT INTO deuda    (cedula_representante,  id_estudiante,   id_motivo,     fecha,  descripcion,    monto_inicial) 
-                        VALUES              (?,                     ?,               ?,              ?,      ?,              ?)";
+            $insert = "CALL p_crear_deuda (?, ?, ?, ?, ?, ?);";
             $this->bd->sql($insert, $parametros);
         }
 

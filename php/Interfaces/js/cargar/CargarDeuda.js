@@ -1,30 +1,27 @@
 $(document).on('click', '.boton[id*="cargar"]', function(){
     //datos
-    var nombre = $('#nombreInput').val();
-    var apellido = $('#apellidoInput').val();
+    var estudiante = $('#estudianteInput').val();
+    var motivo = $('#motivoInput').val();
+    var descripcion = $('#descripcionInput').val();
     var fecha = $('#fechaInput').val();
-    var clase = $('#claseInput').val();
+    var monto = $('#montoInicialInput').val();
+    var select = document.querySelector('select[id="estudianteInput"] option:checked').text;
 
     var pagina = window.location.pathname;
 
-    var usuario = JSON.parse(localStorage.getItem('usuario'));
-    var cedula = usuario.cedula;
-
-    let seguir = confirm("Seguro que desea cargar el estudiante con los siguientes datos:\n"+ 
-            "Nombre: " + nombre + "\n" +
-            "Apellido: " + apellido + "\n" +
-            "Fecha de nacimiento: " + fecha + "\n" +
-            "Clase: " + clase + "\n");
+    let seguir = confirm("Seguro que desea cargar la deuda ");
 
     //Enviar la informacion a php
     if(seguir) {
         $.ajax ( {
             url : '../../accion/cargar/CargarJs.php',
             type : 'POST',
-            data : {nombre: nombre, apellido: apellido, fecha: fecha, 
-                clase: clase, cedula: cedula, pagina: pagina},
+            data : {estudiante: estudiante, motivo: motivo, fecha: fecha, 
+                descripcion: descripcion, monto: monto, select: select, 
+                pagina: pagina},
             success : function(response) {
-                    alert(response);
+                alert(response);
+                location.reload();
             }
         });
     }

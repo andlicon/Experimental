@@ -28,9 +28,8 @@ $(document).on('click', '.boton[id*="cargar"]', function(){
                     monto: monto, referencia: referencia, cuenta: cuenta,
                     tipoPago: tipoPago, valido: valido, pagina: pagina},
             success : function(response) {
-                    alert(response);
-    
-                    location.reload();
+                alert(response);
+                location.reload();
             }
         });
     }
