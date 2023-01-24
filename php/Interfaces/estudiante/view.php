@@ -54,10 +54,14 @@
 </body>
 </html>
 
-<script src="../js/consulta/consultarEstudiante.js"></script>
 <script src="../js/eliminar.js"></script>
+<script src="../js/modificar/habilitarModificacion.js"></script>
+<script src="../js/modificar/modificarEstudiante.js"></script>
+<script src="../js/modificar/cancelar.js"></script>
 <script src="../js/cargar/cargarEstudiante.js"></script>
+<script src="../js/consulta/consultarEstudiante.js"></script>
 <script src="../js/navegar.js"></script>
+
 
 <script>
     $(document).ready(function () {

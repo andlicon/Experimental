@@ -355,6 +355,16 @@
                         WHERE id=?";
             $this->bd->sql($update, $parametros);
         }
+
+        public function modificarAdmin($parametros) {
+            $update =  "UPDATE estudiante
+                        SET nombre=?, 
+                            apellido=?,
+                            fecha_nacimiento=?,
+                            id_clase=?,
+                        WHERE id=?";
+            $this->bd->sql($update, $parametros);
+        }
         
         public function eliminar($parametros) {
             try {
