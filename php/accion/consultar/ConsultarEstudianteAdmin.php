@@ -44,7 +44,8 @@
                         $registros = $this->dao->getInstanciaCedula(array($representante));
                     }
                     else {
-                        $registros = $this->dao->getInstanciaCedula(array($representante, $validez));
+                        //ESTA NO ME FUNCIONA
+                        $registros = $this->dao->getInstanciaCedulaValidez(array($representante, $validez));
                     }
                 }
                 else {
