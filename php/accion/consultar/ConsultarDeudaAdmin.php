@@ -79,7 +79,7 @@
                 $popRep = $popOverRep->generarPop($cedula, $cedula);
                 $popEstu = $popOverEstu->generarPop($idEstudiante, $idEstudiante);
                 //select
-                $motivoSelect = $selectMotivo->crearItemAtributos("class=\"modificable modificable$id ocultar\"", "motivoInput$id");
+                $motivoSelect = $selectMotivo->crearItemAtributosSeleccion("class=\"modificable modificable$id ocultar\"", "motivoInput$id", $idMotivo);
 
                 $eliminador = "<input type=\"button\" class=\"eliminar\" value=\"$id\">";
                 $modificador = "<input type=\"button\" class=\"modificar habilitarModif\" value=\"$id\">";

@@ -12,19 +12,19 @@
 
 
 
-        protected function crearOption($consulta, $seleccion) {
-            $options = "";
+        // protected function crearOption($consulta, $seleccion) {
+        //     $options = "";
 
-            for($i=0; $i<count($consulta); $i++) {
-                $motivo = $consulta[$i];
-                $id = $motivo->getId();
-                $descripcion = $motivo->getDescripcion();
+        //     for($i=0; $i<count($consulta); $i++) {
+        //         $motivo = $consulta[$i];
+        //         $id = $motivo->getId();
+        //         $descripcion = $motivo->getDescripcion();
 
-                $options = $options."<option value=\"$id\">$descripcion</option>";
-            }
+        //         $options = $options."<option value=\"$id\">$descripcion</option>";
+        //     }
 
-            return $options;
-        }
+        //     return $options;
+        // }
 
         protected function crearOptionConsulta($consulta) {
             $options = "<option value=\"todos\">Todos</option>";
