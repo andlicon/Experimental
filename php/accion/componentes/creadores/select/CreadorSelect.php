@@ -10,16 +10,7 @@
         }
 
         public function crearItemAtributos($atributos, $id) {
-            $consulta = $this->dao->getTodos();
-
-            $html = "<div class=\"input__grupo\">
-                        <select id=\"$id\" name=\"$id\" $atributos>";
-            $html = $html.$this->crearOption($consulta, null);
-            $html = $html."
-                        </select>
-                    </div>";
-
-            return $html;
+            return $this->crearItemAtributosSeleccion($atributos, $id, null);
         }
 
         public function crearItemAtributosSeleccion($atributos, $id, $seleccion) {

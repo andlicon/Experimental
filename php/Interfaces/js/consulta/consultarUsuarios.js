@@ -10,9 +10,11 @@ $(function(){
                 $.ajax ( {
                     url : '../../accion/consultar/Consultar.php',
                     type : 'POST',
-                    data : {pagina: pagina, cedula: cedula, permiso: permiso, infoAdd: infoAdd, tipoPersona: tipoPersona},
+                    data : {pagina: pagina, cedula: cedula, permiso: permiso, 
+                            infoAdd: infoAdd, tipoPersona: tipoPersona},
                     async: false,
                     success : function(response) {
+                        alert(response);
                         var renglones = response.split('TERMINAACA');
                         var html = "";
 

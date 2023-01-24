@@ -53,7 +53,8 @@
                 $cedula = $usuario->getCedula();
                 $nickname = $usuario->getNickname();
                 $valido = $usuario->getValido();
-                $valido = $valido==true ? "valido" : "invalido";
+
+                echo "VALIDOOO: ".$valido;
 
                 //Info persona.
                 $personaDAO = new PersonaDAO(BaseDeDatos::getInstancia());
@@ -68,13 +69,15 @@
                 $resultados = $tipoPersonaConsul->getInstancia(array($idTipoPersona));
                 $tipoUsuario = $resultados[0]->getDescripcion();
 
-                $validez = $selectValido->crearItemAtributos("class=\"modificable modificable$cedula ocultar\"", "validoInput$cedula");
+                $validez = $selectValido->crearItemAtributosSeleccion("class=\"modificable modificable$cedula ocultar\"", "validoInput$cedula", $valido);
                 $tipoPersona = $selectTipoPersona->crearItemAtributos("class=\"modificable modificable$cedula ocultar\"", "tipoUsuarioInput$cedula");
 
                 $eliminador = "<input type=\"button\" class=\"eliminar\" value=\"$cedula\">";
                 $modificador = "<input type=\"button\" class=\"modificar habilitarModif\" value=\"$cedula\">";
                 $aceptar = "<input type=\"button\" class=\"aceptar aceptar$cedula ocultar\" value=\"$cedula\">";
                 $cancelar = "<input type=\"button\" class=\"cancelar cancelar$cedula  ocultar\" value=\"$cedula\">";
+
+                $valido = $valido==true ? "valido" : "invalido";
 
                 $html = $html."  
                     <td class=\"output__celda\">
