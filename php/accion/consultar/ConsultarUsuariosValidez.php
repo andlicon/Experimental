@@ -67,10 +67,11 @@
                 //Info TipoUsuario
                 $tipoPersonaConsul = new TipoPersonaConsul(BaseDeDatos::getInstancia());
                 $resultados = $tipoPersonaConsul->getInstancia(array($idTipoPersona));
+                $tipoUsuarioId = $resultados[0]->getId();
                 $tipoUsuario = $resultados[0]->getDescripcion();
 
                 $validez = $selectValido->crearItemAtributosSeleccion("class=\"modificable modificable$cedula ocultar\"", "validoInput$cedula", $valido);
-                $tipoPersona = $selectTipoPersona->crearItemAtributos("class=\"modificable modificable$cedula ocultar\"", "tipoUsuarioInput$cedula");
+                $tipoPersona = $selectTipoPersona->crearItemAtributosSeleccion("class=\"modificable modificable$cedula ocultar\"", "tipoUsuarioInput$cedula", $tipoUsuarioId);
 
                 $eliminador = "<input type=\"button\" class=\"eliminar\" value=\"$cedula\">";
                 $modificador = "<input type=\"button\" class=\"modificar habilitarModif\" value=\"$cedula\">";

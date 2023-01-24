@@ -9,6 +9,20 @@
             parent::__construct(new TipoPersonaConsul(BaseDeDatos::getInstancia()));
         }
 
+        public function crearItemAtributosSeleccion($atributos, $id, $seleccion) {
+            $consulta = $this->dao->getTodos();
+
+            $html = "";
+            $html = "<div class=\"input__grupo\">
+                        <select $atributos id=\"$id\" name=\"tipoPago\" $atributos>";
+            $html = $html.$this->crearOption($consulta, $seleccion);
+            $html = $html."
+                        </select>
+                    </div>";
+
+            return $html;
+        }
+
     }
 
 ?>
