@@ -14,7 +14,6 @@ $(function(){
                             infoAdd: infoAdd, tipoPersona: tipoPersona},
                     async: false,
                     success : function(response) {
-                        alert(response);
                         var renglones = response.split('TERMINAACA');
                         var html = "";
 
