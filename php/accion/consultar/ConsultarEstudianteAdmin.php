@@ -77,12 +77,14 @@
                 $fechaNacimiento = $estudiante->getFechaNacimiento();
                 $idClase = $estudiante->getIdClase();
                 $cedulaRepresentante = $estudiante->getCedulaRepresentante();
-                $valido = $estudiante->getValido() == 0 ? "Por validar" : "Inscrito";
+                $valido = $estudiante->getValido();
                 //Informacion clase
                 $nombreClase = $claseConsul->getInstancia(array($idClase))[0]->getDescripcion($idClase);
 
-                $validez = $selectValido->crearItemAtributos("class=\"modificable modificable$idEstudiante ocultar\"", "validoInput$idEstudiante");
-                $clase = $selectClase->crearItemAtributos("class=\"modificable modificable$idEstudiante ocultar\"", "claseInput$idEstudiante");
+                $validez = $selectValido->crearItemAtributosSeleccion("class=\"modificable modificable$idEstudiante ocultar\"", "validoInput$idEstudiante", $valido);
+                $clase = $selectClase->crearItemAtributosSeleccion("class=\"modificable modificable$idEstudiante ocultar\"", "claseInput$idEstudiante", $idClase);
+                
+                $valido = $estudiante->getValido() == 0 ? "Por validar" : "Inscrito";
 
                 $eliminador = "<input type=\"button\" class=\"eliminar\" value=\"$idEstudiante\">";
                 $modificador = "<input type=\"button\" class=\"modificar habilitarModif\" value=\"$idEstudiante\">";

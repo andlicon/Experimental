@@ -10,22 +10,6 @@
             parent::__construct(new MotivoConsul(BaseDeDatos::getInstancia()));
         }
 
-
-
-        // protected function crearOption($consulta, $seleccion) {
-        //     $options = "";
-
-        //     for($i=0; $i<count($consulta); $i++) {
-        //         $motivo = $consulta[$i];
-        //         $id = $motivo->getId();
-        //         $descripcion = $motivo->getDescripcion();
-
-        //         $options = $options."<option value=\"$id\">$descripcion</option>";
-        //     }
-
-        //     return $options;
-        // }
-
         protected function crearOptionConsulta($consulta) {
             $options = "<option value=\"todos\">Todos</option>";
 
@@ -45,7 +29,7 @@
 
             $html = "<div class=\"input__grupo\">
                         <select id=\"$id\" name=\"$id\" $atributos>";
-            $html = $html.$this->crearOptionConsulta($consulta, null);
+            $html = $html.$this->crearOptionConsulta($consulta);
             $html = $html."
                         </select>
                     </div>";

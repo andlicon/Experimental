@@ -53,7 +53,8 @@
                 $banco = $resultado[0]->getBanco();
                 $cuentaImp = $banco.' '.$cuenta;
                 //tipo pago
-                $resultado = $tipoPagoConsul->getInstancia(array($pago->getIdTipoPago()));
+                $idPago = $pago->getIdTipoPago();
+                $resultado = $tipoPagoConsul->getInstancia(array($idPago));
                 $tipoPago = $resultado[0]->getDescripcion();
                 $referencia = $pago->getRef();
             
@@ -65,8 +66,8 @@
                 $aceptar = "<input type=\"button\" class=\"aceptar aceptar$id ocultar\" value=\"$id\">";
                 $cancelar = "<input type=\"button\" class=\"cancelar cancelar$id  ocultar\" value=\"$id\">";
             
-                $tipoPagoSelect = $selectTipoPago->crearItemAtributos("class=\"modificable modificable$id ocultar\"", "tipoPagoInput$id");
-                $tipoCuentaSelect = $selectCuenta->crearItemAtributos("class=\"modificable modificable$id ocultar\"", "tipoCuentaInput$id");
+                $tipoPagoSelect = $selectTipoPago->crearItemAtributosSeleccion("class=\"modificable modificable$id ocultar\"", "tipoPagoInput$id", $idPago);
+                $tipoCuentaSelect = $selectCuenta->crearItemAtributosSeleccion("class=\"modificable modificable$id ocultar\"", "tipoCuentaInput$id", $idCuenta);
 
                 //acciones
                 $html = $html."
