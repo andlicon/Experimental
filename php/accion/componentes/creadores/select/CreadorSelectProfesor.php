@@ -11,7 +11,6 @@
         }
 
 
-
         protected function crearOption($profesores, $seleccion) {
             $options = "";
 
@@ -21,8 +20,10 @@
                 $nombre = $profesor->getNombre();
                 $apellido = $profesor->getApellido();
 
+                $seleccionado = $seleccion==$cedula ? "selected" : "";
+
                 $options = $options."
-                    <option value=\"$cedula\">
+                    <option value=\"$cedula\" $seleccionado>
                         $cedula -
                         $nombre - 
                         $apellido
@@ -32,14 +33,14 @@
             return $options;
         }
 
-        public function crearItemAtributos($atributos, $id) {
+        public function crearItemAtributosSeleccion($atributos, $id, $seleccion) {
             $html = "";
             try {
                 $profesores = $this->dao->getTodosProfesores();
 
                 $html = "<div class=\"input__grupo\">
                             <select $atributos id=\"$id\" name=\"profe\">";
-                $html = $html.$this->crearOption($profesores, null);
+                $html = $html.$this->crearOption($profesores, $seleccion);
                 $html = $html."
                             </select>
                         </div>";

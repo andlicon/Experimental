@@ -44,7 +44,7 @@
                     </td>
                 ";
 
-                $profe = $selectProfe->crearItemAtributos("class=\"modificable modificable$idClase ocultar\"", "cedulaInput$idClase");
+                $profe = $selectProfe->crearItemAtributosSeleccion("class=\"modificable modificable$idClase ocultar\"", "cedulaInput$idClase", $cedulaProfe);
 
                 if($cedulaProfe!=null) {
                     $resultado = $personaDAO->getInstancia(array($cedulaProfe));
