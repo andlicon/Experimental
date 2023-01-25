@@ -38,6 +38,9 @@
         else if(str_contains($pagina, "usuarios")) {
             $redireccion = "../usuarios/view.php";
         }
+        else if(str_contains($pagina, "ingresos")) {
+            $redireccion = "../ingresos/view.php";
+        }
         else {
             $redireccion = "../login/view.php";
         }
