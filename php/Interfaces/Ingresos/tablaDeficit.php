@@ -58,7 +58,7 @@
                         <tr class=\"tabla__tr\">
                             <th class=\"tabla__td tabla__th\">Fecha</th>
                             <th class=\"tabla__td tabla__th\">Deuda generada</th>
-                            <th class=\"tabla__td tabla__th\">Monto recibido</th>
+                            <th class=\"tabla__td tabla__th\">Monto Pagado</th>
                             <th class=\"tabla__td tabla__th\">Deficit</th>
                         </tr>
                     </thead>

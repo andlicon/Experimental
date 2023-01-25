@@ -39,22 +39,13 @@
         <div id="deficit">
             <script src="../js/estado/genTablaDeficit.js"></script>
         </div>
+        <div id="deficitDetallado">
+            <script src="../js/estado/genTablaDeficitDetallado.js"></script>
+        </div>
     </div>
 </body>
 
 </html>
 
-<!-- <script src="../js/eliminar.js"></script>
-<script src="../js/modificar/habilitarModificacion.js"></script> -->
-<!-- <script src="../js/modificar/modificarEstudiante.js"></script> -->
-<!-- <script src="../js/modificar/cancelar.js"></script>
-<script src="../js/cargar/cargarEstudiante.js"></script> -->
 <script src="../js/consulta/consultarEstudiante.js"></script>
 <script src="../js/navegar.js"></script>
-
-
-<script>
-    $(document).ready(function () {
-        $('#representanteInput').select2();
-    });
-</script>

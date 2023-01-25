@@ -4,11 +4,12 @@ $(function() {
             let fecha = $("#fechaConsul").val();
 
             $.ajax ( {
-                url : 'tablaDeficit.php',
+                url : 'tablaDeficitDetalle.php',
                 type : 'POST',
                 data : {fecha: fecha},
                 success : function(response) {
-                    $('#deficit').html(response);
+                    alert(response);
+                    $('#deficitDetallado').html(response);
                 }
             })
         });
@@ -20,11 +21,12 @@ $(function() {
          let fecha = $("#fechaConsul").val();
 
             $.ajax ( {
-                url : 'tablaDeficit.php',
+                url : 'tablaDeficitDetalle.php',
                 type : 'POST',
                 data : {fecha: fecha},
                 success : function(response) {
-                    $('#deficit').html(response);
+                    alert(response);
+                    $('#deficitDetallado').html(response);
                 }
             })
     }, 20);
