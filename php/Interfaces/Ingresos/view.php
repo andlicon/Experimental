@@ -24,34 +24,24 @@
         include_once('../funciones/generarUsuario.php');
         generarUsuario();
     ?>
-    <div class="body-main">
+    <div class="body-main body-main--estado">
         <h1 class="vista__titulo">
             Ingresos
         </h1>
-        <?php
-        ?>
-        <!-- Display -->
-        <form action="" method="POST" class="display">
+
+        <div class="display">
             <div class="botones">
                 <div id="botones">
                     <script src="../js/menu/crearBoton.js"></script>;
                 </div>
             </div>
-            <div class="output">
-                <?php
-                    // include_once(TABLA_PATH.'/TablaEstudiante.php');
-                    // $tabla = new TablaEstudiante();
-                    // $tabla->crearTabla();
-                ?>
-            </div>
-            <div class="input">
-                <div id="input">
-                    <script src="../js/menu/crearInput.js"></script>;
-                </div>
-            </div>
-        </form>
+        </div>
+        <div id="deficit">
+            <script src="../js/estado/genTablaDeficit.js"></script>
+        </div>
     </div>
 </body>
+
 </html>
 
 <!-- <script src="../js/eliminar.js"></script>
