@@ -5,7 +5,8 @@
 
     if(isset($_POST['fecha'])) {
         $fecha = $_POST['fecha'];
-        $html = "<div class=\"tabla\">";
+        $html = "<div class=\"tabla\">
+                    <h2>Deuda por representante</h2>";
 
         if($fecha!=null) {
             $anio = "";
@@ -44,7 +45,7 @@
                         $tablaAux = "<table class=\"tabla__table\">
                                         </thead>
                                             <caption>
-                                                Deuda del representante: $representanteAux
+                                                Representante: $representanteAux
                                             </caption>
                                             <tr class=\"tabla__tr\">
                                                 <th class=\"tabla__td tabla__th\">Estudiante</th>

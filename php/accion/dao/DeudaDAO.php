@@ -524,5 +524,39 @@
             return $deudas;
         }
 
+        public function getDeficitDetalladoHistorico() {
+            $consulta = "SELECT 	*
+                        FROM deuda
+                        WHERE deuda>0
+                        GROUP BY cedula_representante, id_estudiante
+                        ORDER BY cedula_representante;";
+            $registros = $this->bd->sql($consulta, $fecha);
+            
+            if(empty($registros)) {
+                throw new Exception('No existe el representante con dicha cedula');
+            }
+
+            $deudas = [];
+            for($i=0; $i<count($registros); $i++) {
+                $deuda = $registros[$i];
+
+                $id = $deuda['id'];
+                $cedula = $deuda['cedula_representante'];
+                $idEstudiante = $deuda['id_estudiante'];
+                $fecha = $deuda['fecha'];
+                $idMotivo = $deuda['id_motivo'];
+                $descripcion = $deuda['descripcion'];
+                $montoInicial = $deuda['monto_inicial'];
+                $montoEstado = $deuda['monto_estado'];
+                $deuda = $deuda['deuda'];
+                
+                $deb= new Deuda($id, $cedula, $idEstudiante, $idMotivo, $descripcion, 
+                                $fecha, $montoInicial, $montoEstado, $deuda);
+                $deudas[] = $deb;
+            }
+            
+            return $deudas;
+        }
+
     }
 ?>
