@@ -25,9 +25,8 @@ $(function() {
                 type : 'POST',
                 data : {fecha: fecha},
                 success : function(response) {
-                    alert(response);
                     $('#deficitDetallado').html(response);
                 }
             })
-    }, 20);
+    }, 400);
 });

@@ -489,7 +489,15 @@
         }
 
         public function getDeficitDetalladoDeudor($fecha) {
-            $consulta = "SELECT 	*
+            $consulta = "SELECT id,
+                                cedula_representante,
+                                id_estudiante,
+                                fecha,
+                                descripcion,
+                                id_motivo,
+                                SUM(monto_inicial) AS monto_inicial,
+                                SUM(monto_estado) AS monto_estado,
+                                SUM(deuda) AS deuda
                         FROM deuda
                         WHERE YEAR(fecha) = ?
                             AND MONTH(fecha) = ?
@@ -525,12 +533,20 @@
         }
 
         public function getDeficitDetalladoHistorico() {
-            $consulta = "SELECT 	*
+            $consulta = "SELECT 	id,
+                                    cedula_representante,
+                                    id_estudiante,
+                                    fecha,
+                                    descripcion,
+                                    id_motivo,
+                                    SUM(monto_inicial) AS monto_inicial,
+                                    SUM(monto_estado) AS monto_estado,
+                                    SUM(deuda) AS deuda
                         FROM deuda
                         WHERE deuda>0
                         GROUP BY cedula_representante, id_estudiante
                         ORDER BY cedula_representante;";
-            $registros = $this->bd->sql($consulta, $fecha);
+            $registros = $this->bd->sql($consulta, null);
             
             if(empty($registros)) {
                 throw new Exception('No existe el representante con dicha cedula');
