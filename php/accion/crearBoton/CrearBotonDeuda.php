@@ -34,6 +34,7 @@
                         });
                     </script>";
             }
+            $botones = $botones.$this->itemFecha();
             $botones = $botones."</div>";
 
             echo $botones;

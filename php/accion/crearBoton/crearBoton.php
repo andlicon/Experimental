@@ -4,6 +4,7 @@
     include_once('CrearBotonDeuda.php');
     include_once('CrearBotonEstudiante.php');
     include_once('CrearBotonUsuarios.php');
+    include_once('CrearBotonIngresos.php');
 
     if(isset($_POST['permiso'])) {
         $permiso = $_POST['permiso'];
@@ -25,6 +26,9 @@
         }
         else if(str_contains($pagina, "usuarios")) {
             $creador = new CrearBotonUsuarios($permiso);
+        }
+        else if(str_contains($pagina, "ingresos")) {
+            $creador = new CrearBotonIngresos($permiso);
         }
 
         if($creador!=null) {

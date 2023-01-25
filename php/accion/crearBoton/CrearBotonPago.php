@@ -11,11 +11,14 @@
 
         public function crearBotones() {
             $botones = "";
-            
+            $botones = $botones.'<h2 class="botones__titulo">Consultar</h2>';
+
+            $botones = $botones.'<div class="input__grupo">';
             if($this->permiso==4) {   //administrador
-                $botones = $botones.'<h2 class="botones__titulo">Consultar</h2>';
                 $botones = $botones.$this->crearItemGestionPago();
             }
+            $botones = $botones.$this->itemFecha();
+            $botones = $botones.'</div>';
 
             return $botones;
         }

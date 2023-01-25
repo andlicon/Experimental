@@ -105,7 +105,7 @@
 
         protected function itemDeuda() {
             return  
-                "<label for=\"tipoDeudaInput\">Tipio Deuda</label>
+                "<label for=\"tipoDeudaInput\">Estado Deuda</label>
             <select class=\"input__select consultor\" id=\"tipoDeudaInput\">
                 <option value=\"todas\">todas</option>
                 <option value=\"saldadas\">saldadas</option>
@@ -132,6 +132,17 @@
                         $item = $item."<option value=\"$id\">$descripcion - Salon: $salon</option>";
                     }
 
+            $item = $item.
+                '</select>';
+
+            return $item;
+        }
+
+        protected function itemFecha() {
+            $item = 
+                '
+                <label for="mesInput" class="input__label">Mes</label>
+                <input type="month" id="mesInput"/>';
             $item = $item.
                 '</select>';
 
