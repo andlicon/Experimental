@@ -24,7 +24,6 @@ $(function(){
                                 infoAdd: infoAdd, fecha: fecha, motivo: motivo},
                         async: false,
                         success : function(response) {
-                                alert(response);
                                 var renglones = response.split('TERMINAACA');
                         
                                 let htmlContenido = "";
@@ -75,7 +74,6 @@ $(function() {
                                 infoAdd: infoAdd, fecha: fecha, motivo: motivo},
                         async: false,
                         success : function(response) {
-                                alert(response);
                                 var renglones = response.split('TERMINAACA');
     
                                 let htmlContenido = "";

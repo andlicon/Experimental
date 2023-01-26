@@ -21,29 +21,113 @@
             $registros;
     
             $cedula = $cedula[0];
-
             $infoAdd = $_POST['infoAdd'];
-
-            if(str_contains($cedula, "todos")) {
-                if(str_contains($infoAdd, "todas")) {
-                    $registros = $this->dao->getInstanciaDeudaTodas();
-                }
-                else if(str_contains($infoAdd, "saldadas")) {
-                    $registros = $this->dao->getInstanciaDeudaSaldada();
+            $fecha = $_POST['fecha'];
+            $motivo = $_POST['motivo'];
+        
+            if($fecha==null) {
+                if(str_contains($cedula, "todos")) {
+                    if($motivo!="todos") {
+                        if(str_contains($infoAdd, "todas")) {
+                            $registros = $this->dao->getInstanciaDeudaTodasMotivo(array($motivo));
+                        }
+                        else if(str_contains($infoAdd, "saldadas")) {
+                            $registros = $this->dao->getInstanciaDeudaSaldadaMotivo(array($motivo));
+                        }
+                        else {
+                            $registros = $this->dao->getInstanciaDeudaVigenteMotivo(array($motivo));
+                        }
+                    }
+                    else {
+                        if(str_contains($infoAdd, "todas")) {
+                            $registros = $this->dao->getInstanciaDeudaTodas();
+                        }
+                        else if(str_contains($infoAdd, "saldadas")) {
+                            $registros = $this->dao->getInstanciaDeudaSaldada();
+                        }
+                        else {
+                            $registros = $this->dao->getInstanciaDeudaVigente();
+                        }
+                    }
                 }
                 else {
-                    $registros = $this->dao->getInstanciaDeudaVigente();
+                    if($motivo!="todos") {
+                        if(str_contains($infoAdd, "todas")) {
+                            $registros = $this->dao->getInstanciaDeudaTodasCedulaMotivo(array($cedula, $motivo));
+                        }
+                        else if(str_contains($infoAdd, "saldadas")) {
+                            $registros = $this->dao->getInstanciaDeudaSaldadaCedulaMotivo(array($cedula, $motivo));
+                        }
+                        else {
+                            $registros = $this->dao->getInstanciaDeudaVigenteCedulaMotivo(array($cedula, $motivo));
+                        }
+                    }
+                    else {
+                        if(str_contains($infoAdd, "todas")) {
+                            $registros = $this->dao->getInstanciaDeudaTodasCedula(array($cedula));
+                        }
+                        else if(str_contains($infoAdd, "saldadas")) {
+                            $registros = $this->dao->getInstanciaDeudaSaldadaCedula(array($cedula));
+                        }
+                        else {
+                            $registros = $this->dao->getInstanciaDeudaVigenteCedula(array($cedula));
+                        }
+                    }
                 }
             }
             else {
-                if(str_contains($infoAdd, "todas")) {
-                    $registros = $this->dao->getInstanciaDeudaTodasCedula(array($cedula));
-                }
-                else if(str_contains($infoAdd, "saldadas")) {
-                    $registros = $this->dao->getInstanciaDeudaSaldadaCedula(array($cedula));
+                //
+                $fecha = explode("-", $fecha);
+                $anio = $fecha[0];
+                $mes = $fecha[1];
+
+                if(str_contains($cedula, "todos")) {
+                    if($motivo!="todos") {
+                        if(str_contains($infoAdd, "todas")) {
+                            $registros = $this->dao->getInstanciaDeudaTodasMotivoFecha(array($motivo, $anio, $mes));
+                        }
+                        else if(str_contains($infoAdd, "saldadas")) {
+                            $registros = $this->dao->getInstanciaDeudaSaldadaMotivoFecha(array($motivo, $anio, $mes));
+                        }
+                        else {
+                            $registros = $this->dao->getInstanciaDeudaVigenteMotivoFecha(array($motivo, $anio, $mes));
+                        }
+                    }
+                    else {
+                        if(str_contains($infoAdd, "todas")) {
+                            $registros = $this->dao->getInstanciaDeudaTodasFecha(array($anio, $mes));
+                        }
+                        else if(str_contains($infoAdd, "saldadas")) {
+                            $registros = $this->dao->getInstanciaDeudaSaldadaFecha(array($anio, $mes));
+                        }
+                        else {
+                            $registros = $this->dao->getInstanciaDeudaVigenteFecha(array($anio, $mes));
+                        }
+                    }
                 }
                 else {
-                    $registros = $this->dao->getInstanciaDeudaVigenteCedula(array($cedula));
+                    if($motivo!="todos") {
+                        if(str_contains($infoAdd, "todas")) {
+                            $registros = $this->dao->getInstanciaDeudaTodasCedulaMotivoFecha(array($cedula, $motivo, $anio, $mes));
+                        }
+                        else if(str_contains($infoAdd, "saldadas")) {
+                            $registros = $this->dao->getInstanciaDeudaSaldadaCedulaMotivoFecha(array($cedula, $motivo, $anio, $mes));
+                        }
+                        else {
+                            $registros = $this->dao->getInstanciaDeudaVigenteCedulaMotivoFecha(array($cedula, $motivo, $anio, $mes));
+                        }
+                    }
+                    else {
+                        if(str_contains($infoAdd, "todas")) {
+                            $registros = $this->dao->getInstanciaDeudaTodasCedulaFecha(array($cedula, $anio, $mes));
+                        }
+                        else if(str_contains($infoAdd, "saldadas")) {
+                            $registros = $this->dao->getInstanciaDeudaSaldadaCedulaFecha(array($cedula, $anio, $mes));
+                        }
+                        else {
+                            $registros = $this->dao->getInstanciaDeudaVigenteCedulaFecha(array($cedula, $anio, $mes));
+                        }
+                    }
                 }
             }
 
