@@ -21,7 +21,7 @@
                 $botones = $botones.$this->crearItem("clase", "Clase");
             }
             else if($this->permiso==4) {  //ADMINISTRADOR
-                $botones = $botones.$this->crearItem("ingresos", "Ingresos");
+                $botones = $botones.$this->crearItem("ingresos", "Déficit");
                 $botones = $botones.$this->crearItem("deuda", "Deudas");
                 $botones = $botones.$this->crearItem("pago", "Pagos");
                 $botones = $botones.$this->crearItem("gestionar-usuarios", "Usuarios");

@@ -18,7 +18,6 @@
                 $mes = $fecha[1];
     
                 $registros = $deudaDAO->getDeficitDetalladoDeudor(array($anio, $mes));
-                echo "hay ".count($registros);
             }
             else {
                 $registros = $deudaDAO->getDeficitDetalladoHistorico();

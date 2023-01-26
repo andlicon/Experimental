@@ -8,55 +8,65 @@
         $titulo = "";
         $body = "";
 
-        if($fecha!=null) {
+        try{
+            $registros = null;
+            $titulo = "";
+            $mes = 0;
+            $anio = 0;
+            $deudaDAO = new DeudaDAO(BaseDeDatos::getInstancia());
+
+            if($fecha!=null) {
+                //Separa la info del front
+                $fecha = explode("-", $fecha);
+                $anio = $fecha[0];
+                $mes = $fecha[1];
+                $titulo = "Año: $anio Mes: $mes";
+                //consulta
+                $registros = $deudaDAO->getDeficit(array($anio, $mes));
+            }
+            else {
+                //Consulta historico
+                $titulo = "Histórico";
+                $registros = $deudaDAO->getDeficitHistorico();
+            }
+
             $deudaGenerada = 0;
             $ingresos = 0;
             $deficit = 0;
             $anio = "";
             $mes = "";
 
-            try {
-                //Separa la info del front
-                $fecha = explode("-", $fecha);
-                $anio = $fecha[0];
-                $mes = $fecha[1];
-                $titulo = "Año: $anio Mes: $mes";
-                //consultar deficit a la base de datos para el mes aca indicado
-                $deudaDAO = new DeudaDAO(BaseDeDatos::getInstancia());
-                $registros = $deudaDAO->getDeficit(array($anio, $mes));
+            //Retorna la tabla deficit
+            for($i=0; $i<count($registros); $i++) {
+                $deuda = $registros[$i];
+                $deudaGenerada += $deuda->getMontoInicial();
+                $ingresos += $deuda->getMontoEstado();
+            }
 
-                //Retorna la tabla deficit
-                for($i=0; $i<count($registros); $i++) {
-                    $deuda = $registros[$i];
-                    $deudaGenerada += $deuda->getMontoInicial();
-                    $ingresos += $deuda->getMontoEstado();
-                }
-
-                $deficit = $ingresos - $deudaGenerada;
-            }
-            catch(Exception $e) {
-                $body = "";
-                $fecha = "";
-            }
-            finally {
-                $body = $body."
-                    <tr>
-                        <td>Año:$anio - Mes:$mes </td>
-                        <td>$deudaGenerada</td>
-                        <td>$ingresos</td>
-                        <td>$deficit</td>
-                    </tr>
-                ";
-            }
+            $deficit = $ingresos - $deudaGenerada;
         }
-
+        catch(Exception $e) {
+            $body = "";
+            $fecha = "";
+        }
+        finally {
+            $body = $body."
+                <tr>
+                    <td>$titulo</td>
+                    <td>$deudaGenerada</td>
+                    <td>$ingresos</td>
+                    <td>$deficit</td>
+                </tr>
+            ";
+        }
+        
         $tabla = "
                 <div class=\"tabla\">
                     <h2 class=\"tabla__titulo\" id=\"titulo__deficit\">Déficit del cíclo $titulo</h2>
                     <table class=\"tabla__table\">
                     <thead>
                         <tr class=\"tabla__tr\">
-                            <th class=\"tabla__td tabla__th\">Fecha</th>
+                            <th class=\"tabla__td tabla__th\">Cíclo</th>
                             <th class=\"tabla__td tabla__th\">Deuda generada</th>
                             <th class=\"tabla__td tabla__th\">Monto Pagado</th>
                             <th class=\"tabla__td tabla__th\">Deficit</th>
