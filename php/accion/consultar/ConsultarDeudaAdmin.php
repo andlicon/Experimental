@@ -76,7 +76,7 @@
                 }
             }
             else {
-                //
+                //Fecha
                 $fecha = explode("-", $fecha);
                 $anio = $fecha[0];
                 $mes = $fecha[1];

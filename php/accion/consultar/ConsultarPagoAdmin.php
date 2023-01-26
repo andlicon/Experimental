@@ -29,22 +29,48 @@
             $popOverRep = new RepresentantePop($personaDAO);
             $deudaPop = new DeudaPop($deudaDAO);
 
+            $fecha = $_POST['fecha'];
             $cedula = $cedula[0];
 
-            if(str_contains($cedula, "todos")) {
-                if(str_contains($this->validez, "todos")) {
-                    $registros = $this->dao->getTodos();
+            if($fecha!="todos") {
+                if(str_contains($cedula, "todos")) {
+                    if(str_contains($this->validez, "todos")) {
+                        $registros = $this->dao->getTodos();
+                    }
+                    else {
+                        $registros = $this->dao->getTodosValidez(array($this->validez));
+                    }
                 }
                 else {
-                    $registros = $this->dao->getTodosValidez(array($this->validez));
+                    if(str_contains($this->validez, "todos")) {
+                        $registros = $this->dao->getInstanciaCedula(array($cedula));
+                    }
+                    else {
+                        $registros = $this->dao->getInstanciaCedulaValidez(array($cedula, $this->validez));
+                    }
                 }
             }
             else {
-                if(str_contains($this->validez, "todos")) {
-                    $registros = $this->dao->getInstanciaCedula(array($cedula));
+                //fecha
+                $fecha = explode("-", $fecha);
+                $anio = $fecha[0];
+                $mes = $fecha[1];
+
+                if(str_contains($cedula, "todos")) {
+                    if(str_contains($this->validez, "todos")) {
+                        $registros = $this->dao->getTodosFecha(array($anio, $mes));
+                    }
+                    else {
+                        $registros = $this->dao->getTodosValidezFecha(array($this->validez, $anio, $mes));
+                    }
                 }
                 else {
-                    $registros = $this->dao->getInstanciaCedulaValidez(array($cedula, $this->validez));
+                    if(str_contains($this->validez, "todos")) {
+                        $registros = $this->dao->getInstanciaCedulaFecha(array($cedula, $anio, $mes));
+                    }
+                    else {
+                        $registros = $this->dao->getInstanciaCedulaValidezFecha(array($cedula, $this->validez, $anio, $mes));
+                    }
                 }
             }
 

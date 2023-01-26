@@ -6,12 +6,13 @@ $(window).on('pageshow', function() {
         let permiso = usuario.permiso;
         let validez = $('#validezPagoInput').val();
         let representante = $('#representanteInput').val();
+        let fecha = $('#fechaConsul').val();
     
         $.ajax ( {
                 url : '../../accion/consultar/Consultar.php',
             type : 'POST',
             data : {pagina: pagina, cedula: cedula, permiso: permiso, 
-                validez: validez, representante: representante},
+                validez: validez, representante: representante, fecha: fecha},
             success : function(response) {
                 var renglones = response.split('TERMINAACA');
                 var html = "";
@@ -35,12 +36,13 @@ $(function() {
             let permiso = usuario.permiso;
             let validez = $('#validezPagoInput').val();
             let representante = $('#representanteInput').val();
+            let fecha = $('#fechaConsul').val();
         
             $.ajax ( {
                 url : '../../accion/consultar/Consultar.php',
                 type : 'POST',
                 data : {pagina: pagina, cedula: cedula, permiso: permiso, 
-                    validez: validez, representante: representante},
+                    validez: validez, representante: representante, fecha: fecha},
                 success : function(response) {
                             console.log(response);
                             var renglones = response.split('TERMINAACA');
