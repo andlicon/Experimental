@@ -5,7 +5,8 @@ $(function(){
                 let permiso = usuario.permiso
                 let cedula = null;
                 let infoAdd = null;
-                let fecha = $('fechaConsul').val();
+                let fecha = $('#fechaConsul').val();
+                let motivo = $('#motivoConsul').val();
 
                 if(permiso==4) {
                         cedula = $('#representanteInput').val();
@@ -19,9 +20,11 @@ $(function(){
                 $.ajax ( {
                         url : '../../accion/consultar/Consultar.php',
                         type : 'POST',
-                        data : {pagina: pagina, cedula: cedula, permiso: permiso, infoAdd: infoAdd, fecha: fecha},
+                        data : {pagina: pagina, cedula: cedula, permiso: permiso, 
+                                infoAdd: infoAdd, fecha: fecha, motivo: motivo},
                         async: false,
                         success : function(response) {
+                                alert(response);
                                 var renglones = response.split('TERMINAACA');
                         
                                 let htmlContenido = "";
@@ -54,7 +57,8 @@ $(function() {
                         let permiso = usuario.permiso
                         let cedula = null;
                         let infoAdd = null;
-                        let fecha = $('fechaConsul').val();
+                        let fecha = $('#fechaConsul').val();
+                        let motivo = $('#motivoConsul').val();
 
                         if(permiso==4) {
                                 cedula = $('#representanteInput').val();
@@ -67,9 +71,11 @@ $(function() {
                 $.ajax ( {
                         url : '../../accion/consultar/Consultar.php',
                         type : 'POST',
-                        data : {pagina: pagina, cedula: cedula, permiso: permiso, infoAdd: infoAdd, fecha: fecha},
+                        data : {pagina: pagina, cedula: cedula, permiso: permiso, 
+                                infoAdd: infoAdd, fecha: fecha, motivo: motivo},
                         async: false,
                         success : function(response) {
+                                alert(response);
                                 var renglones = response.split('TERMINAACA');
     
                                 let htmlContenido = "";

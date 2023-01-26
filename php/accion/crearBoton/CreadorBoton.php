@@ -143,7 +143,7 @@
             $item = 
                 '
                 <label for="fechaConsul" class="input__label">Cíclo</label>
-                <input type="month" id="fechaConsul"/>';
+                <input type="month" id="fechaConsul" class="consultor"/>';
 
             return $item;
         }
@@ -152,7 +152,7 @@
             $item = 
                 '
                 <label for="motivoConsul" class="input__label">Motivo</label>
-                <select id="motivoConsul">
+                <select id="motivoConsul" class="input__select consultor">
                     <option value="todos">Todos</option>';
 
                 $motivoConsul = new MotivoConsul(BaseDeDatos::getInstancia());

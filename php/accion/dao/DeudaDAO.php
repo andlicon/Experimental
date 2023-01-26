@@ -48,7 +48,115 @@
                         FROM deuda
                         WHERE cedula_representante=?
                             AND deuda>0
-                        ORDER BY id_estudiante, fecha";
+                        ORDER BY fecha,  id_estudiante";
+            $registros = $this->bd->sql($consulta, $cedula);
+
+            if(empty($registros)) {
+                throw new Exception('No existe deuda asociada con el representante señalado');
+            }
+
+            $deudas = [];
+            for($i=0; $i<count($registros); $i++) {
+                $deuda = $registros[$i];
+
+                $id = $deuda['id'];
+                $cedula = $deuda['cedula_representante'];
+                $idEstudiante = $deuda['id_estudiante'];
+                $fecha = $deuda['fecha'];
+                $idMotivo = $deuda['id_motivo'];
+                $descripcion = $deuda['descripcion'];
+                $montoInicial = $deuda['monto_inicial'];
+                $montoEstado = $deuda['monto_estado'];
+                $deuda = $deuda['deuda'];
+                
+                $deb= new Deuda($id, $cedula, $idEstudiante, $idMotivo, $descripcion, 
+                                $fecha, $montoInicial, $montoEstado, $deuda);
+                $deudas[] = $deb;
+            }
+            
+            return $deudas;
+        }
+
+        public function getInstanciaCedulaMotivo($cedula) {
+            $consulta = "SELECT * 
+                        FROM deuda
+                        WHERE cedula_representante = ?
+                            AND deuda>0
+                            AND id_motivo = ?
+                        ORDER BY fecha,  id_estudiante";
+            $registros = $this->bd->sql($consulta, $cedula);
+
+            if(empty($registros)) {
+                throw new Exception('No existe deuda asociada con el representante señalado');
+            }
+
+            $deudas = [];
+            for($i=0; $i<count($registros); $i++) {
+                $deuda = $registros[$i];
+
+                $id = $deuda['id'];
+                $cedula = $deuda['cedula_representante'];
+                $idEstudiante = $deuda['id_estudiante'];
+                $fecha = $deuda['fecha'];
+                $idMotivo = $deuda['id_motivo'];
+                $descripcion = $deuda['descripcion'];
+                $montoInicial = $deuda['monto_inicial'];
+                $montoEstado = $deuda['monto_estado'];
+                $deuda = $deuda['deuda'];
+                
+                $deb= new Deuda($id, $cedula, $idEstudiante, $idMotivo, $descripcion, 
+                                $fecha, $montoInicial, $montoEstado, $deuda);
+                $deudas[] = $deb;
+            }
+            
+            return $deudas;
+        }
+
+        public function getInstanciaCedulaFecha($cedula) {
+            $consulta = "SELECT * 
+                        FROM deuda
+                        WHERE cedula_representante=?
+                            AND deuda>0
+                            AND YEAR(fecha) = ?
+                            AND MONTH(fecha) = ?
+                        ORDER BY fecha, id_estudiante";
+            $registros = $this->bd->sql($consulta, $cedula);
+
+            if(empty($registros)) {
+                throw new Exception('No existe deuda asociada con el representante señalado');
+            }
+
+            $deudas = [];
+            for($i=0; $i<count($registros); $i++) {
+                $deuda = $registros[$i];
+
+                $id = $deuda['id'];
+                $cedula = $deuda['cedula_representante'];
+                $idEstudiante = $deuda['id_estudiante'];
+                $fecha = $deuda['fecha'];
+                $idMotivo = $deuda['id_motivo'];
+                $descripcion = $deuda['descripcion'];
+                $montoInicial = $deuda['monto_inicial'];
+                $montoEstado = $deuda['monto_estado'];
+                $deuda = $deuda['deuda'];
+                
+                $deb= new Deuda($id, $cedula, $idEstudiante, $idMotivo, $descripcion, 
+                                $fecha, $montoInicial, $montoEstado, $deuda);
+                $deudas[] = $deb;
+            }
+            
+            return $deudas;
+        }
+
+        public function getInstanciaCedulaFechaMotivo($cedula) {
+            $consulta = "SELECT * 
+                        FROM deuda
+                        WHERE cedula_representante=?
+                            AND deuda>0
+                            AND YEAR(fecha) = ?
+                            AND MONTH(fecha) = ?
+                            AND id_motivo = ?
+                        ORDER BY fecha, id_estudiante";
             $registros = $this->bd->sql($consulta, $cedula);
 
             if(empty($registros)) {
@@ -82,6 +190,111 @@
                         FROM deuda
                         WHERE id_estudiante=?
                                 AND deuda>0";
+            $registros = $this->bd->sql($consulta, $idEstudiante);
+
+            if(empty($registros)) {
+                throw new Exception('No existe deuda alguna a dicho estudiante');
+            }
+
+            $deudas = [];
+            for($i=0; $i<count($registros); $i++) {
+                $deuda = $registros[$i];
+
+                $id = $deuda['id'];
+                $cedula = $deuda['cedula_representante'];
+                $idEstudiante = $deuda['id_estudiante'];
+                $fecha = $deuda['fecha'];
+                $idMotivo = $deuda['id_motivo'];
+                $descripcion = $deuda['descripcion'];
+                $montoInicial = $deuda['monto_inicial'];
+                $montoEstado = $deuda['monto_estado'];
+                $deuda = $deuda['deuda'];
+                
+                $deb= new Deuda($id, $cedula, $idEstudiante, $idMotivo, $descripcion, 
+                                $fecha, $montoInicial, $montoEstado, $deuda);
+                $deudas[] = $deb;
+            }
+            
+            return $deudas;
+        }
+
+        public function getInstanciaEstudianteMotivo($idEstudiante) {
+            $consulta = "SELECT * 
+                        FROM deuda
+                        WHERE id_estudiante = ?
+                            AND id_motivo = ?
+                            AND deuda>0";
+            $registros = $this->bd->sql($consulta, $idEstudiante);
+
+            if(empty($registros)) {
+                throw new Exception('No existe deuda alguna a dicho estudiante');
+            }
+
+            $deudas = [];
+            for($i=0; $i<count($registros); $i++) {
+                $deuda = $registros[$i];
+
+                $id = $deuda['id'];
+                $cedula = $deuda['cedula_representante'];
+                $idEstudiante = $deuda['id_estudiante'];
+                $fecha = $deuda['fecha'];
+                $idMotivo = $deuda['id_motivo'];
+                $descripcion = $deuda['descripcion'];
+                $montoInicial = $deuda['monto_inicial'];
+                $montoEstado = $deuda['monto_estado'];
+                $deuda = $deuda['deuda'];
+                
+                $deb= new Deuda($id, $cedula, $idEstudiante, $idMotivo, $descripcion, 
+                                $fecha, $montoInicial, $montoEstado, $deuda);
+                $deudas[] = $deb;
+            }
+            
+            return $deudas;
+        }
+
+        public function getInstanciaEstudianteFecha($idEstudiante) {
+            $consulta = "SELECT * 
+                        FROM deuda
+                        WHERE id_estudiante=?
+                            AND YEAR(fecha) = ?
+                            AND MONTH(fecha) = ?
+                                AND deuda>0";
+            $registros = $this->bd->sql($consulta, $idEstudiante);
+
+            if(empty($registros)) {
+                throw new Exception('No existe deuda alguna a dicho estudiante');
+            }
+
+            $deudas = [];
+            for($i=0; $i<count($registros); $i++) {
+                $deuda = $registros[$i];
+
+                $id = $deuda['id'];
+                $cedula = $deuda['cedula_representante'];
+                $idEstudiante = $deuda['id_estudiante'];
+                $fecha = $deuda['fecha'];
+                $idMotivo = $deuda['id_motivo'];
+                $descripcion = $deuda['descripcion'];
+                $montoInicial = $deuda['monto_inicial'];
+                $montoEstado = $deuda['monto_estado'];
+                $deuda = $deuda['deuda'];
+                
+                $deb= new Deuda($id, $cedula, $idEstudiante, $idMotivo, $descripcion, 
+                                $fecha, $montoInicial, $montoEstado, $deuda);
+                $deudas[] = $deb;
+            }
+            
+            return $deudas;
+        }
+
+        public function getInstanciaEstudianteFechaMotivo($idEstudiante) {
+            $consulta = "SELECT * 
+                        FROM deuda
+                        WHERE id_estudiante=?
+                            AND YEAR(fecha) = ?
+                            AND MONTH(fecha) = ?
+                            AND id_motivo = ?
+                            AND deuda>0";
             $registros = $this->bd->sql($consulta, $idEstudiante);
 
             if(empty($registros)) {
@@ -605,6 +818,8 @@
             
             return $deudas;
         }
+
+
 
     }
 ?>

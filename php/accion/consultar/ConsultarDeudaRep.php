@@ -18,12 +18,47 @@
 
         public function consultar(array $cedula) {
             $registros;
+            $fecha = $_POST['fecha'];
+            $motivo = $_POST['motivo'];
 
-            if($_POST['infoAdd'] != "todos") {
-                $registros = $this->dao->getInstanciaEstudiante(array($_POST['infoAdd']));
+            if($fecha==null) {
+                if($_POST['infoAdd'] != "todos") {
+                    if($motivo != "todos") {
+                        $registros = $this->dao->getInstanciaEstudianteMotivo(array($_POST['infoAdd'], $motivo));
+                    }
+                    else {
+                        $registros = $this->dao->getInstanciaEstudiante(array($_POST['infoAdd']));
+                    }
+                }
+                else {
+                    if($motivo != "todos") {
+                        $registros = $this->dao->getInstanciaCedulaMotivo(array($cedula[0], $motivo));
+                    }
+                    else {
+                        $registros = $this->dao->getInstanciaCedula($cedula);
+                    }
+                }
             }
             else {
-                $registros = $this->dao->getInstanciaCedula($cedula);
+                $fecha = explode("-", $fecha);
+                $anio = $fecha[0];
+                $mes = $fecha[1];
+                if($_POST['infoAdd'] != "todos") {
+                    if($motivo != "todos") {
+                        $registros = $this->dao->getInstanciaEstudianteFechaMotivo(array($_POST['infoAdd'], $anio, $mes, $motivo));
+                    }
+                    else {
+                        $registros = $this->dao->getInstanciaEstudianteFecha(array($_POST['infoAdd'], $anio, $mes));
+                    }
+                }
+                else {
+                    if($motivo != "todos") {
+                        $registros = $this->dao->getInstanciaCedulaFechaMotivo(array($cedula[0], $anio, $mes, $motivo));
+                    }
+                    else {
+                        $registros = $this->dao->getInstanciaCedulaFecha(array($cedula[0], $anio, $mes));
+                    }
+                }
             }
 
             $cuentaConsul = new CuentaConsul(BaseDeDatos::getInstancia());
