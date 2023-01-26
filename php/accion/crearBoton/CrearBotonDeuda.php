@@ -15,6 +15,7 @@
         public function crearBotones() {
             $botones = '<h2 class="botones__titulo">Consultar</h2>';
             $botones = $botones.'<div class="input__grupo">';
+
             if($this->permiso==4) {  //ADMINISTRADOR
                 $botones = $botones.$this->itemConsultaRepresentante();
                 $botones = $botones.$this->itemDeuda();
@@ -34,6 +35,8 @@
                         });
                     </script>";
             }
+
+            $botones = $botones.$this->itemMotivo();
             $botones = $botones.$this->itemFecha();
             $botones = $botones."</div>";
 

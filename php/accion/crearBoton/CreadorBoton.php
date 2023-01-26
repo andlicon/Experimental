@@ -2,6 +2,7 @@
     include_once(__DIR__.'/../rutaAcciones.php');
     include_once(DAO_PATH.'/ClaseConsul.php');
     include_once(DAO_PATH.'/PersonaDAO.php');
+    include_once(DAO_PATH.'/MotivoConsul.php');
 
     abstract class CreadorBoton {
         protected $permiso;
@@ -143,9 +144,30 @@
                 '
                 <label for="fechaConsul" class="input__label">Cíclo</label>
                 <input type="month" id="fechaConsul"/>';
+
+            return $item;
+        }
+
+        protected function itemMotivo() {
+            $item = 
+                '
+                <label for="motivoConsul" class="input__label">Motivo</label>
+                <select id="motivoConsul">
+                    <option value="todos">Todos</option>';
+
+                $motivoConsul = new MotivoConsul(BaseDeDatos::getInstancia());
+                $registros = $motivoConsul->getTodos();
+
+                for($i=0; $i<count($registros); $i++) {
+                    $motivo = $registros[$i];
+                    $idMotivo = $motivo->getId();
+                    $motivoDescripcion = $motivo->getDescripcion();
+                    $item = $item."<option value=\"$idMotivo\">$motivoDescripcion</option>";
+                }
+
             $item = $item.
                 '</select>';
-
+            
             return $item;
         }
     }

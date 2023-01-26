@@ -5,6 +5,7 @@ $(function(){
                 let permiso = usuario.permiso
                 let cedula = null;
                 let infoAdd = null;
+                let fecha = $('fechaConsul').val();
 
                 if(permiso==4) {
                         cedula = $('#representanteInput').val();
@@ -18,7 +19,7 @@ $(function(){
                 $.ajax ( {
                         url : '../../accion/consultar/Consultar.php',
                         type : 'POST',
-                        data : {pagina: pagina, cedula: cedula, permiso: permiso, infoAdd: infoAdd},
+                        data : {pagina: pagina, cedula: cedula, permiso: permiso, infoAdd: infoAdd, fecha: fecha},
                         async: false,
                         success : function(response) {
                                 var renglones = response.split('TERMINAACA');
@@ -53,6 +54,7 @@ $(function() {
                         let permiso = usuario.permiso
                         let cedula = null;
                         let infoAdd = null;
+                        let fecha = $('fechaConsul').val();
 
                         if(permiso==4) {
                                 cedula = $('#representanteInput').val();
@@ -65,7 +67,7 @@ $(function() {
                 $.ajax ( {
                         url : '../../accion/consultar/Consultar.php',
                         type : 'POST',
-                        data : {pagina: pagina, cedula: cedula, permiso: permiso, infoAdd: infoAdd},
+                        data : {pagina: pagina, cedula: cedula, permiso: permiso, infoAdd: infoAdd, fecha: fecha},
                         async: false,
                         success : function(response) {
                                 var renglones = response.split('TERMINAACA');
