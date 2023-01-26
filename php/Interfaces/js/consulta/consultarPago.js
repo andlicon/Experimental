@@ -14,7 +14,6 @@ $(window).on('pageshow', function() {
             data : {pagina: pagina, cedula: cedula, permiso: permiso, 
                 validez: validez, representante: representante, fecha: fecha},
             success : function(response) {
-                alert(response);
                 var renglones = response.split('TERMINAACA');
                 var html = "";
     
@@ -45,7 +44,6 @@ $(function() {
                 data : {pagina: pagina, cedula: cedula, permiso: permiso, 
                     validez: validez, representante: representante, fecha: fecha},
                 success : function(response) {
-                            alert(response);
                             var renglones = response.split('TERMINAACA');
                             var html = "";
         
