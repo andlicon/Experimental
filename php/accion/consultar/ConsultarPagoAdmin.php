@@ -32,7 +32,7 @@
             $fecha = $_POST['fecha'];
             $cedula = $cedula[0];
 
-            if($fecha!="todos") {
+            if($fecha==null) {
                 if(str_contains($cedula, "todos")) {
                     if(str_contains($this->validez, "todos")) {
                         $registros = $this->dao->getTodos();

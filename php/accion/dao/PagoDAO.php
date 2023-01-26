@@ -45,7 +45,44 @@
             $consulta = "SELECT * 
                         FROM    pago 
                         WHERE   cedula=? 
-                            AND valido=?";
+                            AND valido=?
+                        ORDER BY fecha, cedula, valido";
+            $registros = $this->bd->sql($consulta, $parametros);
+
+            if(empty($registros)) {
+                throw new Exception('No existe pago asociado a la cedula y validez');
+            }
+
+            $pagos = [];
+            for($i=0; $i<count($registros); $i++) {
+                $renglon = $registros[$i];
+
+                $id = $renglon['id'];
+                $idDeuda = $renglon['id_deuda'];
+                $fecha = $renglon['fecha'];
+                $cedula = $renglon['cedula'];
+                $monto = $renglon['monto'];
+                $idCuenta = $renglon['id_cuenta'];
+                $idTipoPago = $renglon['id_tipo_pago'];
+                $ref = $renglon['ref'];
+                $valido = $renglon['valido'];
+                
+                $pag= new Pago($id, $idDeuda, $fecha, $cedula, $monto, 
+                                $idCuenta, $idTipoPago, $ref, $valido);
+                $pagos[] = $pag;
+            }
+
+            return $pagos;
+        }
+
+        public function getInstanciaCedulaValidezFecha(array $parametros) {
+            $consulta = "SELECT * 
+                        FROM    pago 
+                        WHERE   cedula=? 
+                            AND valido=?
+                            AND YEAR(fecha) = ?
+                            AND MONTH(fecha) = ?
+                        ORDER BY fecha, cedula, valido";
             $registros = $this->bd->sql($consulta, $parametros);
 
             if(empty($registros)) {
@@ -78,7 +115,42 @@
             $consulta = "SELECT * 
                         FROM    pago
                         WHERE   cedula=?
-                        ORDER BY valido";
+                        ORDER BY fecha, cedula, valido";
+            $registros = $this->bd->sql($consulta, $cedula);
+
+            if(empty($registros)) {
+                throw new Exception('No existe pago asociado al id deuda');
+            }
+
+            $pagos = [];
+            for($i=0; $i<count($registros); $i++) {
+                $renglon = $registros[$i];
+                
+                $id = $renglon['id'];
+                $idDeuda = $renglon['id_deuda'];
+                $fecha = $renglon['fecha'];
+                $cedula = $renglon['cedula'];
+                $monto = $renglon['monto'];
+                $idCuenta = $renglon['id_cuenta'];
+                $idTipoPago = $renglon['id_tipo_pago'];
+                $ref = $renglon['ref'];
+                $valido = $renglon['valido'];
+                
+                $pag= new Pago($id, $idDeuda, $fecha, $cedula, $monto, 
+                                $idCuenta, $idTipoPago, $ref, $valido);
+                $pagos[] = $pag;
+            }
+
+            return $pagos;
+        }
+
+        public function getInstanciaCedulaFecha(array $cedula) {
+            $consulta = "SELECT * 
+                        FROM    pago
+                        WHERE   cedula=?
+                            AND YEAR(fecha) = ?
+                            AND MONTH(fecha) = ?
+                        ORDER BY fecha, cedula, valido";
             $registros = $this->bd->sql($consulta, $cedula);
 
             if(empty($registros)) {
@@ -109,8 +181,9 @@
 
         public function getInstanciaDeuda($idDeuda) {
             $consulta = "SELECT * 
-                         FROM    pago
-                         WHERE   id_deuda=?";
+                        FROM    pago
+                        WHERE   id_deuda=?
+                        ORDER BY fecha, cedula, valido";
             $registros = $this->bd->sql($consulta, $idDeuda);
 
             if(empty($registros)) {
@@ -141,8 +214,41 @@
         public function getTodos() {
             $consulta = "SELECT * 
                         FROM pago
-                        ORDER BY cedula, valido";
+                        ORDER BY fecha, cedula, valido";
             $registros = $this->bd->sql($consulta, null);
+
+            if(empty($registros)) {
+                throw new Exception('No existe pago asociado al id deuda');
+            }
+
+            $pagos = [];
+            for($i=0; $i<count($registros); $i++) {
+                $renglon = $registros[$i];
+                $id = $renglon['id'];
+                $idDeuda = $renglon['id_deuda'];
+                $fecha = $renglon['fecha'];
+                $cedula = $renglon['cedula'];
+                $monto = $renglon['monto'];
+                $idCuenta = $renglon['id_cuenta'];
+                $idTipoPago = $renglon['id_tipo_pago'];
+                $ref = $renglon['ref'];
+                $valido = $renglon['valido'];
+                
+                $pag= new Pago($id, $idDeuda, $fecha, $cedula, $monto, 
+                                $idCuenta, $idTipoPago, $ref, $valido);
+                $pagos[] = $pag;
+            }
+
+            return $pagos;
+        }
+
+        public function getTodosFecha($fecha) {
+            $consulta = "SELECT * 
+                        FROM pago
+                        WHERE YEAR(fecha) = ?
+                            AND MONTH(fecha) = ?
+                        ORDER BY fecha, cedula, valido";
+            $registros = $this->bd->sql($consulta, $fecha);
 
             if(empty($registros)) {
                 throw new Exception('No existe pago asociado al id deuda');
@@ -173,7 +279,41 @@
             $consulta = "SELECT * 
                         FROM pago
                         WHERE valido=?
-                        ORDER BY cedula, valido";
+                        ORDER BY fecha, cedula, valido";
+            $registros = $this->bd->sql($consulta, $validez);
+
+            if(empty($registros)) {
+                throw new Exception('No existe pago asociado al id deuda');
+            }
+
+            $pagos = [];
+            for($i=0; $i<count($registros); $i++) {
+                $renglon = $registros[$i];
+                $id = $renglon['id'];
+                $idDeuda = $renglon['id_deuda'];
+                $fecha = $renglon['fecha'];
+                $cedula = $renglon['cedula'];
+                $monto = $renglon['monto'];
+                $idCuenta = $renglon['id_cuenta'];
+                $idTipoPago = $renglon['id_tipo_pago'];
+                $ref = $renglon['ref'];
+                $valido = $renglon['valido'];
+                
+                $pag= new Pago($id, $idDeuda, $fecha, $cedula, $monto, 
+                                $idCuenta, $idTipoPago, $ref, $valido);
+                $pagos[] = $pag;
+            }
+
+            return $pagos;
+        }
+
+        public function getTodosValidezFecha(array $validez) {
+            $consulta = "SELECT * 
+                        FROM pago
+                        WHERE valido=?
+                            AND YEAR(fecha) = ?
+                            AND MONTH(fecha) = ?
+                        ORDER BY fecha, cedula, valido";
             $registros = $this->bd->sql($consulta, $validez);
 
             if(empty($registros)) {
