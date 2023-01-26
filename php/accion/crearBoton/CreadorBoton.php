@@ -141,7 +141,7 @@
         protected function itemFecha() {
             $item = 
                 '
-                <label for="mesInput" class="input__label">Fecha</label>
+                <label for="fechaConsul" class="input__label">Cíclo</label>
                 <input type="month" id="fechaConsul"/>';
             $item = $item.
                 '</select>';

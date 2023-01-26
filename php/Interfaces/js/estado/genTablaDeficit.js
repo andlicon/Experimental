@@ -27,5 +27,5 @@ $(function() {
                     $('#deficit').html(response);
                 }
             })
-    }, 20);
+    }, 400);
 });

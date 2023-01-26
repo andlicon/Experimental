@@ -7,7 +7,7 @@
     if(isset($_POST['fecha'])) {
         $fecha = $_POST['fecha'];
         $html = "<div class=\"tabla\">
-                    <h2>Deuda aún vigente del ciclo por representante</h2>";
+                    <h2>Representantes deudores en el cíclo</h2>";
 
         $deudaDAO = new DeudaDAO(BaseDeDatos::getInstancia());
 
