@@ -8,14 +8,9 @@
     <title>Login</title>
 
     <link rel="stylesheet" href="/css/main.css">
-
     <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    
     <script type="text/javascript" src="../js/cambiarLamina.js"></script>
-    <!-- <script type="text/javascript" src="../js/autoEliminar.js"></script> -->
-
-
     <script src="../js/iniciarSesion.js"></script>
 </head>
 
@@ -78,14 +73,13 @@
             </div>
             <!-- usuario -->
             <h2>Datos usuario</h2>
-            <?php 
-                include_once(GENERADOR_IG_PATH.'/option/GeneradorOptionTipoPersona.php');
-                $option = new GeneradorOptionTipoPersona();
-                $option->generarItems();
-            ?>
+            <script src="../js/consulta/consultarTipoPersona.js"></script>
             <div class="input__grupo">
                 <label for="nicknameInput" class="input__label">Nickname</label>
                <input type="text" id="nicknameInput" name="nicknameInput" class="input__input input__input--texto">
+            </div>
+            <div class="input__grupo" id="tipoPersonaInput">
+    
             </div>
             <div class="input__grupo">
                <label for="contrasenaInput" class="input__label">Contraseña</label>
