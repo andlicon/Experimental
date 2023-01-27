@@ -266,7 +266,7 @@
         }
 
         public function cargar($parametros) {
-            try {
+            try {               //cedula nickname contrasena
                 $cargar= "CALL  p_cargar_usuario(?, ?, ?)";
                 $registros = $this->bd->sql($cargar, $parametros);
             }

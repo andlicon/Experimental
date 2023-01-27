@@ -1,13 +1,13 @@
 <?php
     class DaoException extends Exception {
-        // CONSTANTES
+        // DAO
         const PERSONA = 1;
         const USUARIO = 2;
         const CONTACTO = 3;
         const ESTUDIANTE = 4;
         const DEUDA = 5;
         const PAGO = 6;
-        
+        //  ACCION
         const CARGAR = 'cargar';
         const ELIMINAR = 'eliminar';
         const CONSULTAR = 'consultar';

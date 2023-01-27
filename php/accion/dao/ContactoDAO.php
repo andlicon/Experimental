@@ -130,6 +130,17 @@
             }
         }
 
+        public function eliminarCedula(array $cedula) {
+            try {
+                $delete = " DELETE FROM contacto
+                            WHERE cedula = ?";
+                $this->bd->sql($delete, $cedula);
+            }
+            catch(PDOException $e) {
+                throw new DaoException(DaoException::CONTACTO, DaoException::ELIMINAR, "Existe alguna dependencia que impide borrar al contacto.");
+            }
+        }
+
         public function eliminarPorCedula(array $cedula) {
             try {
                 $delete=   " DELETE FROM contacto

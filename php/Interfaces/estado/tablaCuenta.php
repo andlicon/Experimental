@@ -15,10 +15,16 @@
         $apellido = $resultado[0]->getApellido();
 
         //Obteniendo datos de contacto
-        $contactoDAO = new ContactoDAO(BaseDeDatos::getInstancia());
-        $resultado = $contactoDAO->getInstanciaCedula(array($cedula));
-        $correo = $resultado[0]->getContacto();
-        $telefono = count($resultado)>1 ? $resultado[1]->getContacto() : "";
+        try {
+            $contactoDAO = new ContactoDAO(BaseDeDatos::getInstancia());
+            $resultado = $contactoDAO->getInstanciaCedula(array($cedula));
+            $correo = $resultado[0]->getContacto();
+            $telefono = count($resultado)>1 ? $resultado[1]->getContacto() : "";
+        }
+        catch(Exception $e) {
+            $correo = "No asignado";
+            $telefono = "No asignado";
+        }
 
         echo "
             <div class=\"tabla\">
