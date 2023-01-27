@@ -73,23 +73,24 @@
             </div>
             <!-- usuario -->
             <h2>Datos usuario</h2>
-            <script src="../js/consulta/consultarTipoPersona.js"></script>
+            <div class="input__grupo" id="tipoPersonaInput">
+                <script src="../js/consulta/consultarTipoPersona.js"></script>
+            </div>
             <div class="input__grupo">
                 <label for="nicknameInput" class="input__label">Nickname</label>
                <input type="text" id="nicknameInput" name="nicknameInput" class="input__input input__input--texto">
-            </div>
-            <div class="input__grupo" id="tipoPersonaInput">
-    
             </div>
             <div class="input__grupo">
                <label for="contrasenaInput" class="input__label">Contraseña</label>
                 <input type="password" id="contrasenaInput" name="contrasenaInput" class="input__input input__input--texto">
             </div>
             <!-- enviar -->
-            <input class="login__boton" type="submit" name="registrar" value="Registrar">
+            <input class="login__boton boton" type="submit" name="botonRegistrar" id ="botonRegistrar" value="Registrar">
         </form>
         
         <input class="login__boton" type="submit" name="volver" value="volver" onclick="cambiarVisibilidiad('registrar', 'login');">
     </div>
 </body>
 </html>
+
+<script src="../js/cargar/cargarUsuario.js"></script>

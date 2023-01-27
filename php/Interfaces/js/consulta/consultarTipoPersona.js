@@ -6,7 +6,6 @@ $(function(){
             data : {},
             datatype: "json",
             success : function(response) {
-                alert(response);
                 let json = JSON.parse(response);
                 let contenido = '<label for="tipoPersonaSelect" class="input__label">Tipo Persona</label>'+
                                 '<select id="tipoPersonaSelect" name="tipoPersonaInput">';
