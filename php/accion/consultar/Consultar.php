@@ -7,6 +7,7 @@
     include_once('ConsultarDeudaAdmin.php');
     include_once('ConsultarEstudianteAdmin.php');
     include_once('ConsultarProfesores.php');
+    include_once('ConsultarPerfil.php');
 
     if(isset($_POST['pagina']) && isset($_POST['cedula']) && 
        isset($_POST['permiso'])) {
@@ -50,6 +51,9 @@
             }
             else if(str_contains($pagina, "profesor") && $permiso==4) {
                 $consultor = new ConsultarProfesores();
+            }
+            else if(str_contains($pagina, "perfil")) {
+                $consultor = new ConsultarPerfil();
             }
         }
 

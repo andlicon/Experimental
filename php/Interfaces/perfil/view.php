@@ -38,7 +38,7 @@
                         <input type="text" id="nombre-input">
                     </div>
                     <div class="contenido__bloque">
-                        <label for="nombre-apellido">Apellido</label>
+                        <label for="apellido-input">Apellido</label>
                         <input type="text" id="apellido-input">
                     </div>
                 </div>
@@ -64,22 +64,18 @@
                         <input type="text" id="nickname-input">
                     </div>
                     <div class="contenido__bloque">
-                        <label for="contrasena1-input">Nueva contrasena</label>
+                        <label for="contrasena1-input">Nueva contraseña</label>
                         <input type="password" id="contrasena1-input">
                     </div>
                     <div class="contenido__bloque">
-                        <label for="contrasena2-input">Repetir contrasena</label>
+                        <label for="contrasena2-input">Repetir contraseña</label>
                         <input type="password" id="contrasena2-input">
                     </div>
                 </div>
                 <div class="contenido">
                     <div class="contenido__bloque">
-                        <button>
-                            enviar
-                        </button>
-                        <button>
-                            reestablecer
-                        </button>
+                        <input type="button" class="boton" id="enviar" value="Enviar">
+                        <input type="button" class="boton" id="reestablecer" value="Reestablecer">
                     </div>
                 </div>
             </form>
@@ -88,3 +84,5 @@
 </body>
 </html>
 <script src="../js/navegar.js"></script>
+<script src="js/reestablecerPerfil.js"></script>
+<script src="js/reestablecerPerfilAccion.js"></script>
