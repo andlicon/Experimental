@@ -6,5 +6,3 @@ $(function() {
     });
 
 });
-
-//AÑadir que cuando se presione al boton reestablecer tambiémn se llame esa función
