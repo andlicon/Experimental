@@ -133,6 +133,14 @@
             $this->bd->sql($update, $parametros);
         }
 
+        public function modificarNombreApellido($parametros) {
+            $update =  "UPDATE persona
+                        SET nombre=?, 
+                            apellido=?
+                        WHERE cedula=?";
+            $this->bd->sql($update, $parametros);
+        }
+
         public function eliminar($parametros) {
             try {
                 $delete =  "DELETE FROM persona

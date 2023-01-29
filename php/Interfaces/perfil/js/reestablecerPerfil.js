@@ -17,6 +17,8 @@ function reestablecerPerfil() {
             $('#correo-input').val(info.correo);
             $('#telefono-input').val(info.telefono);
             $('#nickname-input').val(info.nickname);
+            $('#contrasena1-input').val("");
+            $('#contrasena2-input').val("");
         }
     });
 }

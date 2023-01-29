@@ -276,7 +276,18 @@
         }
 
         public function modificar($parametros) {
+            $update = " UPDATE usuario
+                        SET nickname = ?,
+                            contrasena = ?
+                        WHERE cedula = ?;";
+            $this->bd->sql($update, $parametros);
+        }
 
+        public function modificarNickname($parametros) {
+            $update = " UPDATE usuario
+                        SET nickname=?
+                        WHERE cedula=?";
+            $this->bd->sql($update, $parametros);
         }
 
         public function modificarAdmin($parametros) {
@@ -302,5 +313,29 @@
                 throw new DaoException(DaoException::USUARIOS, DaoException::ELIMINAR, "Existe alguna dependencia que impide borrar al usuario.");
             }
         }
+
+        public function validarUsuario($nickname, $cedula) {
+            $consulta = "SELECT *
+                        FROM usuario
+                        WHERE nickname=?
+                            AND cedula=?";
+            $registros = $this->bd->sql($consulta, array($nickname, $cedula));
+
+            if(!empty($registros)) {
+                return true;
+            }
+
+            $consulta = "SELECT *
+                        FROM usuario
+                        WHERE nickname=?";
+            $registros = $this->bd->sql($consulta, array($nickname));
+
+            if(empty($registros)) {
+                return true;
+            }
+            
+            return false;
+        }
+
     }
 ?>

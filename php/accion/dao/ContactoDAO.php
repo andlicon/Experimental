@@ -119,6 +119,14 @@
             $this->bd->sql($update, $parametros);
         }
 
+        public function modificarContacto($parametros) {
+            $update = " UPDATE contacto
+                        SET contacto=?
+                        WHERE id_tipo=?
+                            AND cedula=?";
+            $this->bd->sql($update, $parametros);
+        }
+
         public function eliminar(array $id) {
             try {
                 $delete = " DELETE FROM contacto
@@ -150,6 +158,29 @@
             catch(PDOException $e) {
                 throw new DaoException(DaoException::CONTACTO, DaoException::ELIMINAR, "Existe alguna dependencia que impide borrar los contactos.");
             }
+        }
+
+        public function validarContacto($contacto, $cedula) {
+            $consulta = "SELECT *
+                        FROM contacto
+                        WHERE contacto=?
+                            AND cedula=?";
+            $registros = $this->bd->sql($consulta, array($contacto, $cedula));
+
+            if(!empty($registros)) {
+                return true;
+            }
+
+            $consulta = "SELECT *
+                        FROM contacto
+                        WHERE contacto=?";
+            $registros = $this->bd->sql($consulta, array($contacto));
+
+            if(empty($registros)) {
+                return true;
+            }
+            
+            return false;
         }
 
     }

@@ -86,5 +86,4 @@
 <script src="../js/navegar.js"></script>
 <script src="js/reestablecerPerfil.js"></script>
 <script src="js/reestablecerPerfilAccion.js"></script>
-<script src="js/validarPerfil.js"></script>
 <script src="js/modificarPerfil.js"></script>

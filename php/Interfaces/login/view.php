@@ -16,8 +16,6 @@
 
 <?php
     include_once('../ruta.php');
-    // include("evento/comprobarLogin.php");
-    // include("evento/registrar.php");
 ?>
 
 <body class="body-page">
