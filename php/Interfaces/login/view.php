@@ -39,11 +39,19 @@
         </div>
     </nav>
 
+    <div class="body-login">
+        <nav class="cambiador">
+            <input class="login__boton" type="button" name="volver" value="Bienvenida" onclick="cambiarVisibilidiad('registrar', 'login');">
+            <input class="login__boton" type="button" name="crear-usuario" value="Inscripción" onclick="cambiarVisibilidiad('login', 'registrar');">
+        </nav>
 
-    <nav class="cambiador">
-        <input class="boton boton--menu" id="iniciarSesion" name="login" value="Acceder">
-        <input class="boton boton--menu" id="iniciarSesion" name="login" value="Acceder">
-    </nav>
+        <div class="informacion">
+            <h1>Bienvenido a Unidad Educativa Instituto Experimental</h1>
+        </div>
+        <div class="registrar">
+
+        </div>
+    </div>
 
 
 

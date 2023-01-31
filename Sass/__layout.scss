@@ -28,6 +28,19 @@ body {
     background-color: #F6F6F6;
 }
 
+.body-login {
+    height: 100%;
+    width: 100%;
+    position: relative;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+
+    background-color: #F6F6F6;
+}
+
 $login-row: (
         "titulo"      : 5em,
         "imagen"      : 1fr,
