@@ -26,15 +26,15 @@
 
     <!-- LOGIN -->
     <nav class="usuario">
-        <div id="login" class="usuario__contenido">
-             <div>
+        <div id="login" class="usuario__contenido login__contenido">
+             <div class="login__saludo">
                 <img class="login__img" src="../../../img/interfaz/login/logo.jpg" alt="Logo del colegio">
                 <h2 class="login__titulo">Iniciar Sesión.</h2>
              </div>
-            <form class="" method="POST">
+            <form class="login__item" method="POST">
                 <input class="" type="text" placeholder="usuario" name="nicknameEntrar" id="nicknameEntrar">
                 <input class="" type="password" placeholder="contraseña" name="contrasenaEntrar" id="contrasenaEntrar">
-                <input class="" type="submit" id="iniciarSesion" name="login" value="Acceder">
+                <input class="boton boton--menu" type="submit" id="iniciarSesion" name="login" value="Acceder">
             </form>
         </div>
     </nav>

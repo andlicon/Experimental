@@ -42,7 +42,7 @@ $usuario: 300px;
     justify-content: flex-start;
     align-items: center;
 
-    padding-top: 30%;
+    padding-top: 50%;
 
     position: relative;
     z-index: 10;
@@ -50,10 +50,6 @@ $usuario: 300px;
     * {
         margin-bottom: 0.4em;
     }
-
-    // &:first-child {
-    //     margin-top: 30%;
-    // }
 }
 
 .usuario__nickname {

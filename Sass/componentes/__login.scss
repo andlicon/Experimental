@@ -18,11 +18,38 @@
     display: none;
 }
 
+.login__item {
+    display: flex;
+    flex-flow: column nowrap;
+    // justify-content: flex-start;
+    align-items: center;
+
+    height: 100%;
+
+    * {
+        margin-bottom: 1em;
+    }
+}
+
 .login__img {
-    width: 50%;
+    width: 80%;
     margin: auto;
+    margin-bottom: 1em;
+}
+
+.login__saludo {
+    margin: auto 0;
 }
 
 .login__titulo {
     font-size: 1.2em;
+}
+
+.login__contenido {
+    padding: 0;
+
+    display: grid;
+    grid-template-rows: 50% 
+                        1fr;
+    grid-template-columns: 1fr;
 }
