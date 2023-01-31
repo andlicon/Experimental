@@ -190,31 +190,16 @@ body {
   grid-area: titulo;
 }
 
-.login > .login__titulo {
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
-}
-
 .login__imagen {
   -ms-grid-row: 3;
   -ms-grid-column: 1;
   grid-area: imagen;
 }
 
-.login > .login__imagen {
-  -ms-grid-row: 3;
-  -ms-grid-column: 1;
-}
-
 .login__formulario {
   -ms-grid-row: 5;
   -ms-grid-column: 1;
   grid-area: cuerpo;
-}
-
-.login > .login__formulario {
-  -ms-grid-row: 5;
-  -ms-grid-column: 1;
 }
 
 .login__formulario {
@@ -275,35 +260,6 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-flow: column nowrap;
           flex-flow: column nowrap;
-}
-
-.login {
-  display: -ms-grid;
-  display: grid;
-      grid-template-areas: "titulo" "imagen" "cuerpo";
-  -ms-grid-rows: 5em 1em 1fr 1em 8em;
-  grid-template-rows: 5em 1fr 8em;
-  gap: 1em;
-}
-
-.login__titulo {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  text-align: center;
-  font-size: 2em;
-  font-weight: 900;
-  line-height: 1em;
-}
-
-.display--oculto {
-  display: none;
 }
 
 .mensaje {
@@ -580,14 +536,12 @@ svg {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding-top: 30%;
   position: relative;
   z-index: 10;
 }
 .usuario__contenido * {
   margin-bottom: 0.4em;
-}
-.usuario__contenido:first-child {
-  margin-top: 30%;
 }
 
 .usuario__nickname {
@@ -605,6 +559,42 @@ svg {
   width: 75px;
   height: 75px;
   z-index: 0;
+}
+
+.login__titulo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  font-size: 2em;
+  font-weight: 900;
+  line-height: 1em;
+}
+
+.login__contenido {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 20em 1fr 1fr;
+  grid-template-rows: 20em 1fr 1fr;
+}
+
+.display--oculto {
+  display: none;
+}
+
+.login__img {
+  width: 50%;
+  margin: auto;
+}
+
+.login__titulo {
+  font-size: 1.2em;
 }
 
 .contenido {
