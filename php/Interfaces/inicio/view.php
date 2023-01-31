@@ -26,9 +26,7 @@
         generarUsuario();
     ?>
     <div class="body-main">
-        <nav>
-            Opciones(Título), volver, opciones de la pagina
-        </nav>
+        <script src="js/cargarPost"></script>
     </div>
 </body>
 </html>
