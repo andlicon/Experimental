@@ -39,6 +39,14 @@
         </div>
     </nav>
 
+
+    <nav class="cambiador">
+        <input class="boton boton--menu" id="iniciarSesion" name="login" value="Acceder">
+        <input class="boton boton--menu" id="iniciarSesion" name="login" value="Acceder">
+    </nav>
+
+
+
     <!-- REGISTRAR -->
     <div id="registrar" class="display--centrado display--oculto registrar">
         <h2 class="login__titulo">Registo.</h2>
