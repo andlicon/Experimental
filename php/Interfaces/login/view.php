@@ -45,8 +45,48 @@
             <input class="login__boton" type="button" name="crear-usuario" value="Inscripción" onclick="cambiarVisibilidiad('login', 'registrar');">
         </nav>
 
-        <div class="informacion">
-            <h1>Bienvenido a Unidad Educativa Instituto Experimental</h1>
+        <div class="informacion contenido-login">
+            <div class="bienvenida">
+                <h2>Unidad Educativa Instituto Experimental</h2>
+                <p>
+                    Somos una Institución con 45 años de trayectoria, enfocados en la excelencia educativa.
+                    Nuestra prioridad: la Educación en Valores.
+                </p>
+                <img src="../../../img/interfaz/login/experimental.jpg" alt="" class="imagen-login">
+            </div>
+            <div class="info">
+                <div>
+                    <h2>Historia</h2>
+                    <p>
+                        El colegio fue fundado en el año 1973 con el nombre de “Centro Experimental de Enseñanza Preescolar”, en su inicio únicamente se impartían clases de nivel preescolar y primaria, 
+                        contando con una plantilla de aproximadamente 180 estudiantes, y a partir de 1984 se empezó a impartir también las clases de nivel bachillerato, subiendo su plantilla de estudiantes a aproximadamente 280.
+                        En el año 1986 cambia de nombre al ya conocido Unidad Educativa Instituto Experimental.
+                    </p>
+
+                    <figure>
+                        <img src="../../../img/interfaz/login/fundadora.jpg" alt="Fundadora del colegio" class="imagen-login">
+                        <figcaption class="fundadora">Magda Vecchini de González, fundadora de la U.E.I.Experimental</figcaption>
+                    </figure>
+                </div>
+            </div>
+            <div class="mas-informacion">
+                <div class="info">
+                    <div>
+                        <h2>Medios de comunicación</h2>
+                        <p class="comunicar"><span class="contacto">Correo de contacto:</span> UEIExperimental@hotmail.com</p>
+                        <p class="comunicar"><span class="contacto">Telefono de contacto:</span> 0426-6883542</p>
+                    </div>
+                    <div>
+                        <h2>Redes sociales</h2>
+                        <a href="https://www.instagram.com/ueiexperimental/" target="_blank"><img src="../../../img/interfaz/login/instagram.png" alt="Instagram" class="red-social"></a>
+                    </div>
+                </div>
+                <div class="ubicacion">
+                    <h2>Ubicación</h2>
+                    <p>C. Guaraguao, Puerto La Cruz 6023, Anzoátegui</p>
+                    <iframe class="imagen-login" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15705.763964089569!2d-64.6296116!3d10.2259722!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xa0ac7244980e91e3!2sU.E.%20Instituto%20Experimental!5e0!3m2!1ses!2sve!4v1675441074261!5m2!1ses!2sve" width="400" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
         </div>
         <div class="registrar">
 
