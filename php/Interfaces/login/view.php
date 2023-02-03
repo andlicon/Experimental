@@ -59,7 +59,7 @@
                     <h2>Historia</h2>
                     <p>
                         El colegio fue fundado en el año 1973 con el nombre de “Centro Experimental de Enseñanza Preescolar”, en su inicio únicamente se impartían clases de nivel preescolar y primaria, 
-                        contando con una plantilla de aproximadamente 180 estudiantes, y a partir de 1984 se empezó a impartir también las clases de nivel bachillerato, subiendo su plantilla de estudiantes a aproximadamente 280.
+                        y a partir de 1984 se empezó a impartir también las clases de nivel bachillerato.
                         En el año 1986 cambia de nombre al ya conocido Unidad Educativa Instituto Experimental.
                     </p>
 
