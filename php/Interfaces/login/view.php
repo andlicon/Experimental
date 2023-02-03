@@ -69,6 +69,16 @@
                     </figure>
                 </div>
             </div>
+            <div>
+                <div>
+                    <h2>Misión</h2>
+                    <p>Ser una institución enmarcada en una educación de calidad y excelencia, caracterizada por el trabajo planificado y participativo (personal directivo, docente, alumno, padres y representantes), un sólido y armonioso clima organizacional y por el desarrollo intelectual, físico, emocional y social de cada uno de los actores que integran la institución.</p>
+                </div>
+                <div>
+                    <h2>Visión</h2>
+                    <p>La institución persigue, además de lo que señala la Ley, suministrar a los alumnos, niños y jóvenes venezolanos, una formación ciudadana integral y permanente fundamentada en una base sólida de valores y virtudes, para hacer de ellos personas de elevado nivel académico, cultural y laboral, con capacidad crítica e investigadora capaces de contribuir al mejoramiento de la sociedad y al desarrollo de su entorno socio comunitario.</p>
+                </div>
+            </div>
             <div class="mas-informacion">
                 <div class="info">
                     <div>
