@@ -53,10 +53,8 @@
         </div>
     </div>
 
-
-
     <!-- REGISTRAR -->
-    <div id="registrar" class="display--centrado display--oculto registrar">
+    <div id="registrar" class="display--centrado display--oculto registrar visibilidad">
         <h2 class="login__titulo">Registo.</h2>
         <form class="login__formulario formulario" method="POST">
             <!-- persona -->
