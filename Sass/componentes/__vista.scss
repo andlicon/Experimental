@@ -34,3 +34,65 @@
 
     background-color: brown;
 }
+
+
+
+
+//También pondré acá lo del inicio
+
+.mas-informacion {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+}
+
+
+.imagen-login {
+    width: 600px;
+    margin: auto;
+}
+
+.contenido-login {
+    padding: 3em;
+
+    h2 {
+        text-align:center;
+        margin-bottom: 0.6em;
+    }
+
+    p {
+        text-align: justify;
+    }
+
+    img {
+        margin-top: 0.6em;
+    }
+
+    div {
+        margin-bottom: 2em;
+    }
+
+    div:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.red-social {
+    margin-top: 0;
+    width: 32px;
+}
+
+.comunicar {
+    text-align: initial;
+}
+
+.contacto {
+    font-weight: 600;
+}
+
+.fundadora {
+    font-size: 0.7em;
+    font-weight: 600;
+
+    text-align: center;
+}
