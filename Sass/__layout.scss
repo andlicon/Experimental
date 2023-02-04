@@ -119,3 +119,15 @@ $login-row: (
     display: flex;
     flex-flow: column nowrap;
 }
+
+.datos-inscripcion {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.centrado {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
