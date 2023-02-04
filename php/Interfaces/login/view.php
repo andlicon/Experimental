@@ -177,7 +177,8 @@
                                     <input type="text" id="telefonoInput" name="telefonoInput" class="input__input input__input--texto" required>
                                 </div>
                             </div>
-                            <div class="datos-estudiante centrado">
+                            <div class="datos-estudiante centrado" id="estudiantes">
+                                <h2>Datos del estudiante</h2>
                                 <div class="input__grupo">
                                     <label for="nombreInputEstudiante[]" class="input__label">Nombre</label>
                                     <input type="text" id="nombreInputEstudiante[]" name="nombreInputEstudiante" class="input__input input__input--texto" required>
@@ -194,6 +195,9 @@
                                     <label for="fechaNacimientoInputEstudiante[]" class="input__label">Fecha nacimiento</label>
                                     <input type="date" id="fechaNacimientoInputEstudiante[]" name="fechaNacimientoInputEstudiante" class="input__input input__input--texto" required>
                                 </div>
+                                <input type="button" value="+" id="masEstudiantes">
+                                <script src="js/codigo.js"></script>
+                                <script src="js/dom.js"></script>
                             </div>
                         </div>
                         <input type="button" class="login__boton boton" id="botonRegistrar" value="Registrar"></button>
