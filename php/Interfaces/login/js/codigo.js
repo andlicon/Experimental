@@ -8,14 +8,10 @@ $(function() {
         const div_fecha_nacimiento = D.create('div')
 
         //Crear los span
-        const span_nombre = D.create('span');
-        span_nombre.innerHTML = 'nombre';
-        const span_apellido = D.create('span');
-        span_apellido.innerHTML = 'apellido';
-        const span_lugar_nacimiento = D.create('span');
-        span_lugar_nacimiento.innerHTML = 'Lugar Nacimiento';
-        const span_fecha_nacimiento = D.create('span');
-        span_fecha_nacimiento.innerHTML = 'Fecha Nacimiento';
+        const span_nombre = D.create('span', {innerHTML: 'nombre'});
+        const span_apellido = D.create('span', {innerHTML: 'apellido'});
+        const span_lugar_nacimiento = D.create('span', {innerHTML: 'Lugar nacimiento'});
+        const span_fecha_nacimiento = D.create('span', {innerHTML: 'Fecha nacimiento'});
         
         //crear titulo
         const titulo_estudiante = D.create('h3');
@@ -23,10 +19,11 @@ $(function() {
 
         //boton eliminar 
         const borrar = D.create('a', 
-                                {href:'javascript:void(0)',
-                                innerHTML: 'x',
-                                onclick: function() { D.remove(div_principal) }
-                                });
+                               {href:'javascript:void(0)',
+                               innerHTML: 'x',
+                               onclick: function() { D.remove(div_principal) }
+                               });
+        borrar.classList.add('borrar');
 
         //crear los inputs
         const input_nombre = D.create('input', {
@@ -35,20 +32,24 @@ $(function() {
                                             autocomplete: 'off',
                                             placeholder: 'Nombre estudiante',
                                             id: 'nombreInputEstudiante[]'});
+        input_nombre.classList.add('input__input');
         const input_apellido = D.create('input', {
                                             type: 'text',
                                             name: 'apellidoEstudiante',
                                             autocomplete: 'off',
                                             placeholder: 'Apellido estudiante',
                                             id: 'apelliidoInputEstudiante[]'});
+       input_apellido.classList.add('input__input');
         const input_lugar_nacimiento = D.create('input', {
                                             type: 'text',
                                             name: 'lugarNacimientoEstudiante',
                                             id: 'lugarNacimientoInputEstudiante[]'});
+        input_lugar_nacimiento.classList.add('input__input');
         const input_fecha_nacimiento = D.create('input', {
                                         type: 'date',
                                         name: 'fechaNacimientoEstudiante',
                                         id: 'fechaNacimientoInputEstudiante[]'});
+        input_fecha_nacimiento.classList.add('input__input');
 
         //Añadiendo a divs
         D.append([span_nombre, input_nombre], div_nombre);
