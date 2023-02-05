@@ -4,13 +4,11 @@
     include_once(DAO_PATH.'PersonaDAO.php');
     include_once(DAO_PATH.'UsuarioDAO.php');
     include_once(DAO_PATH.'ContactoDAO.php');
-
-    echo 'a';
+    include_once(DAO_PATH.'EstudianteDAO.php');
 
     if(isset($_POST['cedula']) && isset($_POST['nombre']) && isset($_POST['apellido']) &&
     isset($_POST['nickname']) && isset($_POST['contrasena'])
     && isset($_POST['correo']) && isset($_POST['telefono'])) {
-        echo 'entro';
         $cedula = $_POST['cedula'];
         $nombre = $_POST['nombre'];;
         $apellido = $_POST['apellido'];
@@ -24,14 +22,13 @@
         $lugarNacimientoEstudiantes =  $_POST['lugarNacimientosEstudiantes'];
         $fechaNacimientoEstudiantes = $_POST['fechaNacimientoEstudiantes'];
 
-        echo 'fino pa';
-
         $respuesta = array();
 
         //dao
         $personaDAO = new PersonaDAO(BaseDeDatos::getInstancia());
         $usuarioDAO = new UsuarioDAO(BaseDeDatos::getInstancia());
         $contactoDAO = new ContactoDAO(BaseDeDatos::getInstancia());
+        $estudianteDAO = new EstudianteDAO(BaseDeDatos::getInstancia());
 
         try {
             //Cargar persona
@@ -44,14 +41,17 @@
             //Cargar estudiantes
             $i = 0;
             while($i<count($nombresEstudiantes)) {
+                echo 'entro';
                 $nombreEstudiante = $nombresEstudiantes[$i];
                 $apellidoEstudiante = $apellidosEstudiantes[$i];
                 $lugarNacimientoEstudiante = $lugarNacimientoEstudiantes[$i];
                 $fechaNacimientoEstudiante = $fechaNacimientoEstudiantes[$i];
                 //Cargar estudiante
+                $estudianteDAO->cargar(array($nombreEstudiante, $apellidoEstudiante, $fechaNacimientoEstudiante, 1, $cedula));
 
                 $i++;
             }
+            echo 'bien5';
             //respuesta
             array_push($respuesta, array(
                 "tipo"=>"exito",
