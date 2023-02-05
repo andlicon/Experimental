@@ -5,7 +5,7 @@ $(function() {
         const div_nombre = D.create('div');
         const div_apellido = D.create('div');
         const div_lugar_nacimiento = D.create('div');
-        const div_fecha_nacimiento = D.create('div')
+        const div_fecha_nacimiento = D.create('div');
 
         //Crear los span
         const span_nombre = D.create('span', {innerHTML: 'nombre'});
