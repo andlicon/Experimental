@@ -5,6 +5,8 @@
     include_once(DAO_PATH.'UsuarioDAO.php');
     include_once(DAO_PATH.'ContactoDAO.php');
 
+    echo 'a';
+
     if(isset($_POST['cedula']) && isset($_POST['nombre']) && isset($_POST['apellido']) &&
     isset($_POST['nickname']) && isset($_POST['contrasena'])
     && isset($_POST['correo']) && isset($_POST['telefono'])) {
@@ -46,7 +48,8 @@
                 $apellidoEstudiante = $apellidosEstudiantes[$i];
                 $lugarNacimientoEstudiante = $lugarNacimientoEstudiantes[$i];
                 $fechaNacimientoEstudiante = $fechaNacimientoEstudiantes[$i];
-                echo "$nombreEstudiante $apellidoEstudiante $lugarNacimientoEstudiante $fechaNacimientoEstudiante";
+                //Cargar estudiante
+
                 $i++;
             }
             //respuesta

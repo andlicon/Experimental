@@ -267,7 +267,8 @@
 
         public function cargar($parametros) {
             try {               //cedula nickname contrasena
-                $cargar= "CALL  p_cargar_usuario(?, ?, ?)";
+                $cargar= "INSERT INTO usuario (cedula, 	nickname, 	contrasena)
+                VALUES				          (?, 	    ?,          ?);";
                 $registros = $this->bd->sql($cargar, $parametros);
             }
             catch(PDOException $e) {
