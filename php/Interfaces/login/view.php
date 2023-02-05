@@ -167,14 +167,16 @@
                                     <input type="text" id="lugarTrabajoInput" name="lugarTrabajoInput" class="input__input input__input--texto" required>
                                 </div>
 
-                                <h3>Datos contacto</h3>
-                                <div class="input__grupo">
-                                    <label for="correoInput" class="input__label">Correo</label>
-                                    <input type="text" id="correoInput" name="correoInput" class="input__input input__input--texto" required>
-                                </div>
-                                <div class="input__grupo">
-                                    <label for="telefonoInput" class="input__label">Telefono</label>
-                                    <input type="text" id="telefonoInput" name="telefonoInput" class="input__input input__input--texto" required>
+                                <div class="datos-contacto">
+                                    <h3>Datos contacto</h3>
+                                    <div class="input__grupo">
+                                        <label for="correoInput" class="input__label">Correo</label>
+                                        <input type="text" id="correoInput" name="correoInput" class="input__input input__input--texto" required>
+                                    </div>
+                                    <div class="input__grupo">
+                                        <label for="telefonoInput" class="input__label">Telefono</label>
+                                        <input type="text" id="telefonoInput" name="telefonoInput" class="input__input input__input--texto" required>
+                                    </div>
                                 </div>
                             </div>
                             <div class="datos-estudiante centrado" id="estudiantes">
