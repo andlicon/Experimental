@@ -49,7 +49,7 @@
 
         <main>
             <div class="informacion contenido-login visibilidad" id="bienvenida">
-                <div class="bienvenida">
+                <div class="bienvenida bloque">
                     <h2>Unidad Educativa Instituto Experimental</h2>
                     <p>
                         Somos una Institución con 45 años de trayectoria, enfocados en la excelencia educativa.
@@ -57,7 +57,7 @@
                     </p>
                     <img src="../../../img/interfaz/login/experimental.jpg" alt="" class="imagen-login">
                 </div>
-                <div class="info">
+                <div class="info bloque">
                     <div>
                         <h2>Historia</h2>
                         <p>
@@ -73,17 +73,17 @@
                     </div>
                 </div>
                 <div>
-                    <div>
+                    <div class="bloque">
                         <h2>Misión</h2>
                         <p>Ser una institución enmarcada en una educación de calidad y excelencia, caracterizada por el trabajo planificado y participativo (personal directivo, docente, alumno, padres y representantes), un sólido y armonioso clima organizacional y por el desarrollo intelectual, físico, emocional y social de cada uno de los actores que integran la institución.</p>
                     </div>
-                    <div>
+                    <div class="bloque">
                         <h2>Visión</h2>
                         <p>La institución persigue, además de lo que señala la Ley, suministrar a los alumnos, niños y jóvenes venezolanos, una formación ciudadana integral y permanente fundamentada en una base sólida de valores y virtudes, para hacer de ellos personas de elevado nivel académico, cultural y laboral, con capacidad crítica e investigadora capaces de contribuir al mejoramiento de la sociedad y al desarrollo de su entorno socio comunitario.</p>
                     </div>
                 </div>
-                <div class="mas-informacion">
-                    <div class="info">
+                <div class="mas-informacion bloque">
+                    <div class="info subBloque">
                         <div>
                             <h2>Medios de comunicación</h2>
                             <p class="comunicar"><span class="contacto">Correo de contacto:</span> UEIExperimental@hotmail.com</p>
@@ -94,7 +94,7 @@
                             <a href="https://www.instagram.com/ueiexperimental/" target="_blank"><img src="../../../img/interfaz/login/instagram.png" alt="Instagram" class="red-social"></a>
                         </div>
                     </div>
-                    <div class="ubicacion">
+                    <div class="ubicacion subBloque">
                         <h2>Ubicación</h2>
                         <p>C. Guaraguao, Puerto La Cruz 6023, Anzoátegui</p>
                         <iframe class="imagen-login" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15705.763964089569!2d-64.6296116!3d10.2259722!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xa0ac7244980e91e3!2sU.E.%20Instituto%20Experimental!5e0!3m2!1ses!2sve!4v1675441074261!5m2!1ses!2sve" width="400" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -103,28 +103,30 @@
             </div>
         
             <div id="inscripcion" class="display--oculto visibilidad contenido-login">
-                <div>
+                <div class="bloque">
                     <h2>Inscripción</h2>
                     <p>
                         El proceso de inscripción para el presente año escolar consta de dos pasos, 
                         el primero, el cual consiste en una planilla virtual de "<a href="#solicitud-ingreso">SOLICITUD DE INGRESO</a>", la cual está disponible al final de esta página
-                         Su llenado via online da inicio al proceso de inscripción, posterior a esto, deberá llevar al instituto el resto de los recaudos en una carpeta, para así dar paso al proceso de validación.
-                         <h2>Recaudos solicitados</h2>
-                         <ul>
-                            <li>Copia de la partida de nacimiento</li>
-                            <li>copia de la boleta final</li>
-                            <li>Certificado de promoción</li>
-                            <li>Constancia de conducta</li>
-                            <li>Solvencia de pago del último colegio inscrito</li>
-                         </ul>
+                        Su llenado via online da inicio al proceso de inscripción, posterior a esto, deberá llevar al instituto el resto de los recaudos en una carpeta, para así dar paso al proceso de validación.
+                        <div class="subBloque">
+                            <h2>Recaudos solicitados</h2>
+                            <ul>
+                               <li>Copia de la partida de nacimiento</li>
+                               <li>copia de la boleta final</li>
+                               <li>Certificado de promoción</li>
+                               <li>Constancia de conducta</li>
+                               <li>Solvencia de pago del último colegio inscrito</li>
+                            </ul>
+                        </div>
                     </p>
                 </div>
-                <div id="solicitud-ingreso">
+                <div id="solicitud-ingreso" class="bloque">
                     <h2>Solicitud de ingreso</h3>
                     <form action="" method="POST" class="registro">
                     
                         <div class="datos-usuario centrado">
-                            <h2>Datos usuario</h2>
+                            <h2 class="titulito">Datos usuario</h2>
                             <div class="input__grupo">
                                 <label for="nicknameInput" class="input__label">Nickname</label>
                                <input type="text" id="nicknameInput" name="nicknameInput" class="input__input input__input--texto" required>
@@ -135,8 +137,8 @@
                             </div>
                         </div>
                         <div class="datos-inscripcion">
-                            <div class="datos-representante centrado">
-                                <h2>Datos Representante</h2>
+                            <div class="datos-representante centrado bloque">
+                                <h2 class="titulito">Datos Representante</h2>
                                 <div class="input__grupo">
                                     <label for="nacionalidadInput" class="input__label">Nacionalidad</label>
                                     <select name="nacionalidadInput" id="nacionalidadInput" class="input__select">
@@ -167,8 +169,8 @@
                                     <input type="text" id="lugarTrabajoInput" name="lugarTrabajoInput" class="input__input input__input--texto" required>
                                 </div>
 
-                                <div class="datos-contacto">
-                                    <h3>Datos contacto</h3>
+                                <div class="">
+                                    <h3 class="titulito">Datos contacto</h3>
                                     <div class="input__grupo">
                                         <label for="correoInput" class="input__label">Correo</label>
                                         <input type="text" id="correoInput" name="correoInput" class="input__input input__input--texto" required>
@@ -180,7 +182,7 @@
                                 </div>
                             </div>
                             <div class="datos-estudiante centrado" id="estudiantes">
-                                <h2>Datos del estudiante</h2>
+                                <h2 class="titulito">Datos del estudiante</h2>
                                 <div class="input__grupo">
                                     <label for="nombreInputEstudiante[]" class="input__label">Nombre</label>
                                     <input type="text" id="nombreInputEstudiante[]" name="nombreInputEstudiante" class="input__input input__input--texto" required>

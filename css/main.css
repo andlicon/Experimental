@@ -308,6 +308,16 @@ body {
           align-items: center;
 }
 
+.bloque {
+  background-color: red;
+  border-radius: 1em;
+  padding: 1em;
+}
+
+.titulito {
+  font-size: 1em;
+}
+
 .mensaje {
   height: 3em;
   width: 100%;
@@ -939,4 +949,20 @@ svg {
 .cambiador {
   height: 2em;
   background-color: red;
+}
+
+#solicitud-ingreso {
+  background-color: grey;
+}
+
+.datos-usuario {
+  background-color: purple;
+}
+
+.datos-representante {
+  background-color: red;
+}
+
+.datos-contacto {
+  background-color: black;
 }
