@@ -336,8 +336,8 @@
 
         public function cargar($parametros) {
             try {
-                $insert = "INSERT INTO estudiante (nombre, apellido, fecha_nacimiento, id_clase, cedula_representante)
-                       VALUES                 (?, ?,  ?, ?, ?)";
+                $insert = "INSERT INTO estudiante (nombre, apellido, fecha_nacimiento, cedula_representante)
+                       VALUES                 (?, ?,  ?, ?)";
                 $this->bd->sql($insert, $parametros);
             }
             catch(PDOException $e) {
