@@ -79,7 +79,7 @@
                 $cedulaRepresentante = $estudiante->getCedulaRepresentante();
                 $valido = $estudiante->getValido();
                 //Informacion clase
-                $nombreClase = $claseConsul->getInstancia(array($idClase))[0]->getDescripcion($idClase);
+                $nombreClase = $idClase!=null ? $claseConsul->getInstancia(array($idClase))[0]->getDescripcion($idClase) : "Aun no asignada";
 
                 $validez = $selectValido->crearItemAtributosSeleccion("class=\"modificable modificable$idEstudiante ocultar\"", "validoInput$idEstudiante", $valido);
                 $clase = $selectClase->crearItemAtributosSeleccion("class=\"modificable modificable$idEstudiante ocultar\"", "claseInput$idEstudiante", $idClase);

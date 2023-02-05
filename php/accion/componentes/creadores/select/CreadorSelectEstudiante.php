@@ -53,17 +53,27 @@
         }
 
         public function crearItemAtributos($atributos, $id) {
-            $consulta = $this->dao->getTodosValidos(array(1));
-    
             $html = "<div class=\"input__grupo\">
-                        <select id=\"$id\" name=\"$id\" $atributos>";
-            $html = $html.$this->crearOption($consulta, null);
-            $html = $html."
+                <select id=\"$id\" name=\"$id\" $atributos>";
+
+            try {
+                $consulta = $this->dao->getTodosValidos(array(1));
+    
+                $html = "<select id=\"$id\" name=\"$id\" $atributos>";
+                $html = $html.$this->crearOption($consulta, null);
+            }
+            catch(Exception $e) {
+                $html = "<select id=\"$id\" name=\"$id\" disabled $atributos>";
+                $html = $html."<option>No hay estudiantes validos</option>";
+            }
+            finally {
+                $html = $html."
                         </select>
                     </div>";
-    
-            return $html;
+
+                return $html;
+            }
         }
     }
 
-?>
+?> 

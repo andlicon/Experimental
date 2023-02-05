@@ -105,7 +105,7 @@
             }
         }
         catch(Exception $e) {
-            echo 'error';
+           
         }
 
         echo $html."</div>";

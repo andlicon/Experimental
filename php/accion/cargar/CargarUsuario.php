@@ -41,7 +41,6 @@
             //Cargar estudiantes
             $i = 0;
             while($i<count($nombresEstudiantes)) {
-                echo 'entro';
                 $nombreEstudiante = $nombresEstudiantes[$i];
                 $apellidoEstudiante = $apellidosEstudiantes[$i];
                 $lugarNacimientoEstudiante = $lugarNacimientoEstudiantes[$i];
@@ -51,7 +50,6 @@
 
                 $i++;
             }
-            echo 'bien5';
             //respuesta
             array_push($respuesta, array(
                 "tipo"=>"exito",

@@ -8,6 +8,10 @@
         $titulo = "";
         $body = "";
 
+        $deudaGenerada = 0;
+        $ingresos = 0;
+        $deficit = 0;
+
         try{
             $registros = null;
             $titulo = "";

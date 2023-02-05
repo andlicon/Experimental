@@ -34,7 +34,7 @@
                 $cedulaRepresentante = $estudiante->getCedulaRepresentante();
                 $valido = $estudiante->getValido() == 0 ? "Por validar" : "Inscrito";
                 //Informacion clase
-                $nombreClase = $claseConsul->getInstancia(array($idClase))[0]->getDescripcion($idClase);
+                $nombreClase = $idClase!=null ? $claseConsul->getInstancia(array($idClase))[0]->getDescripcion($idClase) : "Aun no asignada";
 
                 $eliminador = "<input type=\"button\" class=\"eliminar\" value=\"$idEstudiante\">";
                 $modificador = "<input type=\"button\" class=\"modificar habilitarModif\" value=\"$idEstudiante\">";
