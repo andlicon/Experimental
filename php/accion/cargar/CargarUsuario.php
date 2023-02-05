@@ -6,16 +6,23 @@
     include_once(DAO_PATH.'ContactoDAO.php');
 
     if(isset($_POST['cedula']) && isset($_POST['nombre']) && isset($_POST['apellido']) &&
-    isset($_POST['nickname']) && isset($_POST['contrasena']) && isset($_POST['tipoPersona'])
+    isset($_POST['nickname']) && isset($_POST['contrasena'])
     && isset($_POST['correo']) && isset($_POST['telefono'])) {
+        echo 'entro';
         $cedula = $_POST['cedula'];
         $nombre = $_POST['nombre'];;
         $apellido = $_POST['apellido'];
         $nickname = $_POST['nickname'];
         $contrasena = $_POST['contrasena'];
-        $tipoPersona = $_POST['tipoPersona'];
         $correo = $_POST['correo'];
         $telefono = $_POST['telefono'];
+        //Estudiantes
+        $nombresEstudiantes = $_POST['nombresEstudiantes'];
+        $apellidosEstudiantes = $_POST['apellidosEstudiantes'];
+        $lugarNacimientoEstudiantes =  $_POST['lugarNacimientosEstudiantes'];
+        $fechaNacimientoEstudiantes = $_POST['fechaNacimientoEstudiantes'];
+
+        echo 'fino pa';
 
         $respuesta = array();
 
@@ -26,12 +33,22 @@
 
         try {
             //Cargar persona
-            $personaDAO->cargar(array($cedula, $nombre, $apellido, $tipoPersona));
+            $personaDAO->cargar(array($cedula, $nombre, $apellido, 1));
             //Cargar usuario
             $usuarioDAO->cargar(array($cedula, $nickname, $contrasena));
             //Cargar contactos
             $contactoDAO->cargar(array($cedula, 1, $correo));  //Correo
             $contactoDAO->cargar(array($cedula, 2, $telefono));  //telefono
+            //Cargar estudiantes
+            $i = 0;
+            while($i<count($nombresEstudiantes)) {
+                $nombreEstudiante = $nombresEstudiantes[$i];
+                $apellidoEstudiante = $apellidosEstudiantes[$i];
+                $lugarNacimientoEstudiante = $lugarNacimientoEstudiantes[$i];
+                $fechaNacimientoEstudiante = $fechaNacimientoEstudiantes[$i];
+                echo "$nombreEstudiante $apellidoEstudiante $lugarNacimientoEstudiante $fechaNacimientoEstudiante";
+                $i++;
+            }
             //respuesta
             array_push($respuesta, array(
                 "tipo"=>"exito",

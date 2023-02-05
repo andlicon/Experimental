@@ -38,7 +38,7 @@ $(function() {
                                             name: 'apellidoEstudiante',
                                             autocomplete: 'off',
                                             placeholder: 'Apellido estudiante',
-                                            id: 'apelliidoInputEstudiante[]'});
+                                            id: 'apellidoInputEstudiante[]'});
        input_apellido.classList.add('input__input');
         const input_lugar_nacimiento = D.create('input', {
                                             type: 'text',
