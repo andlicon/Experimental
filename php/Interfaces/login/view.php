@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="/css/main.css">
     <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="../js/cambiarLamina.js"></script>
     <script src="../js/iniciarSesion.js"></script>
@@ -48,7 +47,7 @@
         </nav>
 
         <main>
-            <div class="informacion contenido-login visibilidad" id="bienvenida">
+            <div class="informacion contenido-login visibilidad mainCentrado" id="bienvenida">
                 <div class="bienvenida bloque">
                     <h2>Unidad Educativa Instituto Experimental</h2>
                     <p>

@@ -309,13 +309,23 @@ body {
 }
 
 .bloque {
-  background-color: red;
+  background-color: #1F1F23;
   border-radius: 1em;
   padding: 1em;
+  width: 80%;
+  margin: auto;
 }
 
 .titulito {
   font-size: 1em;
+}
+
+ul li {
+  color: white;
+}
+
+a {
+  display: inline-block;
 }
 
 .mensaje {
@@ -948,7 +958,11 @@ svg {
 
 .cambiador {
   height: 2em;
-  background-color: red;
+  background-color: #1F1F23;
+}
+
+figcaption {
+  color: white;
 }
 
 #solicitud-ingreso {
@@ -965,4 +979,8 @@ svg {
 
 .datos-contacto {
   background-color: black;
+}
+
+p, h3, h2 {
+  color: white;
 }
