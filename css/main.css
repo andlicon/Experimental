@@ -683,6 +683,14 @@ svg {
   z-index: 0;
 }
 
+li {
+  list-style: circle;
+}
+
+ul {
+  padding-left: 1em;
+}
+
 .login__titulo {
   display: -webkit-box;
   display: -ms-flexbox;
