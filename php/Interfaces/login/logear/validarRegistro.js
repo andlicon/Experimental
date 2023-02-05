@@ -39,6 +39,50 @@ function validarUsuario() {
         $('#tipoPersonaSelect').focus();
         return false;
     }
+    if($('#nombreInputEstudiante\\[\\]')) {
+        let arregloNombre = $('#nombreInputEstudiante\\[\\]').toArray();
+        if(arregloNombre) {
+            for(let i=0; i<arregloNombre.length; i++) {
+                if(arregloNombre[i].value == "") {
+                    alert("Se debe especificar un nombre de alumno valido.");
+                    return false;
+                }
+            }
+        }
+    }
+    if($('#apellidoInputEstudiante\\[\\]')) {
+        let arregloApellido = $('#apellidoInputEstudiante\\[\\]').toArray();
+        if(arregloApellido) {
+            for(let i=0; i<arregloApellido.length; i++) {
+                if(arregloApellido[i].value == "") {
+                    alert("Se debe especificar un apellido de alumno valido.");
+                    return false;
+                }
+            }
+        }
+    }
+    if($('#lugarNacimientoInputEstudiante\\[\\]')) {
+        let arregloApellido = $('#lugarNacimientoInputEstudiante\\[\\]').toArray();
+        if(arregloApellido) {
+            for(let i=0; i<arregloApellido.length; i++) {
+                if(arregloApellido[i].value == "") {
+                    alert("Se debe especificar un lugar nacimiento de alumno valido.");
+                    return false;
+                }
+            }
+        }
+    }
+    if($('#fechaNacimientoInputEstudiante\\[\\]')) {
+        let arregloApellido = $('#fechaNacimientoInputEstudiante\\[\\]').toArray();
+        if(arregloApellido) {
+            for(let i=0; i<arregloApellido.length; i++) {
+                if(arregloApellido[i].value == "") {
+                    alert("Se debe especificar un fecha nacimiento de alumno valido.");
+                    return false;
+                }
+            }
+        }
+    }
 
     return true;
 }
