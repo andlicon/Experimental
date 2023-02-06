@@ -120,11 +120,6 @@ $login-row: (
     flex-flow: column nowrap;
 }
 
-.datos-inscripcion {
-    display: flex;
-    flex-flow: row nowrap;
-}
-
 .centrado {
     display: flex;
     flex-flow: column nowrap;
@@ -154,4 +149,22 @@ ul li {
 
 a {
     display: inline-block;
+}
+
+.datos-representante {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.datos-inscripcion {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 40em 40em;
+
+}
+
+.registro {
+    display: grid;
 }

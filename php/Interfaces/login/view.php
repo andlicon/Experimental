@@ -26,7 +26,7 @@
         ?>
 
     <!-- LOGIN -->
-    <nav class="usuario">
+    <!-- <nav class="usuario">
         <div id="login" class="usuario__contenido login__contenido">
              <div class="login__saludo">
                 <img class="login__img" src="../../../img/interfaz/login/logo.jpg" alt="Logo del colegio">
@@ -38,12 +38,12 @@
                 <input class="boton boton--menu" type="submit" id="iniciarSesion" name="login" value="Acceder">
             </form>
         </div>
-    </nav>
+    </nav> -->
 
     <div class="body-login">
         <nav class="cambiador">
-            <input class="login__boton" type="button" name="volver" value="Bienvenida" onclick="cambiarVisibilidiad('bienvenida');">
-            <input class="login__boton" type="button" name="crear-usuario" value="Inscripción" onclick="cambiarVisibilidiad('inscripcion');">
+            <input class="login__boton boton boton--menu" type="button" name="volver" value="Bienvenida" onclick="cambiarVisibilidiad('bienvenida');">
+            <input class="login__boton boton boton--menu" type="button" name="crear-usuario" value="Inscripción" onclick="cambiarVisibilidiad('inscripcion');">
         </nav>
 
         <main>
@@ -122,9 +122,9 @@
                 </div>
                 <div id="solicitud-ingreso" class="bloque">
                     <h2>Solicitud de ingreso</h3>
-                    <form action="" method="POST" class="registro">
+                    <form action="" method="POST" class="registro centrado">
                     
-                        <div class="datos-usuario centrado">
+                        <div class="datos-usuario subBloque">
                             <h2 class="titulito">Datos usuario</h2>
                             <div class="input__grupo">
                                 <label for="nicknameInput" class="input__label">Nickname</label>
@@ -136,7 +136,7 @@
                             </div>
                         </div>
                         <div class="datos-inscripcion">
-                            <div class="datos-representante centrado bloque">
+                            <div class="datos-representante bloque subBloque">
                                 <h2 class="titulito">Datos Representante</h2>
                                 <div class="input__grupo">
                                     <label for="nacionalidadInput" class="input__label">Nacionalidad</label>
@@ -168,7 +168,7 @@
                                     <input type="text" id="lugarTrabajoInput" name="lugarTrabajoInput" class="input__input input__input--texto" required>
                                 </div>
 
-                                <div class="">
+                                <div class="subBloque">
                                     <h3 class="titulito">Datos contacto</h3>
                                     <div class="input__grupo">
                                         <label for="correoInput" class="input__label">Correo</label>
@@ -180,7 +180,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="datos-estudiante centrado" id="estudiantes">
+                            <div class="datos-estudiante centrado subBloque" id="estudiantes">
                                 <h2 class="titulito">Datos del estudiante</h2>
                                 <div class="input__grupo">
                                     <label for="nombreInputEstudiante[]" class="input__label">Nombre</label>

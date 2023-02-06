@@ -282,16 +282,6 @@ body {
           flex-flow: column nowrap;
 }
 
-.datos-inscripcion {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row nowrap;
-          flex-flow: row nowrap;
-}
-
 .centrado {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -326,6 +316,25 @@ ul li {
 
 a {
   display: inline-block;
+}
+
+.datos-representante {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.datos-inscripcion {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 40em 40em;
+  grid-template-columns: 40em 40em;
+}
+
+.registro {
+  display: -ms-grid;
+  display: grid;
 }
 
 .mensaje {
@@ -965,30 +974,33 @@ ul {
 }
 
 .cambiador {
-  height: 2em;
+  height: 2.5em;
+  width: 100%;
   background-color: #1F1F23;
+  position: fixed;
+  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 figcaption {
   color: white;
 }
 
-#solicitud-ingreso {
-  background-color: grey;
-}
-
-.datos-usuario {
-  background-color: purple;
-}
-
-.datos-representante {
-  background-color: red;
-}
-
-.datos-contacto {
-  background-color: black;
+.subBloque {
+  background-color: #353538;
+  border-radius: 1em;
+  color: white;
 }
 
 p, h3, h2 {
   color: white;
+}
+
+.login__boton {
+  width: 120px;
 }

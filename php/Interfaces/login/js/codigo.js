@@ -15,7 +15,7 @@ $(function() {
         
         //crear titulo
         const titulo_estudiante = D.create('h3');
-        titulo_estudiante.innerHTML = 'Info Estudiante';
+        titulo_estudiante.innerHTML = 'Datos del estudiante adicional';
 
         //boton eliminar 
         const borrar = D.create('a', 

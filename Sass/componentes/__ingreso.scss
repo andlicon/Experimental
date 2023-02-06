@@ -1,19 +1,15 @@
-#solicitud-ingreso {
-    background-color: grey;
-}
+.subBloque {
+    background-color: #353538;
 
-.datos-usuario {
-    background-color: purple;
-}
+    border-radius: 1em;
 
-.datos-representante {
-    background-color: red;
-}
-
-.datos-contacto {
-    background-color: black;
+    color: white;
 }
 
 p, h3, h2 {
     color: white;
+}
+
+.login__boton {
+    width: 120px;
 }
