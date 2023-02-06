@@ -6,6 +6,29 @@
     color: white;
 }
 
+
+.subBloquecito {
+    background-color: #353538;
+
+    border-radius: 1em;
+
+    color: white;
+
+    width: 400px
+
+}
+
+.borrar {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: red;
+    font-weight: 900;
+    padding: 0.3em;
+}
+
 p, h3, h2 {
     color: white;
 }

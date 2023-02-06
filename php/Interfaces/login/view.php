@@ -122,9 +122,9 @@
                 </div>
                 <div id="solicitud-ingreso" class="bloque">
                     <h2>Solicitud de ingreso</h3>
-                    <form action="" method="POST" class="registro centrado">
+                    <form action="" method="POST" class="registro" id="registro">
                     
-                        <div class="datos-usuario subBloque">
+                        <div class="datos-usuario subBloque centrado">
                             <h2 class="titulito">Datos usuario</h2>
                             <div class="input__grupo">
                                 <label for="nicknameInput" class="input__label">Nickname</label>
@@ -135,7 +135,7 @@
                                 <input type="password" id="contrasenaInput" name="contrasenaInput" class="input__input input__input--texto" required>
                             </div>
                         </div>
-                        <div class="datos-inscripcion">
+                        <!-- <div class="datos-inscripcion"> -->
                             <div class="datos-representante bloque subBloque">
                                 <h2 class="titulito">Datos Representante</h2>
                                 <div class="input__grupo">
@@ -198,11 +198,11 @@
                                     <label for="fechaNacimientoInputEstudiante[]" class="input__label">Fecha nacimiento</label>
                                     <input type="date" id="fechaNacimientoInputEstudiante[]" name="fechaNacimientoInputEstudiante" class="input__input input__input--texto" required>
                                 </div>
-                                <input type="button" value="+" id="masEstudiantes">
+                                <input type="button" value="Añadir estudiante adicional" id="masEstudiantes">
                                 <script src="js/codigo.js"></script>
                                 <script src="js/dom.js"></script>
                             </div>
-                        </div>
+                        <!-- </div> -->
                         <input type="button" class="login__boton boton" id="botonRegistrar" value="Registrar"></button>
                     </form>
                 </div>

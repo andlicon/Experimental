@@ -335,6 +335,40 @@ a {
 .registro {
   display: -ms-grid;
   display: grid;
+      grid-template-areas: "usuario usuario" "representante estudainte";
+  position: relative;
+  padding: 3em;
+  color: white;
+}
+
+.datos-usuario {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: usuario;
+  width: 25em;
+  margin: auto;
+}
+
+#botonRegistrar {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  text-align: center;
+  font-weight: 900;
+}
+
+#masEstudiantes {
+  background-color: green;
+  font-weight: 900;
+  width: 100%;
+  color: white;
+}
+
+.datos-estudiante {
+  width: 80%;
+  height: 60%;
+  padding: 1em;
 }
 
 .mensaje {
@@ -995,6 +1029,33 @@ figcaption {
   background-color: #353538;
   border-radius: 1em;
   color: white;
+}
+
+.subBloquecito {
+  background-color: #353538;
+  border-radius: 1em;
+  color: white;
+  width: 400px;
+}
+
+.borrar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  background-color: red;
+  font-weight: 900;
+  padding: 0.3em;
 }
 
 p, h3, h2 {

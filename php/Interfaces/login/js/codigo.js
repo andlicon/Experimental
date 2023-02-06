@@ -2,14 +2,16 @@ $(function() {
     $('#masEstudiantes').click(function() {
         //Crear los divs
         const div_principal = D.create('div');
+        div_principal.classList.add('subBloquecito');
+        div_principal.classList.add('centrado');
         const div_nombre = D.create('div');
         const div_apellido = D.create('div');
         const div_lugar_nacimiento = D.create('div');
         const div_fecha_nacimiento = D.create('div');
 
         //Crear los span
-        const span_nombre = D.create('span', {innerHTML: 'nombre'});
-        const span_apellido = D.create('span', {innerHTML: 'apellido'});
+        const span_nombre = D.create('span', {innerHTML: 'Nombre'});
+        const span_apellido = D.create('span', {innerHTML: 'Apellido'});
         const span_lugar_nacimiento = D.create('span', {innerHTML: 'Lugar nacimiento'});
         const span_fecha_nacimiento = D.create('span', {innerHTML: 'Fecha nacimiento'});
         
@@ -20,7 +22,7 @@ $(function() {
         //boton eliminar 
         const borrar = D.create('a', 
                                {href:'javascript:void(0)',
-                               innerHTML: 'x',
+                               innerHTML: 'Eliminar estudiante adicional',
                                onclick: function() { D.remove(div_principal) }
                                });
         borrar.classList.add('borrar');
@@ -58,7 +60,6 @@ $(function() {
         D.append([span_fecha_nacimiento, input_fecha_nacimiento], div_fecha_nacimiento)
         D.append([borrar, titulo_estudiante, div_nombre, div_apellido, div_lugar_nacimiento, div_fecha_nacimiento], div_principal);
 
-        D.append(div_principal, D.id('estudiantes'));
-        console.log(div_principal);
+        D.append(div_principal, D.id('registro'));
     });
 });
