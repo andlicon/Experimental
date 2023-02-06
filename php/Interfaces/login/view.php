@@ -26,7 +26,7 @@
         ?>
 
     <!-- LOGIN -->
-    <!-- <nav class="usuario">
+    <nav class="usuario">
         <div id="login" class="usuario__contenido login__contenido">
              <div class="login__saludo">
                 <img class="login__img" src="../../../img/interfaz/login/logo.jpg" alt="Logo del colegio">
@@ -38,7 +38,7 @@
                 <input class="boton boton--menu" type="submit" id="iniciarSesion" name="login" value="Acceder">
             </form>
         </div>
-    </nav> -->
+    </nav>
 
     <div class="body-login">
         <nav class="cambiador">
@@ -124,8 +124,8 @@
                     <h2>Solicitud de ingreso</h3>
                     <form action="" method="POST" class="registro" id="registro">
                     
-                        <div class="datos-usuario subBloque centrado">
-                            <h2 class="titulito">Datos usuario</h2>
+                        <div class="datos-usuario subBloque centrado subBloqueTitulo">
+                            <h2 class="titulito contenido__titulo">Datos usuario</h2>
                             <div class="input__grupo">
                                 <label for="nicknameInput" class="input__label">Nickname</label>
                                <input type="text" id="nicknameInput" name="nicknameInput" class="input__input input__input--texto" required>
@@ -136,8 +136,8 @@
                             </div>
                         </div>
                         <!-- <div class="datos-inscripcion"> -->
-                            <div class="datos-representante bloque subBloque">
-                                <h2 class="titulito">Datos Representante</h2>
+                            <div class="datos-representante bloque subBloque subBloqueTitulo">
+                                <h2 class="titulito contenido__titulo">Datos Representante</h2>
                                 <div class="input__grupo">
                                     <label for="nacionalidadInput" class="input__label">Nacionalidad</label>
                                     <select name="nacionalidadInput" id="nacionalidadInput" class="input__select">
@@ -169,7 +169,7 @@
                                 </div>
 
                                 <div class="subBloque">
-                                    <h3 class="titulito">Datos contacto</h3>
+                                    <h3 class="titulito contenido__titulo subBloqueTitulito">Datos contacto</h3>
                                     <div class="input__grupo">
                                         <label for="correoInput" class="input__label">Correo</label>
                                         <input type="text" id="correoInput" name="correoInput" class="input__input input__input--texto" required>
@@ -180,8 +180,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="datos-estudiante centrado subBloque" id="estudiantes">
-                                <h2 class="titulito">Datos del estudiante</h2>
+                            <div class="datos-estudiante centrado subBloque subBloqueEstudiantes" id="estudiantes">
+                                <h2 class="titulito contenido__titulo">Datos del estudiante</h2>
                                 <div class="input__grupo">
                                     <label for="nombreInputEstudiante[]" class="input__label">Nombre</label>
                                     <input type="text" id="nombreInputEstudiante[]" name="nombreInputEstudiante" class="input__input input__input--texto" required>

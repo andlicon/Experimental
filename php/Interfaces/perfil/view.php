@@ -23,57 +23,58 @@
         include_once('../funciones/generarUsuario.php');
         generarUsuario();
     ?>
-    <div class="body-main">
-        <main>
+    <div class="body-main body-main--perfil">
+        <main class="centrado">
+            <h2 class="titulo__pagina">Modificar perfil</h2>
             <?php
                 //Realiziar query de persona, usuario y contacto.
             ?>
-            <form action="" method="POST">
-                <div class="contenido">
+            <form action="" method="POST" class="bloque perfil">
+                <div class="contenido subBloque centrado">
                     <h3 class="contenido__titulo">
                         datos de persona
                     </h3>
                     <div class="contenido__bloque">
                         <label for="nombre-input">Nombre</label>
-                        <input type="text" id="nombre-input">
+                        <input type="text" class="espaciado" id="nombre-input">
                     </div>
                     <div class="contenido__bloque">
                         <label for="apellido-input">Apellido</label>
-                        <input type="text" id="apellido-input">
+                        <input type="text" class="espaciado" id="apellido-input">
                     </div>
                 </div>
-                <div class="contenido">
+                <div class="contenido subBloque centrado">
                     <h3 class="contenido__titulo">
                         datos de contacto
                     </h3>
                     <div class="contenido__bloque">
                         <label for="correo-input">Correo</label>
-                        <input type="text" id="correo-input">
+                        <input type="text" class="espaciado" id="correo-input">
                     </div>
                     <div class="contenido__bloque">
                         <label for="telefono-input">Telefono</label>
-                        <input type="text" id="telefono-input">
+                        <input type="text" class="espaciado" id="telefono-input">
                     </div>
                 </div>
-                <div class="contenido">
+                <div class="contenido subBloque centrado">
                     <h3 class="contenido__titulo">
                         datos de usuario
                     </h3>
                     <div class="contenido__bloque">
                         <label for="nickname-input">Nickname</label>
-                        <input type="text" id="nickname-input">
+                        <input type="text" class="espaciado" id="nickname-input">
                     </div>
                     <div class="contenido__bloque">
                         <label for="contrasena1-input">Nueva contraseña</label>
-                        <input type="password" id="contrasena1-input">
+                        <input type="password" class="espaciado" id="contrasena1-input">
                     </div>
                     <div class="contenido__bloque">
                         <label for="contrasena2-input">Repetir contraseña</label>
-                        <input type="password" id="contrasena2-input">
+                        <input type="password" class="espaciado" id="contrasena2-input">
                     </div>
                 </div>
-                <div class="contenido">
-                    <div class="contenido__bloque">
+                <div class="contenidocentrado">
+                    <div class="contenido__bloque subBloque--botones">
                         <input type="button" class="boton" id="enviar" value="Enviar">
                         <input type="button" class="boton" id="reestablecer" value="Reestablecer">
                     </div>

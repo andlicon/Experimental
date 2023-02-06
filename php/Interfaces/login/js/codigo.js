@@ -18,6 +18,9 @@ $(function() {
         //crear titulo
         const titulo_estudiante = D.create('h3');
         titulo_estudiante.innerHTML = 'Datos del estudiante adicional';
+        titulo_estudiante.classList.add('titulito');
+        titulo_estudiante.classList.add('contenido__titulo');
+        titulo_estudiante.classList.add('subBloqueTitulito');
 
         //boton eliminar 
         const borrar = D.create('a', 
@@ -26,6 +29,8 @@ $(function() {
                                onclick: function() { D.remove(div_principal) }
                                });
         borrar.classList.add('borrar');
+        borrar.classList.add('contenido__titulo');
+        borrar.classList.add('c');
 
         //crear los inputs
         const input_nombre = D.create('input', {
