@@ -127,7 +127,7 @@
                         <div class="datos-usuario subBloque centrado subBloqueTitulo">
                             <h2 class="titulito contenido__titulo">Datos usuario</h2>
                             <div class="input__grupo">
-                                <label for="nicknameInput" class="input__label">Nickname</label>
+                                <label for="nicknameInput" class="input__label">Nickname</label>        
                                <input type="text" id="nicknameInput" name="nicknameInput" class="input__input input__input--texto" required>
                             </div>
                             <div class="input__grupo">
@@ -145,7 +145,7 @@
                                         <option value="E-" class="input__select">E-</option>
                                     </select>
                                     <label for="cedulaInput" class="input__label">Cedula</label>
-                                    <input type="text" id="cedulaInput" name="cedulaInput" class="input__input input__input--texto" required>
+                                    <input type="text" onkeypress="return soloNumeros(8, 'cedulaInput')"  id="cedulaInput" name="cedulaInput" class="input__input input__input--texto" required>
                                 </div>
                                 <div class="input__grupo">
                                     <label for="nombreInput" class="input__label">Nombre</label>
@@ -180,7 +180,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="datos-estudiante centrado subBloque subBloqueEstudiantes" id="estudiantes">
+                            <div class="datos-estudiante centrado subBloque c subBloqueTitulo" id="estudiantes">
                                 <h2 class="titulito contenido__titulo">Datos del estudiante</h2>
                                 <div class="input__grupo">
                                     <label for="nombreInputEstudiante[]" class="input__label">Nombre</label>
@@ -214,3 +214,7 @@
 
 <script src="logear/cargarUsuario.js"></script>
 <script src="logear/validarRegistro.js"></script>
+<script src="../js/limitador/soloNumeros.js"></script>
+
+
+<!-- <input type="text" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"  id="cedulaInput" name="cedulaInput" class="input__input input__input--texto" required> -->
