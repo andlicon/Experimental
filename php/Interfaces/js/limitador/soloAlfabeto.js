@@ -1,13 +1,13 @@
 function soloAlfabeto(max, id){
     max = max <=0 ? Number.MAX_SAFE_INTEGER : max;
 
-    if($('#'+id).val().length>=max) {
+    if($('#'+id).val().length>=max || event.charCode==43) {
         return false;
     }
 
-    let regex = '/[ABCDEFGHIJKLMNOPQRSTUVWXYZ]|[abcdefghijklmnopqrstuvwxyz|[áéíóú]|[ÁÉÍÓÚ]|[ñÑ]/';
+    const pattern = new RegExp('/[A-Z]|[a-z]|[áéíóú]|[ÁÉÍÓÚ]|[ñÑ]|[\s]/', 'i');
     let letra = String.fromCharCode(event.charCode);
-    let match = regex.match(letra);
+    let match = letra.match(pattern);
 
     return match!=null;
 }
