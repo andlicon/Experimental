@@ -20,11 +20,11 @@
                 <input class=\"boton\" id=\"cargar\" value=\"cargar\" />
                 <div class=\"contenido__bloque\">
 	                <label for=\"nombreInput\">Nombre</label>
-	                <input type=\"text\" id=\"nombreInput\">
+	                <input type=\"text\" onkeypress=\"return soloAlfabeto(15, 'nombreInput')\"  id=\"nombreInput\">
                 </div>
                 <div class=\"contenido__bloque\">
 	                <label for=\"apellidoInput\">Apellido</label>
-	                <input type=\"text\" id=\"apellidoInput\">
+	                <input type=\"text\" onkeypress=\"return soloAlfabeto(15, 'apellidoInput')\"  id=\"apellidoInput\">
                 </div>
                 <div class=\"contenido__bloque\">
 	                <label for=\"fechaInput\">Fecha nacimiento</label>
@@ -38,6 +38,10 @@
                 <script>
                     $(document).ready(function () {
                         $('#deudaInput').select2();
+                        <script src=\"../js/limitador/soloNumeros.js\"></script>
+                        <script src=\"../js/limitador/soloTelefono.js\"></script>
+                        <script src=\"../js/limitador/soloAlfabeto.js\"></script>
+                        <script src=\"../js/limitador/soloAlfaNumerico.js\"></script>
                     });
                 </script>
                 ";

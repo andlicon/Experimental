@@ -30,7 +30,7 @@
                 </div>
                 <div class=\"contenido__bloque\">
 	                <label for=\"descripcionInput\">Descripcion</label>
-	                <input type=\"text\" id=\"descripcionInput\">
+	                <input type=\"text\" onkeypress=\"return soloAlfaNumerico(50, 'descripcionInput')\" id=\"descripcionInput\">
                 </div>
                 <div class=\"contenido__bloque\">
 	                <label for=\"fechaInput\">fecha</label>
@@ -38,12 +38,16 @@
                 </div>
                 <div class=\"contenido__bloque\">
 	                <label for=\"montoInicialInput\">Monto:</label>
-	                <input type=\"text\" id=\"montoInicialInput\">
+	                <input onkeypress=\"return soloNumeros(8, 'montoInicialInput')\" type=\"text\" id=\"montoInicialInput\">
                 </div>
 
                 <script>
                     $(document).ready(function () {
                         $('#estudianteInput').select2();
+                        <script src=\"../js/limitador/soloNumeros.js\"></script>
+                        <script src=\"../js/limitador/soloTelefono.js\"></script>
+                        <script src=\"../js/limitador/soloAlfabeto.js\"></script>
+                        <script src=\"../js/limitador/soloAlfaNumerico.js\"></script>
                     });
                 </script>
                 ";

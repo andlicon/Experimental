@@ -35,7 +35,7 @@
                 </div>
                 <div class=\"contenido__bloque\">
 	                <label for=\"montoInput\">Monto</label>
-	                <input type=\"text\" id=\"montoInput\">
+	                <input type=\"text\" onkeypress=\"return soloNumeros(8, 'montoInput')\" id=\"montoInput\">
                 </div>
                 <div class=\"contenido__bloque\">
 	                <label for=\"cuentaInput\">Cuenta</label>
@@ -47,12 +47,16 @@
                 </div>
                 <div class=\"contenido__bloque\">
 	                <label for=\"ReferenciaInput\">Referencia</label>
-	                <input type=\"text\" id=\"referenciaInput\">
+	                <input type=\"text\" onkeypress=\"return soloNumeros(8, 'referenciaInput')\" id=\"referenciaInput\">
                 </div>
 
                 <script>
                     $(document).ready(function () {
                         $('#deudaInput').select2();
+                        <script src=\"../js/limitador/soloNumeros.js\"></script>
+                        <script src=\"../js/limitador/soloTelefono.js\"></script>
+                        <script src=\"../js/limitador/soloAlfabeto.js\"></script>
+                        <script src=\"../js/limitador/soloAlfaNumerico.js\"></script>
                     });
                 </script>
                 ";
