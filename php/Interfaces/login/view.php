@@ -176,7 +176,7 @@
                                     </div>
                                     <div class="input__grupo">
                                         <label for="telefonoInput" class="input__label">Telefono</label>
-                                        <input type="text" id="telefonoInput" name="telefonoInput" class="input__input input__input--texto" required>
+                                        <input type="text" onkeypress="return soloTelefono('telefonoInput')" id="telefonoInput" name="telefonoInput" class="input__input input__input--texto" required>
                                     </div>
                                 </div>
                             </div>
@@ -215,6 +215,4 @@
 <script src="logear/cargarUsuario.js"></script>
 <script src="logear/validarRegistro.js"></script>
 <script src="../js/limitador/soloNumeros.js"></script>
-
-
-<!-- <input type="text" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"  id="cedulaInput" name="cedulaInput" class="input__input input__input--texto" required> -->
+<script src="../js/limitador/soloTelefono.js"></script>
