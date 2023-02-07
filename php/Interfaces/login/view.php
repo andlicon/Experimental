@@ -153,19 +153,19 @@
                                 </div>
                                 <div class="input__grupo">
                                     <label for="apellidoInput" class="input__label">Apellido</label>
-                                    <input type="text" id="apellidoInput" name="apellidoInput" autocomplete="off" class="input__input input__input--texto" required>
+                                    <input type="text" id="apellidoInput" onkeypress="return soloAlfabeto(15, 'apellidoInput')" name="apellidoInput" autocomplete="off" class="input__input input__input--texto" required>
                                 </div>
                                 <div class="input__grupo">
                                     <label for="direccionInput" class="input__label">Direccion</label>
-                                    <input type="text" id="direccionInput" name="direccionInput" autocomplete="off" class="input__input input__input--texto" required>
+                                    <input type="text" id="direccionInput" onkeypress="return soloAlfaNumerico(50, 'direccionInput')" name="direccionInput" autocomplete="off" class="input__input input__input--texto" required>
                                 </div>
                                 <div class="input__grupo">
                                     <label for="trabajoInput" class="input__label">Trabajo</label>
-                                    <input type="text" id="trabajoInput" name="trabajoInput" autocomplete="off" class="input__input input__input--texto" required>
+                                    <input type="text" id="trabajoInput" name="trabajoInput" onkeypress="return soloAlfabeto(30, 'trabajoInput')" autocomplete="off" class="input__input input__input--texto" required>
                                 </div>
                                 <div class="input__grupo">
                                     <label for="lugarTrabajoInput" class="input__label">Lugar trabajo</label>
-                                    <input type="text" id="lugarTrabajoInput" name="lugarTrabajoInput" autocomplete="off" class="input__input input__input--texto" required>
+                                    <input type="text" id="lugarTrabajoInput" name="lugarTrabajoInput" onkeypress="return soloAlfaNumerico(50, 'lugarTrabajoInput')" autocomplete="off" class="input__input input__input--texto" required>
                                 </div>
 
                                 <div class="subBloque">
@@ -217,3 +217,4 @@
 <script src="../js/limitador/soloNumeros.js"></script>
 <script src="../js/limitador/soloTelefono.js"></script>
 <script src="../js/limitador/soloAlfabeto.js"></script>
+<script src="../js/limitador/soloAlfaNumerico.js"></script>
