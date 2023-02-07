@@ -128,11 +128,11 @@
                             <h2 class="titulito contenido__titulo">Datos usuario</h2>
                             <div class="input__grupo">
                                 <label for="nicknameInput" class="input__label">Nickname</label>        
-                               <input type="text" id="nicknameInput" name="nicknameInput" class="input__input input__input--texto" required>
+                               <input type="text" id="nicknameInput" name="nicknameInput" autocomplete="off" class="input__input input__input--texto" required>
                             </div>
                             <div class="input__grupo">
                                <label for="contrasenaInput" class="input__label">Contraseña</label>
-                                <input type="password" id="contrasenaInput" name="contrasenaInput" class="input__input input__input--texto" required>
+                                <input type="password" id="contrasenaInput" name="contrasenaInput" autocomplete="off" class="input__input input__input--texto" required>
                             </div>
                         </div>
                         <!-- <div class="datos-inscripcion"> -->
@@ -145,38 +145,38 @@
                                         <option value="E-" class="input__select">E-</option>
                                     </select>
                                     <label for="cedulaInput" class="input__label">Cedula</label>
-                                    <input type="text" onkeypress="return soloNumeros(8, 'cedulaInput')"  id="cedulaInput" name="cedulaInput" class="input__input input__input--texto" required>
+                                    <input type="text" onkeypress="return soloNumeros(8, 'cedulaInput')"  id="cedulaInput" name="cedulaInput" class="input__input input__input--texto" autocomplete="off" required>
                                 </div>
                                 <div class="input__grupo">
                                     <label for="nombreInput" class="input__label">Nombre</label>
-                                    <input type="text" id="nombreInput" name="nombreInput" class="input__input input__input--texto" required>
+                                    <input type="text" onkeypress="return soloAlfabeto(15, 'nombreInput')" id="nombreInput" autocomplete="off" name="nombreInput" class="input__input input__input--texto" required>
                                 </div>
                                 <div class="input__grupo">
                                     <label for="apellidoInput" class="input__label">Apellido</label>
-                                    <input type="text" id="apellidoInput" name="apellidoInput" class="input__input input__input--texto" required>
+                                    <input type="text" id="apellidoInput" name="apellidoInput" autocomplete="off" class="input__input input__input--texto" required>
                                 </div>
                                 <div class="input__grupo">
                                     <label for="direccionInput" class="input__label">Direccion</label>
-                                    <input type="text" id="direccionInput" name="direccionInput" class="input__input input__input--texto" required>
+                                    <input type="text" id="direccionInput" name="direccionInput" autocomplete="off" class="input__input input__input--texto" required>
                                 </div>
                                 <div class="input__grupo">
                                     <label for="trabajoInput" class="input__label">Trabajo</label>
-                                    <input type="text" id="trabajoInput" name="trabajoInput" class="input__input input__input--texto" required>
+                                    <input type="text" id="trabajoInput" name="trabajoInput" autocomplete="off" class="input__input input__input--texto" required>
                                 </div>
                                 <div class="input__grupo">
                                     <label for="lugarTrabajoInput" class="input__label">Lugar trabajo</label>
-                                    <input type="text" id="lugarTrabajoInput" name="lugarTrabajoInput" class="input__input input__input--texto" required>
+                                    <input type="text" id="lugarTrabajoInput" name="lugarTrabajoInput" autocomplete="off" class="input__input input__input--texto" required>
                                 </div>
 
                                 <div class="subBloque">
                                     <h3 class="titulito contenido__titulo subBloqueTitulito">Datos contacto</h3>
                                     <div class="input__grupo">
                                         <label for="correoInput" class="input__label">Correo</label>
-                                        <input type="text" id="correoInput" name="correoInput" class="input__input input__input--texto" required>
+                                        <input type="text" id="correoInput" name="correoInput" autocomplete="off" class="input__input input__input--texto" required>
                                     </div>
                                     <div class="input__grupo">
                                         <label for="telefonoInput" class="input__label">Telefono</label>
-                                        <input type="text" onkeypress="return soloTelefono('telefonoInput')" id="telefonoInput" name="telefonoInput" class="input__input input__input--texto" required>
+                                        <input type="text" onkeypress="return soloTelefono('telefonoInput')" autocomplete="off" id="telefonoInput" name="telefonoInput" class="input__input input__input--texto" required>
                                     </div>
                                 </div>
                             </div>
@@ -184,19 +184,19 @@
                                 <h2 class="titulito contenido__titulo">Datos del estudiante</h2>
                                 <div class="input__grupo">
                                     <label for="nombreInputEstudiante[]" class="input__label">Nombre</label>
-                                    <input type="text" id="nombreInputEstudiante[]" name="nombreInputEstudiante" class="input__input input__input--texto" required>
+                                    <input type="text" id="nombreInputEstudiante[]" name="nombreInputEstudiante" autocomplete="off" class="input__input input__input--texto" required>
                                 </div>
                                 <div class="input__grupo">
                                     <label for="apellidoInputEstudiante[]" class="input__label">Apellido</label>
-                                    <input type="text" id="apellidoInputEstudiante[]" name="apellidoInputEstudiante" class="input__input input__input--texto" required>
+                                    <input type="text" id="apellidoInputEstudiante[]" name="apellidoInputEstudiante" autocomplete="off" class="input__input input__input--texto" required>
                                 </div>
                                 <div class="input__grupo">
                                     <label for="lugarNacimientoInputEstudiante[]" class="input__label">Lugar nacimiento</label>
-                                    <input type="text" id="lugarNacimientoInputEstudiante[]" name="lugarNacimientoInputEstudiante" class="input__input input__input--texto" required>
+                                    <input type="text" id="lugarNacimientoInputEstudiante[]" name="lugarNacimientoInputEstudiante" autocomplete="off" class="input__input input__input--texto" required>
                                 </div>
                                 <div class="input__grupo">
                                     <label for="fechaNacimientoInputEstudiante[]" class="input__label">Fecha nacimiento</label>
-                                    <input type="date" id="fechaNacimientoInputEstudiante[]" name="fechaNacimientoInputEstudiante" class="input__input input__input--texto" required>
+                                    <input type="date" id="fechaNacimientoInputEstudiante[]" name="fechaNacimientoInputEstudiante" autocomplete="off" class="input__input input__input--texto" required>
                                 </div>
                                 <input type="button" value="Añadir estudiante adicional" id="masEstudiantes">
                                 <script src="js/codigo.js"></script>
@@ -216,3 +216,4 @@
 <script src="logear/validarRegistro.js"></script>
 <script src="../js/limitador/soloNumeros.js"></script>
 <script src="../js/limitador/soloTelefono.js"></script>
+<script src="../js/limitador/soloAlfabeto.js"></script>
