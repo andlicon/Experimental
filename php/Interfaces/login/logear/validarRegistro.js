@@ -24,8 +24,8 @@ function validarUsuario() {
         $('#telefonoInput').focus();
         return false;
     }
-    if($('#nicknameInput').val() == "") {
-        alert("Se debe especificar un teléfono válido");
+    if($('#nicknameInput').val() == "" || $('#nicknameInput').val().length < 6)  {
+        alert("Se debe especificar un nickname válido");
         $('#nicknameInput').focus();
         return false;
     }

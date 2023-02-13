@@ -31,21 +31,32 @@
 	                <input type=\"date\" id=\"fechaInput\">
                 </div>
                 <div class=\"contenido__bloque\">
+                    <label for=\"lugarInput\">Lugar nacimiento</label>
+                    <input type=\"text\" id=\"lugarInput\">
+                </div>
+                <div class=\"contenido__bloque\">
 	                <label for=\"claseInput\">Clase</label>
 	                $selectClase
                 </div>
 
-                <script>
-                    $(document).ready(function () {
-                        $('#deudaInput').select2();
-                        <script src=\"../js/limitador/soloNumeros.js\"></script>
-                        <script src=\"../js/limitador/soloTelefono.js\"></script>
-                        <script src=\"../js/limitador/soloAlfabeto.js\"></script>
-                        <script src=\"../js/limitador/soloAlfaNumerico.js\"></script>
-                    });
-                </script>
+                <script src=\"../js/limitador/soloNumeros.js\"></script>
+                <script src=\"../js/limitador/soloTelefono.js\"></script>
+                <script src=\"../js/limitador/soloAlfabeto.js\"></script>
+                <script src=\"../js/limitador/soloAlfaNumerico.js\"></script>
                 ";
             return $html;
         }
     }
 ?>
+
+<!-- 
+<script>
+    $(document).ready(function () {
+        $('#deudaInput').select2();
+        <script src=\"../js/limitador/soloNumeros.js\"></script>
+        <script src=\"../js/limitador/soloTelefono.js\"></script>
+        <script src=\"../js/limitador/soloAlfabeto.js\"></script>
+        <script src=\"../js/limitador/soloAlfaNumerico.js\"></script>
+    });
+</script>
+"; -->

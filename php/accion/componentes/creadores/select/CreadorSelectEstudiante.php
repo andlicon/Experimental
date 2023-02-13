@@ -25,7 +25,6 @@
             $options = $options."</optgroup>
                         <optgroup label=\"Estudiantes\">";
 
-
             for($i=0; $i<count($consulta); $i++) {
                 $estudiante = $consulta[$i];
                 $id = $estudiante->getId();
@@ -35,9 +34,10 @@
                 $idClase = $estudiante->getIdClase();
 
                 //consultandio por la clase.
-                $clase = $claseConsul->getInstancia(array($idClase));
-                $clase = $clase[0];
-                $claseDescrip = $clase->getDescripcion();
+                $clase = $idClase==null ? null : $claseConsul->getInstancia(array($idClase));
+                // $clase = $clase==null ? "" : $clase[0];
+                // $claseDescrip = $clase->getDescripcion();
+                $claseDescrip = $clase==null? "" : $clase[0]->getDescripcion();
 
                 $options = $options."
                     <option value=\"$id\">

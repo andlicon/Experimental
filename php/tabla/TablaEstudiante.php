@@ -10,6 +10,7 @@
                     <col class=\"output__col output__col--nombre\">
                     <col class=\"output__col output__col--apellido\">
                     <col class=\"output__col output__col--fechaNacimiento\">
+                    <col class=\"output__col output__col--lugarNacimiento\">
                     <col class=\"output__col output__col--clase\">
                     <col class=\"output__col output__col--estado\">
                     <col class=\"output__col output__col--acciones\">
@@ -24,6 +25,9 @@
                         </th>
                         <th class=\"output__celda output__celda--header\">
                            Fecha nacimiento
+                        </th>
+                        <th class=\"output__celda output__celda--header\">
+                            Lugar Nacimiento
                         </th>
                         <th class=\"output__celda output__celda--header\">
                            Clase

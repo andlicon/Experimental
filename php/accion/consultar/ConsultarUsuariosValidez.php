@@ -91,6 +91,12 @@
                         $apellido
                     </td>
                     <td class=\"output__celda\">
+                        Ing. sistemas
+                    </td>
+                    <td class=\"output__celda\">
+                        Guaraguao
+                    </td>
+                    <td class=\"output__celda\">
                         <span class=\"modificable modificable--estado$cedula\">$tipoUsuario</span>
                         $tipoPersona
                     </td>

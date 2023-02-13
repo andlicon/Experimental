@@ -26,7 +26,7 @@
     ?>
     <div class="body-main">
         <h1 class="vista__titulo">
-            Usuarios
+            Representantes
         </h1>
         <?php
             include_once(MENSAJE_PATH.'/imprimirMensaje.php');

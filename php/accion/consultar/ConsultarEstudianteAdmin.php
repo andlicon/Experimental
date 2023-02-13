@@ -79,7 +79,7 @@
                 $cedulaRepresentante = $estudiante->getCedulaRepresentante();
                 $valido = $estudiante->getValido();
                 //Informacion clase
-                $nombreClase = $idClase!=null ? $claseConsul->getInstancia(array($idClase))[0]->getDescripcion($idClase) : "Aun no asignada";
+                $nombreClase = $idClase!=null ? $claseConsul->getInstancia(array($idClase))[0]->getDescripcion($idClase) : "Sin asignar";
 
                 $validez = $selectValido->crearItemAtributosSeleccion("class=\"modificable modificable$idEstudiante ocultar\"", "validoInput$idEstudiante", $valido);
                 $clase = $selectClase->crearItemAtributosSeleccion("class=\"modificable modificable$idEstudiante ocultar\"", "claseInput$idEstudiante", $idClase);
@@ -103,6 +103,9 @@
                     <td class=\"output__celda\">
                         <input  id=\"fecha$idEstudiante\" class=\"modificable modificable--estado$idEstudiante\" value=\"$fechaNacimiento\" disabled>
                         <input id=\"fechaInput$idEstudiante\" type=\"date\" value=\"$fechaNacimiento\" disabled class=\"modificable modificable$idEstudiante ocultar\">
+                    </td>
+                    <td class=\"output__celda\">
+                        Guaraguao
                     </td>
                     <td class=\"output__celda\">
                         <span class=\"modificable modificable--estado$idEstudiante\">$nombreClase</span>

@@ -30,7 +30,7 @@
         <div id="login" class="usuario__contenido login__contenido">
              <div class="login__saludo">
                 <img class="login__img" src="../../../img/interfaz/login/logo.jpg" alt="Logo del colegio">
-                <h2 class="login__titulo">Iniciar Sesión.</h2>
+                <!-- <h2 class="login__titulo">Iniciar Sesión.</h2> -->
              </div>
             <form class="login__item" method="POST">
                 <input class="" type="text" placeholder="usuario" name="nicknameEntrar" id="nicknameEntrar">
@@ -128,14 +128,14 @@
                             <h2 class="titulito contenido__titulo">Datos usuario</h2>
                             <div class="input__grupo">
                                 <label for="nicknameInput" class="input__label">Nickname</label>        
-                               <input type="text" id="nicknameInput" name="nicknameInput" autocomplete="off" class="input__input input__input--texto" required>
+                               <input type="text" id="nicknameInput" name="nicknameInput" onkeypress="return soloAlfaNumerico(15, 'nicknameInput')" autocomplete="off" class="input__input input__input--texto" required>
                             </div>
                             <div class="input__grupo">
                                <label for="contrasenaInput" class="input__label">Contraseña</label>
                                 <input type="password" id="contrasenaInput" name="contrasenaInput" autocomplete="off" class="input__input input__input--texto" required>
                             </div>
                         </div>
-                        <!-- <div class="datos-inscripcion"> -->
+                         <div class="datos-inscripcion">
                             <div class="datos-representante bloque subBloque subBloqueTitulo">
                                 <h2 class="titulito contenido__titulo">Datos Representante</h2>
                                 <div class="input__grupo">
@@ -202,12 +202,12 @@
                                 <script src="js/codigo.js"></script>
                                 <script src="js/dom.js"></script>
                             </div>
-                        <!-- </div> -->
+                        </div>
                         <input type="button" class="login__boton boton" id="botonRegistrar" value="Registrar"></button>
                     </form>
                 </div>
             </div>
-        </main>
+        </main> 
     </div>
 </body>
 </html>

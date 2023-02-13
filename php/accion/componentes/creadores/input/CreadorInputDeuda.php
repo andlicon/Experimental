@@ -41,16 +41,10 @@
 	                <input onkeypress=\"return soloNumeros(8, 'montoInicialInput')\" type=\"text\" id=\"montoInicialInput\">
                 </div>
 
-                <script>
-                    $(document).ready(function () {
-                        $('#estudianteInput').select2();
-                        <script src=\"../js/limitador/soloNumeros.js\"></script>
-                        <script src=\"../js/limitador/soloTelefono.js\"></script>
-                        <script src=\"../js/limitador/soloAlfabeto.js\"></script>
-                        <script src=\"../js/limitador/soloAlfaNumerico.js\"></script>
-                    });
-                </script>
-                ";
+                <script src=\"../js/limitador/soloNumeros.js\"></script>
+                <script src=\"../js/limitador/soloTelefono.js\"></script>
+                <script src=\"../js/limitador/soloAlfabeto.js\"></script>
+                <script src=\"../js/limitador/soloAlfaNumerico.js\"></script>";
             return $html;
         }
     }
