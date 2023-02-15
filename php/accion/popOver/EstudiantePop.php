@@ -21,6 +21,7 @@
 
             $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
             $claseConsul = new ClaseConsul($bd);
+            $claseNombre = null;
 
             if($idClase!=null) {
                 $resultado = $claseConsul->getInstancia(array($idClase));

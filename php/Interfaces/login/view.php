@@ -136,8 +136,8 @@
                                 <input type="password" id="contrasenaInput" name="contrasenaInput" autocomplete="off" class="input__input input__input--texto" required>
                             </div>
                         </div>
-                         <div class="datos-inscripcion">
-                            <div class="datos-representante bloque subBloque subBloqueTitulo">
+                         <div class="bloque subBloque bloque--sub">
+                            <div class="datos-representante">
                                 <h2 class="titulito contenido__titulo">Datos Representante</h2>
                                 <div class="input__grupo">
                                     <label for="nacionalidadInput" class="input__label">Nacionalidad</label>
@@ -181,7 +181,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="datos-estudiante centrado subBloque c subBloqueTitulo" id="estudiantes">
+                        </div>
+                        <div class="datos-estudiante bloque centrado subBloquecito bloque--sub bloqueEstudiante" id="estudiantes">
                                 <h2 class="titulito contenido__titulo">Datos del estudiante</h2>
                                 <div class="input__grupo">
                                     <label for="nombreInputEstudiante[]" class="input__label">Nombre</label>
@@ -203,7 +204,6 @@
                                 <script src="js/codigo.js"></script>
                                 <script src="js/dom.js"></script>
                             </div>
-                        </div>
                         <input type="button" class="login__boton boton" id="botonRegistrar" value="Registrar"></button>
                     </form>
                 </div>

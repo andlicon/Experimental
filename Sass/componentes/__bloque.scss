@@ -7,6 +7,23 @@
     padding: 0;
 }
 
+.subBloque {
+    background-color: #353538;
+
+    border-radius: 1em;
+
+    color: white;
+}
+
+
+.subBloquecito {
+    background-color: #353538;
+
+    border-radius: 1em;
+
+    color: white;
+}
+
 .bloque {
     background-color: #1F1F23;;
 
@@ -19,3 +36,11 @@
     margin: auto;
 }
 
+.bloqueEstudiante {
+    width: (100%*.8)*0.8;
+}
+
+.bloque--sub {
+    background-color: #353538;
+    padding: 0;
+}

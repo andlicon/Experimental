@@ -1112,19 +1112,6 @@ figcaption {
   color: white;
 }
 
-.subBloque {
-  background-color: #353538;
-  border-radius: 1em;
-  color: white;
-}
-
-.subBloquecito {
-  background-color: #353538;
-  border-radius: 1em;
-  color: white;
-  width: 400px;
-}
-
 .borrar {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1166,10 +1153,31 @@ p, h3, h2 {
   padding: 0;
 }
 
+.subBloque {
+  background-color: #353538;
+  border-radius: 1em;
+  color: white;
+}
+
+.subBloquecito {
+  background-color: #353538;
+  border-radius: 1em;
+  color: white;
+}
+
 .bloque {
   background-color: #1F1F23;
   border-radius: 1em;
   padding: 1em;
   width: 80%;
   margin: auto;
+}
+
+.bloqueEstudiante {
+  width: 64%;
+}
+
+.bloque--sub {
+  background-color: #353538;
+  padding: 0;
 }

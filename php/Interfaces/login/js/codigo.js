@@ -2,8 +2,13 @@ $(function() {
     $('#masEstudiantes').click(function() {
         //Crear los divs
         const div_principal = D.create('div');
-        div_principal.classList.add('subBloquecito');
+        div_principal.classList.add('datos-estudiante');
+        div_principal.classList.add('bloque');
         div_principal.classList.add('centrado');
+        div_principal.classList.add('subBloquecito');
+        div_principal.classList.add('bloque--sub');
+        div_principal.classList.add('bloqueEstudiante');
+
         const div_nombre = D.create('div');
         const div_apellido = D.create('div');
         const div_lugar_nacimiento = D.create('div');
