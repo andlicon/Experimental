@@ -21,9 +21,15 @@
 
             $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
             $claseConsul = new ClaseConsul($bd);
-            $resultado = $claseConsul->getInstancia(array($idClase));
-            $clase = $resultado[0];
-            $claseNombre = $clase->getDescripcion();
+
+            if($idClase!=null) {
+                $resultado = $claseConsul->getInstancia(array($idClase));
+                $clase = $resultado[0];
+                $claseNombre = $clase->getDescripcion();
+            }
+
+            $claseNombre = $claseNombre==null ? "Sin asignar" : $claseNombre;
+
 
             $popOver = 
             "<div class=\"popOver modificable modificable--estado$id\">

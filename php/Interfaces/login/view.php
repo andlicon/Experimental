@@ -13,6 +13,7 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="../js/cambiarLamina.js"></script>
     <script src="../js/iniciarSesion.js"></script>
+    <link rel="shortcut icon" href="#">
 </head>
 
 <?php

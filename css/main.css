@@ -298,14 +298,6 @@ body {
           align-items: center;
 }
 
-.bloque {
-  background-color: #1F1F23;
-  border-radius: 1em;
-  padding: 1em;
-  width: 80%;
-  margin: auto;
-}
-
 .titulito {
   font-size: 1em;
 }
@@ -1103,7 +1095,7 @@ ul {
 
 .cambiador {
   height: 2.5em;
-  width: 100%;
+  width: 100vw;
   background-color: #1F1F23;
   position: fixed;
   top: 0;
@@ -1160,6 +1152,10 @@ p, h3, h2 {
   width: 120px;
 }
 
+.c {
+  margin-bottom: 0;
+}
+
 .subBloqueTitulito {
   border-top-right-radius: 0;
   border-top-left-radius: 0;
@@ -1169,6 +1165,10 @@ p, h3, h2 {
   padding: 0;
 }
 
-.c {
-  margin-bottom: 0;
+.bloque {
+  background-color: #1F1F23;
+  border-radius: 1em;
+  padding: 1em;
+  width: 80%;
+  margin: auto;
 }
