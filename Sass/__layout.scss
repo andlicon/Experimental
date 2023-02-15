@@ -153,17 +153,6 @@ a {
 
 }
 
-.registro {
-    display: grid;
-    grid-template-areas: "usuario usuario"
-                       "representante estudainte";
-
-    position: relative;
-    padding: 3em;
-
-    color: white;
-}
-
 .datos-usuario {
     grid-area: usuario;
 
