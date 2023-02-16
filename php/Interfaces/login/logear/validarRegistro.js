@@ -2,92 +2,104 @@ function validarUsuario() {
     var mensaje = "";
 
     if($('#cedulaInput').val() == "") {
-        // $('.alerta').html('Se debe especificar una cédula válida');
-        // $('#cedulaInput').focus();
-        // $('.alerta').classList.add('alerta--mostrar');
-        alert("Se debe especificar una cedula válida");
+        mensaje = "Cédula de representante no puede ser vacío.";
         $('#cedulaInput').focus();
-        return false;
     }
-    if($('#nombreInput').val() == "") {
-        alert("Se debe especificar un nombre válido");
-        $('#nombreInput').focus();
-        return false;
+    else if($('#nombreInput').val() == "") {
+        mensaje = "Nombre de representante no puede ser vacío";
     }
-    if($('#apellidoInput').val() == "") {
-        alert("Se debe especificar un apellido válido");
+    else if($('#apellidoInput').val() == "") {
+        mensaje = "Apellido de representante no puede ser vacío";
         $('#apellidoInput').focus();
-        return false;
     }
-    if($('#correoInput').val() == "") {
-        alert("Se debe especificar un correo válido");
+    else if($('#correoInput').val() == "") {
+        mensaje = "Correo de representante no puede ser vacío.";
         $('#correoInput').focus();
-        return false;
     }
-    if($('#telefonoInput').val() == "") {
-        alert("Se debe especificar un teléfono válido");
+    else if($('#telefonoInput').val() == "") {
+        mensaje = "Teléfono de representante no puede ser vacío";
         $('#telefonoInput').focus();
-        return false;
     }
-    if($('#nicknameInput').val() == "" || $('#nicknameInput').val().length < 6)  {
-        alert("Se debe especificar un nickname válido");
+    else if($('#nicknameInput').val() == "")  {
+        mensaje = "Nickname de representante no puede ser vacío";
         $('#nicknameInput').focus();
-        return false;
     }
-    if($('#contrasenaInput').val() == "") {
-        alert("Se debe especificar una contraseña válida");
+    else if($('#nicknameInput').val().length < 6) {
+        mensaje = "Nickname de representante debe contener al menos 6 carácteres.";
+        $('#nicknameInput').focus();
+    }
+    else if($('#nicknameInput').val().length > 15) {
+        mensaje = "Nickname de representante debe contener menos de 15 carácteres.";
+        $('#nicknameInput').focus();
+    }
+    else if($('#contrasenaInput').val() == "") {
+        mensaje = "Contraseña de representante no puede ser vacío";
         $('#contrasenaInput').focus();
-        return false;
     }
-    if($('#tipoPersonaSelect').val() == "") {
-        alert("Se debe especificar un tipo usuario válido");
+    else if($('#contrasenaInput').val().length < 4) {
+        mensaje = "Contraseña de representante debe contener al menos 4 carácteres";
+        $('#contrasenaInput').focus();
+    }
+    else if($('#contrasenaInput').val().length > 15) {
+        mensaje = "Contraseña de representante debe contener menos de 15 carácteres.";
+        $('#contrasenaInput').focus();
+    }
+    else if($('#tipoPersonaSelect').val() == "") {
+        mensaje = "Tipo usuario no puede ser vacío";
         $('#tipoPersonaSelect').focus();
-        return false;
     }
-    if($('#nombreInputEstudiante\\[\\]')) {
+    else if($('#nombreInputEstudiante\\[\\]')) {
         let arregloNombre = $('#nombreInputEstudiante\\[\\]').toArray();
         if(arregloNombre) {
             for(let i=0; i<arregloNombre.length; i++) {
                 if(arregloNombre[i].value == "") {
-                    alert("Se debe especificar un nombre de alumno valido.");
-                    return false;
+                    mensaje = "Nombre de alumno no puede ser vacío";
                 }
             }
         }
     }
-    if($('#apellidoInputEstudiante\\[\\]')) {
+    else if($('#apellidoInputEstudiante\\[\\]')) {
         let arregloApellido = $('#apellidoInputEstudiante\\[\\]').toArray();
         if(arregloApellido) {
             for(let i=0; i<arregloApellido.length; i++) {
                 if(arregloApellido[i].value == "") {
-                    alert("Se debe especificar un apellido de alumno valido.");
-                    return false;
+                    mensaje = "Apellido de alumno no puede ser vacío";
                 }
             }
         }
     }
-    if($('#lugarNacimientoInputEstudiante\\[\\]')) {
+    else if($('#lugarNacimientoInputEstudiante\\[\\]')) {
         let arregloApellido = $('#lugarNacimientoInputEstudiante\\[\\]').toArray();
         if(arregloApellido) {
             for(let i=0; i<arregloApellido.length; i++) {
                 if(arregloApellido[i].value == "") {
-                    alert("Se debe especificar un lugar nacimiento de alumno valido.");
-                    return false;
+                    mensaje = "Lugar de nacimiento de alumno no puede ser vacío";
                 }
             }
         }
     }
-    if($('#fechaNacimientoInputEstudiante\\[\\]')) {
+    else if($('#fechaNacimientoInputEstudiante\\[\\]')) {
         let arregloApellido = $('#fechaNacimientoInputEstudiante\\[\\]').toArray();
         if(arregloApellido) {
             for(let i=0; i<arregloApellido.length; i++) {
                 if(arregloApellido[i].value == "") {
-                    alert("Se debe especificar un fecha nacimiento de alumno valido.");
-                    return false;
+                    mensaje = "Fecha de nacimiento de alumno no puede ser vacío";
                 }
             }
         }
     }
 
-    return true;
+    if(mensaje=="") {
+        return true;
+    }
+    else {
+        $('.alerta').html(mensaje);
+        $('.alerta').addClass('alerta--mostrar');
+        $('.alerta').addClass('alerta--error');
+        setTimeout(function() {
+            $('.alerta').removeClass('alerta--mostrar');
+            $('.alerta').removeClass('alerta--error');
+        }, 2000);
+        return false;
+    } 
 }

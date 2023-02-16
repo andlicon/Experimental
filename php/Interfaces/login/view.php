@@ -165,7 +165,7 @@
                                     <input type="text" id="direccionInput" onkeypress="return soloAlfaNumerico(50, 'direccionInput')" name="direccionInput" autocomplete="off" class="input__input input__input--texto" required>
                                 </div>
                                 <div class="input__grupo">
-                                    <label for="lugarTrabajoInput" class="input__label">Direcciópn trabajo</label>
+                                    <label for="lugarTrabajoInput" class="input__label">Dirección trabajo</label>
                                     <input type="text" id="lugarTrabajoInput" name="lugarTrabajoInput" onkeypress="return soloAlfaNumerico(50, 'lugarTrabajoInput')" autocomplete="off" class="input__input input__input--texto" required>
                                 </div>
 
@@ -219,3 +219,4 @@
 <script src="../js/limitador/soloTelefono.js"></script>
 <script src="../js/limitador/soloAlfabeto.js"></script>
 <script src="../js/limitador/soloAlfaNumerico.js"></script>
+<script src="../js/autoEliminar.js"></script>

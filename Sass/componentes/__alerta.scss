@@ -5,7 +5,6 @@
     width: 25vw;
     height: 5em;
     z-index: 1000000;
-    background-color: red;
 
     display: flex;
     justify-content: center;
@@ -18,4 +17,12 @@
 
 .alerta--mostrar {
     opacity: 100;
+}
+
+.alerta--error {
+    background-color: red;
+}
+
+.alerta--exito {
+    background-color: green;
 }
