@@ -1,0 +1,21 @@
+.alerta {
+    position: absolute;
+    top: 2%;
+    left: 37.5%;
+    width: 25vw;
+    height: 5em;
+    z-index: 1000000;
+    background-color: red;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-weight: 900;
+
+    opacity: 0;
+}
+
+.alerta--mostrar {
+    opacity: 100;
+}

@@ -41,6 +41,10 @@
         </div>
     </nav>
 
+    <div class="alerta">
+        ESTO ES UNA ALERTA
+    </div>
+
     <div class="body-login">
         <nav class="cambiador">
             <input class="login__boton boton boton--menu" type="button" name="volver" value="Bienvenida" onclick="cambiarVisibilidiad('bienvenida');">
@@ -136,8 +140,8 @@
                                 <input type="password" id="contrasenaInput" name="contrasenaInput" autocomplete="off" class="input__input input__input--texto" required>
                             </div>
                         </div>
-                         <div class="bloque subBloque bloque--sub">
-                            <div class="datos-representante">
+                         <div class="centrado bloque">
+                            <div class="datos-representante subBloque horizontal">
                                 <h2 class="titulito contenido__titulo">Datos Representante</h2>
                                 <div class="input__grupo">
                                     <label for="nacionalidadInput" class="input__label">Nacionalidad</label>
@@ -157,19 +161,15 @@
                                     <input type="text" id="apellidoInput" onkeypress="return soloAlfabeto(15, 'apellidoInput')" name="apellidoInput" autocomplete="off" class="input__input input__input--texto" required>
                                 </div>
                                 <div class="input__grupo">
-                                    <label for="direccionInput" class="input__label">Direccion</label>
+                                    <label for="direccionInput" class="input__label">Direccion hogar</label>
                                     <input type="text" id="direccionInput" onkeypress="return soloAlfaNumerico(50, 'direccionInput')" name="direccionInput" autocomplete="off" class="input__input input__input--texto" required>
                                 </div>
                                 <div class="input__grupo">
-                                    <label for="trabajoInput" class="input__label">Trabajo</label>
-                                    <input type="text" id="trabajoInput" name="trabajoInput" onkeypress="return soloAlfabeto(30, 'trabajoInput')" autocomplete="off" class="input__input input__input--texto" required>
-                                </div>
-                                <div class="input__grupo">
-                                    <label for="lugarTrabajoInput" class="input__label">Lugar trabajo</label>
+                                    <label for="lugarTrabajoInput" class="input__label">Direcciópn trabajo</label>
                                     <input type="text" id="lugarTrabajoInput" name="lugarTrabajoInput" onkeypress="return soloAlfaNumerico(50, 'lugarTrabajoInput')" autocomplete="off" class="input__input input__input--texto" required>
                                 </div>
 
-                                <div class="subBloque">
+                                <div class="subBloque horizontal">
                                     <h3 class="titulito contenido__titulo subBloqueTitulito">Datos contacto</h3>
                                     <div class="input__grupo">
                                         <label for="correoInput" class="input__label">Correo</label>

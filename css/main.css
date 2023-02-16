@@ -433,6 +433,10 @@ main {
   border-top-left-radius: 1em;
 }
 
+.horizontal {
+  width: 100%;
+}
+
 .registro {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1106,6 +1110,7 @@ ul {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  z-index: 1000;
 }
 
 figcaption {
@@ -1180,4 +1185,34 @@ p, h3, h2 {
 .bloque--sub {
   background-color: #353538;
   padding: 0;
+}
+
+#masEstudiantes {
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
+}
+
+.alerta {
+  position: absolute;
+  top: 2%;
+  left: 37.5%;
+  width: 25vw;
+  height: 5em;
+  z-index: 1000000;
+  background-color: red;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: 900;
+  opacity: 0;
+}
+
+.alerta--mostrar {
+  opacity: 100;
 }

@@ -1,5 +1,10 @@
 function validarUsuario() {
+    var mensaje = "";
+
     if($('#cedulaInput').val() == "") {
+        // $('.alerta').html('Se debe especificar una cédula válida');
+        // $('#cedulaInput').focus();
+        // $('.alerta').classList.add('alerta--mostrar');
         alert("Se debe especificar una cedula válida");
         $('#cedulaInput').focus();
         return false;
