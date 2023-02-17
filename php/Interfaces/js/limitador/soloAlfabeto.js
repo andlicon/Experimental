@@ -2,7 +2,7 @@ function soloAlfabeto(max, id){
     max = max <=0 ? Number.MAX_SAFE_INTEGER : max;
 
 
-    if(id!=null && ($('#'+id).val().length>=max || event.charCode==43)) {
+    if(id!=null && ($('#'+id).val().length>=max || event.charCode==43 || event.charCode==43)) {
         return false;
     }
 

@@ -175,7 +175,7 @@
                                     <h3 class="titulito contenido__titulo subBloqueTitulito">Datos contacto</h3>
                                     <div class="input__grupo">
                                         <label for="correoInput" class="input__label">Correo</label>
-                                        <input type="text" id="correoInput" name="correoInput" placeholder="correo electrónico" autocomplete="off" class="input__input input__input--texto" required>
+                                        <input type="text" id="correoInput" name="correoInput" onkeypress="return correo(50, 'correoInput')" placeholder="correo@electrónico.com" autocomplete="off" class="input__input input__input--texto" required>
                                     </div>
                                     <div class="input__grupo">
                                         <label for="telefonoInput" class="input__label">Telefono</label>
@@ -222,4 +222,5 @@
 <script src="../js/limitador/soloTelefono.js"></script>
 <script src="../js/limitador/soloAlfabeto.js"></script>
 <script src="../js/limitador/soloAlfaNumerico.js"></script>
+<script src="../js/limitador/correo.js"></script>
 <script src="../js/autoEliminar.js"></script>

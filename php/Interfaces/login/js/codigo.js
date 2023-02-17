@@ -45,6 +45,12 @@ $(function() {
                                             autocomplete: 'off',
                                             placeholder: 'Nombre estudiante adicional',
                                             id: 'nombreInputEstudiante[]'});
+        input_nombre.setAttribute('maxLength', 15);
+        input_nombre.addEventListener('keypress', function(e) {
+            if(!soloAlfabeto(15, null)) {
+                e.preventDefault();
+            }
+        }, false);
         input_nombre.classList.add('input__input');
         const input_apellido = D.create('input', {
                                             type: 'text',
@@ -52,14 +58,21 @@ $(function() {
                                             autocomplete: 'off',
                                             placeholder: 'Apellido estudiante adicional',
                                             id: 'apellidoInputEstudiante[]'});
+        input_apellido.setAttribute('maxLength', 15);
+        input_apellido.addEventListener('keypress', function(e) {
+            if(!soloAlfabeto(15, null)) {
+                e.preventDefault();
+            }
+        }, false);
        input_apellido.classList.add('input__input');
         const input_lugar_nacimiento = D.create('textarea', {
                                             name: 'lugarNacimientoEstudiante',
                                             id: 'lugarNacimientoInputEstudiante[]',
                                             placeholder: 'Lugar nacimiento estudiante adicional',});
-        input_lugar_nacimiento.addEventListener("keypress", function()
-        {
-           return soloAlfaNumerico(50, null) 
+        input_lugar_nacimiento.addEventListener('keypress', function(e) {
+            if(!soloAlfaNumerico(50, null)) {
+                e.preventDefault();
+            }
         }, false);
         input_lugar_nacimiento.setAttribute('maxLength', 50);
         input_lugar_nacimiento.setAttribute('cols', 20);
