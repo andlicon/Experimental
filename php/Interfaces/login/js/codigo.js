@@ -18,6 +18,7 @@ $(function() {
         const span_nombre = D.create('span', {innerHTML: 'Nombre'});
         const span_apellido = D.create('span', {innerHTML: 'Apellido'});
         const span_lugar_nacimiento = D.create('span', {innerHTML: 'Lugar nacimiento'});
+        span_lugar_nacimiento.classList.add('input__label');
         const span_fecha_nacimiento = D.create('span', {innerHTML: 'Fecha nacimiento'});
         
         //crear titulo
@@ -42,20 +43,20 @@ $(function() {
                                             type: 'text',
                                             name: 'nombreEstudiante',
                                             autocomplete: 'off',
-                                            placeholder: 'Nombre estudiante',
+                                            placeholder: 'Nombre estudiante adicional',
                                             id: 'nombreInputEstudiante[]'});
         input_nombre.classList.add('input__input');
         const input_apellido = D.create('input', {
                                             type: 'text',
                                             name: 'apellidoEstudiante',
                                             autocomplete: 'off',
-                                            placeholder: 'Apellido estudiante',
+                                            placeholder: 'Apellido estudiante adicional',
                                             id: 'apellidoInputEstudiante[]'});
        input_apellido.classList.add('input__input');
         const input_lugar_nacimiento = D.create('textarea', {
                                             name: 'lugarNacimientoEstudiante',
-                                            id: 'lugarNacimientoInputEstudiante[]'});
-        
+                                            id: 'lugarNacimientoInputEstudiante[]',
+                                            placeholder: 'Lugar nacimiento estudiante adicional',});
         input_lugar_nacimiento.addEventListener("keypress", function()
         {
            return soloAlfaNumerico(50, null) 
@@ -63,7 +64,6 @@ $(function() {
         input_lugar_nacimiento.setAttribute('maxLength', 50);
         input_lugar_nacimiento.setAttribute('cols', 20);
         input_lugar_nacimiento.setAttribute('rows', 3);
-        input_lugar_nacimiento.classList.add('input__input');
         input_lugar_nacimiento.classList.add('textarea');
         const input_fecha_nacimiento = D.create('input', {
                                         type: 'date',

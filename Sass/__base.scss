@@ -145,3 +145,17 @@ html, body {
 .textarea {
   display: inline-block;
 }
+
+span + .textarea { 
+  margin-left: 1em;
+}
+
+span {
+  display: inline-block;
+  text-align: center;
+}
+
+#solicitud-ingreso {
+  padding-bottom: 5em;
+  position: relative;
+}

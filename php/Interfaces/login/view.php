@@ -133,11 +133,11 @@
                             <h2 class="titulito contenido__titulo">Datos usuario</h2>
                             <div class="input__grupo">
                                 <label for="nicknameInput" class="input__label">Nickname</label>        
-                               <input type="text" id="nicknameInput" name="nicknameInput" onkeypress="return soloAlfaNumerico(15, 'nicknameInput')" autocomplete="off" class="input__input input__input--texto" required>
+                               <input type="text" id="nicknameInput" name="nicknameInput" placeholder="nickname usuario" onkeypress="return soloAlfaNumerico(15, 'nicknameInput')" autocomplete="off" class="input__input input__input--texto" required>
                             </div>
                             <div class="input__grupo">
                                <label for="contrasenaInput" class="input__label">Contraseña</label>
-                                <input type="password" id="contrasenaInput" name="contrasenaInput" autocomplete="off" class="input__input input__input--texto" required>
+                                <input type="password" id="contrasenaInput" placeholder="contraseña usuario" name="contrasenaInput" autocomplete="off" class="input__input input__input--texto" required>
                             </div>
                         </div>
                          <div class="centrado bloque">
@@ -150,24 +150,24 @@
                                         <option value="E-" class="input__select">E-</option>
                                     </select>
                                     <label for="cedulaInput" class="input__label">Cedula</label>
-                                    <input type="text" onkeypress="return soloNumeros(8, 'cedulaInput')"  id="cedulaInput" name="cedulaInput" class="input__input input__input--texto" autocomplete="off" required>
+                                    <input type="text" onkeypress="return soloNumeros(8, 'cedulaInput')" placeholder="00.000.000" id="cedulaInput" name="cedulaInput" class="input__input input__input--texto" autocomplete="off" required>
                                 </div>
                                 <div class="input__grupo">
                                     <label for="nombreInput" class="input__label">Nombre</label>
-                                    <input type="text" onkeypress="return soloAlfabeto(15, 'nombreInput')" id="nombreInput" autocomplete="off" name="nombreInput" class="input__input input__input--texto" required>
+                                    <input type="text" onkeypress="return soloAlfabeto(15, 'nombreInput')" placeholder="Nombre representante" id="nombreInput" autocomplete="off" name="nombreInput" class="input__input input__input--texto" required>
                                 </div>
                                 <div class="input__grupo">
                                     <label for="apellidoInput" class="input__label">Apellido</label>
-                                    <input type="text" id="apellidoInput" onkeypress="return soloAlfabeto(15, 'apellidoInput')" name="apellidoInput" autocomplete="off" class="input__input input__input--texto" required>
+                                    <input type="text" id="apellidoInput" onkeypress="return soloAlfabeto(15, 'apellidoInput')" placeholder="Apellido representante" name="apellidoInput" autocomplete="off" class="input__input input__input--texto" required>
                                 </div>
                                 <div class="input__grupo">
                                     <label for="direccionInput" class="input__label">Direccion hogar</label>
                                     <!-- <input type="text" id="direccionInput" onkeypress="return soloAlfaNumerico(50, 'direccionInput')" name="direccionInput" autocomplete="off" class="input__input input__input--texto" required> -->
-                                    <textarea name="direccionInput" id="direccionInput" cols="20" rows="3" onkeypress="return soloAlfaNumerico(50, 'direccionInput')" class="textarea"></textarea>
+                                    <textarea name="direccionInput" id="direccionInput" cols="20" rows="3" placeholder="Dirección hogar" onkeypress="return soloAlfaNumerico(50, 'direccionInput')" class="textarea"></textarea>
                                 </div>
                                 <div class="input__grupo">
                                     <label for="lugarTrabajoInput" class="input__label">Dirección trabajo</label>
-                                    <textarea name="lugarTrabajoInput" id="lugarTrabajoInput" cols="20" rows="3" onkeypress="return soloAlfaNumerico(50, 'lugarTrabajoInput')" class="textarea"></textarea>
+                                    <textarea name="lugarTrabajoInput" id="lugarTrabajoInput" cols="20" rows="3" onkeypress="return soloAlfaNumerico(50, 'lugarTrabajoInput')" placeholder="Dirección trabajo" class="textarea"></textarea>
                                     <!-- <input type="text" id="lugarTrabajoInput" name="lugarTrabajoInput" onkeypress="return soloAlfaNumerico(50, 'lugarTrabajoInput')" autocomplete="off" class="input__input input__input--texto" required> -->
                                 </div>
 
@@ -175,11 +175,11 @@
                                     <h3 class="titulito contenido__titulo subBloqueTitulito">Datos contacto</h3>
                                     <div class="input__grupo">
                                         <label for="correoInput" class="input__label">Correo</label>
-                                        <input type="text" id="correoInput" name="correoInput" autocomplete="off" class="input__input input__input--texto" required>
+                                        <input type="text" id="correoInput" name="correoInput" placeholder="correo electrónico" autocomplete="off" class="input__input input__input--texto" required>
                                     </div>
                                     <div class="input__grupo">
                                         <label for="telefonoInput" class="input__label">Telefono</label>
-                                        <input type="text" onkeypress="return soloTelefono('telefonoInput')" autocomplete="off" id="telefonoInput" name="telefonoInput" class="input__input input__input--texto" required>
+                                        <input type="text" onkeypress="return soloTelefono('telefonoInput')" placeholder="0000-0000000" autocomplete="off" id="telefonoInput" name="telefonoInput" class="input__input input__input--texto" required>
                                     </div>
                                 </div>
                             </div>
@@ -188,16 +188,16 @@
                                 <h2 class="titulito contenido__titulo">Datos del estudiante</h2>
                                 <div class="input__grupo">
                                     <label for="nombreInputEstudiante[]" class="input__label">Nombre</label>
-                                    <input type="text" id="nombreInputEstudiante[]" name="nombreInputEstudiante" autocomplete="off" class="input__input input__input--texto" required>
+                                    <input type="text" id="nombreInputEstudiante[]" name="nombreInputEstudiante" placeholder="Nombre estudiante" autocomplete="off" class="input__input input__input--texto" required>
                                 </div>
                                 <div class="input__grupo">
                                     <label for="apellidoInputEstudiante[]" class="input__label">Apellido</label>
-                                    <input type="text" id="apellidoInputEstudiante[]" name="apellidoInputEstudiante" autocomplete="off" class="input__input input__input--texto" required>
+                                    <input type="text" id="apellidoInputEstudiante[]" name="apellidoInputEstudiante" placeholder="Apellido estudiante" autocomplete="off" class="input__input input__input--texto" required>
                                 </div>
                                 <div class="input__grupo">
                                     <label for="lugarNacimientoInputEstudiante[]" class="input__label">Lugar nacimiento</label>
                                     <!-- <input type="text" id="lugarNacimientoInputEstudiante[]" name="lugarNacimientoInputEstudiante" autocomplete="off" class="input__input input__input--texto" required> -->
-                                    <textarea name="lugarNacimientoInputEstudiante" id="lugarNacimientoInputEstudiante[]" cols="20" rows="3" onkeypress="return soloAlfaNumerico(50, null)" maxlength="50" class="textarea"></textarea>
+                                    <textarea name="lugarNacimientoInputEstudiante" id="lugarNacimientoInputEstudiante[]" placeholder="Lugar nacimiento estudiante" cols="20" rows="3" onkeypress="return soloAlfaNumerico(50, null)" maxlength="50" class="textarea"></textarea>
                                 </div>
                                 <div class="input__grupo">
                                     <label for="fechaNacimientoInputEstudiante[]" class="input__label">Fecha nacimiento</label>
