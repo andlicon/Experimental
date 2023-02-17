@@ -1,7 +1,7 @@
 function soloNumeros(max, id){
     max = max <=0 ? Number.MAX_SAFE_INTEGER : max;
 
-    if($('#'+id).val().length>=max) {
+    if(id!=null && ($('#'+id).val().length>=max)) {
         return false;
     }
 

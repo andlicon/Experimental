@@ -437,6 +437,12 @@ main {
   width: 100%;
 }
 
+.textarea {
+  resize: none;
+  background-color: white;
+  color: black;
+}
+
 .registro {
   display: -webkit-box;
   display: -ms-flexbox;

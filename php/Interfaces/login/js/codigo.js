@@ -52,11 +52,19 @@ $(function() {
                                             placeholder: 'Apellido estudiante',
                                             id: 'apellidoInputEstudiante[]'});
        input_apellido.classList.add('input__input');
-        const input_lugar_nacimiento = D.create('input', {
-                                            type: 'text',
+        const input_lugar_nacimiento = D.create('textarea', {
                                             name: 'lugarNacimientoEstudiante',
                                             id: 'lugarNacimientoInputEstudiante[]'});
+        
+        input_lugar_nacimiento.addEventListener("keypress", function()
+        {
+           return soloAlfaNumerico(50, null) 
+        }, false);
+        input_lugar_nacimiento.setAttribute('maxLength', 50);
+        input_lugar_nacimiento.setAttribute('cols', 20);
+        input_lugar_nacimiento.setAttribute('rows', 3);
         input_lugar_nacimiento.classList.add('input__input');
+        input_lugar_nacimiento.classList.add('textarea');
         const input_fecha_nacimiento = D.create('input', {
                                         type: 'date',
                                         name: 'fechaNacimientoEstudiante',
