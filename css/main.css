@@ -137,6 +137,10 @@ html, body {
   overflow: auto;
 }
 
+.textarea {
+  display: inline-block;
+}
+
 .body-login {
   display: -webkit-box;
   display: -ms-flexbox;
