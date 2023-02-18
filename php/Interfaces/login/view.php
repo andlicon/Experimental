@@ -137,7 +137,7 @@
                             </div>
                             <div class="input__grupo">
                                <label for="contrasenaInput" class="input__label">Contraseña</label>
-                                <input type="password" id="contrasenaInput" placeholder="contraseña usuario" name="contrasenaInput" autocomplete="off" class="input__input input__input--texto" required>
+                                <input type="password" id="contrasenaInput" placeholder="contraseña usuario" name="contrasenaInput" onkeypress="return soloAlfaNumerico(15, 'contrasenaInput')" autocomplete="off" class="input__input input__input--texto" required>
                             </div>
                         </div>
                          <div class="centrado bloque">
