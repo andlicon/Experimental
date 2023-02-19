@@ -49,7 +49,7 @@
                 $lugarNacimientoEstudiante = $lugarNacimientoEstudiantes[$i];
                 $fechaNacimientoEstudiante = $fechaNacimientoEstudiantes[$i];
                 //Cargar estudiante
-                $estudianteDAO->cargar(array($nombreEstudiante, $apellidoEstudiante, $fechaNacimientoEstudiante, $cedula));
+                $estudianteDAO->cargar(array($nombreEstudiante, $apellidoEstudiante, $fechaNacimientoEstudiante, $cedula, $lugarNacimientoEstudiante));
 
                 $i++;
             }
