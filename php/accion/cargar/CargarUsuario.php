@@ -8,7 +8,8 @@
 
     if(isset($_POST['cedula']) && isset($_POST['nombre']) && isset($_POST['apellido']) &&
     isset($_POST['nickname']) && isset($_POST['contrasena'])
-    && isset($_POST['correo']) && isset($_POST['telefono'])) {
+    && isset($_POST['correo']) && isset($_POST['telefono'])
+    && isset($_POST['direccionHogar']) && isset($_POST['direccionTrabajo'])) {
         $cedula = $_POST['cedula'];
         $nombre = $_POST['nombre'];;
         $apellido = $_POST['apellido'];
@@ -16,6 +17,8 @@
         $contrasena = $_POST['contrasena'];
         $correo = $_POST['correo'];
         $telefono = $_POST['telefono'];
+        $direccionHogar = $_POST['direccionHogar'];
+        $direccionTrabajo = $_POST['direccionTrabajo'];
         //Estudiantes
         $nombresEstudiantes = $_POST['nombresEstudiantes'];
         $apellidosEstudiantes = $_POST['apellidosEstudiantes'];
@@ -32,7 +35,7 @@
 
         try {
             //Cargar persona
-            $personaDAO->cargar(array($cedula, $nombre, $apellido, 1));
+            $personaDAO->cargar(array($cedula, $nombre, $apellido, 1, $direccionHogar, $direccionTrabajo));
             //Cargar usuario
             $usuarioDAO->cargar(array($cedula, $nickname, $contrasena));
             //Cargar contactos

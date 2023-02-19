@@ -27,8 +27,10 @@
                 $nombre = $renglon['nombre'];
                 $apellido = $renglon['apellido'];
                 $idTipoPersona = $renglon['id_tipo_persona'];
+                $direccionHogar = $renglon['direccion_hogar'];
+                $direccionTrabajo = $renglon['direccion_trabajo'];
                 
-                $per= new Persona($cedula, $nombre, $apellido, $idTipoPersona);
+                $per= new Persona($cedula, $nombre, $apellido, $idTipoPersona, $direccionHogar, $direccionTrabajo);
                 $personas[] = $per;
             }
 
@@ -54,8 +56,10 @@
                 $nombre = $renglon['nombre'];
                 $apellido = $renglon['apellido'];
                 $idTipoPersona = $renglon['id_tipo_persona'];
+                $direccionHogar = $renglon['direccion_hogar'];
+                $direccionTrabajo = $renglon['direccion_trabajo'];
                 
-                $per= new Persona($cedula, $nombre, $apellido, $idTipoPersona);
+                $per= new Persona($cedula, $nombre, $apellido, $idTipoPersona, $direccionHogar, $direccionTrabajo);
                 $personas[] = $per;
             }
 
@@ -81,8 +85,10 @@
                 $nombre = $renglon['nombre'];
                 $apellido = $renglon['apellido'];
                 $idTipoPersona = $renglon['id_tipo_persona'];
+                $direccionHogar = $renglon['direccion_hogar'];
+                $direccionTrabajo = $renglon['direccion_trabajo'];
                 
-                $per= new Persona($cedula, $nombre, $apellido, $idTipoPersona);
+                $per= new Persona($cedula, $nombre, $apellido, $idTipoPersona, $direccionHogar, $direccionTrabajo);
                 $personas[] = $per;
             }
 
@@ -105,8 +111,10 @@
                 $nombre = $renglon['nombre'];
                 $apellido = $renglon['apellido'];
                 $idTipoPersona = $renglon['id_tipo_persona'];
+                $direccionHogar = $renglon['direccion_hogar'];
+                $direccionTrabajo = $renglon['direccion_trabajo'];
                 
-                $per= new Persona($cedula, $nombre, $apellido, $idTipoPersona);
+                $per= new Persona($cedula, $nombre, $apellido, $idTipoPersona, $direccionHogar, $direccionTrabajo);
                 $personas[] = $per;
             }
 
@@ -115,8 +123,8 @@
 
         public function cargar($parametros) {
             try {
-                $insert = " INSERT INTO persona (cedula, nombre, apellido, id_tipo_persona)
-                            VALUES              (?,      ?,      ?,        ?)";
+                $insert = " INSERT INTO persona (cedula, nombre, apellido, id_tipo_persona, direccion_hogar, direccion_trabajo)
+                            VALUES              (?,      ?,      ?,        ?,               ?,               ?)";
                 $this->bd->sql($insert, $parametros);
             }
             catch(PDOException $e) {

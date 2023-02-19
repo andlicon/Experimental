@@ -2,15 +2,22 @@ $(document).on('click', '.boton[id*="botonRegistrar"]', function(){
     let valido = validarUsuario();
 
     if(valido) {
+        //info de persona
         var nacionalidad = $('#nacionalidadInput').val();
         var cedula = $('#cedulaInput').val();
         var cedulaFinal = nacionalidad+cedula;
         var nombre = $('#nombreInput').val();
         var apellido = $('#apellidoInput').val();
+        var direccionHogar = $('#direccionInput').val();
+        var direccionTrabajo = $('#lugarTrabajoInput').val();
+
+        //info contacto
         var correo = $('#correoInput').val();
         var telefono = $('#telefonoInput').val();
+        //info usuario
         var nickname = $('#nicknameInput').val();
         var contrasena = $('#contrasenaInput').val();
+        //info estudiantes
         var nombresEstudiantes = $('#nombreInputEstudiante\\[\\]').toArray();
         var apellidosEstudiantes = $('#apellidoInputEstudiante\\[\\]').toArray();
         var lugarNacimientosEstudiantes = $('#lugarNacimientoInputEstudiante\\[\\]').toArray();
@@ -31,13 +38,19 @@ $(document).on('click', '.boton[id*="botonRegistrar"]', function(){
         $.ajax ( {
             url : '../../accion/cargar/CargarUsuario.php',
             type : 'POST',
-            data : {cedula: cedulaFinal, nombre: nombre, apellido: apellido, 
-                nickname: nickname, contrasena: contrasena, 
-                correo: correo, telefono: telefono,
-                nombresEstudiantes: nombresE, 
-                apellidosEstudiantes: apellidosE,
-                lugarNacimientosEstudiantes: lugarNacimientoE, 
-                fechaNacimientoEstudiantes: fechaNacimientoE},
+            data : {cedula: cedulaFinal, 
+                    nombre: nombre, 
+                    apellido: apellido, 
+                    nickname: nickname, 
+                    contrasena: contrasena, 
+                    correo: correo, 
+                    telefono: telefono,
+                    direccionHogar: direccionHogar,
+                    direccionTrabajo, direccionTrabajo,
+                    nombresEstudiantes: nombresE, 
+                    apellidosEstudiantes: apellidosE,
+                    lugarNacimientosEstudiantes: lugarNacimientoE, 
+                    fechaNacimientoEstudiantes: fechaNacimientoE},
             success : function(response) {
                 alert(response);
             }
