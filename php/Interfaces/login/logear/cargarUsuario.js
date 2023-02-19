@@ -38,6 +38,7 @@ $(document).on('click', '.boton[id*="botonRegistrar"]', function(){
         $.ajax ( {
             url : '../../accion/cargar/CargarUsuario.php',
             type : 'POST',
+            dataType: 'json',
             data : {cedula: cedulaFinal, 
                     nombre: nombre, 
                     apellido: apellido, 
@@ -52,7 +53,17 @@ $(document).on('click', '.boton[id*="botonRegistrar"]', function(){
                     lugarNacimientosEstudiantes: lugarNacimientoE, 
                     fechaNacimientoEstudiantes: fechaNacimientoE},
             success : function(response) {
-                alert(response);
+                var tipoRespuesta = response[0].tipo;
+                var descripcionRespuesta = response[0].descripcion;
+                var clase = tipoRespuesta == 'exito' ? 'alerta--exito' : 'alerta--error';
+
+                $('.alerta').html(descripcionRespuesta);
+                $('.alerta').addClass('alerta--mostrar');
+                $('.alerta').addClass(clase);
+                setTimeout(function() {
+                    $('.alerta').removeClass('alerta--mostrar');
+                    $('.alerta').removeClass(clase);
+                }, 2000);
             }
          });
     }
