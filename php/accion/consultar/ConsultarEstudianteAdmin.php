@@ -78,6 +78,7 @@
                 $idClase = $estudiante->getIdClase();
                 $cedulaRepresentante = $estudiante->getCedulaRepresentante();
                 $valido = $estudiante->getValido();
+                $lugarNacimiento = $estudiante->getLugarNacimiento()==null? "NO ESPECIFICADO" : $estudiante->getLugarNacimiento();
                 //Informacion clase
                 $nombreClase = $idClase!=null ? $claseConsul->getInstancia(array($idClase))[0]->getDescripcion($idClase) : "Sin asignar";
 
@@ -105,7 +106,7 @@
                         <input id=\"fechaInput$idEstudiante\" type=\"date\" value=\"$fechaNacimiento\" disabled class=\"modificable modificable$idEstudiante ocultar\">
                     </td>
                     <td class=\"output__celda\">
-                        Guaraguao
+                        $lugarNacimiento
                     </td>
                     <td class=\"output__celda\">
                         <span class=\"modificable modificable--estado$idEstudiante\">$nombreClase</span>

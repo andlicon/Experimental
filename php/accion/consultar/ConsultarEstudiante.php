@@ -33,6 +33,7 @@
                 $idClase = $estudiante->getIdClase();
                 $cedulaRepresentante = $estudiante->getCedulaRepresentante();
                 $valido = $estudiante->getValido() == 0 ? "Por validar" : "Inscrito";
+                $lugarNacimiento = $estudiante->getLugarNacimiento();
                 //Informacion clase
                 $nombreClase = $idClase!=null ? $claseConsul->getInstancia(array($idClase))[0]->getDescripcion($idClase) : "Sin asignar";
 
@@ -52,7 +53,7 @@
                         $fechaNacimiento
                     </td>
                     <td class=\"output__celda\">
-                        DEBO ARREGLAR ESTO
+                        $lugarNacimiento
                     </td>
                     <td class=\"output__celda\">
                         $nombreClase
