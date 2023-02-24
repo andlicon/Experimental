@@ -14,12 +14,12 @@
                 $botones = $botones.$this->crearItemValidez();
                 $botones = $botones.$this->itemConsultaRepresentante();
                 $botones = $botones.$this->itemClase();
-                // $botones = $botones.'
-                //                         <script>
-                //                             $(document).ready(function () {
-                //                                 $("#representanteInput").select2();
-                //                             });
-                //                         </script>
+                $botones = $botones.'
+                                        <script>
+                                            $(document).ready(function () {
+                                                $("#representanteInput").select2();
+                                            });
+                                        </script>';
                 $botones = $botones.'</div>';
             }
 

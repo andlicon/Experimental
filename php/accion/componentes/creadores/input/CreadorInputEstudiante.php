@@ -44,6 +44,7 @@
                 <script src=\"../js/limitador/soloAlfabeto.js\"></script>
                 <script src=\"../js/limitador/soloAlfaNumerico.js\"></script>
                 ";
+
             return $html;
         }
     }

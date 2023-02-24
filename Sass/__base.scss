@@ -150,9 +150,22 @@ span + .textarea {
   margin-left: 1em;
 }
 
-span {
+// span {
+//   display: inline-block;
+//   text-align: center;
+// }
+
+.select2-selection__rendered {
   display: inline-block;
   text-align: center;
+}
+
+.select2-results__message {
+  content: "";
+}
+
+.select2-results__option {
+  color: black;
 }
 
 #solicitud-ingreso {

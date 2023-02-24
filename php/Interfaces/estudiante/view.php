@@ -63,8 +63,8 @@
 <script src="../js/navegar.js"></script>
 
 
-<script>
+<!-- <script>
     $(document).ready(function () {
         $('#representanteInput').select2();
     });
-</script>
+</script> -->

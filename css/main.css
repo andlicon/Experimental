@@ -145,9 +145,17 @@ span + .textarea {
   margin-left: 1em;
 }
 
-span {
+.select2-selection__rendered {
   display: inline-block;
   text-align: center;
+}
+
+.select2-results__message {
+  content: "";
+}
+
+.select2-results__option {
+  color: black;
 }
 
 #solicitud-ingreso {
@@ -459,6 +467,10 @@ main {
   resize: none;
   background-color: white;
   color: black;
+}
+
+.selection {
+  width: 100%;
 }
 
 .registro {
