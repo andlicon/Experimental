@@ -19,6 +19,12 @@
             }
             $botones = $botones.$this->itemFecha();
             $botones = $botones.'</div>';
+            $botones = $botones."
+                    <script>    
+                        $(document).ready(function () {
+                            $('#representanteInput').select2();
+                        });
+                    </script>";
 
             return $botones;
         }

@@ -12,8 +12,6 @@
 }
 
 .vista__titulo {
-    background-color: red;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,7 +22,8 @@
 
     margin-bottom: 0.5em;
 
-    background-color: purple;
+    background-color: #1F1F23;
+    color: white;
 }
 
 .vista__cuerpo {
@@ -107,4 +106,8 @@ span+input {
 
 .subBloqueTitulo {
     padding: 0;
+}
+
+select, option {
+    background-color: white;
 }

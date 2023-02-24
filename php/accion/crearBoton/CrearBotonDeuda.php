@@ -19,12 +19,12 @@
             if($this->permiso==4) {  //ADMINISTRADOR
                 $botones = $botones.$this->itemConsultaRepresentante();
                 $botones = $botones.$this->itemDeuda();
-                // $botones = $botones."
-                //     <script>    
-                //         $(document).ready(function () {
-                //             $('#representanteInput').select2();
-                //         });
-                //     </script>";
+                $botones = $botones."
+                    <script>    
+                        $(document).ready(function () {
+                            $('#representanteInput').select2();
+                        });
+                    </script>";
             }
             else if($this->permiso==1 || $this->permiso==2) {  //REPRESENTANTE
                 $botones = $botones.$this->crearItemConsultaEstudiante();

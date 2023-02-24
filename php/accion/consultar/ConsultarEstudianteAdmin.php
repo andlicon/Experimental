@@ -106,7 +106,8 @@
                         <input id=\"fechaInput$idEstudiante\" type=\"date\" value=\"$fechaNacimiento\" disabled class=\"modificable modificable$idEstudiante ocultar\">
                     </td>
                     <td class=\"output__celda\">
-                        $lugarNacimiento
+                        <input  id=\"lugarNacimiento$idEstudiante\" class=\"modificable modificable--estado$idEstudiante\" value=\"$lugarNacimiento\" disabled>
+                        <input id=\"lugarNacimientoInput$idEstudiante\" type=\"text\" value=\"$lugarNacimiento\" disabled class=\"modificable modificable$idEstudiante ocultar\">
                     </td>
                     <td class=\"output__celda\">
                         <span class=\"modificable modificable--estado$idEstudiante\">$nombreClase</span>
