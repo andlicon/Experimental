@@ -34,7 +34,7 @@
      
                 $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento, 
                                         $cedulaRepresentante, $idClase, $valido,
-                                        $lugar_nacimiento);
+                                        $lugarNacimiento);
                 $estudiantes[] = $est;
             }
  
@@ -65,7 +65,7 @@
      
                 $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento, 
                                         $cedulaRepresentante, $idClase, $valido,
-                                        $lugar_nacimiento);
+                                        $lugarNacimiento);
                 $estudiantes[] = $est;
             }
              
@@ -96,7 +96,7 @@
      
                 $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento, 
                                         $cedulaRepresentante, $idClase, $valido,
-                                        $lugar_nacimiento);
+                                        $lugarNacimiento);
                 $estudiantes[] = $est;
             }
  
@@ -128,7 +128,7 @@
      
                 $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento, 
                                         $cedulaRepresentante, $idClase, $valido,
-                                        $lugar_nacimiento);
+                                        $lugarNacimiento);
                 $estudiantes[] = $est;
             }
  
@@ -161,7 +161,7 @@
      
                 $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento, 
                                         $cedulaRepresentante, $idClase, $valido,
-                                        $lugar_nacimiento);
+                                        $lugarNacimiento);
                 $estudiantes[] = $est;
             }
  
@@ -192,9 +192,9 @@
                 $valido = $estudiante['valido'];
                 $lugarNacimiento = $estudiante['lugar_nacimiento'];
      
-                $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento, 
+               $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento, 
                                         $cedulaRepresentante, $idClase, $valido,
-                                        $lugar_nacimiento);
+                                        $lugarNacimiento);
                 $estudiantes[] = $est;
             }
  
@@ -224,7 +224,7 @@
      
                 $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento, 
                                         $cedulaRepresentante, $idClase, $valido,
-                                        $lugar_nacimiento);
+                                        $lugarNacimiento);
                 $estudiantes[] = $est;
             }
  
@@ -255,7 +255,7 @@
      
                 $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento, 
                                         $cedulaRepresentante, $idClase, $valido,
-                                        $lugar_nacimiento);
+                                        $lugarNacimiento);
                 $estudiantes[] = $est;
             }
  
@@ -286,7 +286,7 @@
      
                 $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento, 
                                         $cedulaRepresentante, $idClase, $valido,
-                                        $lugar_nacimiento);
+                                        $lugarNacimiento);
                 $estudiantes[] = $est;
             }
  
@@ -318,7 +318,7 @@
      
                 $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento, 
                                         $cedulaRepresentante, $idClase, $valido,
-                                        $lugar_nacimiento);
+                                        $lugarNacimiento);
                 $estudiantes[] = $est;
             }
  
@@ -349,7 +349,7 @@
      
                 $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento, 
                                         $cedulaRepresentante, $idClase, $valido,
-                                        $lugar_nacimiento);
+                                        $lugarNacimiento);
                 $estudiantes[] = $est;
             }
  
