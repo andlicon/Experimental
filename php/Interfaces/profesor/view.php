@@ -18,6 +18,20 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
 
     <link rel="stylesheet" href="/css/main.css">
+
+    <script src="../js/eliminar.js"></script>
+    <script src="../js/modificar/habilitarModificacion.js"></script>
+    <script src="../js/modificar/cancelar.js"></script>
+    <script src="../js/modificar/modificarProfesores.js"></script>
+    <!-- <script src="../js/cargar/cargarPago.js"></script> -->
+    <script src="../js/consulta/consultarProfesores.js"></script>
+    <script src="../js/navegar.js"></script>
+    <script src="../js/limitador/soloNumeros.js"></script>
+    <script src="../js/limitador/soloTelefono.js"></script>
+    <script src="../js/limitador/soloAlfabeto.js"></script>
+    <script src="../js/limitador/soloAlfaNumerico.js"></script>
+    <script src="../js/limitador/correo.js"></script>
+    <script src="../js/autoEliminar.js"></script>
 </head>
 <body class="body-page">
     <?php
@@ -57,10 +71,3 @@
     </div>
 </body>
 </html>
-<script src="../js/eliminar.js"></script>
-<script src="../js/modificar/habilitarModificacion.js"></script>
-<script src="../js/modificar/cancelar.js"></script>
-<script src="../js/modificar/modificarProfesores.js"></script>
-<!-- <script src="../js/cargar/cargarPago.js"></script> -->
-<script src="../js/consulta/consultarProfesores.js"></script>
-<script src="../js/navegar.js"></script>
