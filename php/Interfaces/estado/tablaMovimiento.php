@@ -33,13 +33,14 @@
                 $fecha = $movimiento->getFecha();
                 $descripcion = $movimiento->getDescripcion();
                 $monto = $movimiento->getMonto();
+                $classMonto = $monto>0 ? "tabla__td--ingresos" : "tabla__td--deuda";
     
                 $fila = "
                      <tr class=\"tabla__tr\">
                          <td class=\"tabla__td\">$referencia</td>
                          <td class=\"tabla__td\">$fecha</td>
                          <td class=\"tabla__td\">$descripcion</td>
-                         <td class=\"tabla__td\">$monto</td>
+                         <td class=\"tabla__td $classMonto\">$monto</td>
                      </tr>";
         
                 $tabla = $tabla.$fila;

@@ -50,12 +50,13 @@
                 $estudiante = $estudiante->getNombre().' '.$estudiante->getApellido();
 
                 //Info
+                $classDeficit = $deficit<0 ? "tabla__td--deuda" : "tabla__td--ingresos";
                 $estudianteRow = $estudianteRow."
                 <tr>
                     <td>$estudiante</td>
-                    <td>$montoInicial</td>
-                    <td>$montoEstado</td>
-                    <td>$deficit</td>
+                    <td class=\"tabla__td--deuda\">$montoInicial</td>
+                    <td class=\"tabla__td--ingresos\">$montoEstado</td>
+                    <td class=\"tabla__td--deuda\">$deficit</td>
                 </tr>";
             
                 $deudaTotalRep = $deudaTotalRep + $montoInicial;
@@ -66,6 +67,7 @@
                 if($i==count($registros)-1 || strcmp($representanteAux, $representante) != 0){
                     //info rep acumulada
                     $representanteAux = $representanteAux=="" ? $representante : $representanteAux;
+                    $classDeficit = $deficitTotal<0 ? "tabla__td--deuda" : "tabla__td--ingresos";
                     $tablaAux = "<table class=\"tabla__table\">
                                     </thead>
                                         <caption>
@@ -85,9 +87,9 @@
                                     <tfoot>
                                         <tr>
                                             <td>TOTAL</td>
-                                            <td>$deudaTotalRep</td>
-                                            <td>$pagoTotalRep</td>
-                                            <td>$deficitTotal</td>
+                                            <td class=\"tabla__td--deuda\">$deudaTotalRep</td>
+                                            <td class=\"tabla__td--ingresos\">$pagoTotalRep</td>
+                                            <td class=\"$classDeficit\">$deficitTotal</td>
                                         </tr>
                                     </tfoot>
                                 </table>";

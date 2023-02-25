@@ -54,12 +54,13 @@
             $fecha = "";
         }
         finally {
+            $classDeficit = $deficit<0 ? "tabla__td--deuda" : "tabla__td--ingresos";
             $body = $body."
                 <tr>
                     <td>$titulo</td>
-                    <td>$deudaGenerada</td>
-                    <td>$ingresos</td>
-                    <td>$deficit</td>
+                    <td class=\"tabla__td--deuda\">$deudaGenerada</td>
+                    <td class=\"tabla__td--ingresos\">$ingresos</td>
+                    <td class=\"$classDeficit\">$deficit</td>
                 </tr>
             ";
         }
