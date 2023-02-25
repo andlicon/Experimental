@@ -36,11 +36,11 @@
                     </h3>
                     <div class="contenido__bloque">
                         <label for="nombre-input">Nombre</label>
-                        <input type="text" class="espaciado" id="nombre-input">
+                        <input type="text" class="espaciado" id="nombre-input" disabled>
                     </div>
                     <div class="contenido__bloque">
                         <label for="apellido-input">Apellido</label>
-                        <input type="text" class="espaciado" id="apellido-input">
+                        <input type="text" class="espaciado" id="apellido-input" disabled>
                     </div>
                 </div>
                 <div class="contenido subBloque centrado">
