@@ -185,7 +185,7 @@
                     </td>
                     <td class=\"output__celda\">
                         <input type=\"text\" id=\"descripcion$id\"class=\"modificable modificable--estado$id\" value=\"$descripcion\" disabled>
-                        <input id=\"descripcionInput$id\" type=\"text\" value=\"$descripcion\" disabled class=\"modificable modificable$id ocultar\">
+                        <input id=\"descripcionInput$id\" type=\"text\" value=\"$descripcion\" disabled class=\"modificable modificable$id ocultar\" onkeypress=\"return soloAlfaNumerico(50, 'descripcionInput$id')\">
                     </td>
                     <td class=\"output__celda\">
                         <input  id=\"fecha$id\" class=\"modificable modificable--estado$id\" value=\"$fecha\" disabled>
@@ -193,7 +193,7 @@
                     </td>
                     <td class=\"output__celda\">
                         <input type=\"text\" id=\"montoInicial$id\" class=\"modificable modificable--estado$id\" value=\"$montoInicial\" disabled>
-                        <input id=\"montoInicialInput$id\" type=\"text\" value=\"$montoInicial\" disabled class=\"modificable modificable$id ocultar\">
+                        <input id=\"montoInicialInput$id\" type=\"text\" value=\"$montoInicial\" disabled class=\"modificable modificable$id ocultar\" onkeypress=\"return soloNumeros(8, 'montoInicialInput$id')\">
                     </td>
                     <td class=\"output__celda\">
                         $montoEstado

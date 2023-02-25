@@ -95,11 +95,11 @@
                 $html = $html."  
                     <td class=\"output__celda\">
                         <input  id=\"nombre$idEstudiante\" class=\"modificable modificable--estado$idEstudiante\" value=\"$nombre\" disabled>
-                        <input id=\"nombreInput$idEstudiante\" type=\"text\" value=\"$nombre\" disabled class=\"modificable modificable$idEstudiante ocultar\">
+                        <input id=\"nombreInput$idEstudiante\" type=\"text\" value=\"$nombre\" disabled class=\"modificable modificable$idEstudiante ocultar\" onkeypress=\"return soloAlfabeto(15, 'nombreInput$idEstudiante')\">
                     </td>
                     <td class=\"output__celda\">
                         <input  id=\"apellido$idEstudiante\" class=\"modificable modificable--estado$idEstudiante\" value=\"$apellido\" disabled>
-                        <input id=\"apellidoInput$idEstudiante\" type=\"text\" value=\"$apellido\" disabled class=\"modificable modificable$idEstudiante ocultar\">
+                        <input id=\"apellidoInput$idEstudiante\" type=\"text\" value=\"$apellido\" disabled class=\"modificable modificable$idEstudiante ocultar\" onkeypress=\"return soloAlfabeto(15, 'apellidoInput$idEstudiante')\">
                     </td>
                     <td class=\"output__celda\">
                         <input  id=\"fecha$idEstudiante\" class=\"modificable modificable--estado$idEstudiante\" value=\"$fechaNacimiento\" disabled>
@@ -107,7 +107,7 @@
                     </td>
                     <td class=\"output__celda\">
                         <input  id=\"lugarNacimiento$idEstudiante\" class=\"modificable modificable--estado$idEstudiante\" value=\"$lugarNacimiento\" disabled>
-                        <input id=\"lugarNacimientoInput$idEstudiante\" type=\"text\" value=\"$lugarNacimiento\" disabled class=\"modificable modificable$idEstudiante ocultar\">
+                        <input id=\"lugarNacimientoInput$idEstudiante\" type=\"text\" value=\"$lugarNacimiento\" disabled class=\"modificable modificable$idEstudiante ocultar\" onkeypress=\"return soloAlfaNumerico(50, 'lugarNacimientoInput$idEstudiante')\">
                     </td>
                     <td class=\"output__celda\">
                         <span class=\"modificable modificable--estado$idEstudiante\">$nombreClase</span>

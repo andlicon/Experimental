@@ -83,7 +83,7 @@
                 </td>
                 <td class=\"output__celda\">
                     <input type=\"text\" id=\"monto$id\" class=\"modificable modificable--estado$id\" value=\"$monto\" disabled>
-                    <input id=\"montoInput$id\" type=\"text\" value=\"$monto\" disabled class=\"modificable modificable$id ocultar\">
+                    <input id=\"montoInput$id\" type=\"text\" value=\"$monto\" disabled class=\"modificable modificable$id ocultar\" onkeypress=\"return soloNumeros(8, 'montoInput$id')\">
                 </td>
                 <td class=\"output__celda\">
                     <span class=\"modificable modificable--estado$id\">$cuentaImp</span>
@@ -95,7 +95,7 @@
                 </td>
                 <td class=\"output__celda\">
                     <input type=\"text\" id=\"referencia$id\"class=\"modificable modificable--estado$id\" value=\"$referencia\" disabled>
-                    <input id=\"referenciaInput$id\" type=\"text\" value=\"$referencia\" disabled class=\"modificable modificable$id ocultar\">
+                    <input id=\"referenciaInput$id\" type=\"text\" value=\"$referencia\" disabled class=\"modificable modificable$id ocultar\" onkeypress=\"return soloNumeros(15, 'referenciaInput$id')\">
                 </td>
                 <td class=\"output__celda\">
                 <input type=\"text\" id=\"estadoInput$id\"class=\"modificable\" value=\"$estado\" disabled/>
