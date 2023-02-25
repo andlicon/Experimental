@@ -63,6 +63,8 @@
                 $nombre = $persona->getNombre();
                 $apellido = $persona->getApellido();
                 $idTipoPersona = $persona->getIdTipoPersona();
+                $direccionHogar = $persona->getDireccionHogar();
+                $direccionTrabajo = $persona->getDireccionTrabajo();
 
                 //Info TipoUsuario
                 $tipoPersonaConsul = new TipoPersonaConsul(BaseDeDatos::getInstancia());
@@ -91,10 +93,12 @@
                         $apellido
                     </td>
                     <td class=\"output__celda\">
-                        Ing. sistemas
+                        <input  id=\"direccionTrabajo$cedula\" class=\"modificable modificable--estado$cedula\" value=\"$direccionTrabajo\" disabled>
+                        <input id=\"direccionTrabajo$cedula\" type=\"text\" value=\"$direccionTrabajo\" disabled class=\"modificable modificable$cedula ocultar\">
                     </td>
                     <td class=\"output__celda\">
-                        Guaraguao
+                        <input  id=\"direccionHogar$cedula\" class=\"modificable modificable--estado$cedula\" value=\"$direccionHogar\" disabled>
+                        <input id=\"direccionHogar$cedula\" type=\"text\" value=\"$direccionHogar\" disabled class=\"modificable modificable$cedula ocultar\">
                     </td>
                     <td class=\"output__celda\">
                         <span class=\"modificable modificable--estado$cedula\">$tipoUsuario</span>
