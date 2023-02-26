@@ -8,8 +8,6 @@
             parent::__construct(null);
         }
 
-
-
         protected function crearOption($consulta, $seleccion) {
             $seleccionValido = $seleccion ? "selected" : "";
             $seleccionInvalido = !$seleccion ? "selected" : "";
@@ -18,7 +16,6 @@
             $options = $options."
                 <option value=\"1\" $seleccionValido>Valido</option>
                 <option value=\"0\" $seleccionInvalido>Invalido</option>";
-                
             return $options;
         }
 

@@ -42,6 +42,9 @@
         <h1 class="vista__titulo">
             <script src="TituloPago.js"></script>
         </h1>
+        <div class="alerta">
+            ESTO ES UNA ALERTA
+        </div>
         <!-- Display -->
         <form action="" method="POST" class="display">
             <div class="botones">

@@ -100,12 +100,11 @@ $(document).on('click', '.aceptar', function(){
                 }
             });
         }
+        //Ocultar modificables
+        $('.cancelar'+id).addClass("ocultar");
+        $('.aceptar'+id).addClass("ocultar");
+        $('.modificable'+id).prop('disabled', true);
+        $('.modificable'+id).addClass('ocultar');
+        $('.modificable--estado'+id).removeClass('ocultar');
     }
-    
-    //Ocultar modificables
-    $('.cancelar'+id).addClass("ocultar");
-    $('.aceptar'+id).addClass("ocultar");
-    $('.modificable'+id).prop('disabled', true);
-    $('.modificable'+id).addClass('ocultar');
-    $('.modificable--estado'+id).removeClass('ocultar');
 });

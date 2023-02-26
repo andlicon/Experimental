@@ -86,7 +86,6 @@
                 $fecha = $pago->getFecha();
                 $monto = $pago->getMonto();
                 $estado = $pago->getValido();
-                $estado = $estado==false ? "Invalido" : "Valido";
                 $idDeuda = $pago->getIdDeuda();
                 //info cuenta
                 $idCuenta = $pago->getIdCuenta();
@@ -107,7 +106,8 @@
                 $aceptar = "<input type=\"button\" class=\"aceptar aceptar$id ocultar\" value=\"$id\">";
                 $cancelar = "<input type=\"button\" class=\"cancelar cancelar$id  ocultar\" value=\"$id\">";
 
-                $validez = $selectValido->crearItemAtributos("class=\"modificable modificable$id ocultar\"", "validoInput$id");
+                $validez = $selectValido->crearItemAtributosSeleccion("class=\"modificable modificable$id ocultar\"", "validoInput$id", $estado);
+                $estado = $estado==false ? "Invalido" : "Valido";
 
                 //acciones
                 $html = $html."
