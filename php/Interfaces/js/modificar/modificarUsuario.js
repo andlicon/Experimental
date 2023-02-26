@@ -57,8 +57,13 @@ $(document).on('click', '.aceptar', function(){
                     tipoUsuario: tipoUsuario,
                     valido: valido},
             success : function(response) {
-                alert(response);
                 if(response) {
+                    //Modificar inputs
+                    $('#nombre'+id).val($('#nombreInput'+id).val());
+                    $('#apellido'+id).val($('#apellidoInput'+id).val());
+                    $('#direccionTrabajo'+id).val($('#direccionTrabajoInput'+id).val());
+                    $('#direccionHogar'+id).val($('#direccionHogarInput'+id).val());
+
                     mensaje = "Se ha modificado el usuario con éxito.";
                     clase = 'alerta--exito';
                 }
