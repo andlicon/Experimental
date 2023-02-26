@@ -28,10 +28,10 @@ class TablaUsuarios extends Tabla {
                            Apellido
                         </th>
                         <th class=\"output__celda output__celda--header\">
-                           Trabajo
+                           Dirección trabajo
                         </th>
                         <th class=\"output__celda output__celda--header\">
-                           Lugar trabajo
+                           Dirección Hogar
                         </th>
                         <th class=\"output__celda output__celda--header\">
                            Tipo

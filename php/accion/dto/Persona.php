@@ -17,7 +17,7 @@
             $this->nombre = $nombre;
             $this->apellido = $apellido;    
             $this->idTipoPersona = $idTipoPersona;
-            $this->diireccionHogar = $direccionHogar;
+            $this->direccionHogar = $direccionHogar;
             $this->direccionTrabajo = $direccionTrabajo;
         }
 

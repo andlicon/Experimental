@@ -18,13 +18,13 @@ $(document).on('click', '.aceptar', function(){
     if(monto!= null && monto.length > 8) {
         mensaje = "El monto no puede superar los 8 carácteres";
     }
-    else if(monto!= null && monto == "") {
+    else if(monto != null && monto == "") {
         mensaje = "El monto no puede ser vacio";
     }
-    else if(referencia!= null && referencia.length > 15) {
+    else if(referencia != null && referencia.length > 15) {
         mensaje = "La referencia no puede superar los 15 carácteres";
     }
-    else if(referencia!= null && referencia == "") {
+    else if(referencia != null && referencia == "") {
         mensaje = "La referencia no puede ser vacio";
     }
     

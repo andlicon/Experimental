@@ -54,8 +54,6 @@
                 $nickname = $usuario->getNickname();
                 $valido = $usuario->getValido();
 
-                echo "VALIDOOO: ".$valido;
-
                 //Info persona.
                 $personaDAO = new PersonaDAO(BaseDeDatos::getInstancia());
                 $resultados = $personaDAO->getInstancia(array($cedula));
@@ -87,18 +85,20 @@
                         $cedula
                     </td>
                     <td class=\"output__celda\">
-                        $nombre
+                        <input  id=\"nombre$cedula\" class=\"modificable modificable--estado$cedula\" value=\"$nombre\" disabled>
+                        <input id=\"nombreInput$cedula\" type=\"text\" value=\"$nombre\" disabled class=\"modificable modificable$cedula ocultar\" onkeypress=\"return soloAlfabeto(15, 'nombreInput$cedula')\">                    
                     </td>
                     <td class=\"output__celda\">
-                        $apellido
+                        <input  id=\"apellido$cedula\" class=\"modificable modificable--estado$cedula\" value=\"$apellido\" disabled>
+                        <input id=\"apellidoInput$cedula\" type=\"text\" value=\"$apellido\" disabled class=\"modificable modificable$cedula ocultar\" onkeypress=\"return soloAlfabeto(15, 'apellidoInput$cedula')\">   
                     </td>
                     <td class=\"output__celda\">
                         <input  id=\"direccionTrabajo$cedula\" class=\"modificable modificable--estado$cedula\" value=\"$direccionTrabajo\" disabled>
-                        <input id=\"direccionTrabajo$cedula\" type=\"text\" value=\"$direccionTrabajo\" disabled class=\"modificable modificable$cedula ocultar\">
+                        <input id=\"direccionTrabajoInput$cedula\" type=\"text\" value=\"$direccionTrabajo\" disabled class=\"modificable modificable$cedula ocultar\" onkeypress=\"return soloAlfaNumerico(50, 'direccionTrabajoInput$cedula')\">
                     </td>
                     <td class=\"output__celda\">
                         <input  id=\"direccionHogar$cedula\" class=\"modificable modificable--estado$cedula\" value=\"$direccionHogar\" disabled>
-                        <input id=\"direccionHogar$cedula\" type=\"text\" value=\"$direccionHogar\" disabled class=\"modificable modificable$cedula ocultar\">
+                        <input id=\"direccionHogarInput$cedula\" type=\"text\" value=\"$direccionHogar\" disabled class=\"modificable modificable$cedula ocultar\" onkeypress=\"return soloAlfaNumerico(50, 'direccionHogarInput$cedula')\">
                     </td>
                     <td class=\"output__celda\">
                         <span class=\"modificable modificable--estado$cedula\">$tipoUsuario</span>

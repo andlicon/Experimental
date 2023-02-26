@@ -149,6 +149,16 @@
             $this->bd->sql($update, $parametros);
         }
 
+        public function modificarInfo($parametros) {
+            $update =  "UPDATE persona
+                        SET nombre=?, 
+                            apellido=?,
+                            direccion_hogar = ?,
+                            direccion_trabajo = ?
+                        WHERE cedula=?";
+            $this->bd->sql($update, $parametros);
+        }
+
         public function eliminar($parametros) {
             try {
                 $delete =  "DELETE FROM persona

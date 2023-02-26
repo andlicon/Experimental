@@ -41,6 +41,9 @@
         <h1 class="vista__titulo">
             Representantes
         </h1>
+        <div class="alerta">
+            ESTO ES UNA ALERTA
+        </div>
         <?php
             include_once(MENSAJE_PATH.'/imprimirMensaje.php');
             imprimirMensaje();
