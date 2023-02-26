@@ -21,26 +21,53 @@
             $registros;
 
             $tipoPersona = $_POST['tipoPersona'];
+            $representante = $_POST['representante'];
+
+            //AÑADIR UNA BÚSQUEDA POR TODOS O UN REPRESENTANTE EN ESPECÍFICO
 
             //Acá debo mejorar la query para que consulte por cada caso QUE LADILLA
-            if(str_contains($this->validez, "todos")) {
-                if(str_contains($tipoPersona, "todos")) { 
-                    $registros = $this->dao->getTodos();
+            if(str_contains($representante, "todos")) {
+                if(str_contains($this->validez, "todos")) {
+                    if(str_contains($tipoPersona, "todos")) { 
+                        $registros = $this->dao->getTodos();
+                    }
+                    else {
+                        $registros = $this->dao->getTodosTipoPersona(array($tipoPersona));
+                    }
                 }
                 else {
-                    $registros = $this->dao->getTodosTipoPersona(array($tipoPersona));
+                    $valido = str_contains($this->validez, "invalido") ? 0 : 1;
+    
+                    if(str_contains($tipoPersona, "todos")) { 
+                        $registros = $this->dao->getInstanciaValidez(array($valido));
+                    }
+                    else {
+                        $registros = $this->dao->getTodosTipoPersonaValidez(array($tipoPersona, $valido));
+                    }
                 }
             }
-            else {
-                $valido = str_contains($this->validez, "invalido") ? 0 : 1;
+            else {                          //Esta debe ser cambiado, ya que el represenante debera ser especifico
+                if(str_contains($this->validez, "todos")) {
+                    if(str_contains($tipoPersona, "todos")) { 
+                        $registros = $this->dao->getTodosCedula(array($representante));
+                    }
+                    else {
+                        $registros = $this->dao->getTodosTipoPersonaRepresentante(array($tipoPersona, $representante));
+                    }
+                }
+                else {
+                    $valido = str_contains($this->validez, "invalido") ? 0 : 1;
+    
+                    if(str_contains($tipoPersona, "todos")) { 
+                        $registros = $this->dao->getInstanciaValidezRepresentante(array($valido, $representante));
+                    }
+                    else {
+                        $registros = $this->dao->getTodosTipoPersonaValidezRepresentante(array($tipoPersona, $valido, $representante));
+                    }
+                }
+            }
 
-                if(str_contains($tipoPersona, "todos")) { 
-                    $registros = $this->dao->getInstanciaValidez(array($valido));
-                }
-                else {
-                    $registros = $this->dao->getTodosTipoPersonaValidez(array($tipoPersona, $valido));
-                }
-            }
+            echo 'a';
 
             //select
             $selectValido = new CreadorSelectValido();

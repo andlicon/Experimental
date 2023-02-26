@@ -76,6 +76,38 @@
             return $usuarios;
         }
 
+        public function getInstanciaValidezRepresentante(array $valido) {
+           $consulta = "SELECT u.cedula,
+                               u.nickname,
+                               u.contrasena,
+                               u.valido
+                           FROM USUARIO u
+                           JOIN PERSONA p
+                           ON (u.cedula = p.cedula)
+                           WHERE valido=?
+                            AND u.cedula=?;";
+           $registros = $this->bd->sql($consulta, $valido);
+
+            if(!is_array($registros)) {
+                throw new Exception('No existe usuario valido');
+            }
+            
+            $usuarios = [];
+            for($i=0; $i<count($registros); $i++) {
+                $registro = $registros[$i];
+
+                $cedula = $registro['cedula'];
+                $nickname = $registro['nickname'];
+                $contrasena = $registro['contrasena'];
+                $valido = $registro['valido'];
+                $us = new Usuario($cedula, $nickname, $contrasena, $valido);
+
+                $usuarios[] = $us;
+            }
+            
+            return $usuarios;
+        }
+
         public function getInstanciaValidezTipoPersona(array $valido) {
             $consulta = 
                     "SELECT t.permisos
@@ -207,6 +239,37 @@
             
             return $usuarios;
         }
+        
+        public function getTodosCedula($cedula) {
+            $consulta = "SELECT u.cedula,
+                                u.nickname,
+                                u.contrasena,
+                                u.valido
+                        FROM USUARIO u
+                        JOIN PERSONA p
+                        ON (u.cedula = p.cedula)
+                        WHERE u.cedula=?";
+             $registros = $this->bd->sql($consulta, $cedula);
+
+             if(empty($registros)) {
+                throw new Exception('No existen registros de Usuarios.');
+            }
+            
+            $usuarios = [];
+            for($i=0; $i<count($registros); $i++) {
+                $registro = $registros[$i];
+
+                $cedula = $registro['cedula'];
+                $nickname = $registro['nickname'];
+                $contrasena = $registro['contrasena'];
+                $valido = $registro['valido'];
+                $us = new Usuario($cedula, $nickname, $contrasena,  $valido);
+
+                $usuarios[] = $us;
+            }
+            
+            return $usuarios;
+        }
 
         public function getTodosTipoPersona($tipoPersona) {
             $consulta = "SELECT *
@@ -236,6 +299,35 @@
             return $usuarios;
         }
 
+        public function getTodosTipoPersonaRepresentante($tipoPersona) {
+            $consulta = "SELECT *
+                        FROM usuario	u
+                        JOIN persona	p
+                        ON u.cedula = p.cedula
+                        WHERE id_tipo_persona=?
+                            AND u.cedula = ?;";
+             $registros = $this->bd->sql($consulta, $tipoPersona);
+
+             if(empty($registros)) {
+                throw new Exception('No existen registros de Usuarios.');
+            }
+            
+            $usuarios = [];
+            for($i=0; $i<count($registros); $i++) {
+                $registro = $registros[$i];
+
+                $cedula = $registro['cedula'];
+                $nickname = $registro['nickname'];
+                $contrasena = $registro['contrasena'];
+                $valido = $registro['valido'];
+                $us = new Usuario($cedula, $nickname, $contrasena,  $valido);
+
+                $usuarios[] = $us;
+            }
+            
+            return $usuarios;
+        }
+
         public function getTodosTipoPersonaValidez($tipoPersona) {
             $consulta = "SELECT *
                         FROM usuario	u
@@ -243,6 +335,36 @@
                         ON u.cedula = p.cedula
                         WHERE id_tipo_persona=?
                             AND valido=?;";
+             $registros = $this->bd->sql($consulta, $tipoPersona);
+
+             if(empty($registros)) {
+                throw new Exception('No existen registros de Usuarios.');
+            }
+            
+            $usuarios = [];
+            for($i=0; $i<count($registros); $i++) {
+                $registro = $registros[$i];
+
+                $cedula = $registro['cedula'];
+                $nickname = $registro['nickname'];
+                $contrasena = $registro['contrasena'];
+                $valido = $registro['valido'];
+                $us = new Usuario($cedula, $nickname, $contrasena,  $valido);
+
+                $usuarios[] = $us;
+            }
+            
+            return $usuarios;
+        }
+
+        public function getTodosTipoPersonaValidezRepresentante($tipoPersona) {
+            $consulta = "SELECT *
+                        FROM usuario	u
+                        JOIN persona	p
+                        ON u.cedula = p.cedula
+                        WHERE id_tipo_persona=?
+                            AND u.valido=?
+                            AND u.cedula=?;";
              $registros = $this->bd->sql($consulta, $tipoPersona);
 
              if(empty($registros)) {
