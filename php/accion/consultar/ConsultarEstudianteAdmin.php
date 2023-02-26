@@ -85,7 +85,7 @@
                 $validez = $selectValido->crearItemAtributosSeleccion("class=\"modificable modificable$idEstudiante ocultar\"", "validoInput$idEstudiante", $valido);
                 $clase = $selectClase->crearItemAtributosSeleccion("class=\"modificable modificable$idEstudiante ocultar\"", "claseInput$idEstudiante", $idClase);
                 
-                $valido = $estudiante->getValido() == 0 ? "Por validar" : "Inscrito";
+                $valido = $estudiante->getValido() == 0 ? "Invalido" : "Valido";
 
                 $eliminador = "<input type=\"button\" class=\"eliminar\" value=\"$idEstudiante\">";
                 $modificador = "<input type=\"button\" class=\"modificar habilitarModif\" value=\"$idEstudiante\">";
@@ -110,11 +110,11 @@
                         <input id=\"lugarNacimientoInput$idEstudiante\" type=\"text\" value=\"$lugarNacimiento\" disabled class=\"modificable modificable$idEstudiante ocultar\" onkeypress=\"return soloAlfaNumerico(50, 'lugarNacimientoInput$idEstudiante')\">
                     </td>
                     <td class=\"output__celda\">
-                        <span class=\"modificable modificable--estado$idEstudiante\">$nombreClase</span>
+                        <span class=\"modificable modificable--estado$idEstudiante\" id=\"clase$idEstudiante\">$nombreClase</span>
                         $clase
                     </td>
                     <td class=\"output__celda\">
-                        <span class=\"modificable modificable--estado$idEstudiante\">$valido</span>
+                        <span class=\"modificable modificable--estado$idEstudiante\" id=\"validez$idEstudiante\">$valido</span>
                        $validez
                     </td>
                     <td class=\"output__celda\">

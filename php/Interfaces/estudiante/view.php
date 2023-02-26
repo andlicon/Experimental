@@ -42,6 +42,9 @@
         <h1 class="vista__titulo">
             Estudiantes
         </h1>
+        <div class="alerta">
+            ESTO ES UNA ALERTA
+        </div>
         <?php
         ?>
         <!-- Display -->
