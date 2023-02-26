@@ -180,7 +180,7 @@
                         $popEstu
                     </td>
                     <td class=\"output__celda\">
-                        <span class=\"modificable modificable--estado$id\">$motivo</span>
+                        <span id=\"motivo$id\" class=\"modificable modificable--estado$id\">$motivo</span>
                         $motivoSelect
                     </td>
                     <td class=\"output__celda\">
@@ -195,10 +195,10 @@
                         <input type=\"text\" id=\"montoInicial$id\" class=\"modificable modificable--estado$id\" value=\"$montoInicial\" disabled>
                         <input id=\"montoInicialInput$id\" type=\"text\" value=\"$montoInicial\" disabled class=\"modificable modificable$id ocultar\" onkeypress=\"return soloNumeros(8, 'montoInicialInput$id')\">
                     </td>
-                    <td class=\"output__celda\">
+                    <td class=\"output__celda\" id=\"estado$id\">
                         $montoEstado
                     </td>
-                    <td class=\"output__celda\">
+                    <td class=\"output__celda\" id=\"debe$id\">
                         $debe
                     </td>
                     <td class=\"output__celda\">

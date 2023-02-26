@@ -46,6 +46,9 @@
             include_once(MENSAJE_PATH.'/imprimirMensaje.php');
             imprimirMensaje();
         ?>
+        <div class="alerta">
+            ESTO ES UNA ALERTA
+        </div>
         <!-- Display -->
         <form action="" method="POST" class="display">
             <div class="botones">
