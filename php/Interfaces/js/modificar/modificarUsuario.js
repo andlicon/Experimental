@@ -5,7 +5,7 @@ $(document).on('click', '.aceptar', function(){
     var apellido = $('#apellidoInput'+id).val();
     var direccionTrabajo = $('#direccionTrabajoInput'+id).val();
     var direccionHogar = $('#direccionHogarInput'+id).val();
-    var tipoUsuario = $('#tipoUsuarioInput'+id).val();
+    // var tipoUsuario = $('#tipoUsuarioInput'+id).val();
     var valido = $('#validoInput'+id).val();
 
     //VALIDACIÓN
@@ -54,15 +54,17 @@ $(document).on('click', '.aceptar', function(){
                     apellido: apellido,
                     direccionTrabajo: direccionTrabajo,
                     direccionHogar: direccionHogar,
-                    tipoUsuario: tipoUsuario,
+                    // tipoUsuario: tipoUsuario,
                     valido: valido},
             success : function(response) {
+                alert(response);
                 if(response) {
                     //Modificar inputs
                     $('#nombre'+id).val($('#nombreInput'+id).val());
                     $('#apellido'+id).val($('#apellidoInput'+id).val());
                     $('#direccionTrabajo'+id).val($('#direccionTrabajoInput'+id).val());
                     $('#direccionHogar'+id).val($('#direccionHogarInput'+id).val());
+                    $('#valido'+id).html($('#validoInput'+id +' option:selected').text());
 
                     mensaje = "Se ha modificado el usuario con éxito.";
                     clase = 'alerta--exito';

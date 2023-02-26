@@ -4,15 +4,14 @@
     include_once(DAO_PATH.'/UsuarioDAO.php');
     include_once(DAO_PATH.'/PersonaDAO.php');
 
-    if(isset($_POST['tipoUsuario']) && 
-        isset($_POST['valido']) && 
+    if(isset($_POST['valido']) && 
         isset($_POST['id']) &&
         isset($_POST['nombre']) &&
         isset($_POST['apellido']) &&
         isset($_POST['direccionTrabajo']) &&
         isset($_POST['direccionHogar'])) {
         $id = $_POST['id'];
-        $tipoUsuario = $_POST['tipoUsuario'];
+        // $tipoUsuario = $_POST['tipoUsuario'];
         $valido = $_POST['valido'];
         $nombre = $_POST['nombre'];
         $apellido = $_POST['apellido'];
@@ -22,11 +21,11 @@
 
         //usuario
         $usuarioDAO = new UsuarioDAO(BaseDeDatos::getInstancia());
-        $usuarioDAO->modificarAdmin(array($id, $tipoUsuario, $valido));
+        $usuarioDAO->modificarValidez(array($valido, $id));
         //persona
         $personaDAO = new PersonaDAO(BaseDeDatos::getInstancia());
         $personaDAO->modificarInfo(array($nombre, $apellido, $direccionHogar, $direccionTrabajo, $id));
 
-        echo "true";
+        echo true;
     }
 ?>

@@ -71,7 +71,7 @@
                 $tipoUsuario = $resultados[0]->getDescripcion();
 
                 $validez = $selectValido->crearItemAtributosSeleccion("class=\"modificable modificable$cedula ocultar\"", "validoInput$cedula", $valido);
-                $tipoPersona = $selectTipoPersona->crearItemAtributosSeleccion("class=\"modificable modificable$cedula ocultar\"", "tipoUsuarioInput$cedula", $tipoUsuarioId);
+                $tipoPersona = $selectTipoPersona->crearItemAtributosSeleccion("class=\"modificable modificable\" disabled", "tipoUsuarioInput$cedula", $tipoUsuarioId);
 
                 $eliminador = "<input type=\"button\" class=\"eliminar\" value=\"$cedula\">";
                 $modificador = "<input type=\"button\" class=\"modificar habilitarModif\" value=\"$cedula\">";
@@ -101,14 +101,13 @@
                         <input id=\"direccionHogarInput$cedula\" type=\"text\" value=\"$direccionHogar\" disabled class=\"modificable modificable$cedula ocultar\" onkeypress=\"return soloAlfaNumerico(50, 'direccionHogarInput$cedula')\">
                     </td>
                     <td class=\"output__celda\">
-                        <span class=\"modificable modificable--estado$cedula\">$tipoUsuario</span>
-                        $tipoPersona
+                        <span class=\"modificable modificable--estado\">$tipoUsuario</span>
                     </td>
                     <td class=\"output__celda\">
                        $nickname
                     </td>
                     <td class=\"output__celda\">
-                        <span class=\"modificable modificable--estado$cedula\">$valido</span>
+                        <span id=\"valido$cedula\" class=\"modificable modificable--estado$cedula\">$valido</span>
                        $validez
                     </td>
                     <td class=\"output__celda\">
