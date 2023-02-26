@@ -53,9 +53,7 @@
                
               }
               catch(Exception $e) {
-               
                 echo $e;
-               
               }
         }
         else {
