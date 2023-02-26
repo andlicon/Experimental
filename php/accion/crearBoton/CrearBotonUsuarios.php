@@ -16,6 +16,13 @@
             if($this->permiso==4) {  //ADMINISTRADOR
                 $botones = $botones.$this->crearItemConsultaTipoUsuario();
                 $botones = $botones.$this->crearItemConsultaTipoPersona();
+                $botones = $botones.$this->itemConsultaRepresentante();
+                $botones = $botones.'
+                                        <script>
+                                            $(document).ready(function () {
+                                                $("#representanteInput").select2();
+                                            });
+                                        </script>';
             }
             $botones = $botones.'</div>';
 
