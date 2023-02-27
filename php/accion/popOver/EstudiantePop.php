@@ -46,6 +46,7 @@
                     <p class=\"popOver__elemento\"><span class=\"negrita\">Fecha nacimiento:</span> $fecha</p>
                     <p class=\"popOver__elemento\"><span class=\"negrita\">Lugar nacimiento:</span> $lugarNacimiento</p>
                     <p class=\"popOver__elemento\"><span class=\"negrita\">Clase inscrito:</span> $claseNombre</p>
+                    <p class=\"popOver__elemento\"><span class=\"negrita\">Cédula representante:</span> $cedulaRep</p>
                 </div>
             </div>";
 
