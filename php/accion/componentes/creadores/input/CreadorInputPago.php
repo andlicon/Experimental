@@ -32,29 +32,30 @@
                 <div id=\"datos-deuda\">
                 
                 </div>
-                <h4 class=\"popOver__informacion\">Pago a cargar<h4>
-                <div class=\"contenido__bloque\">
-	                <label for=\"fechaInput\">Fecha</label>
-	                <input type=\"date\" id=\"fechaInput\">
+                <div class=\"marco-deuda\">
+                    <h4 class=\"popOver__informacion\">Pago a cargar<h4>
+                    <div class=\"contenido__bloque\">
+	                    <label for=\"fechaInput\">Fecha</label>
+	                    <input type=\"date\" id=\"fechaInput\">
+                    </div>
+                    <div class=\"contenido__bloque\">
+	                    <label for=\"montoInput\">Monto</label>
+	                    <input type=\"text\" onkeypress=\"return soloNumeros(8, 'montoInput')\" id=\"montoInput\">
+                    </div>
+                    <div class=\"contenido__bloque\">
+	                    <label for=\"cuentaInput\">Cuenta</label>
+	                    $selectCuenta
+                    </div>
+                    <div class=\"contenido__bloque\">
+	                    <label for=\"tipoPagoInput\">Tipo Pago</label>
+	                    $selectTipoPago
+                    </div>
+                    <div class=\"contenido__bloque\">
+	                    <label for=\"ReferenciaInput\">Referencia</label>
+	                    <input type=\"text\" onkeypress=\"return soloNumeros(8, 'referenciaInput')\" id=\"referenciaInput\">
+                    </div>
+                    <input class=\"boton btn\" id=\"cargar\" value=\"cargar\" />
                 </div>
-                <div class=\"contenido__bloque\">
-	                <label for=\"montoInput\">Monto</label>
-	                <input type=\"text\" onkeypress=\"return soloNumeros(8, 'montoInput')\" id=\"montoInput\">
-                </div>
-                <div class=\"contenido__bloque\">
-	                <label for=\"cuentaInput\">Cuenta</label>
-	                $selectCuenta
-                </div>
-                <div class=\"contenido__bloque\">
-	                <label for=\"tipoPagoInput\">Tipo Pago</label>
-	                $selectTipoPago
-                </div>
-                <div class=\"contenido__bloque\">
-	                <label for=\"ReferenciaInput\">Referencia</label>
-	                <input type=\"text\" onkeypress=\"return soloNumeros(8, 'referenciaInput')\" id=\"referenciaInput\">
-                </div>
-                <input class=\"boton\" id=\"cargar\" value=\"cargar\" />
-
                 <script>
                     $(document).ready(function () {
                         $('#deudaInput').select2();
@@ -65,6 +66,7 @@
                         let deudaId = $('#deudaInput').val();
 
                         if(deudaId==0) {
+                            $('#datos-deuda').removeClass('marco-deuda');
                             $('#datos-deuda').html('');
                         }
                         else {
@@ -93,6 +95,7 @@
                                                            '<p class=\"popOver__elemento\"><span class=\"negrita\">Fecha: </span>'+fecha+'</p>'+
                                                            '<p class=\"popOver__elemento\"><span class=\"negrita\">Deuda: </span>'+debe+'</p>'
                                                             );
+                                    $('#datos-deuda').addClass('marco-deuda');
                                 }
                             })
                         }

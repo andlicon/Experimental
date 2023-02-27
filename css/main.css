@@ -679,6 +679,42 @@ select, option {
   background-color: white;
 }
 
+.marco-deuda {
+  border: solid black 1px;
+  padding: 1em;
+  margin-bottom: 1em;
+}
+
+#cargar {
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
+.btn {
+  border: 3px solid rgba(100, 100, 100, 0.1);
+  margin-bottom: 10px;
+  padding: 20px;
+  width: 300px;
+  color: black;
+  border-radius: 8px;
+  cursor: pointer;
+  background-size: 300%;
+  background-image: -webkit-gradient(linear, right top, left top, from(#00B7DA), color-stop(#161569), to(#00B7DA));
+  background-image: linear-gradient(to left, #00B7DA, #161569, #00B7DA);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background-position: right;
+}
+
 .boton {
   border: none;
   width: 200px;
