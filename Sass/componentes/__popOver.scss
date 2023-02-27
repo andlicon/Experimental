@@ -9,8 +9,9 @@
     }
 }
 
-.popOver__trigger {
-
+.popOver__informacion {
+    display: flex;
+    justify-content: center;
 }
 
 .popOver__contenido {
@@ -27,11 +28,23 @@
     border-radius: 1em;
 }
 
-.popOver__elementos {
+.negrita {
+    font-weight: 600;
+}
 
+.popOver__elemento {
+    width: 100%;
+    color: black;
 }
 
 .popOver__informacion {
     font-weight: 600;
     margin: auto;
+}
+
+.current::before {
+    p {
+        color: black;
+    }
+
 }
