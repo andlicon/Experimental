@@ -29,6 +29,9 @@
 	                <label>Deuda</label>
 	                $selectDeuda
                 </div>
+                <div id=\"datos-deuda\">
+                
+                </div>
                 <div class=\"contenido__bloque\">
 	                <label for=\"fechaInput\">Fecha</label>
 	                <input type=\"date\" id=\"fechaInput\">
@@ -53,6 +56,39 @@
                 <script>
                     $(document).ready(function () {
                         $('#deudaInput').select2();
+                    });
+                </script>
+                <script>    
+                    $('#deudaInput').change(function() {
+                        let deudaId = $('#deudaInput').val();
+                    
+                        $.ajax ( {
+                            url : '../../accion/consultar/cDeuda.php',
+                            type : 'POST',
+                            data : {deudaId: deudaId},
+                            async: false,
+                            success : function(response) {
+                                let json = JSON.parse(response);
+                            
+                                let id = json[0].id;
+                                let cedula = json[0].cedula;
+                                let descripcion = json[0].descripcion;
+                                let montoInicial = json[0].montoInicial;
+                                let montoEstado = json[0].montoEstado;
+                                let debe = json[0].debe;
+                                let motivo = json[0].motivo;
+                                let nombreEstudiante = json[0].nombreEstudiante;
+                                let fecha = json[0].fecha;
+                            
+                                $('#datos-deuda').html('<h4 class=\"popOver__informacion\">Informacion deuda a pagar<h4>'+
+                                                        '<p class=\"popOver__elemento\"><span class=\"negrita\">Estudiante: </span>'+nombreEstudiante+'</p>'+
+                                                       '<p class=\"popOver__elemento\"><span class=\"negrita\">Motivo: </span>'+motivo+'</p>'+
+                                                       '<p class=\"popOver__elemento\"><span class=\"negrita\">Descripcion: </span>'+descripcion+'</p>'+
+                                                       '<p class=\"popOver__elemento\"><span class=\"negrita\">Fecha: </span>'+fecha+'</p>'+
+                                                       '<p class=\"popOver__elemento\"><span class=\"negrita\">Deuda: </span>'+debe+'</p>'
+                                                        );
+                            }
+                        })
                     });
                 </script>
                 <script src=\"../js/limitador/soloNumeros.js\"></script>

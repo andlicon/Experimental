@@ -26,11 +26,7 @@
 
             $popOver = 
             "<div class=\"popOver modificable modificable--estado$id\">
-<<<<<<< HEAD
-                <a id=\"$cedula\" href=\"#ex$cedula\" class=\"popOver__trigger\">$cedula</a>
-=======
                 <a id=\"cedula$id\" href=\"#ex$cedula\" rel=\"modal:open\" class=\"popOver__trigger\">$cedula</p>
->>>>>>> features
                 <div id=\"ex$cedula\" class=\"modal\">";
                     
             $popOver = $popOver.
@@ -38,14 +34,11 @@
                     <p class=\"popOver__elemento\"><span class=\"negrita\">Cedula:</span> $val</p>
                     <p class=\"popOver__elemento\"><span class=\"negrita\">Nombre:</span> $nombre</p>
                     <p class=\"popOver__elemento\"><span class=\"negrita\">Apellido:</span> $apellido</p>
-<<<<<<< HEAD
-=======
                     <p class=\"popOver__elemento\"><span class=\"negrita\">Direccion hogar:</span> $direccionHogar</p>
                     <p class=\"popOver__elemento\"><span class=\"negrita\">Direccion trabajo:</span> $direccionTrabajo</p>
                     <h4 class=\"popOver__informacion popOver__elemento\">Informacion Contacto</h4>
                     <p class=\"popOver__elemento\"><span class=\"negrita\">Telefóno:</span> $telefono</p>
                     <p class=\"popOver__elemento\"><span class=\"negrita\">Correo:</span> $correo</p>
->>>>>>> features
                 </div>
             </div>";
 

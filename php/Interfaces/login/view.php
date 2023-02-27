@@ -108,7 +108,7 @@
         
             <div id="inscripcion" class="display--oculto visibilidad contenido-login">
                 <div class="bloque">
-                    <h2>Proceso de Inscripción</h2>
+                    <h2>Proceso de Pre-Inscripción</h2>
                     <p>
                         El proceso de inscripción para el presente año escolar consta de dos pasos, 
                         el primero, el cual consiste en una planilla virtual de "<a href="#solicitud-ingreso">SOLICITUD DE INGRESO</a>", la cual está disponible al final de esta página
