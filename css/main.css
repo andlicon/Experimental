@@ -1032,6 +1032,15 @@ ul {
           flex-flow: column nowrap;
 }
 
+.popOver__informacion {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 .popOver__contenido {
   position: absolute;
   top: 0;
@@ -1042,9 +1051,22 @@ ul {
   border-radius: 1em;
 }
 
+.negrita {
+  font-weight: 600;
+}
+
+.popOver__elemento {
+  width: 100%;
+  color: black;
+}
+
 .popOver__informacion {
   font-weight: 600;
   margin: auto;
+}
+
+.current::before p {
+  color: black;
 }
 
 .tabla {

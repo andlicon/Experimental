@@ -6,7 +6,7 @@
 
     class EstudiantePop extends GenerarPopOver {
 
-        public function __construct(EstudianteDAO $estudianteDAO) {
+        public function __construct(EstudianteDAO $estudianteDAO) { 
             parent::__construct($estudianteDAO);
         }
 
@@ -18,6 +18,9 @@
             $nombre = $estudiante->getNombre();
             $apellido = $estudiante->getApellido();
             $idClase = $estudiante->getIdClase();
+            $cedulaRep = $estudiante->getCedulaRepresentante();
+            $lugarNacimiento = $estudiante->getLugarNacimiento();
+            $fecha = $estudiante->getFechaNacimiento();
 
             $bd = new BaseDeDatos('127.0.0.1:3306', 'mysql', 'Experimental', 'root', '');
             $claseConsul = new ClaseConsul($bd);
@@ -31,17 +34,19 @@
 
             $claseNombre = $claseNombre==null ? "Sin asignar" : $claseNombre;
 
-
             $popOver = 
             "<div class=\"popOver modificable modificable--estado$id\">
-                <input type=\"text\" id=\"estudiante$id\" class=\"popOver__trigger\" value=\"$nombre\" disabled/>
-                <div class=\"popOver__contenido\">";
+                <a id=\"estudiante$id\" href=\"#ex$id\" rel=\"modal:open\" class=\"popOver__trigger\">$nombre</a>
+                <div id=\"ex$id\" class=\"modal\">";
                     
             $popOver = $popOver.
-            "       <span class=\"popOver__informacion\">Informacion</span>
-                    <span class=\"popOver__elemento\">$nombre</span>
-                    <span class=\"popOver__elemento\">$apellido</span>
-                    <span class=\"popOver__elemento\">$claseNombre</span>
+            "       <h4 class=\"popOver__informacion popOver__elemento\">Informacion Estudiante</h4>
+                    <p class=\"popOver__elemento\"><span class=\"negrita\">Nombre:</span> $nombre</p>
+                    <p class=\"popOver__elemento\"><span class=\"negrita\">Apellido:</span> $apellido</p>
+                    <p class=\"popOver__elemento\"><span class=\"negrita\">Fecha nacimiento:</span> $fecha</p>
+                    <p class=\"popOver__elemento\"><span class=\"negrita\">Lugar nacimiento:</span> $lugarNacimiento</p>
+                    <p class=\"popOver__elemento\"><span class=\"negrita\">Clase inscrito:</span> $claseNombre</p>
+                    <p class=\"popOver__elemento\"><span class=\"negrita\">Cédula representante:</span> $cedulaRep</p>
                 </div>
             </div>";
 
