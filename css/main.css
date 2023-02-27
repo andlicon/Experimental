@@ -473,6 +473,12 @@ main {
   width: 100%;
 }
 
+h2 {
+  margin-bottom: 1em;
+  margin-top: 0.5em;
+  color: black;
+}
+
 .registro {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1409,4 +1415,10 @@ p, h3, h2 {
 
 .alerta--exito {
   background-color: green;
+}
+
+h2 {
+  margin-bottom: 1em;
+  margin-top: 0.5em;
+  color: black;
 }
