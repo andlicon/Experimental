@@ -6,7 +6,7 @@
 
     class EstudiantePop extends GenerarPopOver {
 
-        public function __construct(EstudianteDAO $estudianteDAO) {
+        public function __construct(EstudianteDAO $estudianteDAO) { 
             parent::__construct($estudianteDAO);
         }
 
