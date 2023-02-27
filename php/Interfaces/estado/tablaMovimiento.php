@@ -41,17 +41,18 @@
                 $trigger = "";
 
                 if(str_contains($referencia,"P")) {
-                    $referencia = str_replace("P", "", $referencia);
-                    //Consultar info
-                    $pagoDAO = new PagoDAO(BaseDeDatos::getInstancia());
-                    $resultado = $pagoDAO->getInstancia(array($referencia));
-                    $pago = $resultado[0];
+                    // $referencia = str_replace("P", "", $referencia);
+                    // //Consultar info
+                    // $pagoDAO = new PagoDAO(BaseDeDatos::getInstancia());
+                    // $resultado = $pagoDAO->getInstancia(array($referencia));
+                    // $pago = $resultado[0];
 
-                    $idDeuda = $pago->getIdDeuda();
-                    $fechaPago = $pago->getFecha();
-                    $cedulaPago = $pago->getCedula();
-                    $montoPago = $pago->getMonto();
-                    $idCuentaPago = $pago->getIdCuenta();
+                    // $idDeuda = $pago->getIdDeuda();
+                    // $fechaPago = $pago->getFecha();
+                    // $cedulaPago = $pago->getCedula();
+                    // $montoPago = $pago->getMonto();
+                    // $idCuentaPago = $pago->getIdCuenta();
+                    $trigger = $referencia;
 
                     // $referencia = "<a id=\"p$id\" href=\"#ex$id\" rel=\"modal:open\" class=\"popOver__trigger\">$referencia</a>";
                 }
