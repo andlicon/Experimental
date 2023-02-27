@@ -115,7 +115,7 @@ select, option {
 
 //DATOS DE DEUDA
 .marco-deuda {
-    border: solid black 1px;
+    border: solid #2691d9 1px;
     padding: 1em;
     margin-bottom: 1em;
 }
@@ -142,7 +142,77 @@ select, option {
 
     transition: 0.3s;
 }
-
 .btn:hover {
     background-position: right;
+}
+
+.formu {
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin: 30px 0;
+    width: 100%;
+}
+.marco-deuda {
+    box-sizing: border-box;
+}
+.formu  input,
+.formu select{
+    width: 100%;
+    padding: 0 5px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+  }
+.formu label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: #adadad;
+    transform: translateY(-50%);
+    font-size: 16px;
+    pointer-events: none;
+    transition: .5s;
+
+    text-align: 5px;
+}
+.formu span::before{
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #2691d9;
+}
+.formu input:Focus ~ label,
+.formu input:Valid ~ label,
+.formu input:Disabled ~ label {
+    top: -5px;
+    color: #2691d9;
+}
+
+.formu div ~ label,
+.formu div ~ label {
+    top: -5px;
+    color: #2691d9;
+}
+
+.formu--titulo {
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 1px solid silver;
+    font-size: 1.4em;
+}
+
+.ladito {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    width: calc(100vw - 350px);
+}
+
+.ladito .ladito--contenido{
+    width: 40%;
 }
