@@ -58,13 +58,13 @@
             $popOver = $popOver.
             "       <h4 class=\"popOver__informacion popOver__elemento\">Informacion deuda</h4>
                     <p class=\"popOver__elemento\"><span class=\"negrita\">Cedula:</span> $cedula</p>
-                    <p class=\"popOver__elemento\"><span class=\"negrita\">Estudiante:</span> <a id=\"estudiante$id\" href=\"#ex$deudaId$id\" rel=\"modal:open\" class=\"popOver__trigger\">$estudianteNombre</a></p>
+                    <p class=\"popOver__elemento\"><span class=\"negrita\">Estudiante:</span> <a id=\"estudiante$id\" href=\"#ex$deudaId$idEstudiante\" rel=\"modal:open\" class=\"popOver__trigger\">$estudianteNombre</a></p>
                     <p class=\"popOver__elemento\"><span class=\"negrita\">Fecha:</span> $fecha</p>
                     <p class=\"popOver__elemento\"><span class=\"negrita\">Monto Inicial:</span> $montoInicial</p>
                     <p class=\"popOver__elemento\"><span class=\"negrita\">Motivo:</span> $motivo</p>
                 </div>
 
-                <div id=\"ex$deudaId$id\" class=\"modal\">
+                <div id=\"ex$deudaId$idEstudiante\" class=\"modal\">
                 <h4 class=\"popOver__informacion popOver__elemento\">Informacion Estudiante</h4>
                 <p class=\"popOver__elemento\"><span class=\"negrita\">Nombre:</span> $estudianteNombre</p>
                 <p class=\"popOver__elemento\"><span class=\"negrita\">Apellido:</span> $apellidoEstudiante</p>
@@ -74,9 +74,6 @@
                 <p class=\"popOver__elemento\"><span class=\"negrita\">Cédula representante:</span> $cedulaRepEstudiante</p>
             </div>";
             
-
-
-
             return $popOver;
         }
     }
