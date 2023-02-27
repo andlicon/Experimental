@@ -16,14 +16,14 @@
 
             $popOver = 
             "<div class=\"popOver modificable modificable--estado$id\">
-                <input type=\"text\" id=\"cedula$id\" class=\"popOver__trigger\" value=\"$cedula\" disabled>
-                <div class=\"popOver__contenido\">";
+                <a id=\"$cedula\" href=\"#ex$cedula\" class=\"popOver__trigger\">$cedula</a>
+                <div id=\"ex$cedula\" class=\"modal\">";
                     
             $popOver = $popOver.
-            "       <span class=\"popOver__informacion\">Informacion</span>
-                    <span class=\"popOver__elemento\">$val</span>
-                    <span class=\"popOver__elemento\">$nombre</span>
-                    <span class=\"popOver__elemento\">$apellido</span>
+            "       <h4 class=\"popOver__informacion popOver__elemento\">Informacion Representante</h4>
+                    <p class=\"popOver__elemento\"><span class=\"negrita\">Cedula:</span> $val</p>
+                    <p class=\"popOver__elemento\"><span class=\"negrita\">Nombre:</span> $nombre</p>
+                    <p class=\"popOver__elemento\"><span class=\"negrita\">Apellido:</span> $apellido</p>
                 </div>
             </div>";
 
