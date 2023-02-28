@@ -128,7 +128,6 @@
                 <div id="solicitud-ingreso" class="bloque">
                     <h2>Solicitud de ingreso</h3>
                     <form action="" method="POST" class="registro" id="registro">
-                    
                         <div class="datos-usuario marco-deuda subBloque centrado subBloqueTitulo nacio">
                             <h4 class="popOver__informacion formu--titulo corregir">Datos usuario</h4>
                             <div class="input__grupo formu">        
@@ -146,13 +145,13 @@
                             <div class="datos-representante marco-deuda subBloque horizontal">
                                 <h4 class="popOver__informacion formu--titulo">Datos Representante</h4>
                             <div class="input__grupo">
-                                    <div class="formu">
+                                    <div class="formu formu-nacionalidad">
                                         <select name="nacionalidadInput" id="nacionalidadInput" class="input__select">
                                             <option value="V-" class="input__select">V-</option>
                                             <option value="E-" class="input__select">E-</option>
                                         </select>
                                         <span></span>
-                                        <label class="negrita" for="nacionalidadInput" class="input__label">Nacionalidad</label>
+                                        <label class="negrita label-excepcion" for="nacionalidadInput" class="input__label">Nacionalidad</label>
                                     </div>
                                     <div class="formu">
                                         <input type="text" onkeypress="return soloNumeros(8, 'cedulaInput')" id="cedulaInput" name="cedulaInput" class="input__input input__input--texto" autocomplete="off" required>
@@ -209,7 +208,7 @@
                                     <label for="apellidoInputEstudiante[]" class="input__label">Apellido</label>
                                 </div>
                                 <div class="formu">
-                                    <textarea id="lugarNacimientoInputEstudiantee[]" name="lugarNacimientoInputEstudiante[]" autocomplete="off" class="input__input input__input--texto" onkeypress="return soloAlfaNumerico(50, null)" maxlength="50" required></textarea>
+                                    <textarea id="lugarNacimientoInputEstudiantee[]" name="lugarNacimientoInputEstudiante[]" autocomplete="off" class="input__input input__input--texto textarea" style="color: black;" onkeypress="return soloAlfaNumerico(50, null)" maxlength="50" required></textarea>
                                     <span></span>
                                     <label for="lugarNacimientoInputEstudiante[]" class="input__label">Lugar Nacimiento</label>
                                 </div>

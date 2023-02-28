@@ -2,6 +2,7 @@ $(function() {
     $('#masEstudiantes').click(function() {
         //Crear los divs
         const div_principal = D.create('div');
+        div_principal.classList.add('subBloque');
         div_principal.classList.add('datos-estudiante');
         div_principal.classList.add('bloque');
         div_principal.classList.add('centrado');
@@ -10,23 +11,33 @@ $(function() {
         div_principal.classList.add('bloqueEstudiante');
 
         const div_nombre = D.create('div');
+        div_nombre.classList.add('formu');
         const div_apellido = D.create('div');
+        div_apellido.classList.add('formu');
         const div_lugar_nacimiento = D.create('div');
+        div_lugar_nacimiento.classList.add('formu');
         const div_fecha_nacimiento = D.create('div');
+        div_fecha_nacimiento.classList.add('formu');
 
-        //Crear los span
-        const span_nombre = D.create('span', {innerHTML: 'Nombre'});
-        const span_apellido = D.create('span', {innerHTML: 'Apellido'});
-        const span_lugar_nacimiento = D.create('span', {innerHTML: 'Lugar nacimiento'});
+        //Crear los label
+        const span_nombre = D.create('label', {innerHTML: 'Nombre'});
+        const span_apellido = D.create('label', {innerHTML: 'Apellido'});
+        const span_lugar_nacimiento = D.create('label', {innerHTML: 'Lugar nacimiento'});
         span_lugar_nacimiento.classList.add('input__label');
-        const span_fecha_nacimiento = D.create('span', {innerHTML: 'Fecha nacimiento'});
+        const span_fecha_nacimiento = D.create('label', {innerHTML: 'Fecha nacimiento'});
+
+        //span
+        const span1 =  D.create('span');
+        const span2 =  D.create('span');
+        const span3 =  D.create('span');
+        const span4 =  D.create('span');
         
         //crear titulo
-        const titulo_estudiante = D.create('h3');
+        const titulo_estudiante = D.create('h4');
         titulo_estudiante.innerHTML = 'Datos del estudiante adicional';
-        titulo_estudiante.classList.add('titulito');
-        titulo_estudiante.classList.add('contenido__titulo');
-        titulo_estudiante.classList.add('subBloqueTitulito');
+        titulo_estudiante.classList.add('popOver__informacion');
+        titulo_estudiante.classList.add('formu--titulo');
+        titulo_estudiante.classList.add('corregir');
 
         //boton eliminar 
         const borrar = D.create('a', 
@@ -43,7 +54,6 @@ $(function() {
                                             type: 'text',
                                             name: 'nombreEstudiante',
                                             autocomplete: 'off',
-                                            placeholder: 'Nombre estudiante adicional',
                                             id: 'nombreInputEstudiante[]'});
         input_nombre.setAttribute('maxLength', 15);
         input_nombre.addEventListener('keypress', function(e) {
@@ -56,7 +66,6 @@ $(function() {
                                             type: 'text',
                                             name: 'apellidoEstudiante',
                                             autocomplete: 'off',
-                                            placeholder: 'Apellido estudiante adicional',
                                             id: 'apellidoInputEstudiante[]'});
         input_apellido.setAttribute('maxLength', 15);
         input_apellido.addEventListener('keypress', function(e) {
@@ -67,8 +76,7 @@ $(function() {
        input_apellido.classList.add('input__input');
         const input_lugar_nacimiento = D.create('textarea', {
                                             name: 'lugarNacimientoEstudiante',
-                                            id: 'lugarNacimientoInputEstudiante[]',
-                                            placeholder: 'Lugar nacimiento estudiante adicional',});
+                                            id: 'lugarNacimientoInputEstudiante[]'});
         input_lugar_nacimiento.addEventListener('keypress', function(e) {
             if(!soloAlfaNumerico(50, null)) {
                 e.preventDefault();
@@ -85,10 +93,10 @@ $(function() {
         input_fecha_nacimiento.classList.add('input__input');
 
         //Añadiendo a divs
-        D.append([span_nombre, input_nombre], div_nombre);
-        D.append([span_apellido, input_apellido], div_apellido)
-        D.append([span_lugar_nacimiento, input_lugar_nacimiento], div_lugar_nacimiento)
-        D.append([span_fecha_nacimiento, input_fecha_nacimiento], div_fecha_nacimiento)
+        D.append([input_nombre, span1, span_nombre], div_nombre);
+        D.append([input_apellido, span2, span_apellido], div_apellido)
+        D.append([input_lugar_nacimiento, span3, span_lugar_nacimiento ], div_lugar_nacimiento)
+        D.append([input_fecha_nacimiento, span4, span_fecha_nacimiento], div_fecha_nacimiento)
         D.append([borrar, titulo_estudiante, div_nombre, div_apellido, div_lugar_nacimiento, div_fecha_nacimiento], div_principal);
 
         D.append(div_principal, D.id('registro'));
