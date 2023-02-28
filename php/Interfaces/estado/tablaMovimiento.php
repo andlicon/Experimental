@@ -51,6 +51,7 @@
                     $pagoId = $referencia;
 
                     $idDeuda = $pago->getIdDeuda();
+                    $deudaId = $pago->getIdDeuda();
                     $fechaPago = $pago->getFecha();
                     $cedulaPago = $pago->getCedula();
                     $montoPago = $pago->getMonto();
