@@ -4,6 +4,7 @@
     include_once(DAO_PATH.'/DeudaDAO.php');
     include_once(DAO_PATH.'/EstudianteDAO.php');
     include_once(DAO_PATH.'/ClaseConsul.php');
+    include_once(DAO_PATH.'/PersonaDAO.php');
 
     if(isset($_POST['fecha'])) {
         $fecha = $_POST['fecha'];
@@ -104,7 +105,6 @@
                                 <p class=\"popOver__elemento\"><span class=\"negrita\">Cédula representante:</span> $estudianteCedulaRep</p>
                             </div>
                             <td class=\"tabla__td--deuda\">$montoInicial</td>
-                            <td class=\"tabla__td--ingresos\">$montoEstado</td>
                             <td class=\"tabla__td--deuda\">$deficit</td>
                         </tr>";
 
@@ -112,18 +112,35 @@
                         $pagoTotalRep = $pagoTotalRep + $montoEstado;
                         $deficitTotal = $pagoTotalRep - $deudaTotalRep;
 
-                        $representanteAux = $representanteAux=="" ? $representante : $representanteAux;
+                        $personaDAO = new PersonaDAO(BaseDeDatos::getInstancia());
+                        $resultadoRep = $personaDAO->getInstancia(array($estudianteCedulaRep));
+                        $persona= $resultadoRep[0];
+                        $cedulaRep = $persona->getCedula();
+                        $nombreRep = $persona->getNombre();
+                        $apellidoRep = $persona->getApellido();
+                        $direccionHogarRep = $persona->getDireccionHogar();
+                        $direccionTrabajoRep = $persona->getDIreccionTrabajo();
+
+                        $representanteAux = "<a id=\"rep$representante\" href=\"#re$representante\" rel=\"modal:open\" class=\"popOver__trigger\">Deudor: $representante</a>
+                                            <div id=\"re$representante\" class=\"modal\">
+                                                <h4 class=\"popOver__informacion popOver__elemento\">Informacion Representante</h4>
+                                                <p class=\"popOver__elemento\"><span class=\"negrita\">Cedula:</span> $representante</p>
+                                                <p class=\"popOver__elemento\"><span class=\"negrita\">Nombre:</span> $nombreRep</p>
+                                                <p class=\"popOver__elemento\"><span class=\"negrita\">Apellido:</span> $apellidoRep</p>
+                                                <p class=\"popOver__elemento\"><span class=\"negrita\">Direccion hogar:</span> $direccionHogarRep</p>
+                                                <p class=\"popOver__elemento\"><span class=\"negrita\">Direccion trabajo:</span> $direccionTrabajoRep</p>
+                                        </div>
+                                            </div>";
 
                         $classDeficit = $deficitTotal<0 ? "tabla__td--deuda" : "tabla__td--ingresos";
                         $tablaAux = "<table class=\"tabla__table\">
                                         </thead>
                                             <caption>
-                                                Representante: $representanteAux
+                                                $representanteAux
                                             </caption>
                                             <tr class=\"tabla__tr\">
                                                 <th class=\"tabla__td tabla__th\">Estudiante</th>
                                                 <th class=\"tabla__td tabla__th\">Deuda generada</th>
-                                                <th class=\"tabla__td tabla__th\">Monto Pagado</th>
                                                 <th class=\"tabla__td tabla__th\">Deficit</th>
                                             </tr>
                                         </thead>
@@ -135,7 +152,6 @@
                                             <tr>
                                                 <td>TOTAL</td>
                                                 <td class=\"tabla__td--deuda\">$deudaTotalRep</td>
-                                                <td class=\"tabla__td--ingresos\">$pagoTotalRep</td>
                                                 <td class=\"$classDeficit\">$deficitTotal</td>
                                             </tr>
                                         </tfoot>
@@ -160,3 +176,9 @@
         echo $html."</div>";
     }
 ?>
+
+<!-- 
+    <h4 class=\"popOver__informacion popOver__elemento\">Informacion Contacto</h4>
+    <p class=\"popOver__elemento\"><span class=\"negrita\">Telefóno:</span> $telefono</p>
+    <p class=\"popOver__elemento\"><span class=\"negrita\">Correo:</span> $correo</p>
+-->
