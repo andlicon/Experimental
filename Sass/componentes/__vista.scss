@@ -255,3 +255,11 @@ input {
 .separacion {
     margin-bottom: 1em !important;
 }
+
+.alLado {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 2em;
+    justify-content: space-around;
+    align-items: stretch;
+}

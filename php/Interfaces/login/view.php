@@ -106,23 +106,25 @@
             </div>
         
             <div id="inscripcion" class="display--oculto visibilidad contenido-login">
-                <div class="bloque div--seleccionado">
-                    <h2 class="formu--titulo titulo--bienvenida">Proceso de Pre-Inscripción</h2>
-                    <p>
-                        El proceso de inscripción para el presente año escolar consta de dos pasos, 
-                        el primero, el cual consiste en una planilla virtual de "<a href="#solicitud-ingreso">SOLICITUD DE INGRESO</a>", la cual está disponible al final de esta página
-                        Su llenado via online da inicio al proceso de inscripción, posterior a esto, deberá llevar al instituto el resto de los recaudos en una carpeta, para así dar paso al proceso de validación.
-                    </p>
-                </div>
-                <div class="bloque div--seleccionado">
-                    <h2 class="formu--titulo titulo--bienvenida">Recaudos solicitados</h2>
-                    <ul>
-                       <li>Copia de la partida de nacimiento</li>
-                       <li>copia de la boleta final</li>
-                       <li>Certificado de promoción</li>
-                       <li>Constancia de conducta</li>
-                       <li>Solvencia de pago del último colegio inscrito</li>
-                    </ul>
+                <div class="alLado">
+                    <div class="bloque div--seleccionado">
+                        <h2 class="formu--titulo titulo--bienvenida">Proceso de Pre-Inscripción</h2>
+                        <p>
+                            El proceso de inscripción para el presente año escolar consta de dos pasos, 
+                            el primero, el cual consiste en una planilla virtual de "<a href="#solicitud-ingreso">SOLICITUD DE INGRESO</a>", la cual está disponible al final de esta página
+                            Su llenado via online da inicio al proceso de inscripción, posterior a esto, deberá llevar al instituto el resto de los recaudos en una carpeta, para así dar paso al proceso de validación.
+                        </p>
+                    </div>
+                    <div class="bloque div--seleccionado" style="height:100%;">
+                        <h2 class="formu--titulo titulo--bienvenida">Recaudos solicitados</h2>
+                        <ul>
+                            <li>Copia de la partida de nacimiento</li>
+                            <li>copia de la boleta final</li>
+                            <li>Certificado de promoción</li>
+                            <li>Constancia de conducta</li>
+                            <li>Solvencia de pago del último colegio inscrito</li>
+                        </ul>
+                    </div>
                 </div>
                 <div id="solicitud-ingreso" class="bloque div--seleccionado">
                     <h2 class="formu--titulo titulo--bienvenida">Solicitud de ingreso</h3>
