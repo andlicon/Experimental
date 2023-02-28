@@ -217,11 +217,13 @@
                                     <span></span>
                                     <label for="fechaNacimientoInputEstudiante[]" class="input__label">Fecha nacimiento</label>
                                 </div>
+
                                 <input type="button" value="Añadir estudiante adicional" id="masEstudiantes">
+
                                 <script src="js/codigo.js"></script>
                                 <script src="js/dom.js"></script>
                             </div>
-                        <input type="button" class="login__boton boton" id="botonRegistrar" value="Registrar"></button>
+                        <input type="button" class="boton btn" style="text-align:center; display:flex; flex-flow:column; justify-content:center; color:black; font-weight: 300;" id="botonRegistrar" value="Registrar"></button>
                     </form>
                 </div>
             </div>
