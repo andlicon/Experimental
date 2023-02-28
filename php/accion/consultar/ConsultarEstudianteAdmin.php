@@ -5,7 +5,7 @@
     include_once(DAO_PATH.'EstudianteDAO.php');
     include_once(DAO_PATH.'PersonaDAO.php');
     include_once(DAO_PATH.'ClaseConsul.php');
-    include_once(CREADORES_PATH.'/select/CreadorSelectValido.php');
+    include_once(CREADORES_PATH.'/select/CreadorSelectInscripcion.php');
     include_once(CREADORES_PATH.'/select/CreadorSelectClase.php');
 
     final class ConsultarEstudianteAdmin implements Consultor {
@@ -64,7 +64,7 @@
             $personaDAO = new PersonaDAO(BaseDeDatos::getInstancia());
             $claseConsul = new ClaseConsul(BaseDeDatos::getInstancia());
 
-            $selectValido = new CreadorSelectValido();
+            $selectValido = new CreadorSelectInscripcion();
             $selectClase = new CreadorSelectClase();
         
             for($i=0; $i<count($registros); $i++) {
@@ -83,10 +83,11 @@
                 //Informacion clase
                 $nombreClase = $idClase!=null ? $claseConsul->getInstancia(array($idClase))[0]->getDescripcion($idClase) : "Sin asignar";
 
-                $validez = $selectValido->crearItemAtributosSeleccion("class=\"modificable modificable$idEstudiante ocultar\"", "validoInput$idEstudiante", $valido);
+                $validez = $selectValido->crearItemAtributosSeleccion("class=\"modificable modificable$idEstudiante ocultar\"", "validoInput$idEstudiante", $estudiante->getValido());
                 $clase = $selectClase->crearItemAtributosSeleccion("class=\"modificable modificable$idEstudiante ocultar\"", "claseInput$idEstudiante", $idClase);
                 
                 $valido = $estudiante->getValido() == 0 ? "Por confirmar" : "Confirmado";
+                $valido = $estudiante->getValido() == 2 ? "Inscrito" : $valido;
 
                 $eliminador = "<input type=\"button\" class=\"eliminar\" value=\"$idEstudiante\">";
                 $modificador = "<input type=\"button\" class=\"modificar habilitarModif\" value=\"$idEstudiante\">";
@@ -124,6 +125,9 @@
                     <td class=\"output__celda\">
                         <span class=\"modificable modificable--estado$idEstudiante\" id=\"validez$idEstudiante\">$valido</span>
                        $validez
+                       <script>
+
+                       </script>
                     </td>
                     <td class=\"output__celda\">
                         $eliminador

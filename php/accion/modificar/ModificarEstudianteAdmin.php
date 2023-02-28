@@ -11,7 +11,8 @@
         $apellido = $_POST['apellido'];
         $fecha = $_POST['fecha'];
         $clase = $_POST['clase'];
-        $valido = $_POST['valido'] == 1 ? true : false;
+        $valido = $_POST['valido'] == 1 ? 1 : 0;
+        $valido = $_POST['valido'] == 2 ? 2 : $valido;
         $lugarNacimiento = $_POST['lugarNacimiento'];
 
         $estudianteDAO = new EstudianteDAO(BaseDeDatos::getInstancia());
