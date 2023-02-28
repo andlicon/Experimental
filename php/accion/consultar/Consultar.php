@@ -44,7 +44,7 @@
             else if(str_contains($pagina, "estudiante") && ($permiso==1 || $permiso==3)) {
                 $consultor = new ConsultarEstudiante();
             }
-            else if(str_contains($pagina, "estudiante") && $permiso==4) {
+            else if(str_contains($pagina, "estudiante") && $permiso==4 || $permiso==5) {
                 if(isset($_POST['validez']) && isset($_POST['representante']) && isset($_POST['clase'])) {
                     $consultor = new ConsultarEstudianteAdmin();
                 }

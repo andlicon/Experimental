@@ -8,7 +8,7 @@
 
         public function crearBotones() {
             $botones = '';
-            if($this->permiso==4) {
+            if($this->permiso==4 || $this->permiso==5) {
                 $botones = $botones.'<h2 class="botones__titulo">Consultar</h2>';
                 $botones = $botones.'<div class="input__grupo">';
                 $botones = $botones.$this->crearItemValidez();

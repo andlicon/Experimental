@@ -65,7 +65,7 @@
                 $idClase = $estudiante['id_clase'];
                 $valido = $estudiante['valido'];
                 $lugarNacimiento = $estudiante['lugar_nacimiento'];
-                $fechaInscripcion = $estudiante['fecha_inscripcion'];
+                $fechaInscripcion = $estudiante['fecha_registro'];
                 $regular = $estudiante['regular'];
      
                 $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento, 
@@ -99,7 +99,7 @@
                 $idClase = $estudiante['id_clase'];
                 $valido = $estudiante['valido'];
                 $lugarNacimiento = $estudiante['lugar_nacimiento'];
-                $fechaInscripcion = $estudiante['fecha_inscripcion'];
+                $fechaInscripcion = $estudiante['fecha_registro'];
                 $regular = $estudiante['regular'];
      
                 $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento, 
@@ -134,7 +134,7 @@
                 $idClase = $estudiante['id_clase'];
                 $valido = $estudiante['valido'];
                 $lugarNacimiento = $estudiante['lugar_nacimiento'];
-                $fechaInscripcion = $estudiante['fecha_inscripcion'];
+                $fechaInscripcion = $estudiante['fecha_registro'];
                 $regular = $estudiante['regular'];
      
                 $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento, 
@@ -170,7 +170,7 @@
                 $idClase = $estudiante['id_clase'];
                 $valido = $estudiante['valido'];
                 $lugarNacimiento = $estudiante['lugar_nacimiento'];
-                $fechaInscripcion = $estudiante['fecha_inscripcion'];
+                $fechaInscripcion = $estudiante['fecha_registro'];
                 $regular = $estudiante['regular'];
      
                 $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento, 
@@ -188,7 +188,7 @@
                          FROM estudiante
                          WHERE cedula_representante=?
                             AND id_clase=?";
-            echo $cedulaRep[0].' '.$cedulaRep[1];
+            
             $registros = $this->bd->sql($consulta, $cedulaRep);
 
             if(empty($registros)) {
@@ -206,7 +206,7 @@
                 $idClase = $estudiante['id_clase'];
                 $valido = $estudiante['valido'];
                 $lugarNacimiento = $estudiante['lugar_nacimiento'];
-                $fechaInscripcion = $estudiante['fecha_inscripcion'];
+                $fechaInscripcion = $estudiante['fecha_registro'];
                 $regular = $estudiante['regular'];
      
                 $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento, 
@@ -239,7 +239,7 @@
                 $idClase = $estudiante['id_clase'];
                 $valido = $estudiante['valido'];
                 $lugarNacimiento = $estudiante['lugar_nacimiento'];
-                $fechaInscripcion = $estudiante['fecha_inscripcion'];
+                $fechaInscripcion = $estudiante['fecha_registro'];
                 $regular = $estudiante['regular'];
      
                 $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento, 
@@ -273,7 +273,7 @@
                 $idClase = $estudiante['id_clase'];
                 $valido = $estudiante['valido'];
                 $lugarNacimiento = $estudiante['lugar_nacimiento'];
-                $fechaInscripcion = $estudiante['fecha_inscripcion'];
+                $fechaInscripcion = $estudiante['fecha_registro'];
                 $regular = $estudiante['regular'];
      
                 $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento, 
@@ -307,7 +307,7 @@
                 $idClase = $estudiante['id_clase'];
                 $valido = $estudiante['valido'];
                 $lugarNacimiento = $estudiante['lugar_nacimiento'];
-                $fechaInscripcion = $estudiante['fecha_inscripcion'];
+                $fechaInscripcion = $estudiante['fecha_registro'];
                 $regular = $estudiante['regular'];
      
                 $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento, 
@@ -342,7 +342,7 @@
                 $idClase = $estudiante['id_clase'];
                 $valido = $estudiante['valido'];
                 $lugarNacimiento = $estudiante['lugar_nacimiento'];
-                $fechaInscripcion = $estudiante['fecha_inscripcion'];
+                $fechaInscripcion = $estudiante['fecha_registro'];
                 $regular = $estudiante['regular'];
      
                 $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento, 
@@ -376,7 +376,7 @@
                 $idClase = $estudiante['id_clase'];
                 $valido = $estudiante['valido'];
                 $lugarNacimiento = $estudiante['lugar_nacimiento'];
-                $fechaInscripcion = $estudiante['fecha_inscripcion'];
+                $fechaInscripcion = $estudiante['fecha_registro'];
                 $regular = $estudiante['regular'];
      
                 $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento, 

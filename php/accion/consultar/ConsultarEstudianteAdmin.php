@@ -79,6 +79,7 @@
                 $cedulaRepresentante = $estudiante->getCedulaRepresentante();
                 $valido = $estudiante->getValido();
                 $lugarNacimiento = $estudiante->getLugarNacimiento()==null? "NO ESPECIFICADO" : $estudiante->getLugarNacimiento();
+                $fechaRegistro = $estudiante->getFechaRegistro();
                 //Informacion clase
                 $nombreClase = $idClase!=null ? $claseConsul->getInstancia(array($idClase))[0]->getDescripcion($idClase) : "Sin asignar";
 
@@ -93,6 +94,10 @@
                 $cancelar = "<input type=\"button\" class=\"cancelar cancelar$idEstudiante  ocultar\" value=\"$idEstudiante\">";
 
                 $html = $html."  
+                    <td class=\"output__celda\">
+                        <input  id=\"fechaRegistro$idEstudiante\" class=\"modificable\" value=\"$fechaRegistro\" disabled>
+                        <input id=\"fechaRegistroInput$idEstudiante\" value=\"$fechaRegistro\" disabled class=\"modificable ocultar\" type=\"date\">
+                    </td>
                     <td class=\"output__celda\">
                         <input  id=\"nombre$idEstudiante\" class=\"modificable modificable--estado$idEstudiante\" value=\"$nombre\" disabled>
                         <input id=\"nombreInput$idEstudiante\" type=\"text\" value=\"$nombre\" disabled class=\"modificable modificable$idEstudiante ocultar\" onkeypress=\"return soloAlfabeto(15, 'nombreInput$idEstudiante')\">

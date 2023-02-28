@@ -23,8 +23,8 @@
             $this->idClase = $idClase;
             $this->valido = $valido;
             $this->lugarNacimiento = $lugarNacimiento;
-            $this->$fechaInscripcion = $fechaInscripcion;
-            $this->$regular = $regular;
+            $this->fechaInscripcion = $fechaInscripcion;
+            $this->regular = $regular;
         }
 
         public function getId() {
@@ -54,7 +54,7 @@
         public function getRegular() {
             return $this->regular;
         }
-        public function getFechaInscripcion() {
+        public function getFechaRegistro() {
             return $this->fechaInscripcion;
         }
         
