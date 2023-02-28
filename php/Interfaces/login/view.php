@@ -106,16 +106,16 @@
             </div>
         
             <div id="inscripcion" class="display--oculto visibilidad contenido-login">
-                <div class="bloque">
-                    <h2>Proceso de Pre-Inscripción</h2>
+                <div class="bloque div--seleccionado">
+                    <h2 class="formu--titulo titulo--bienvenida">Proceso de Pre-Inscripción</h2>
                     <p>
                         El proceso de inscripción para el presente año escolar consta de dos pasos, 
                         el primero, el cual consiste en una planilla virtual de "<a href="#solicitud-ingreso">SOLICITUD DE INGRESO</a>", la cual está disponible al final de esta página
                         Su llenado via online da inicio al proceso de inscripción, posterior a esto, deberá llevar al instituto el resto de los recaudos en una carpeta, para así dar paso al proceso de validación.
                     </p>
                 </div>
-                <div class="bloque">
-                    <h2>Recaudos solicitados</h2>
+                <div class="bloque div--seleccionado">
+                    <h2 class="formu--titulo titulo--bienvenida">Recaudos solicitados</h2>
                     <ul>
                        <li>Copia de la partida de nacimiento</li>
                        <li>copia de la boleta final</li>
@@ -124,8 +124,8 @@
                        <li>Solvencia de pago del último colegio inscrito</li>
                     </ul>
                 </div>
-                <div id="solicitud-ingreso" class="bloque">
-                    <h2>Solicitud de ingreso</h3>
+                <div id="solicitud-ingreso" class="bloque div--seleccionado">
+                    <h2 class="formu--titulo titulo--bienvenida">Solicitud de ingreso</h3>
                     <form action="" method="POST" class="registro" id="registro">
                         <div class="datos-usuario marco-deuda subBloque centrado subBloqueTitulo nacio">
                             <h4 class="popOver__informacion formu--titulo corregir">Datos usuario</h4>
