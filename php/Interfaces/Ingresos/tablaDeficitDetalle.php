@@ -5,6 +5,7 @@
     include_once(DAO_PATH.'/EstudianteDAO.php');
     include_once(DAO_PATH.'/ClaseConsul.php');
     include_once(DAO_PATH.'/PersonaDAO.php');
+    include_once(DAO_PATH.'/ContactoDAO.php');
 
     if(isset($_POST['fecha'])) {
         $fecha = $_POST['fecha'];
@@ -121,6 +122,12 @@
                         $direccionHogarRep = $persona->getDireccionHogar();
                         $direccionTrabajoRep = $persona->getDIreccionTrabajo();
 
+                        //Ahora su contacto
+                        $contactoDAO = new ContactoDAO(BaseDeDatos::getInstancia());
+                        $cont = $contactoDAO->getInstanciaCedula(array($representante));
+                        $telefono = $cont[1]->getContacto();
+                        $correo = $cont[0]->getContacto();
+
                         $representanteAux = "<a id=\"rep$representante\" href=\"#re$representante\" rel=\"modal:open\" class=\"popOver__trigger\">Deudor: $representante</a>
                                             <div id=\"re$representante\" class=\"modal\">
                                                 <h4 class=\"popOver__informacion popOver__elemento\">Informacion Representante</h4>
@@ -129,6 +136,9 @@
                                                 <p class=\"popOver__elemento\"><span class=\"negrita\">Apellido:</span> $apellidoRep</p>
                                                 <p class=\"popOver__elemento\"><span class=\"negrita\">Direccion hogar:</span> $direccionHogarRep</p>
                                                 <p class=\"popOver__elemento\"><span class=\"negrita\">Direccion trabajo:</span> $direccionTrabajoRep</p>
+                                                <h4 class=\"popOver__informacion popOver__elemento\">Informacion Contacto</h4>
+                                                <p class=\"popOver__elemento\"><span class=\"negrita\">Telefóno:</span> $telefono</p>
+                                                <p class=\"popOver__elemento\"><span class=\"negrita\">Correo:</span> $correo</p>
                                         </div>
                                             </div>";
 
