@@ -69,7 +69,7 @@
                         success : function(response) {
                             $('.output').html(response);
                         }
-                })
+                    })
                 </script>
             </div>
             <div class="input">

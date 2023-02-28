@@ -208,7 +208,7 @@
                                     <label for="apellidoInputEstudiante[]" class="input__label">Apellido</label>
                                 </div>
                                 <div class="formu">
-                                    <textarea id="lugarNacimientoInputEstudiantee[]" name="lugarNacimientoInputEstudiante[]" autocomplete="off" class="input__input input__input--texto textarea" style="color: black;" onkeypress="return soloAlfaNumerico(50, null)" maxlength="50" required></textarea>
+                                    <textarea id="lugarNacimientoInputEstudiante[]" name="lugarNacimientoInputEstudiante[]" autocomplete="off" class="input__input input__input--texto textarea" style="color: black;" onkeypress="return soloAlfaNumerico(50, null)" maxlength="50" required></textarea>
                                     <span></span>
                                     <label for="lugarNacimientoInputEstudiante[]" class="input__label">Lugar Nacimiento</label>
                                 </div>

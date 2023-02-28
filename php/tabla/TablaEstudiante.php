@@ -3,8 +3,10 @@
     $colAdicional1 = "";
     $colAdicional2 = "";
     $colAdicional3 = "";
+    $colAdicional4 = "";
     $thAdicional1 = "";
     $thAdicional2 = "";
+    $thAAdicional4 = "";
 
     if($permiso==5 || $permiso==4) {
         $colAdicional1 = "
@@ -14,6 +16,7 @@
         $colAdicional3 = "
             <col class=\"output__col output__col--estado\">
         ";
+        $colAdicional4 = "<col class=\"output__col output__col--acciones\">";
 
         $thAdicional1 = "
             <th class=\"output__celda output__celda--header\">
@@ -22,6 +25,10 @@
         $thAdicional2 = "
             <th class=\"output__celda output__celda--header\">
                 Estado
+            </th>";
+        $thAAdicional4 = "
+            <th class=\"output__celda output__celda--header\">
+                Acciones
             </th>";
     }
 
@@ -37,7 +44,7 @@
                 <col class=\"output__col output__col--clase\">
                 $colAdicional1
                 $colAdicional3 
-                <col class=\"output__col output__col--acciones\">
+                $colAdicional4
             </colgroup>
             <thead class=\"output__header\">
                 <tr class=\"output__renglon\">
@@ -58,12 +65,10 @@
                         Clase
                     </th>
                     <th class=\"output__celda output__celda--header\">
-                        Estado inscripcion
+                        Estado
                     </th>
                     $thAdicional2
-                    <th class=\"output__celda output__celda--header\">
-                        Acciones
-                    </th>
+                    $thAAdicional4
                 </tr>
             </thead>
             <tbody class=\"output__body\">

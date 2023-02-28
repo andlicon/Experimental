@@ -125,9 +125,6 @@
                     <td class=\"output__celda\">
                         <span class=\"modificable modificable--estado$idEstudiante\" id=\"validez$idEstudiante\">$valido</span>
                        $validez
-                       <script>
-
-                       </script>
                     </td>
                     <td class=\"output__celda\">
                         $eliminador
