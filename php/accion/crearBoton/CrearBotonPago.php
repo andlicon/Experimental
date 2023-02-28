@@ -63,11 +63,11 @@
             '<div class="input__grupo">';
             // $item = $item.$this->crearItem("consultar", "Consultar");
             $item = $item.'
-                <label for="validezPagoInput" class="input__label">Validez del pago</label>
+                <label for="validezPagoInput" class="input__label">Estado del pago</label>
                 <select class="input__select consultor" id="validezPagoInput" name="validezPagoInput">
                     <option value="todos">todos</option>
-                    <option value="1">validos</option>
-                    <option value="0">invalidos</option>
+                    <option value="1">Confirmados</option>
+                    <option value="0">Por confirmar</option>
                 </select>
                 <label for="representanteInput" class="input__label">Representante</label>
                 <select class="input__select consultor"  id="representanteInput" name="representanteInput">';
