@@ -6,6 +6,7 @@
     include_once(DAO_PATH.'PersonaDAO.php');
     include_once(DAO_PATH.'ClaseConsul.php');
     include_once(CREADORES_PATH.'/select/CreadorSelectInscripcion.php');
+    include_once(CREADORES_PATH.'/select/CreadorSelectValido.php');
     include_once(CREADORES_PATH.'/select/CreadorSelectClase.php');
 
     final class ConsultarEstudianteAdmin implements Consultor {
@@ -80,12 +81,17 @@
                 $valido = $estudiante->getValido();
                 $lugarNacimiento = $estudiante->getLugarNacimiento()==null? "NO ESPECIFICADO" : $estudiante->getLugarNacimiento();
                 $fechaRegistro = $estudiante->getFechaRegistro();
+                $regularidad = $estudiante->getRegular();
                 //Informacion clase
                 $nombreClase = $idClase!=null ? $claseConsul->getInstancia(array($idClase))[0]->getDescripcion($idClase) : "Sin asignar";
+
+                $regularSelect = new CreadorSelectValido();
+                $regular = $regularSelect->crearItemAtributosSeleccionRegular("class=\"modificable modificable$idEstudiante ocultar\"", "regularidadInput$idEstudiante", $regularidad);
 
                 $validez = $selectValido->crearItemAtributosSeleccion("class=\"modificable modificable$idEstudiante ocultar\"", "validoInput$idEstudiante", $estudiante->getValido());
                 $clase = $selectClase->crearItemAtributosSeleccion("class=\"modificable modificable$idEstudiante ocultar\"", "claseInput$idEstudiante", $idClase);
                 
+                $regularidad = $regularidad==0 ? "No regular" : "Regular";
                 $valido = $estudiante->getValido() == 0 ? "Por confirmar" : "Confirmado";
                 $valido = $estudiante->getValido() == 2 ? "Inscrito" : $valido;
 
@@ -120,7 +126,8 @@
                         $clase
                     </td>
                     <td class=\"output__celda\">
-                        Inscrito
+                        <span class=\"modificable modificable--estado$idEstudiante\" id=\"clase$idEstudiante\">$regularidad</span>
+                        $regular
                     </td>
                     <td class=\"output__celda\">
                         <span class=\"modificable modificable--estado$idEstudiante\" id=\"validez$idEstudiante\">$valido</span>

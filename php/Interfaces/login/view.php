@@ -55,7 +55,7 @@
             <div class="informacion contenido-login visibilidad mainCentrado" id="bienvenida">
                 <div class="bienvenida bloque">
                     <div class="div--seleccionado">
-                        <h2 class="titulo--bienvenida formu--titulo">Unidad Educativa Instituto Experimental</h2>
+                        <h2 class="titulo--bienvenida formu--titulo" style="font-size:2.5em;">Unidad Educativa Instituto Experimental</h2>
                         <p>
                             Somos una Institución con 45 años de trayectoria, enfocados en la excelencia educativa.
                             Nuestra prioridad: la Educación en Valores.
@@ -110,10 +110,17 @@
                     <div class="bloque div--seleccionado">
                         <h2 class="formu--titulo titulo--bienvenida">Proceso de Pre-Inscripción</h2>
                         <p>
+                            El proceso de inscripción consta de dos pasos.
+                        </p>
+                        <ol>
+                            <li>Llenado de <a href="#solicitud-ingreso">PLANILLA VIRTUAL</a></li>
+                            <li>Entrega de recaudos.</li>
+                        </ol>
+                        <!-- <p>
                             El proceso de inscripción para el presente año escolar consta de dos pasos, 
                             el primero, el cual consiste en una planilla virtual de "<a href="#solicitud-ingreso">SOLICITUD DE INGRESO</a>", la cual está disponible al final de esta página
                             Su llenado via online da inicio al proceso de inscripción, posterior a esto, deberá llevar al instituto el resto de los recaudos en una carpeta, para así dar paso al proceso de validación.
-                        </p>
+                        </p> -->
                     </div>
                     <div class="bloque div--seleccionado" style="height:100%;">
                         <h2 class="formu--titulo titulo--bienvenida">Recaudos solicitados</h2>

@@ -1575,20 +1575,11 @@ h2 {
   margin-top: 1em;
 }
 
-.body-page {
-  background-color: #5A9AC4 !important;
-}
-
-body {
-  background-color: #5A9AC4 !important;
-}
-
 .subBloque {
   background-color: white !important;
 }
 
 main {
-  background-color: #5A9AC4 !important;
   color: black !important;
 }
 
@@ -1616,8 +1607,16 @@ p {
   transition: 0.3s;
 }
 
+html {
+  background-color: white !important;
+}
+
+body {
+  background-color: inherit !important;
+}
+
 .bloque {
-  background-color: #BDE1F9;
+  background-color: #1170A8;
 }
 
 .div--seleccionado:hover .titulo--bienvenida {
@@ -1626,4 +1625,24 @@ p {
 
 .div--seleccionado:hover .formu--titulo {
   border-bottom: 1px solid #2691d9;
+}
+
+.body-login {
+  background-color: inherit !important;
+}
+
+.titulo--bienvenida {
+  font-size: 2 !important;
+}
+
+ol {
+  padding-left: 2em;
+  margin-top: 1em;
+}
+ol li {
+  list-style-type: decimal !important;
+}
+
+.contenido-login p, .contenido-login li {
+  font-size: 1.3em;
 }

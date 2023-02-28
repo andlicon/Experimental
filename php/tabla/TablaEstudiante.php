@@ -24,7 +24,7 @@
             </th>";
         $thAdicional2 = "
             <th class=\"output__celda output__celda--header\">
-                Estado
+                Estado regular
             </th>";
         $thAAdicional4 = "
             <th class=\"output__celda output__celda--header\">
@@ -64,10 +64,10 @@
                     <th class=\"output__celda output__celda--header\">
                         Clase
                     </th>
-                    <th class=\"output__celda output__celda--header\">
-                        Estado
-                    </th>
                     $thAdicional2
+                    <th class=\"output__celda output__celda--header\">
+                        Estado 
+                    </th>
                     $thAAdicional4
                 </tr>
             </thead>

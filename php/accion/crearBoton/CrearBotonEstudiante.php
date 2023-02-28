@@ -34,6 +34,7 @@
                 <label for="validezInput" class="input__label">Estado registro</label>
                 <select class="input__select consultor" id="validezInput" name="validezInput">
                     <option value="todas">Todos</option>
+                    <option value="2">Inscrito</option>
                     <option value="1">Confirmado</option>
                     <option value="0">Por confirmar</option>';
             $item = $item.
