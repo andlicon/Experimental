@@ -50,7 +50,7 @@
             </thead>
             <tbody></tbody>
             <tfoot>
-                    <tr>
+                    <tr class=\"tr--total\">
                         <td colspan=\"7\"></td>
                         <td>
                             Deuda total: <span class=\"deuda__span\"></span>

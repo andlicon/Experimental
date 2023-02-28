@@ -7,3 +7,42 @@ h2 {
     margin-top: .5em;
     color: black;
 }
+
+.negrita {
+    color: #2691d9;
+}
+
+.modificable {
+    width: 100px;
+}
+
+.output__celda input {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.output__celda span{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.output__celda div {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.output__celda {
+    padding: 0;
+}
+
+.output__table tr {
+    height: 100px;
+}
+
+.output__table .tr--total {
+    height: 1em;
+}
+
+.output__table thead tr {
+    height: auto;
+}

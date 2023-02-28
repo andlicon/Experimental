@@ -1214,6 +1214,14 @@ ul {
   color: black;
 }
 
+.popOver__informacion {
+  color: #2691d9;
+}
+
+.output__celda input {
+  background-color: white;
+}
+
 .tabla {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1246,7 +1254,8 @@ ul {
   height: 500px;
   table-layout: fixed;
   border-collapse: collapse;
-  border: 3px solid purple;
+  border: 3px solid #2691d9;
+  background-color: white;
   overflow: scroll;
   overflow-x: hidden;
 }
@@ -1261,7 +1270,8 @@ ul {
   padding: 5px;
 }
 .output__table tr, .output__table col, .output__table th {
-  border: 3px solid purple;
+  border: 3px solid #2691d9;
+  background-color: white;
 }
 .output__table tr {
   border-left: 0px hidden;
@@ -1439,4 +1449,43 @@ h2 {
   margin-bottom: 1em;
   margin-top: 0.5em;
   color: black;
+}
+
+.negrita {
+  color: #2691d9;
+}
+
+.modificable {
+  width: 100px;
+}
+
+.output__celda input {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.output__celda span {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.output__celda div {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.output__celda {
+  padding: 0;
+}
+
+.output__table tr {
+  height: 100px;
+}
+
+.output__table .tr--total {
+  height: 1em;
+}
+
+.output__table thead tr {
+  height: auto;
 }

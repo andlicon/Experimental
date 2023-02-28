@@ -184,8 +184,8 @@
                         $motivoSelect
                     </td>
                     <td class=\"output__celda\">
-                        <input type=\"text\" id=\"descripcion$id\"class=\"modificable modificable--estado$id\" value=\"$descripcion\" disabled>
-                        <input id=\"descripcionInput$id\" type=\"text\" value=\"$descripcion\" disabled class=\"modificable modificable$id ocultar\" onkeypress=\"return soloAlfaNumerico(50, 'descripcionInput$id')\">
+                        <textarea name=\"descripcion$id\" id=\"descripcion$id\" disabled class=\"modificable modificable--estado$cedula textarea\" cols=\"14\" rows=\"5\">$descripcion</textarea>
+                        <textarea name=\"descripcionInput$id\" id=\"descripcionInput$id\" disabled class=\"modificable modificable$id ocultar textarea\" cols=\"14\" rows=\"5\" onkeypress=\"return soloAlfaNumerico(50, 'descripcionInput$id')\">$descripcion</textarea>
                     </td>
                     <td class=\"output__celda\">
                         <input  id=\"fecha$id\" class=\"modificable modificable--estado$id\" value=\"$fecha\" disabled>

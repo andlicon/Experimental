@@ -120,12 +120,12 @@
                         <input id=\"apellidoInput$cedula\" type=\"text\" value=\"$apellido\" disabled class=\"modificable modificable$cedula ocultar\" onkeypress=\"return soloAlfabeto(15, 'apellidoInput$cedula')\">   
                     </td>
                     <td class=\"output__celda\">
-                        <input  id=\"direccionTrabajo$cedula\" class=\"modificable modificable--estado$cedula\" value=\"$direccionTrabajo\" disabled>
-                        <input id=\"direccionTrabajoInput$cedula\" type=\"text\" value=\"$direccionTrabajo\" disabled class=\"modificable modificable$cedula ocultar\" onkeypress=\"return soloAlfaNumerico(50, 'direccionTrabajoInput$cedula')\">
+                        <textarea name=\"direccionTrabajo$cedula\" id=\"direccionTrabajo$cedula\" disabled class=\"modificable modificable--estado$cedula textarea\" cols=\"14\" rows=\"5\">$direccionTrabajo</textarea>
+                        <textarea name=\"direccionTrabajoInput$cedula\" id=\"direccionTrabajoInput$cedula\" disabled class=\"modificable modificable$cedula ocultar textarea\" cols=\"14\" rows=\"5\"onkeypress=\"return soloAlfaNumerico(50, 'direccionTrabajoInput$cedula')\">$direccionTrabajo</textarea>
                     </td>
                     <td class=\"output__celda\">
-                        <input  id=\"direccionHogar$cedula\" class=\"modificable modificable--estado$cedula\" value=\"$direccionHogar\" disabled>
-                        <input id=\"direccionHogarInput$cedula\" type=\"text\" value=\"$direccionHogar\" disabled class=\"modificable modificable$cedula ocultar\" onkeypress=\"return soloAlfaNumerico(50, 'direccionHogarInput$cedula')\">
+                        <textarea name=\"direccionHogar$cedula\" id=\"direccionHogar$cedula\" disabled class=\"modificable modificable--estado$cedula textarea\" cols=\"14\" rows=\"5\">$direccionHogar</textarea>
+                        <textarea name=\"direccionHogarInput$cedula\" id=\"direccionHogarInput$cedula\" disabled class=\"modificable modificable$cedula ocultar textarea\" cols=\"14\" rows=\"5\" onkeypress=\"return soloAlfaNumerico(50, 'direccionHogarInput$cedula')\">$direccionHogar</textarea>
                     </td>
                     <td class=\"output__celda\">
                         <span class=\"modificable modificable--estado\">$tipoUsuario</span>

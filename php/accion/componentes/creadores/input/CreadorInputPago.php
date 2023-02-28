@@ -38,27 +38,27 @@
                     <div class=\"formu\">
 	                    <input type=\"date\" id=\"fechaInput\">
                         <span></span>
-                        <label for=\"fechaInput\">Fecha</label>
+                        <label class=\"negrita\" for=\"fechaInput\">Fecha</label>
                     </div>
                     <div class=\"formu\">
                         <span></span>
 	                    <input type=\"text\" onkeypress=\"return soloNumeros(8, 'montoInput')\" id=\"montoInput\">
-                        <label for=\"montoInput\">Monto</label>
+                        <label class=\"negrita\" for=\"montoInput\">Monto</label>
                     </div>
                     <div class=\"formu\">
                         <span></span>
                         $selectCuenta
-	                    <label for=\"cuentaInput\">Cuenta</label>
+	                    <label class=\"negrita\" for=\"cuentaInput\">Cuenta</label>
                     </div>
                     <div class=\"formu\">
                         <span></span>
                         $selectTipoPago
-	                    <label for=\"tipoPagoInput\">Tipo Pago</label>
+	                    <label class=\"negrita\" for=\"tipoPagoInput\">Tipo Pago</label>
                     </div>
                     <div class=\"formu\">
                         <span></span>
 	                    <input type=\"text\" onkeypress=\"return soloNumeros(8, 'referenciaInput')\" id=\"referenciaInput\">
-                        <label for=\"ReferenciaInput\">Referencia</label>
+                        <label class=\"negrita\" for=\"ReferenciaInput\">Referencia</label>
                     </div>
                 </div>
             </div>

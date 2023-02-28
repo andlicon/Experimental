@@ -5,7 +5,8 @@
     table-layout: fixed;
     border-collapse: collapse;
 
-    border: 3px solid purple;
+    border: 3px solid #2691d9;
+    background-color: white;
 
     overflow: scroll;
     overflow-x: hidden;
@@ -23,7 +24,8 @@
     }
 
     tr, col, th  {
-        border: 3px solid purple;
+        border: 3px solid #2691d9;
+        background-color: white;
     }
 
     tr {
