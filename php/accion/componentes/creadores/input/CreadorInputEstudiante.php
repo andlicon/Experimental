@@ -17,8 +17,8 @@
 
             $html = 
                 "
-                <h2>Registrar nuevo estudiante</h2>
-            <div class=\"marco-deuda\">
+            <div class=\"marco-deuda margin--top\">
+                <h4 class=\"popOver__informacion formu--titulo corregir\">Registrar nuevo estudiante</h4>
                 <div class=\"formu\">
 	                <input type=\"text\" onkeypress=\"return soloAlfabeto(15, 'nombreInput')\"  id=\"nombreInput\">
                     <span></span>

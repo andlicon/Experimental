@@ -31,7 +31,7 @@
                 $idClase = $estudiante['id_clase'];
                 $valido = $estudiante['valido'];
                 $lugarNacimiento = $estudiante['lugar_nacimiento'];
-                $fechaInscripcion = $estudiante['fecha_inscripcion'];
+                $fechaInscripcion = $estudiante['fecha_registro'];
                 $regular = $estudiante['regular'];
      
                 $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento, 
