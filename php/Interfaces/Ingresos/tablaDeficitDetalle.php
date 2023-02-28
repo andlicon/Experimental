@@ -3,6 +3,7 @@
     include_once(DAO_PATH.'/BaseDeDatos.php');
     include_once(DAO_PATH.'/DeudaDAO.php');
     include_once(DAO_PATH.'/EstudianteDAO.php');
+    include_once(DAO_PATH.'/ClaseConsul.php');
 
     if(isset($_POST['fecha'])) {
         $fecha = $_POST['fecha'];
@@ -68,13 +69,40 @@
                          //Info estudiante
                         $estudianteResul = $estudianteDAO->getInstancia(array($idEstudiante));
                         $estudiante = $estudianteResul[0];
-                        $estudiante = $estudiante->getNombre().' '.$estudiante->getApellido();
+                        $estudianteNombre = $estudiante->getNombre();
+                        $estudianteApellido = $estudiante->getApellido();
+                        $estudianteFecha = $estudiante->getFechaNacimiento();
+                        $estudianteLugarNacimiento = $estudiante->getLugarNacimiento();
+                        $estudianteClaseNombre = $estudiante->getIdClase();
+                        $estudianteCedulaRep = $estudiante->getCedulaRepresentante();
+
+                        //clase
+                        $claseConsul = new ClaseConsul(BaseDeDatos::getInstancia());
+
+                        if($estudianteClaseNombre!=null) {
+                            $resultadoClase = $claseConsul->getInstancia(array($estudianteClaseNombre));
+                            $clase = $resultadoClase[0];
+                            $estudianteClaseNombre = $clase->getDescripcion();
+                        }
+                        else {
+                            $estudianteClaseNombre = "Sin asignar";
+                        }
+
 
                         //Info
                         $classDeficit = $deficit<0 ? "tabla__td--deuda" : "tabla__td--ingresos";
                         $estudianteRow = $estudianteRow."
                         <tr>
-                            <td>$estudiante</td>
+                            <td><a id=\"estudiante$idEstudiante\" href=\"#ex$idEstudiante\" rel=\"modal:open\" class=\"popOver__trigger\">$estudianteNombre</a></td>
+                            <div id=\"ex$idEstudiante\" class=\"modal\">
+                                <h4 class=\"popOver__informacion popOver__elemento\">Informacion Estudiante</h4>
+                                <p class=\"popOver__elemento\"><span class=\"negrita\">Nombre:</span> $estudianteNombre</p>
+                                <p class=\"popOver__elemento\"><span class=\"negrita\">Apellido:</span> $estudianteApellido</p>
+                                <p class=\"popOver__elemento\"><span class=\"negrita\">Fecha nacimiento:</span> $estudianteFecha</p>
+                                <p class=\"popOver__elemento\"><span class=\"negrita\">Lugar nacimiento:</span> $estudianteLugarNacimiento</p>
+                                <p class=\"popOver__elemento\"><span class=\"negrita\">Clase inscrito:</span> $estudianteClaseNombre</p>
+                                <p class=\"popOver__elemento\"><span class=\"negrita\">Cédula representante:</span> $estudianteCedulaRep</p>
+                            </div>
                             <td class=\"tabla__td--deuda\">$montoInicial</td>
                             <td class=\"tabla__td--ingresos\">$montoEstado</td>
                             <td class=\"tabla__td--deuda\">$deficit</td>
