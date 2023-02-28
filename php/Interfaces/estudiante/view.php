@@ -57,11 +57,20 @@
                 </div>
             </div>
             <div class="output">
-                <?php
-                    include_once(TABLA_PATH.'/TablaEstudiante.php');
-                    $tabla = new TablaEstudiante();
-                    $tabla->crearTabla();
-                ?>
+                <script>
+                    var usuario = JSON.parse(localStorage.getItem('usuario'));
+                    var permiso = usuario.permiso;
+
+                    $.ajax ( {
+                        url : '../../tabla/TablaEstudiante.php',
+                        type: 'POST',
+                        data : {permiso: permiso},
+                        async : false,
+                        success : function(response) {
+                            $('.output').html(response);
+                        }
+                })
+                </script>
             </div>
             <div class="input">
                 <div id="input">
