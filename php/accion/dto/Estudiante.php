@@ -8,10 +8,13 @@
         private $lugarNacimiento;
         private $idClase;
         private $valido;
+        private $fechaInscripcion;
+        private $regular;
 
         public function __construct($id, $nombre, $apellido, $fechaNacimiento, 
                                     $cedulaRepresentante, $idClase, $valido,
-                                    $lugarNacimiento) {
+                                    $lugarNacimiento, $fechaInscripcion,
+                                    $regular) {
             $this->id = $id;
             $this->nombre = $nombre;
             $this->apellido = $apellido;
@@ -20,6 +23,8 @@
             $this->idClase = $idClase;
             $this->valido = $valido;
             $this->lugarNacimiento = $lugarNacimiento;
+            $this->$fechaInscripcion = $fechaInscripcion;
+            $this->$regular = $regular;
         }
 
         public function getId() {
@@ -45,6 +50,12 @@
         }
         public function getLugarNacimiento() {
             return $this->lugarNacimiento;
+        }
+        public function getRegular() {
+            return $this->regular;
+        }
+        public function getFechaInscripcion() {
+            return $this->fechaInscripcion;
         }
         
         public function setId($id) {

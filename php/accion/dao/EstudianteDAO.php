@@ -31,10 +31,13 @@
                 $idClase = $estudiante['id_clase'];
                 $valido = $estudiante['valido'];
                 $lugarNacimiento = $estudiante['lugar_nacimiento'];
+                $fechaInscripcion = $estudiante['fecha_inscripcion'];
+                $regular = $estudiante['regular'];
      
                 $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento, 
                                         $cedulaRepresentante, $idClase, $valido,
-                                        $lugarNacimiento);
+                                        $lugarNacimiento, $fechaInscripcion,
+                                        $regular);
                 $estudiantes[] = $est;
             }
  
@@ -62,13 +65,16 @@
                 $idClase = $estudiante['id_clase'];
                 $valido = $estudiante['valido'];
                 $lugarNacimiento = $estudiante['lugar_nacimiento'];
+                $fechaInscripcion = $estudiante['fecha_inscripcion'];
+                $regular = $estudiante['regular'];
      
                 $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento, 
                                         $cedulaRepresentante, $idClase, $valido,
-                                        $lugarNacimiento);
+                                        $lugarNacimiento, $fechaInscripcion,
+                                        $regular);
                 $estudiantes[] = $est;
             }
-             
+ 
             return $estudiantes;
         }
 
@@ -93,10 +99,13 @@
                 $idClase = $estudiante['id_clase'];
                 $valido = $estudiante['valido'];
                 $lugarNacimiento = $estudiante['lugar_nacimiento'];
+                $fechaInscripcion = $estudiante['fecha_inscripcion'];
+                $regular = $estudiante['regular'];
      
                 $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento, 
                                         $cedulaRepresentante, $idClase, $valido,
-                                        $lugarNacimiento);
+                                        $lugarNacimiento, $fechaInscripcion,
+                                        $regular);
                 $estudiantes[] = $est;
             }
  
@@ -125,10 +134,13 @@
                 $idClase = $estudiante['id_clase'];
                 $valido = $estudiante['valido'];
                 $lugarNacimiento = $estudiante['lugar_nacimiento'];
+                $fechaInscripcion = $estudiante['fecha_inscripcion'];
+                $regular = $estudiante['regular'];
      
                 $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento, 
                                         $cedulaRepresentante, $idClase, $valido,
-                                        $lugarNacimiento);
+                                        $lugarNacimiento, $fechaInscripcion,
+                                        $regular);
                 $estudiantes[] = $est;
             }
  
@@ -158,10 +170,13 @@
                 $idClase = $estudiante['id_clase'];
                 $valido = $estudiante['valido'];
                 $lugarNacimiento = $estudiante['lugar_nacimiento'];
+                $fechaInscripcion = $estudiante['fecha_inscripcion'];
+                $regular = $estudiante['regular'];
      
                 $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento, 
                                         $cedulaRepresentante, $idClase, $valido,
-                                        $lugarNacimiento);
+                                        $lugarNacimiento, $fechaInscripcion,
+                                        $regular);
                 $estudiantes[] = $est;
             }
  
@@ -191,10 +206,13 @@
                 $idClase = $estudiante['id_clase'];
                 $valido = $estudiante['valido'];
                 $lugarNacimiento = $estudiante['lugar_nacimiento'];
+                $fechaInscripcion = $estudiante['fecha_inscripcion'];
+                $regular = $estudiante['regular'];
      
-               $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento, 
+                $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento, 
                                         $cedulaRepresentante, $idClase, $valido,
-                                        $lugarNacimiento);
+                                        $lugarNacimiento, $fechaInscripcion,
+                                        $regular);
                 $estudiantes[] = $est;
             }
  
@@ -221,10 +239,13 @@
                 $idClase = $estudiante['id_clase'];
                 $valido = $estudiante['valido'];
                 $lugarNacimiento = $estudiante['lugar_nacimiento'];
+                $fechaInscripcion = $estudiante['fecha_inscripcion'];
+                $regular = $estudiante['regular'];
      
                 $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento, 
                                         $cedulaRepresentante, $idClase, $valido,
-                                        $lugarNacimiento);
+                                        $lugarNacimiento, $fechaInscripcion,
+                                        $regular);
                 $estudiantes[] = $est;
             }
  
@@ -252,10 +273,13 @@
                 $idClase = $estudiante['id_clase'];
                 $valido = $estudiante['valido'];
                 $lugarNacimiento = $estudiante['lugar_nacimiento'];
+                $fechaInscripcion = $estudiante['fecha_inscripcion'];
+                $regular = $estudiante['regular'];
      
                 $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento, 
                                         $cedulaRepresentante, $idClase, $valido,
-                                        $lugarNacimiento);
+                                        $lugarNacimiento, $fechaInscripcion,
+                                        $regular);
                 $estudiantes[] = $est;
             }
  
@@ -283,10 +307,13 @@
                 $idClase = $estudiante['id_clase'];
                 $valido = $estudiante['valido'];
                 $lugarNacimiento = $estudiante['lugar_nacimiento'];
+                $fechaInscripcion = $estudiante['fecha_inscripcion'];
+                $regular = $estudiante['regular'];
      
                 $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento, 
                                         $cedulaRepresentante, $idClase, $valido,
-                                        $lugarNacimiento);
+                                        $lugarNacimiento, $fechaInscripcion,
+                                        $regular);
                 $estudiantes[] = $est;
             }
  
@@ -315,10 +342,13 @@
                 $idClase = $estudiante['id_clase'];
                 $valido = $estudiante['valido'];
                 $lugarNacimiento = $estudiante['lugar_nacimiento'];
+                $fechaInscripcion = $estudiante['fecha_inscripcion'];
+                $regular = $estudiante['regular'];
      
                 $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento, 
                                         $cedulaRepresentante, $idClase, $valido,
-                                        $lugarNacimiento);
+                                        $lugarNacimiento, $fechaInscripcion,
+                                        $regular);
                 $estudiantes[] = $est;
             }
  
@@ -346,10 +376,13 @@
                 $idClase = $estudiante['id_clase'];
                 $valido = $estudiante['valido'];
                 $lugarNacimiento = $estudiante['lugar_nacimiento'];
+                $fechaInscripcion = $estudiante['fecha_inscripcion'];
+                $regular = $estudiante['regular'];
      
                 $est = new Estudiante($id, $nombre, $apellido, $fechaNacimiento, 
                                         $cedulaRepresentante, $idClase, $valido,
-                                        $lugarNacimiento);
+                                        $lugarNacimiento, $fechaInscripcion,
+                                        $regular);
                 $estudiantes[] = $est;
             }
  
