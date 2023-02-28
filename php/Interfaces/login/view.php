@@ -54,16 +54,16 @@
         <main>
             <div class="informacion contenido-login visibilidad mainCentrado" id="bienvenida">
                 <div class="bienvenida bloque">
-                    <h2>Unidad Educativa Instituto Experimental</h2>
-                    <p>
-                        Somos una Institución con 45 años de trayectoria, enfocados en la excelencia educativa.
-                        Nuestra prioridad: la Educación en Valores.
-                    </p>
-                    <img src="../../../img/interfaz/login/experimental.jpg" alt="" class="imagen-login">
-                </div>
-                <div class="info bloque">
-                    <div>
-                        <h2>Historia</h2>
+                    <div class="div--seleccionado">
+                        <h2 class="titulo--bienvenida formu--titulo">Unidad Educativa Instituto Experimental</h2>
+                        <p>
+                            Somos una Institución con 45 años de trayectoria, enfocados en la excelencia educativa.
+                            Nuestra prioridad: la Educación en Valores.
+                        </p>
+                        <img src="../../../img/interfaz/login/experimental.jpg" alt="" class="imagen-login">
+                    </div>
+                    <div class="div--seleccionado">
+                        <h2 class="titulo--bienvenida formu--titulo">Historia</h2>
                         <p>
                             El colegio fue fundado en el año 1973 con el nombre de “Centro Experimental de Enseñanza Preescolar”, en su inicio únicamente se impartían clases de nivel preescolar y primaria, 
                             y a partir de 1984 se empezó a impartir también las clases de nivel bachillerato.
@@ -75,31 +75,30 @@
                             <figcaption class="fundadora">Magda Vecchini de González, fundadora de la U.E.I.Experimental</figcaption>
                         </figure>
                     </div>
-                </div>
-                <div>
-                    <div class="bloque">
-                        <h2>Misión</h2>
+                    <div class="div--seleccionado">
+                        <h2 class="titulo--bienvenida formu--titulo">Misión</h2>
                         <p>Ser una institución enmarcada en una educación de calidad y excelencia, caracterizada por el trabajo planificado y participativo (personal directivo, docente, alumno, padres y representantes), un sólido y armonioso clima organizacional y por el desarrollo intelectual, físico, emocional y social de cada uno de los actores que integran la institución.</p>
                     </div>
-                    <div class="bloque">
-                        <h2>Visión</h2>
+                    <div class="div--seleccionado">
+                        <h2 class="titulo--bienvenida formu--titulo">Visión</h2>
                         <p>La institución persigue, además de lo que señala la Ley, suministrar a los alumnos, niños y jóvenes venezolanos, una formación ciudadana integral y permanente fundamentada en una base sólida de valores y virtudes, para hacer de ellos personas de elevado nivel académico, cultural y laboral, con capacidad crítica e investigadora capaces de contribuir al mejoramiento de la sociedad y al desarrollo de su entorno socio comunitario.</p>
                     </div>
                 </div>
+
                 <div class="mas-informacion bloque">
                     <div class="info subBloque">
-                        <div>
-                            <h2>Medios de comunicación</h2>
+                        <div class="div--seleccionado">
+                            <h2 class="formu--titulo titulo--bienvenida">Medios de comunicación</h2>
                             <p class="comunicar"><span class="contacto">Correo de contacto:</span> UEIExperimental@hotmail.com</p>
                             <p class="comunicar"><span class="contacto">Telefono de contacto:</span> 0426-6883542</p>
                         </div>
-                        <div>
-                            <h2>Redes sociales</h2>
+                        <div class="div--seleccionado">
+                            <h2 class="formu--titulo titulo--bienvenida">Redes sociales</h2>
                             <a href="https://www.instagram.com/ueiexperimental/" target="_blank"><img src="../../../img/interfaz/login/instagram.png" alt="Instagram" class="red-social"></a>
                         </div>
                     </div>
-                    <div class="ubicacion subBloque">
-                        <h2>Ubicación</h2>
+                    <div class="ubicacion subBloque div--seleccionado">
+                        <h2 class="formu--titulo titulo--bienvenida">Ubicación</h2>
                         <p>C. Guaraguao, Puerto La Cruz 6023, Anzoátegui</p>
                         <iframe class="imagen-login" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15705.763964089569!2d-64.6296116!3d10.2259722!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xa0ac7244980e91e3!2sU.E.%20Instituto%20Experimental!5e0!3m2!1ses!2sve!4v1675441074261!5m2!1ses!2sve" width="400" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>

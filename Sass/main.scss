@@ -70,3 +70,58 @@ h2 {
 .margin--top {
     margin-top: 1em;
 }
+
+
+.body-page {
+    background-color: #5A9AC4 !important;
+}
+
+body {
+    background-color: #5A9AC4 !important;
+}
+
+.subBloque {
+    background-color: white !important;
+}
+
+main {
+    background-color: #5A9AC4 !important;
+    color: black !important;
+}
+
+p {
+    color: black !important;
+}
+
+.bloque li {
+    color: black !important;
+}
+
+.bloque {
+    width: 100%;
+}
+
+.titulo--bienvenida {
+    margin-top: 1em;
+    font-size: 1.8em;
+    font-weight: 900;
+}
+
+.titulo--bienvenida:first-child {
+    margin-top: 0;
+    transition: 0.3s;
+}
+
+
+//FONDOS
+.bloque {
+    background-color: #BDE1F9;
+}
+
+.div--seleccionado:hover .titulo--bienvenida {
+    color: #2691d9;
+}
+
+.div--seleccionado:hover .formu--titulo {
+    border-bottom: 1px solid #2691d9;
+}
