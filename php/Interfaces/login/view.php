@@ -198,12 +198,12 @@
                         <div class="datos-estudiante subBloque marco-deuda bloque centrado subBloquecito bloque--sub bloqueEstudiante" id="estudiantes">
                             <h4 class="popOver__informacion formu--titulo corregir">Datos estudiante</h4>
                                 <div class="formu">
-                                    <input type="text" id="nombreInputEstudiante[]" name="nombreInputEstudiante" autocomplete="off" class="input__input input__input--texto" required>
+                                    <input type="text" id="nombreInputEstudiante[]" name="nombreInputEstudiante" autocomplete="off" class="input__input input__input--texto" required onkeypress="return soloAlfabeto(15, null)" maxlength="15">
                                     <span></span>
                                     <label for="nombreInputEstudiante[]" class="input__label">Nombre</label>
                                 </div>
                                 <div class="formu">
-                                    <input type="text" id="apellidoInputEstudiante[]" name="apellidoInputEstudiante" autocomplete="off" class="input__input input__input--texto" required>
+                                    <input type="text" id="apellidoInputEstudiante[]" name="apellidoInputEstudiante" autocomplete="off" class="input__input input__input--texto" required onkeypress="return soloAlfabeto(15, null)" maxlength="15">
                                     <span></span>
                                     <label for="apellidoInputEstudiante[]" class="input__label">Apellido</label>
                                 </div>
