@@ -57,7 +57,7 @@
                 <select id=\"$id\" name=\"$id\" $atributos>";
 
             try {
-                $consulta = $this->dao->getTodosValidos(array(1));
+                $consulta = $this->dao->getTodosValidos(array(2));
     
                 $html = "<select id=\"$id\" name=\"$id\" $atributos>";
                 $html = $html.$this->crearOption($consulta, null);
@@ -69,7 +69,6 @@
             finally {
                 $html = $html."
                         </select>";
-                    // </div>";
 
                 return $html;
             }
