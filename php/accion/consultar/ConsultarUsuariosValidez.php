@@ -105,7 +105,7 @@
                 $aceptar = "<input type=\"button\" class=\"aceptar aceptar$cedula ocultar\" value=\"$cedula\">";
                 $cancelar = "<input type=\"button\" class=\"cancelar cancelar$cedula  ocultar\" value=\"$cedula\">";
 
-                $valido = $valido==true ? "valido" : "invalido";
+                $valido = $valido==true ? "Confirmado" : "Por confirmar";
 
                 $html = $html."  
                     <td class=\"output__celda\">

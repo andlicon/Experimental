@@ -107,7 +107,7 @@
                 $cancelar = "<input type=\"button\" class=\"cancelar cancelar$id  ocultar\" value=\"$id\">";
 
                 $validez = $selectValido->crearItemAtributosSeleccion("class=\"modificable modificable$id ocultar\"", "validoInput$id", $estado);
-                $estado = $estado==false ? "Invalido" : "Valido";
+                $estado = $estado==false ? "Por confirmar" : "Confirmado";
 
                 //acciones
                 $html = $html."
@@ -135,7 +135,7 @@
                     <span class=\"modificable\">$referencia</span>
                 </td>
                 <td class=\"output__celda\">
-                    <input type=\"text\" id=\"estadoInput$id\"class=\"modificable--estado$id\" value=\"$estado\" disabled/>
+                    <input type=\"text\" id=\"estadoInput$id\"class=\"modificable modificable--estado$id\" value=\"$estado\" disabled/>
                     $validez
                 </td>
                 <td class=\"output__celda\">

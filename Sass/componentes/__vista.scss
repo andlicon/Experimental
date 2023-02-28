@@ -156,7 +156,8 @@ select, option {
     box-sizing: border-box;
 }
 .formu  input,
-.formu select{
+.formu select,
+.formu textarea {
     width: 100%;
     padding: 0 5px;
     height: 40px;
@@ -189,6 +190,13 @@ select, option {
 .formu input:Focus ~ label,
 .formu input:Valid ~ label,
 .formu input:Disabled ~ label {
+    top: -5px;
+    color: #2691d9;
+}
+
+.formu textarea:Focus ~ label,
+.formu textarea:Valid ~ label,
+.formu textarea:Disabled ~ label {
     top: -5px;
     color: #2691d9;
 }

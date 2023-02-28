@@ -106,8 +106,9 @@
                         <input id=\"fechaInput$idEstudiante\" type=\"date\" value=\"$fechaNacimiento\" disabled class=\"modificable modificable$idEstudiante ocultar\">
                     </td>
                     <td class=\"output__celda\">
-                        <input  id=\"lugarNacimiento$idEstudiante\" class=\"modificable modificable--estado$idEstudiante\" value=\"$lugarNacimiento\" disabled>
-                        <input id=\"lugarNacimientoInput$idEstudiante\" type=\"text\" value=\"$lugarNacimiento\" disabled class=\"modificable modificable$idEstudiante ocultar\" onkeypress=\"return soloAlfaNumerico(50, 'lugarNacimientoInput$idEstudiante')\">
+                        <textarea name=\"lugarNacimiento$idEstudiante\" id=\"lugarNacimiento$idEstudiante\" disabled class=\"modificable modificable--estado$idEstudiante textarea\" cols=\"14\" rows=\"5\">$lugarNacimiento</textarea>
+                        <textarea name=\"lugarNacimientoInput$idEstudiante\" id=\"lugarNacimientoInput$idEstudiante\" disabled class=\"modificable modificable$idEstudiante ocultar textarea\" cols=\"14\" rows=\"5\"onkeypress=\"return soloAlfaNumerico(50, 'lugarNacimientoInput$idEstudiante')\">$lugarNacimiento</textarea>
+                        
                     </td>
                     <td class=\"output__celda\">
                         <span class=\"modificable modificable--estado$idEstudiante\" id=\"clase$idEstudiante\">$nombreClase</span>

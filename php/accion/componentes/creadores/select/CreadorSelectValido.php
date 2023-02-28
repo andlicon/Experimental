@@ -14,8 +14,8 @@
 
             $options = "";
             $options = $options."
-                <option value=\"1\" $seleccionValido>Valido</option>
-                <option value=\"0\" $seleccionInvalido>Invalido</option>";
+                <option value=\"1\" $seleccionValido>Confirmado</option>
+                <option value=\"0\" $seleccionInvalido>Por confirmar</option>";
             return $options;
         }
 

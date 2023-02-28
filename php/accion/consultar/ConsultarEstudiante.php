@@ -32,7 +32,7 @@
                 $fechaNacimiento = $estudiante->getFechaNacimiento();
                 $idClase = $estudiante->getIdClase();
                 $cedulaRepresentante = $estudiante->getCedulaRepresentante();
-                $valido = $estudiante->getValido() == 0 ? "Por validar" : "Inscrito";
+                $valido = $estudiante->getValido() == 0 ? "Por inscribir" : "Inscrito";
                 $lugarNacimiento = $estudiante->getLugarNacimiento();
                 //Informacion clase
                 $nombreClase = $idClase!=null ? $claseConsul->getInstancia(array($idClase))[0]->getDescripcion($idClase) : "Sin asignar";
