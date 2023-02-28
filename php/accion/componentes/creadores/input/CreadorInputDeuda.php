@@ -14,37 +14,53 @@
             $creadorSelectMotivo= new CreadorSelectMotivo();
             $selectMotivo = $creadorSelectMotivo->crearItem("motivoInput");
             $creadorSelectEstudiante = new CreadorSelectEstudiante();
-            $selectEstudiante = $creadorSelectEstudiante->crearItem("estudianteInput");
+            $selectEstudiante = $creadorSelectEstudiante->crearItemAtributos("estudianteInput", "class=\"js-example-responsive\" style=\"width: 100%\"");
 
             $html = 
                 "
-                <input class=\"boton\" id=\"cargar\" value=\"cargar\" />
-
-                <div class=\"contenido__bloque\">
+                <h2>Cargar Deuda</h2>
+            <div class=\"marco-deuda\">
+                <div class=\"formu\">
+                    <div class=\"input__grupo\">$selectEstudiante</div>
+                    <span></span>
 	                <label for=\"estudianteInput\">Estudiante</label>
-	                $selectEstudiante
                 </div>
-                <div class=\"contenido__bloque\">
+                <div class=\"formu\">
+                    $selectMotivo
+                    <span></span>
 	                <label for=\"motivoInput\">Motivo</label>
-	                $selectMotivo
                 </div>
-                <div class=\"contenido__bloque\">
+                <div class=\"formu\">
+                    <input type=\"text\" onkeypress=\"return soloAlfaNumerico(50, 'descripcionInput')\" id=\"descripcionInput\">
+                    <span></span>
 	                <label for=\"descripcionInput\">Descripcion</label>
-	                <input type=\"text\" onkeypress=\"return soloAlfaNumerico(50, 'descripcionInput')\" id=\"descripcionInput\">
                 </div>
-                <div class=\"contenido__bloque\">
+                <div class=\"formu\">
+                    <input type=\"date\" id=\"fechaInput\">
+                    <span></span>
 	                <label for=\"fechaInput\">fecha</label>
-	                <input type=\"date\" id=\"fechaInput\">
                 </div>
-                <div class=\"contenido__bloque\">
+                <div class=\"formu\">
+                    <input onkeypress=\"return soloNumeros(8, 'montoInicialInput')\" type=\"text\" id=\"montoInicialInput\">
+                    <span></span>
 	                <label for=\"montoInicialInput\">Monto:</label>
-	                <input onkeypress=\"return soloNumeros(8, 'montoInicialInput')\" type=\"text\" id=\"montoInicialInput\">
                 </div>
+            </div>
 
+                <input class=\"boton btn\" id=\"cargar\" value=\"cargar\" />
+
+                <script>
+                    $(document).ready(function () {
+                        $('#estudianteInput').select2();
+                    });
+                </script>
                 <script src=\"../js/limitador/soloNumeros.js\"></script>
                 <script src=\"../js/limitador/soloTelefono.js\"></script>
                 <script src=\"../js/limitador/soloAlfabeto.js\"></script>
                 <script src=\"../js/limitador/soloAlfaNumerico.js\"></script>";
+
+
+
             return $html;
         }
     }

@@ -479,6 +479,20 @@ h2 {
   color: black;
 }
 
+.marco-deuda {
+  background-color: white;
+}
+
+#estudianteInput {
+  outline: none;
+  border: none;
+}
+
+.select2-container {
+  outline: none;
+  border: none;
+}
+
 .registro {
   display: -webkit-box;
   display: -ms-flexbox;

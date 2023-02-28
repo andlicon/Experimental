@@ -68,8 +68,8 @@
             }
             finally {
                 $html = $html."
-                        </select>
-                    </div>";
+                        </select>";
+                    // </div>";
 
                 return $html;
             }
