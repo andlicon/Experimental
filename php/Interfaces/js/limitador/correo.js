@@ -6,7 +6,7 @@ function correo(max, id){
         return false;
     }
 
-    const pattern = new RegExp('/[A-Z]|[a-z]|[@]|[.\]/', 'i');
+    const pattern = new RegExp('/[A-Z]|[a-z]|[0-9]|[@]|[.\]/', 'i');
     let letra = String.fromCharCode(event.charCode);
     let match = letra.match(pattern);
 
