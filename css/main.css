@@ -857,6 +857,14 @@ input {
           align-items: center;
 }
 
+.bloque {
+  margin-bottom: 1em !important;
+}
+
+.separacion {
+  margin-bottom: 1em !important;
+}
+
 .boton {
   border: none;
   width: 200px;

@@ -174,7 +174,7 @@
                                     <span></span>
                                     <label class="negrita" for="direccionInput" class="input__label">Direccion hogar</label>
                                 </div>
-                                <div class="formu">
+                                <div class="formu separacion">
                                     <input type="text" id="lugarTrabajoInput" onkeypress="return soloAlfaNumerico(50, 'lugarTrabajoInput')" name="lugarTrabajoInput" autocomplete="off" class="input__input input__input--texto" required>
                                     <span></span>
                                     <label class="negrita" for="lugarTrabajoInput" class="input__label">Direccion trabajo</label>
