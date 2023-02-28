@@ -29,6 +29,10 @@
                 $botones = $botones.$this->crearItem("estudiante", "Estudiante");
                 $botones = $botones.$this->crearItem("respaldo", "Respaldar info");
             }
+            else if($this->permiso==5) { //administrador
+                $botones = $botones.$this->crearItem("estudiante", "Estudiante");
+                $botones = $botones.$this->crearItem("gestionar-usuarios", "Representantes");
+            }
             else {                  //REPRESENTANTE
                 $botones = $botones.$this->crearItem("estado", "Estado");
                 $botones = $botones.$this->crearItem("deuda", "Deudas");
