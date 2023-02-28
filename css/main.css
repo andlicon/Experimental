@@ -1084,6 +1084,10 @@ ul {
   -ms-grid-column: 1;
 }
 
+.marco-deuda .select2-selection__rendered {
+  text-align: left;
+}
+
 .contenido {
   display: -webkit-box;
   display: -ms-flexbox;

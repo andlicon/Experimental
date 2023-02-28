@@ -14,13 +14,13 @@
             $creadorSelectMotivo= new CreadorSelectMotivo();
             $selectMotivo = $creadorSelectMotivo->crearItem("motivoInput");
             $creadorSelectEstudiante = new CreadorSelectEstudiante();
-            $selectEstudiante = $creadorSelectEstudiante->crearItemAtributos("estudianteInput", "class=\"js-example-responsive\" style=\"width: 100%\"");
+            $selectEstudiante = $creadorSelectEstudiante->crearItem("estudianteInput");
 
             $html = 
                 "
                 <h2>Cargar Deuda</h2>
             <div class=\"marco-deuda\">
-                <div class=\"formu\">
+                <div id=\"papa\" class=\"formu\">
                     <div class=\"input__grupo\">$selectEstudiante</div>
                     <span></span>
 	                <label for=\"estudianteInput\">Estudiante</label>
@@ -47,17 +47,22 @@
                 </div>
             </div>
 
-                <input class=\"boton btn\" id=\"cargar\" value=\"cargar\" />
+            <input class=\"boton btn\" id=\"cargar\" value=\"cargar\" />
 
-                <script>
-                    $(document).ready(function () {
-                        $('#estudianteInput').select2();
-                    });
-                </script>
-                <script src=\"../js/limitador/soloNumeros.js\"></script>
-                <script src=\"../js/limitador/soloTelefono.js\"></script>
-                <script src=\"../js/limitador/soloAlfabeto.js\"></script>
-                <script src=\"../js/limitador/soloAlfaNumerico.js\"></script>";
+            <script>
+                $(document).ready(function () {
+                    $('#estudianteInput').select2();
+                });
+            </script>
+            <script>
+                $(document).ready(function () {
+                    $('#deudaInput').select2();
+                });
+            </script>
+            <script src=\"../js/limitador/soloNumeros.js\"></script>
+            <script src=\"../js/limitador/soloTelefono.js\"></script>
+            <script src=\"../js/limitador/soloAlfabeto.js\"></script>
+            <script src=\"../js/limitador/soloAlfaNumerico.js\"></script>";
 
 
 

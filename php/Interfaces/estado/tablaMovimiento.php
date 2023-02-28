@@ -7,6 +7,8 @@
     include_once(DAO_PATH.'MovimientoConsul.php');
     include_once(DAO_PATH.'DeudaDAO.php');
     include_once(DAO_PATH.'PagoDAO.php');
+    include_once(DAO_PATH.'TipoPagoConsul.php');
+    include_once(DAO_PATH.'CuentaConsul.php');
 
     if(isset($_POST['cedula'])) {
         $cedula = $_POST['cedula'];
@@ -41,20 +43,44 @@
                 $trigger = "";
 
                 if(str_contains($referencia,"P")) {
-                    // $referencia = str_replace("P", "", $referencia);
-                    // //Consultar info
-                    // $pagoDAO = new PagoDAO(BaseDeDatos::getInstancia());
-                    // $resultado = $pagoDAO->getInstancia(array($referencia));
-                    // $pago = $resultado[0];
+                    $referencia = str_replace("P", "", $referencia);
+                    //Consultar info
+                    $pagoDAO = new PagoDAO(BaseDeDatos::getInstancia());
+                    $resultado = $pagoDAO->getInstancia(array($referencia));
+                    $pago = $resultado[0];
+                    $pagoId = $referencia;
 
-                    // $idDeuda = $pago->getIdDeuda();
-                    // $fechaPago = $pago->getFecha();
-                    // $cedulaPago = $pago->getCedula();
-                    // $montoPago = $pago->getMonto();
-                    // $idCuentaPago = $pago->getIdCuenta();
+                    $idDeuda = $pago->getIdDeuda();
+                    $fechaPago = $pago->getFecha();
+                    $cedulaPago = $pago->getCedula();
+                    $montoPago = $pago->getMonto();
+                    $referenciaPago = $pago->getRef();
+
+                    //Cuenta
+                    $idCuenta = $pago->getIdCuenta();
+                    $cuentaConsul = new CuentaConsul(BaseDeDatos::getInstancia());
+                    $cuentaDescripcion = $cuentaConsul->getInstancia(array($idCuenta))[0]->getDescripcion();
+
+                    //tipoPago
+                    $idCuentaPago = $pago->getIdTipoPago();
+                    $tipoPago = new TipoPagoConsul(BaseDeDatos::getInstancia());
+                    $tipoPagoDescrip = $tipoPago->getInstancia(array($idCuentaPago))[0]->getDescripcion();
+
+
                     $trigger = $referencia;
 
-                    // $referencia = "<a id=\"p$id\" href=\"#ex$id\" rel=\"modal:open\" class=\"popOver__trigger\">$referencia</a>";
+                    $trigger = "<a id=\"p$pagoId\" href=\"#exP$pagoId\" rel=\"modal:open\" class=\"popOver__trigger\">P$pagoId</a>";
+
+                    $modal = "<div id=\"exP$pagoId\" class=\"modal\">
+                                <h4 class=\"popOver__informacion popOver__elemento\">Informacion Pago</h4>
+                                <p class=\"popOver__elemento\"><span class=\"negrita\">Cedula:</span> $cedulaPago</p>
+                                <p class=\"popOver__elemento\"><span class=\"negrita\">Referencia deuda: </span> <a id=\"deuda$deudaId\" href=\"#ex$deudaId\" rel=\"modal:open\" class=\"popOver__trigger\">D$idDeuda</a></p>
+                                <p class=\"popOver__elemento\"><span class=\"negrita\">Fecha:</span> $fechaPago</p>
+                                <p class=\"popOver__elemento\"><span class=\"negrita\">Tipo pago: </span> $tipoPagoDescrip</p>
+                                <p class=\"popOver__elemento\"><span class=\"negrita\">Cuenta: </span> $cuentaDescripcion</p>
+                                <p class=\"popOver__elemento\"><span class=\"negrita\">Referencia pago: </span> $referenciaPago</p>
+                                <p class=\"popOver__elemento\"><span class=\"negrita\">Monto pagado: </span> $montoPago</p>
+                            </div>";
                 }
                 else {
                     $referencia = str_replace("D", "", $referencia);
@@ -119,7 +145,6 @@
                                 <p class=\"popOver__elemento\"><span class=\"negrita\">Clase inscrito:</span> $claseNombre</p>
                                 <p class=\"popOver__elemento\"><span class=\"negrita\">Cédula representante:</span> $cedulaRepEstudiante</p>
                             </div>
-                    
                     ";
                     
                 }
@@ -130,7 +155,7 @@
                          <td class=\"tabla__td\">$fecha</td>
                          <td class=\"tabla__td\">$descripcion</td>
                          <td class=\"tabla__td $classMonto\">$monto</td>
-                         $modal;
+                         $modal
                      </tr>";
 
         
