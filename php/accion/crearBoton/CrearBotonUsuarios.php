@@ -13,7 +13,7 @@
             $botones = "";
             $botones = $botones.'<h2 class="botones__titulo">Consultar</h2>';
             $botones = $botones."<div class=\"input__grupo\">";
-            if($this->permiso==4) {  //ADMINISTRADOR
+            if($this->permiso==4 || $this->permiso==5) {  //ADMINISTRADOR y SECRETARIO
                 $botones = $botones.$this->crearItemConsultaTipoUsuario();
                 $botones = $botones.$this->crearItemConsultaTipoPersona();
                 $botones = $botones.$this->itemConsultaRepresentante();

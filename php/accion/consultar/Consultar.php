@@ -26,7 +26,7 @@
             else if(str_contains($pagina, "deuda") && $permiso==4) {
                 $consultor = new ConsultarDeudaAdmin();
             }
-            else if(str_contains($pagina, "usuarios") && $permiso==4) {
+            else if(str_contains($pagina, "usuarios") && ($permiso==4 || $permiso==5)) {
                 $consultor = new ConsultarUsuariosValidez($infoAdd);
             }
         }
