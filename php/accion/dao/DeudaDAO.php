@@ -1362,6 +1362,7 @@
                         WHERE YEAR(fecha) = ?
                             AND MONTH(fecha) = ?
                             AND deuda>0
+                            AND cedula_representante = ?
                         GROUP BY cedula_representante, id_estudiante
                         ORDER BY cedula_representante;";
             $registros = $this->bd->sql($consulta, $fecha);
@@ -1392,7 +1393,7 @@
             return $deudas;
         }
 
-        public function getDeficitDetalladoHistorico() {
+        public function getDeficitDetalladoHistoricoDeudor($cedula) {
             $consulta = "SELECT 	id,
                                     cedula_representante,
                                     id_estudiante,
@@ -1404,7 +1405,42 @@
                                     SUM(deuda) AS deuda
                         FROM deuda
                         WHERE deuda>0
+                            AND cedula_representante = ?
                         GROUP BY cedula_representante, id_estudiante
+                        ORDER BY cedula_representante;";
+            $registros = $this->bd->sql($consulta, $cedula);
+            
+            if(empty($registros)) {
+                throw new Exception('No existe el representante con dicha cedula');
+            }
+
+            $deudas = [];
+            for($i=0; $i<count($registros); $i++) {
+                $deuda = $registros[$i];
+
+                $id = $deuda['id'];
+                $cedula = $deuda['cedula_representante'];
+                $idEstudiante = $deuda['id_estudiante'];
+                $fecha = $deuda['fecha'];
+                $idMotivo = $deuda['id_motivo'];
+                $descripcion = $deuda['descripcion'];
+                $montoInicial = $deuda['monto_inicial'];
+                $montoEstado = $deuda['monto_estado'];
+                $deuda = $deuda['deuda'];
+                
+                $deb= new Deuda($id, $cedula, $idEstudiante, $idMotivo, $descripcion, 
+                                $fecha, $montoInicial, $montoEstado, $deuda);
+                $deudas[] = $deb;
+            }
+            
+            return $deudas;
+        }
+
+        public function getDeudorHistorico() {
+            $consulta = "SELECT	*
+                        FROM deuda
+                        WHERE deuda>0
+                        GROUP BY cedula_representante
                         ORDER BY cedula_representante;";
             $registros = $this->bd->sql($consulta, null);
             
@@ -1434,7 +1470,49 @@
             return $deudas;
         }
 
+        public function getDeudorFecha($fecha) {
+            $consulta = "SELECT	id,
+                                cedula_representante,
+                                id_estudiante,
+                                fecha,
+                                descripcion,
+                                id_motivo,
+                                monto_inicial,
+                                monto_estado,
+                                deuda
+                        FROM deuda
+                        WHERE deuda>0
+                            AND YEAR(fecha) = ?
+                            AND MONTH(fecha) = ?
+                        GROUP BY cedula_representante
+                        ORDER BY cedula_representante;";
+            $registros = $this->bd->sql($consulta, $fecha);
+            
+            if(empty($registros)) {
+                throw new Exception('No existe el representante con dicha cedula');
+            }
 
+            $deudas = [];
+            for($i=0; $i<count($registros); $i++) {
+                $deuda = $registros[$i];
+
+                $id = $deuda['id'];
+                $cedula = $deuda['cedula_representante'];
+                $idEstudiante = $deuda['id_estudiante'];
+                $fecha = $deuda['fecha'];
+                $idMotivo = $deuda['id_motivo'];
+                $descripcion = $deuda['descripcion'];
+                $montoInicial = $deuda['monto_inicial'];
+                $montoEstado = $deuda['monto_estado'];
+                $deuda = $deuda['deuda'];
+                
+                $deb= new Deuda($id, $cedula, $idEstudiante, $idMotivo, $descripcion, 
+                                $fecha, $montoInicial, $montoEstado, $deuda);
+                $deudas[] = $deb;
+            }
+            
+            return $deudas;
+        }
 
     }
 ?>

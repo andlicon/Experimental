@@ -9,6 +9,7 @@ $(function() {
                 data : {fecha: fecha},
                 success : function(response) {
                     $('#deficitDetallado').html(response);
+                    alert(response);
                 }
             })
         });
