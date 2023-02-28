@@ -141,7 +141,7 @@
                             </div>
                         </div>
                          <div class="centrado bloque">
-                            <div class="datos-representante subBloque horizontal">
+                            <div class="datos-representante subBloque horizontal"> 
                                 <h2 class="titulito contenido__titulo">Datos Representante</h2>
                                 <div class="input__grupo">
                                     <label for="nacionalidadInput" class="input__label">Nacionalidad</label>
