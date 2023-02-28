@@ -44,7 +44,7 @@ $(document).on('click', '.aceptar', function(){
         }, 2000);
     }
     else {
-        if(permiso==4) {
+        if(permiso==4 || permiso==5) {
             $.ajax ( {
                 url : '../../accion/modificar/ModificarEstudianteAdmin.php',
                 type : 'POST',

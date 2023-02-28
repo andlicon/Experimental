@@ -21,7 +21,7 @@
             </th>";
         $thAdicional2 = "
             <th class=\"output__celda output__celda--header\">
-                Estado
+                Estado registro
             </th>";
     }
 
