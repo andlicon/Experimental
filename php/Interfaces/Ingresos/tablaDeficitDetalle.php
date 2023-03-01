@@ -9,8 +9,8 @@
 
     if(isset($_POST['fecha'])) {
         $fecha = $_POST['fecha'];
-        $html = "<div class=\"tabla\">
-                    <h2 class=\"tabla__titulo\">Representantes deudores en el cíclo</h2>";
+        $html = "
+                    <h2 class=\"tabla__titulo tituloGrid\">Representantes deudores en el cíclo</h2>";
         
         $anio = null;
         $mes = null;
@@ -186,7 +186,7 @@
            
         }
 
-        echo $html."</div>";
+        echo $html."";
     }
 ?>
 
