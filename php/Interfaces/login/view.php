@@ -87,7 +87,7 @@
 
                 <div class="mas-informacion bloque">
                     <div class="info subBloque" style="border-radius:3em;">
-                        <div class="div--seleccionado">
+                        <div class="div--seleccionado" style="margin-top:0;">
                             <h2 class="formu--titulo titulo--bienvenida">Medios de comunicación</h2>
                             <p class="comunicar pad"><span class="contacto" style="text-align: start !important;">Correo de contacto:</span> UEIExperimental@hotmail.com</p>
                             <p class="comunicar pad"><span class="contacto">Telefono de contacto:</span> 0426-6883542</p>
