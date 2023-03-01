@@ -1877,3 +1877,16 @@ ul {
 #bienvenida div {
   margin-top: 1em;
 }
+
+.datos-estudiante {
+  border: solid 1px #1170A8;
+  padding-bottom: 1em;
+}
+
+.esteNo {
+  padding-bottom: 0;
+}
+
+#masEstudiantes {
+  margin-top: 0.5em;
+}

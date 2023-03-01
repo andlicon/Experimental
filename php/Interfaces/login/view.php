@@ -144,7 +144,7 @@
                                 <label for="contrasenaInput" class="input__label">Contraseña</label>
                             </div>
                         </div>
-                         <div class="centrado bloque">
+                         <div class="centrado bloque" style="background-color:white;">
                             <div class="datos-representante marco-deuda subBloque horizontal formu-mediano">
                                 <h4 class="popOver__informacion formu--titulo">Datos Representante</h4>
                             <div class="input__grupo">
@@ -198,7 +198,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="datos-estudiante subBloque marco-deuda bloque centrado subBloquecito bloque--sub bloqueEstudiante formu-chikito" id="estudiantes">
+                        <div class="datos-estudiante esteNo subBloque marco-deuda bloque centrado subBloquecito bloque--sub bloqueEstudiante formu-chikito" id="estudiantes">
                             <h4 class="popOver__informacion formu--titulo corregir">Datos estudiante</h4>
                                 <div class="formu">
                                     <input type="text" id="nombreInputEstudiante[]" name="nombreInputEstudiante" autocomplete="off" class="input__input input__input--texto" required onkeypress="return soloAlfabeto(15, null)" maxlength="15">
