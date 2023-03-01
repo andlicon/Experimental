@@ -5,17 +5,18 @@ $(function(){
                 let permiso = usuario.permiso
                 let cedula = usuario.cedula;
                 let infoAdd = $('#tipoUsuarioInput').val();
-                let tipoPersona = $('#tipoPersonaInput').val();
+                let fecha = $('#fechaConsul').val();
                 let representante = $('#representanteInput').val();
 
                 $.ajax ( {
                     url : '../../accion/consultar/Consultar.php',
                     type : 'POST',
                     data : {pagina: pagina, cedula: cedula, permiso: permiso, 
-                            infoAdd: infoAdd, tipoPersona: tipoPersona,
+                            infoAdd: infoAdd, fecha: fecha,
                             representante: representante},
                     async: false,
                     success : function(response) {
+                        alert(response);
                         var renglones = response.split('TERMINAACA');
                         var html = "";
 
@@ -38,15 +39,16 @@ $(function() {
                 let permiso = usuario.permiso
                 let cedula = usuario.cedula;
                 let infoAdd = $('#tipoUsuarioInput').val();
-                let tipoPersona = $('#tipoPersonaInput').val();
+                let fecha = $('#fechaConsul').val();
                 let representante = $('#representanteInput').val();
 
                 $.ajax ( {
                     url : '../../accion/consultar/Consultar.php',
                     type : 'POST',
-                    data : {pagina: pagina, cedula: cedula, permiso: permiso, infoAdd: infoAdd, tipoPersona: tipoPersona, representante: representante},
+                    data : {pagina: pagina, cedula: cedula, permiso: permiso, infoAdd: infoAdd, fecha: fecha, representante: representante},
                     async: false,
                     success : function(response) {
+                        alert(response);
                         var renglones = response.split('TERMINAACA');
                         var html = "";
 

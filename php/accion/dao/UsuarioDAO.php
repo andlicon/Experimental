@@ -53,7 +53,10 @@
         public function getInstanciaValidez(array $valido) {
             $consulta = "SELECT * 
                         FROM usuario
-                        WHERE valido=?";
+                        JOIN persona
+                        ON (usuario.cedula=persona.cedula)
+                        WHERE persona.id_tipo_persona=1
+                            AND valido=?";
             $registros = $this->bd->sql($consulta, $valido);
 
             if(!is_array($registros)) {
@@ -65,6 +68,7 @@
                 $registro = $registros[$i];
 
                 $cedula = $registro['cedula'];
+                echo $cedula;
                 $nickname = $registro['nickname'];
                 $contrasena = $registro['contrasena'];
                 $valido = $registro['valido'];
@@ -85,7 +89,8 @@
                            JOIN PERSONA p
                            ON (u.cedula = p.cedula)
                            WHERE valido=?
-                            AND u.cedula=?;";
+                                AND u.cedula=?
+                                AND p.id_tipo_persona=1;";
            $registros = $this->bd->sql($consulta, $valido);
 
             if(!is_array($registros)) {
@@ -107,6 +112,41 @@
             
             return $usuarios;
         }
+
+        public function getInstanciaValidezRepresentanteFecha(array $valido) {
+            $consulta = "SELECT u.cedula,
+                                u.nickname,
+                                u.contrasena,
+                                u.valido
+                            FROM USUARIO u
+                            JOIN PERSONA p
+                            ON (u.cedula = p.cedula)
+                            WHERE valido=?
+                                 AND u.cedula=?
+                                 AND YEAR(u.fecha_registro) = ?
+                                 AND MONTH(u.fecha_registro) = ?
+                                 AND p.id_tipo_persona=1;";
+            $registros = $this->bd->sql($consulta, $valido);
+ 
+             if(!is_array($registros)) {
+                 throw new Exception('No existe usuario valido');
+             }
+             
+             $usuarios = [];
+             for($i=0; $i<count($registros); $i++) {
+                 $registro = $registros[$i];
+ 
+                 $cedula = $registro['cedula'];
+                 $nickname = $registro['nickname'];
+                 $contrasena = $registro['contrasena'];
+                 $valido = $registro['valido'];
+                 $us = new Usuario($cedula, $nickname, $contrasena, $valido);
+ 
+                 $usuarios[] = $us;
+             }
+             
+             return $usuarios;
+         }
 
         public function getInstanciaValidezTipoPersona(array $valido) {
             $consulta = 
@@ -217,7 +257,10 @@
         */
         public function getTodos() {
             $consulta = "SELECT * 
-                         FROM usuario";
+                         FROM usuario
+                         JOIN persona
+                         ON (usuario.cedula=persona.cedula)
+                         WHERE persona.id_tipo_persona=1";
              $registros = $this->bd->sql($consulta, null);
 
              if(empty($registros)) {
@@ -248,7 +291,8 @@
                         FROM USUARIO u
                         JOIN PERSONA p
                         ON (u.cedula = p.cedula)
-                        WHERE u.cedula=?";
+                        WHERE u.cedula=?
+                            AND p.id_tipo_persona=1";
              $registros = $this->bd->sql($consulta, $cedula);
 
              if(empty($registros)) {
@@ -396,6 +440,98 @@
             catch(PDOException $e) {
                 throw new DaoException(DaoException::USUARIO, DaoException::CARGAR, "ya existe un usuario con dicho nickname.");
             }
+        }
+
+        public function getTodosFecha($fecha) {
+            $consulta = "SELECT *
+                        FROM usuario	u
+                        JOIN persona	p
+                        ON u.cedula = p.cedula
+                        WHERE YEAR(u.fecha_registro) = ?
+                            AND MONTH(u.fecha_registro) = ?
+                            AND p.id_tipo_persona=1;";
+             $registros = $this->bd->sql($consulta, $fecha);
+
+             if(empty($registros)) {
+                throw new Exception('No existen registros de Usuarios.');
+            }
+            
+            $usuarios = [];
+            for($i=0; $i<count($registros); $i++) {
+                $registro = $registros[$i];
+
+                $cedula = $registro['cedula'];
+                $nickname = $registro['nickname'];
+                $contrasena = $registro['contrasena'];
+                $valido = $registro['valido'];
+                $us = new Usuario($cedula, $nickname, $contrasena,  $valido);
+
+                $usuarios[] = $us;
+            }
+            
+            return $usuarios;
+        }
+
+        public function getTodosValidezFecha($fecha) {
+            $consulta = "SELECT *
+                        FROM usuario	u
+                        JOIN persona	p
+                        ON u.cedula = p.cedula
+                        WHERE valido=?
+                            AND p.id_tipo_persona=1
+                            AND YEAR(u.fecha_registro) = ?
+                            AND MONTH(u.fecha_registro) = ?";
+             $registros = $this->bd->sql($consulta, $fecha);
+
+             if(empty($registros)) {
+                throw new Exception('No existen registros de Usuarios.');
+            }
+            
+            $usuarios = [];
+            for($i=0; $i<count($registros); $i++) {
+                $registro = $registros[$i];
+
+                $cedula = $registro['cedula'];
+                $nickname = $registro['nickname'];
+                $contrasena = $registro['contrasena'];
+                $valido = $registro['valido'];
+                $us = new Usuario($cedula, $nickname, $contrasena,  $valido);
+
+                $usuarios[] = $us;
+            }
+            
+            return $usuarios;
+        }
+
+        public function getInstanciaFechaRep($fecha) {
+            $consulta = "SELECT *
+                        FROM usuario	u
+                        JOIN persona	p
+                        ON u.cedula = p.cedula
+                        WHERE p.cedula = ?
+                            AND p.id_tipo_persona=1
+                            AND YEAR(u.fecha_registro) = ?
+                            AND MONTH(u.fecha_registro) = ?";
+             $registros = $this->bd->sql($consulta, $fecha);
+
+             if(empty($registros)) {
+                throw new Exception('No existen registros de Usuarios.');
+            }
+            
+            $usuarios = [];
+            for($i=0; $i<count($registros); $i++) {
+                $registro = $registros[$i];
+
+                $cedula = $registro['cedula'];
+                $nickname = $registro['nickname'];
+                $contrasena = $registro['contrasena'];
+                $valido = $registro['valido'];
+                $us = new Usuario($cedula, $nickname, $contrasena,  $valido);
+
+                $usuarios[] = $us;
+            }
+            
+            return $usuarios;
         }
 
         public function modificar($parametros) {

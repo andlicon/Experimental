@@ -142,7 +142,7 @@
         protected function itemFecha() {
             $item = 
                 '
-                <label for="fechaConsul" class="input__label">Cíclo</label>
+                <label for="fechaConsul" class="input__label fechita">Cíclo</label>
                 <input type="month" id="fechaConsul" class="consultor"/>';
 
             return $item;

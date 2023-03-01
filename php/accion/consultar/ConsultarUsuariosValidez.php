@@ -20,54 +20,53 @@
         public function consultar(array $filtro) {
             $registros;
 
-            $tipoPersona = $_POST['tipoPersona']; 
             $representante = $_POST['representante'];
+            $fecha = $_POST['fecha'];
 
-            //AÑADIR UNA BÚSQUEDA POR TODOS O UN REPRESENTANTE EN ESPECÍFICO
-
-            //Acá debo mejorar la query para que consulte por cada caso QUE LADILLA
-            if(str_contains($representante, "todos")) {
-                if(str_contains($this->validez, "todos")) {
-                    if(str_contains($tipoPersona, "todos")) { 
+            if($fecha=="") {            //NO HAY FECHA
+                if(str_contains($representante, "todos")) {    
+                    if(str_contains($this->validez, "todos")) {
                         $registros = $this->dao->getTodos();
                     }
-                    else {
-                        $registros = $this->dao->getTodosTipoPersona(array($tipoPersona));
-                    }
-                }
-                else {
-                    $valido = str_contains($this->validez, "invalido") ? 0 : 1;
-    
-                    if(str_contains($tipoPersona, "todos")) { 
+                    else {                                   
+                        $valido = str_contains($this->validez, "invalidos") ? 0 : 1;
                         $registros = $this->dao->getInstanciaValidez(array($valido));
                     }
-                    else {
-                        $registros = $this->dao->getTodosTipoPersonaValidez(array($tipoPersona, $valido));
-                    }
                 }
-            }
-            else {                          //Esta debe ser cambiado, ya que el represenante debera ser especifico
-                if(str_contains($this->validez, "todos")) {
-                    if(str_contains($tipoPersona, "todos")) { 
+                else {                                          
+                    if(str_contains($this->validez, "todos")) { 
                         $registros = $this->dao->getTodosCedula(array($representante));
                     }
-                    else {
-                        $registros = $this->dao->getTodosTipoPersonaRepresentante(array($tipoPersona, $representante));
-                    }
-                }
-                else {
-                    $valido = str_contains($this->validez, "invalido") ? 0 : 1;
-    
-                    if(str_contains($tipoPersona, "todos")) { 
+                    else {          
+                        $valido = str_contains($this->validez, "invalidos") ? 0 : 1;
                         $registros = $this->dao->getInstanciaValidezRepresentante(array($valido, $representante));
-                    }
-                    else {
-                        $registros = $this->dao->getTodosTipoPersonaValidezRepresentante(array($tipoPersona, $valido, $representante));
                     }
                 }
             }
-
-            echo 'a';
+            else {                     
+                $fecha = explode("-", $fecha);
+                $anio = $fecha[0];
+                $mes = $fecha[1];
+                if(str_contains($representante, "todos")) {     
+                    if(str_contains($this->validez, "todos")) { 
+                        $registros = $this->dao->getTodosFecha(array($anio, $mes));
+                    }
+                    else {                                
+                        $valido = str_contains($this->validez, "invalidos") ? 0 : 1;
+                        $registros = $this->dao->getTodosValidezFecha(array($valido, $anio, $mes));
+                    }
+                }
+                else {                                         
+                    if(str_contains($this->validez, "todos")) { 
+                        //FECHA REPRESENTANTE validez
+                        $registros = $this->dao->getInstanciaFechaRep(array($representante, $anio, $mes));
+                    }
+                    else {                                     
+                        $valido = str_contains($this->validez, "invalidos") ? 0 : 1;
+                        $registros = $this->dao->getInstanciaValidezRepresentanteFecha(array($valido, $representante, $anio, $mes));
+                    }
+                }
+            }
 
             //select
             $selectValido = new CreadorSelectValido();
