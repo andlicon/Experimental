@@ -46,10 +46,10 @@
                 </div>
             </div>
         </div>
-        <div id="deficit">
+        <div id="deficit" class="tabla div--seleccionado padding">
             <script src="../js/estado/genTablaDeficit.js"></script>
         </div>
-        <div id="deficitDetallado">
+        <div id="deficitDetallado" class="tabla div--seleccionado padding">
             <script src="../js/estado/genTablaDeficitDetallado.js"></script>
         </div>
     </div>
