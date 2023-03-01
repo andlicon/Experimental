@@ -4,6 +4,7 @@
         private $nickname;        //nombre usuario
         private $contrasena;    //contrasena usuario
         private $valido;
+        private $fechaRegistro;
 
         /*
             Crea a un usuario asignando todos sus atributos
@@ -11,11 +12,12 @@
             @param $nombre      nombre del usuario
             @param $contrasena  contrasena del usuario
         */
-        public function __construct($cedula, $nickname, $contrasena, $valido) {
+        public function __construct($cedula, $nickname, $contrasena, $valido, $fechaRegistro) {
             $this->cedula = $cedula;
             $this->nickname = $nickname;
             $this->contrasena = $contrasena;
             $this->valido = $valido ? true : false;
+            $this->fechaRegistro = $fechaRegistro;
         }
 
 
@@ -31,6 +33,9 @@
         }
         public function getValido() {
             return $this->valido;
+        }
+        public function getFechaRegistro() {
+            return $this->fechaRegistro;
         }
 
         public function setCedula($cedula) {

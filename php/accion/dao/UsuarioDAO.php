@@ -42,7 +42,8 @@
                 $nickname = $registro['nickname'];
                 $contrasena = $registro['contrasena'];
                 $valido = $registro['valido'];
-                $us = new Usuario($cedula, $nickname, $contrasena, $valido);
+                $fechaRegistro = $registro['fecha_registro'];
+                $us = new Usuario($cedula, $nickname, $contrasena, $valido, $fechaRegistro);
 
                 $usuarios[] = $us;
             }
@@ -68,11 +69,11 @@
                 $registro = $registros[$i];
 
                 $cedula = $registro['cedula'];
-                echo $cedula;
                 $nickname = $registro['nickname'];
                 $contrasena = $registro['contrasena'];
                 $valido = $registro['valido'];
-                $us = new Usuario($cedula, $nickname, $contrasena, $valido);
+                $fechaRegistro = $registro['fecha_registro'];
+                $us = new Usuario($cedula, $nickname, $contrasena, $valido, $fechaRegistro);
 
                 $usuarios[] = $us;
             }
@@ -84,7 +85,8 @@
            $consulta = "SELECT u.cedula,
                                u.nickname,
                                u.contrasena,
-                               u.valido
+                               u.valido,
+                               u.fecha_registro
                            FROM USUARIO u
                            JOIN PERSONA p
                            ON (u.cedula = p.cedula)
@@ -105,7 +107,8 @@
                 $nickname = $registro['nickname'];
                 $contrasena = $registro['contrasena'];
                 $valido = $registro['valido'];
-                $us = new Usuario($cedula, $nickname, $contrasena, $valido);
+                $fechaRegistro = $registro['fecha_registro'];
+                $us = new Usuario($cedula, $nickname, $contrasena, $valido, $fechaRegistro);
 
                 $usuarios[] = $us;
             }
@@ -117,7 +120,8 @@
             $consulta = "SELECT u.cedula,
                                 u.nickname,
                                 u.contrasena,
-                                u.valido
+                                u.valido,
+                               u.fecha_registro
                             FROM USUARIO u
                             JOIN PERSONA p
                             ON (u.cedula = p.cedula)
@@ -140,13 +144,14 @@
                  $nickname = $registro['nickname'];
                  $contrasena = $registro['contrasena'];
                  $valido = $registro['valido'];
-                 $us = new Usuario($cedula, $nickname, $contrasena, $valido);
- 
-                 $usuarios[] = $us;
-             }
-             
-             return $usuarios;
-         }
+                 $fechaRegistro = $registro['fecha_registro'];
+                 $us = new Usuario($cedula, $nickname, $contrasena, $valido, $fechaRegistro);
+
+                $usuarios[] = $us;
+            }
+            
+            return $usuarios;
+        }
 
         public function getInstanciaValidezTipoPersona(array $valido) {
             $consulta = 
@@ -170,7 +175,8 @@
                 $nickname = $registro['nickname'];
                 $contrasena = $registro['contrasena'];
                 $valido = $registro['valido'];
-                $us = new Usuario($cedula, $nickname, $contrasena, $valido);
+                $fechaRegistro = $registro['fecha_registro'];
+                $us = new Usuario($cedula, $nickname, $contrasena, $valido, $fechaRegistro);
 
                 $usuarios[] = $us;
             }
@@ -196,7 +202,8 @@
                 $nickname = $registro['nickname'];
                 $contrasena = $registro['contrasena'];
                 $valido = $registro['valido'];
-                $us = new Usuario($cedula, $nickname, $contrasena, $valido);
+                $fechaRegistro = $registro['fecha_registro'];
+                $us = new Usuario($cedula, $nickname, $contrasena, $valido, $fechaRegistro);
 
                 $usuarios[] = $us;
             }
@@ -222,7 +229,8 @@
                 $nickname = $registro['nickname'];
                 $contrasena = $registro['contrasena'];
                 $valido = $registro['valido'];
-                $us = new Usuario($cedula, $nickname, $contrasena, $valido);
+                $fechaRegistro = $registro['fecha_registro'];
+                $us = new Usuario($cedula, $nickname, $contrasena, $valido, $fechaRegistro);
 
                 $usuarios[] = $us;
             }
@@ -275,7 +283,8 @@
                 $nickname = $registro['nickname'];
                 $contrasena = $registro['contrasena'];
                 $valido = $registro['valido'];
-                $us = new Usuario($cedula, $nickname, $contrasena,  $valido);
+                $fechaRegistro = $registro['fecha_registro'];
+                $us = new Usuario($cedula, $nickname, $contrasena, $valido, $fechaRegistro);
 
                 $usuarios[] = $us;
             }
@@ -287,7 +296,8 @@
             $consulta = "SELECT u.cedula,
                                 u.nickname,
                                 u.contrasena,
-                                u.valido
+                                u.valido,
+                               u.fecha_registro
                         FROM USUARIO u
                         JOIN PERSONA p
                         ON (u.cedula = p.cedula)
@@ -307,7 +317,8 @@
                 $nickname = $registro['nickname'];
                 $contrasena = $registro['contrasena'];
                 $valido = $registro['valido'];
-                $us = new Usuario($cedula, $nickname, $contrasena,  $valido);
+                $fechaRegistro = $registro['fecha_registro'];
+                $us = new Usuario($cedula, $nickname, $contrasena, $valido, $fechaRegistro);
 
                 $usuarios[] = $us;
             }
@@ -335,7 +346,8 @@
                 $nickname = $registro['nickname'];
                 $contrasena = $registro['contrasena'];
                 $valido = $registro['valido'];
-                $us = new Usuario($cedula, $nickname, $contrasena,  $valido);
+                $fechaRegistro = $registro['fecha_registro'];
+                $us = new Usuario($cedula, $nickname, $contrasena, $valido, $fechaRegistro);
 
                 $usuarios[] = $us;
             }
@@ -364,7 +376,8 @@
                 $nickname = $registro['nickname'];
                 $contrasena = $registro['contrasena'];
                 $valido = $registro['valido'];
-                $us = new Usuario($cedula, $nickname, $contrasena,  $valido);
+                $fechaRegistro = $registro['fecha_registro'];
+                $us = new Usuario($cedula, $nickname, $contrasena, $valido, $fechaRegistro);
 
                 $usuarios[] = $us;
             }
@@ -393,7 +406,8 @@
                 $nickname = $registro['nickname'];
                 $contrasena = $registro['contrasena'];
                 $valido = $registro['valido'];
-                $us = new Usuario($cedula, $nickname, $contrasena,  $valido);
+                $fechaRegistro = $registro['fecha_registro'];
+                $us = new Usuario($cedula, $nickname, $contrasena, $valido, $fechaRegistro);
 
                 $usuarios[] = $us;
             }
@@ -423,7 +437,8 @@
                 $nickname = $registro['nickname'];
                 $contrasena = $registro['contrasena'];
                 $valido = $registro['valido'];
-                $us = new Usuario($cedula, $nickname, $contrasena,  $valido);
+                $fechaRegistro = $registro['fecha_registro'];
+                $us = new Usuario($cedula, $nickname, $contrasena, $valido, $fechaRegistro);
 
                 $usuarios[] = $us;
             }
@@ -464,7 +479,8 @@
                 $nickname = $registro['nickname'];
                 $contrasena = $registro['contrasena'];
                 $valido = $registro['valido'];
-                $us = new Usuario($cedula, $nickname, $contrasena,  $valido);
+                $fechaRegistro = $registro['fecha_registro'];
+                $us = new Usuario($cedula, $nickname, $contrasena, $valido, $fechaRegistro);
 
                 $usuarios[] = $us;
             }
@@ -495,7 +511,8 @@
                 $nickname = $registro['nickname'];
                 $contrasena = $registro['contrasena'];
                 $valido = $registro['valido'];
-                $us = new Usuario($cedula, $nickname, $contrasena,  $valido);
+                $fechaRegistro = $registro['fecha_registro'];
+                $us = new Usuario($cedula, $nickname, $contrasena, $valido, $fechaRegistro);
 
                 $usuarios[] = $us;
             }
@@ -526,7 +543,8 @@
                 $nickname = $registro['nickname'];
                 $contrasena = $registro['contrasena'];
                 $valido = $registro['valido'];
-                $us = new Usuario($cedula, $nickname, $contrasena,  $valido);
+                $fechaRegistro = $registro['fecha_registro'];
+                $us = new Usuario($cedula, $nickname, $contrasena, $valido, $fechaRegistro);
 
                 $usuarios[] = $us;
             }

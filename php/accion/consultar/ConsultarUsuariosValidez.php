@@ -79,6 +79,7 @@
                 $cedula = $usuario->getCedula();
                 $nickname = $usuario->getNickname();
                 $valido = $usuario->getValido();
+                $fechaRegistro = $usuario->getFechaRegistro();
 
                 //Info persona.
                 $personaDAO = new PersonaDAO(BaseDeDatos::getInstancia());
@@ -108,6 +109,9 @@
 
                 $html = $html."  
                     <td class=\"output__celda\">
+                        $fechaRegistro
+                    </td>
+                    <td class=\"output__celda\">
                         $cedula
                     </td>
                     <td class=\"output__celda\">
@@ -125,12 +129,6 @@
                     <td class=\"output__celda\">
                         <textarea name=\"direccionHogar$cedula\" id=\"direccionHogar$cedula\" disabled class=\"modificable modificable--estado$cedula textarea\" cols=\"14\" rows=\"5\">$direccionHogar</textarea>
                         <textarea name=\"direccionHogarInput$cedula\" id=\"direccionHogarInput$cedula\" disabled class=\"modificable modificable$cedula ocultar textarea\" cols=\"14\" rows=\"5\" onkeypress=\"return soloAlfaNumerico(50, 'direccionHogarInput$cedula')\">$direccionHogar</textarea>
-                    </td>
-                    <td class=\"output__celda\">
-                        <span class=\"modificable modificable--estado\">$tipoUsuario</span>
-                    </td>
-                    <td class=\"output__celda\">
-                       $nickname
                     </td>
                     <td class=\"output__celda\">
                         <span id=\"valido$cedula\" class=\"modificable modificable--estado$cedula\">$valido</span>

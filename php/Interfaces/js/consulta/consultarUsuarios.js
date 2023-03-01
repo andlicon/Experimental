@@ -48,7 +48,6 @@ $(function() {
                     data : {pagina: pagina, cedula: cedula, permiso: permiso, infoAdd: infoAdd, fecha: fecha, representante: representante},
                     async: false,
                     success : function(response) {
-                        alert(response);
                         var renglones = response.split('TERMINAACA');
                         var html = "";
 

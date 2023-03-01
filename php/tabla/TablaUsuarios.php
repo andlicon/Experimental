@@ -7,6 +7,7 @@ class TablaUsuarios extends Tabla {
         $tabla = "
             <table class=\"output__table\">
                 <colgroup> 
+                    <col class=\"output__col output__col--fecha\">
                     <col class=\"output__col output__col--cedula\">
                     <col class=\"output__col output__col--nombre\">
                     <col class=\"output__col output__col--apellido\">
@@ -14,10 +15,12 @@ class TablaUsuarios extends Tabla {
                     <col class=\"output__col output__col--contacto\">
                     <col class=\"output__col output__col--descripcion-Trabajo\">
                     <col class=\"output__col output__col--lugarTrabajo\">
-                    <col class=\"output__col output__col--acciones\">
                 </colgroup>
                 <thead class=\"output__header\">
                     <tr class=\"output__renglon\">
+                        <th class=\"output__celda output__celda--header\">
+                           Fecha registro 
+                        </th>
                         <th class=\"output__celda output__celda--header\">
                            Cedula 
                         </th>
@@ -32,12 +35,6 @@ class TablaUsuarios extends Tabla {
                         </th>
                         <th class=\"output__celda output__celda--header\">
                            Dirección Hogar
-                        </th>
-                        <th class=\"output__celda output__celda--header\">
-                           Tipo
-                        </th>
-                        <th class=\"output__celda output__celda--header\">
-                           Nickname
                         </th>
                         <th class=\"output__celda output__celda--header\">
                            Valido
