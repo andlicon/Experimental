@@ -151,7 +151,7 @@
 
                         $classDeficit = $deficitTotal<0 ? "tabla__td--deuda" : "tabla__td--ingresos";
                         $tablaAux = "<div class=\"div--seleccionado padding\">
-                                        <table class=\"tabla__table\">
+                                        <table class=\"tabla__table\" style=\"style:margin: auto; width:95%;\">
                                             </thead>
                                                 <caption>
                                                     <h2 class=\"tabla__titulo titulo--bienvenida formu--titulo\">$representanteAux</h4>

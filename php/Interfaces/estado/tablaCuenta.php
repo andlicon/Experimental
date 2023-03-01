@@ -29,7 +29,7 @@
         echo "
             <div class=\"tabla div--seleccionado padding\">
                 <h2 class=\"tabla__titulo titulo--bienvenida formu--titulo\">Cuenta virtual</h2>
-                <table class=\"tabla__table\">
+                <table class=\"tabla__table tabla-bonita\">
                     <tr class=\"tabla__tr\">
                         <td class=\"tabla__td tabla__th\">Cedula</td>
                         <td class=\"tabla__td tabla__th\">Nombre</td>

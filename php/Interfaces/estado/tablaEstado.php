@@ -11,7 +11,7 @@
         $tabla = "
         <div class=\"tabla div--seleccionado padding\">
             <h2 class=\"tabla__titulo titulo--bienvenida formu--titulo\">Estado cuenta</h2>
-            <table class=\"tabla__table\">
+            <table class=\"tabla__table tabla-bonita\">
                 <thead>
                     <tr class=\"tabla__tr\">
                         <th class=\"tabla__td tabla__th\">Estudiante</th>

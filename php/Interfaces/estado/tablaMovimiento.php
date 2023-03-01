@@ -151,7 +151,7 @@
                 }
     
                 $fila = "
-                     <tr class=\"tabla__tr\">
+                     <tr class=\"tabla__tr tabla-bonita\">
                          <td class=\"tabla__td\">$trigger</td>
                          <td class=\"tabla__td\"><div>$fecha</div></td>
                          <td class=\"tabla__td\"><div>$descripcion</div></td>

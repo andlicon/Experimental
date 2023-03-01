@@ -68,7 +68,7 @@
         $tabla = "
                 <div class=\"tabla\">
                     <h2 class=\"tabla__titulo titulo--bienvenida formu--titulo\"id=\"titulo__deficit\">Déficit del cíclo $titulo</h2>
-                    <table class=\"tabla__table\">
+                    <table class=\"tabla__table\" style=\"style:margin: auto; width:95%;\">
                     <thead>
                         <tr class=\"tabla__tr\">
                             <th class=\"tabla__td tabla__th\">Cíclo</th>

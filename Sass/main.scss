@@ -199,6 +199,11 @@ table {
         margin-left: 0.5em;
     }
 
+    td div a {
+        margin-left: 0;
+    }
+
+
     thead {
         font-weight: 900;
         font-size: 1.2em;
@@ -206,11 +211,11 @@ table {
 
     table {
         border-radius: 1em;
-        border: 2px #179AE8 solid;
+        // border: 2px #179AE8 solid;
     }
 
     thead {
-        border-bottom: 1px #179AE8 solid;
+        // border-bottom: 1px #179AE8 solid;
         font-size: 1.3em;
         padding: 1em;
         
@@ -248,7 +253,7 @@ table {
 }
 
 .tabla__td--deuda {
-    color: #8B0000;
+    color: #D0003E;
 }
 
 .esteno {
@@ -267,4 +272,60 @@ table {
 
 .tabla__table {
     width: 100%;
+}
+
+html {
+    background-color: #1170A8;
+}
+
+body {
+    background-color: #1170A8;
+}
+
+.body-main {
+    background-color: #1170A8;
+}
+
+.padding {
+    background-color: white;
+}
+
+.titulo--bienvenida {
+    width: 100%;
+    background-color: #393939;
+    border-top-right-radius: 1em;
+    border-top-left-radius: 1em;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.tabla {
+    padding: 0;
+}
+
+#tablaCuenta .tabla {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#tablaEstado .tabla {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#tablaMovimiento .tabla {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.tabla-bonita {
+    width: 95%;
+    position: relative;
 }

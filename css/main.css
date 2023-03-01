@@ -1685,16 +1685,17 @@ table td {
 .padding td * {
   margin-left: 0.5em;
 }
+.padding td div a {
+  margin-left: 0;
+}
 .padding thead {
   font-weight: 900;
   font-size: 1.2em;
 }
 .padding table {
   border-radius: 1em;
-  border: 2px #179AE8 solid;
 }
 .padding thead {
-  border-bottom: 1px #179AE8 solid;
   font-size: 1.3em;
   padding: 1em;
 }
@@ -1723,7 +1724,7 @@ table td {
 }
 
 .tabla__td--deuda {
-  color: #8B0000;
+  color: #D0003E;
 }
 
 .esteno {
@@ -1748,4 +1749,86 @@ table td {
 
 .tabla__table {
   width: 100%;
+}
+
+html {
+  background-color: #1170A8;
+}
+
+body {
+  background-color: #1170A8;
+}
+
+.body-main {
+  background-color: #1170A8;
+}
+
+.padding {
+  background-color: white;
+}
+
+.titulo--bienvenida {
+  width: 100%;
+  background-color: #393939;
+  border-top-right-radius: 1em;
+  border-top-left-radius: 1em;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.tabla {
+  padding: 0;
+}
+
+#tablaCuenta .tabla {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#tablaEstado .tabla {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#tablaMovimiento .tabla {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.tabla-bonita {
+  width: 95%;
+  position: relative;
 }
