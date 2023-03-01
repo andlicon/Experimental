@@ -153,9 +153,9 @@
                 $fila = "
                      <tr class=\"tabla__tr\">
                          <td class=\"tabla__td\">$trigger</td>
-                         <td class=\"tabla__td\">$fecha</td>
-                         <td class=\"tabla__td\">$descripcion</td>
-                         <td class=\"tabla__td $classMonto\">$monto</td>
+                         <td class=\"tabla__td\"><div>$fecha</div></td>
+                         <td class=\"tabla__td\"><div>$descripcion</div></td>
+                         <td class=\"tabla__td $classMonto\"><div>$monto</div></td>
                          $modal
                      </tr>";
 

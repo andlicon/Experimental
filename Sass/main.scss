@@ -116,6 +116,10 @@ p {
     color: #CDA434;
 }
 
+.div--seleccionado:hover thead th {
+    color: #CDA434 !important;
+}
+
 .div--seleccionado:hover .formu--titulo:first {
     border-bottom: 1px solid yellow;
 }
@@ -173,6 +177,12 @@ img {
     }
 }
 
+table {
+    td {
+        position: relative;
+    }
+}
+
 .padding {
     padding: 1em;
     background-color: #1693DB;
@@ -182,7 +192,11 @@ img {
 
     td, th {
         font-weight: 600;
-        text-align: center;
+        text-align: left;
+    }
+
+    td * {
+        margin-left: 0.5em;
     }
 
     thead {
@@ -199,8 +213,17 @@ img {
         border-bottom: 1px #179AE8 solid;
         font-size: 1.3em;
         padding: 1em;
+        
         th {
-            padding-bottom: 0.3em;
+            padding-bottom: 0.5em;
+        }
+    }
+
+    tbody {
+        text-align: center;
+
+        th {
+            padding-left:  0.3em;
         }
     }
 
@@ -222,4 +245,8 @@ img {
         font-weight: 600;
         text-align: start;
     }
+}
+
+.tabla__td--deuda {
+    color: #8B0000;
 }

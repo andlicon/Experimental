@@ -1615,6 +1615,10 @@ p {
   color: #CDA434;
 }
 
+.div--seleccionado:hover thead th {
+  color: #CDA434 !important;
+}
+
 .div--seleccionado:hover .formu--titulo:first {
   border-bottom: 1px solid yellow;
 }
@@ -1663,6 +1667,10 @@ img {
   border: solid 1px #1170A8;
 }
 
+table td {
+  position: relative;
+}
+
 .padding {
   padding: 1em;
   background-color: #1693DB;
@@ -1672,7 +1680,10 @@ img {
 }
 .padding td, .padding th {
   font-weight: 600;
-  text-align: center;
+  text-align: left;
+}
+.padding td * {
+  margin-left: 0.5em;
 }
 .padding thead {
   font-weight: 900;
@@ -1688,7 +1699,13 @@ img {
   padding: 1em;
 }
 .padding thead th {
-  padding-bottom: 0.3em;
+  padding-bottom: 0.5em;
+}
+.padding tbody {
+  text-align: center;
+}
+.padding tbody th {
+  padding-left: 0.3em;
 }
 .padding .tabla__th {
   font-size: 1.2em;
@@ -1703,4 +1720,8 @@ img {
 #tablaCuenta .padding td, #tablaCuenta .padding th {
   font-weight: 600;
   text-align: start;
+}
+
+.tabla__td--deuda {
+  color: #8B0000;
 }
