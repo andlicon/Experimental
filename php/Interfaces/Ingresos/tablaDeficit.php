@@ -57,17 +57,17 @@
             $classDeficit = $deficit<0 ? "tabla__td--deuda" : "tabla__td--ingresos";
             $body = $body."
                 <tr>
-                    <h2 class=\"tabla__titulo titulo--bienvenida formu--titulo\">$titulo</td>
-                    <td class=\"tabla__td--deuda\">$deudaGenerada</td>
-                    <td class=\"tabla__td--ingresos\">$ingresos</td>
-                    <td class=\"$classDeficit\">$deficit</td>
+                    <td class=\"\"><div>$titulo</div></td>
+                    <td class=\"tabla__td--deuda\"><div>$deudaGenerada</div></td>
+                    <td class=\"tabla__td--ingresos\"><div>$ingresos</div></td>
+                    <td class=\"$classDeficit\"><div>$deficit</div></td>
                 </tr>
             ";
         }
         
         $tabla = "
                 <div class=\"tabla\">
-                    <h2 class=\"tabla__titulo\" id=\"titulo__deficit\">Déficit del cíclo $titulo</h2>
+                    <h2 class=\"tabla__titulo titulo--bienvenida formu--titulo\"id=\"titulo__deficit\">Déficit del cíclo $titulo</h2>
                     <table class=\"tabla__table\">
                     <thead>
                         <tr class=\"tabla__tr\">

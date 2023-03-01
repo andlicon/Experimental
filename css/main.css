@@ -1725,3 +1725,7 @@ table td {
 .tabla__td--deuda {
   color: #8B0000;
 }
+
+.esteno {
+  padding: 0;
+}

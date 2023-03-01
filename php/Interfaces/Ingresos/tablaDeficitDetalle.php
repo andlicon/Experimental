@@ -10,7 +10,7 @@
     if(isset($_POST['fecha'])) {
         $fecha = $_POST['fecha'];
         $html = "<div class=\"tabla\">
-                    <h2 class=\"tabla__titulo titulo--bienvenida formu--titulo\">Representantes deudores en el cíclo</h2>";
+                    <h2 class=\"tabla__titulo\">Representantes deudores en el cíclo</h2>";
         
         $anio = null;
         $mes = null;
@@ -172,7 +172,7 @@
                                                 <td class=\"$classDeficit\">$deficitTotal</td>
                                             </tr>
                                         </tfoot>
-                                    </table>";
+                                    </table><>";
                     }
 
                     $html = $html.$tablaAux;
