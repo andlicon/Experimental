@@ -37,8 +37,8 @@
                 <label for="tipoUsuarioInput" class="input__label">Validez</label>
                 <select class="input__select consultor" id="tipoUsuarioInput" name="tipoUsuarioInput">
                     <option value="todos">Todos</option>
-                    <option value="validos">Validos</option>;
-                    <option value="invalidos">Invalidos</option>';
+                    <option value="validos">Confirmado</option>;
+                    <option value="invalidos">Por confirmar</option>';
             $item = $item.
                 '</select>
             </div>';
