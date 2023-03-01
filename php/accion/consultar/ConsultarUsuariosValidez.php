@@ -20,7 +20,7 @@
         public function consultar(array $filtro) {
             $registros;
 
-            $tipoPersona = $_POST['tipoPersona'];
+            $tipoPersona = $_POST['tipoPersona']; 
             $representante = $_POST['representante'];
 
             //AÑADIR UNA BÚSQUEDA POR TODOS O UN REPRESENTANTE EN ESPECÍFICO

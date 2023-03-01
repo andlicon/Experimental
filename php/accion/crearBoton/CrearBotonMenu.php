@@ -17,27 +17,27 @@
                 $botones = $botones.$this->crearItem("estado", "Estado");
                 $botones = $botones.$this->crearItem("deuda", "Deudas");
                 $botones = $botones.$this->crearItem("pago", "Pagos");
-                $botones = $botones.$this->crearItem("estudiante", "Estudiante");
+                $botones = $botones.$this->crearItem("estudiante", "Estudiantes");
                 $botones = $botones.$this->crearItem("clase", "Clase");
             }
             else if($this->permiso==4) {  //ADMINISTRADOR
                 $botones = $botones.$this->crearItem("ingresos", "Déficit");
                 $botones = $botones.$this->crearItem("deuda", "Deudas");
                 $botones = $botones.$this->crearItem("pago", "Pagos");
-                $botones = $botones.$this->crearItem("gestionar-usuarios", "Usuarios");
+                $botones = $botones.$this->crearItem("gestionar-usuarios", "Representantes");
                 // $botones = $botones.$this->crearItem("profesor", "Clases");
-                $botones = $botones.$this->crearItem("estudiante", "Estudiante");
+                $botones = $botones.$this->crearItem("estudiante", "Estudiantes");
                 $botones = $botones.$this->crearItem("respaldo", "Respaldar info");
             }
             else if($this->permiso==5) { //administrador
-                $botones = $botones.$this->crearItem("estudiante", "Estudiante");
+                $botones = $botones.$this->crearItem("estudiante", "Estudiantes");
                 $botones = $botones.$this->crearItem("gestionar-usuarios", "Representantes");
             }
             else {                  //REPRESENTANTE
                 $botones = $botones.$this->crearItem("estado", "Estado");
                 $botones = $botones.$this->crearItem("deuda", "Deudas");
                 $botones = $botones.$this->crearItem("pago", "Pagos");
-                $botones = $botones.$this->crearItem("estudiante", "Estudiante");
+                $botones = $botones.$this->crearItem("estudiante", "Estudiantes");
             }
             $botones = $botones.$this->crearItem("perfil", "Perfil");
             $botones = $botones.$this->crearItem("salir", "Salir");
