@@ -32,7 +32,9 @@
             }
             else {
                 $registros = $deudaDAO->getDeudorHistorico();
-                $deudores[] = $registros[0]->getCedula();
+                for($i=0; $i<count($registros); $i++) {
+                    $deudores[] = $registros[$i]->getCedula();
+                }
             }
 
             if(!empty($deudores)) {
@@ -52,6 +54,11 @@
                 for($i=0; $i<count($deudores); $i++) {
                     //Consultar por estudiante deudor
                     $resultado;
+                    $estudianteRow = "";
+                    $tablaAux = "";
+                    $pagoTotalRep = 0;
+                    $deudaTotalRep = 0;
+                    $deficitTotal = 0;
 
                     if($anio!=null && $mes!=null) {
                         $resultado = $deudaDAO->getDeficitDetalladoDeudor(array($anio, $mes, $deudores[$i]));
@@ -166,15 +173,9 @@
                                             </tr>
                                         </tfoot>
                                     </table>";
-
-                        //Ya no tiene sentido que lo haga por estudiante, de hecho deberia arreglar la consulta de arriba
-                        //y así ya tendría la información de las consultas que tal
-
                     }
 
                     $html = $html.$tablaAux;
-
-
                 }
 
             }

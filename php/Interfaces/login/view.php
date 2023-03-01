@@ -116,11 +116,6 @@
                             <li>Llenado de <a href="#solicitud-ingreso">PLANILLA VIRTUAL</a></li>
                             <li>Entrega de recaudos.</li>
                         </ol>
-                        <!-- <p>
-                            El proceso de inscripción para el presente año escolar consta de dos pasos, 
-                            el primero, el cual consiste en una planilla virtual de "<a href="#solicitud-ingreso">SOLICITUD DE INGRESO</a>", la cual está disponible al final de esta página
-                            Su llenado via online da inicio al proceso de inscripción, posterior a esto, deberá llevar al instituto el resto de los recaudos en una carpeta, para así dar paso al proceso de validación.
-                        </p> -->
                     </div>
                     <div class="bloque div--seleccionado" style="height:100%;">
                         <h2 class="formu--titulo titulo--bienvenida">Recaudos solicitados</h2>
@@ -150,7 +145,7 @@
                             </div>
                         </div>
                          <div class="centrado bloque">
-                            <div class="datos-representante marco-deuda subBloque horizontal">
+                            <div class="datos-representante marco-deuda subBloque horizontal formu-mediano">
                                 <h4 class="popOver__informacion formu--titulo">Datos Representante</h4>
                             <div class="input__grupo">
                                     <div class="formu formu-nacionalidad">
@@ -203,7 +198,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="datos-estudiante subBloque marco-deuda bloque centrado subBloquecito bloque--sub bloqueEstudiante" id="estudiantes">
+                        <div class="datos-estudiante subBloque marco-deuda bloque centrado subBloquecito bloque--sub bloqueEstudiante formu-chikito" id="estudiantes">
                             <h4 class="popOver__informacion formu--titulo corregir">Datos estudiante</h4>
                                 <div class="formu">
                                     <input type="text" id="nombreInputEstudiante[]" name="nombreInputEstudiante" autocomplete="off" class="input__input input__input--texto" required onkeypress="return soloAlfabeto(15, null)" maxlength="15">

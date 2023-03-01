@@ -2,6 +2,7 @@ $(function() {
     $('#masEstudiantes').click(function() {
         //Crear los divs
         const div_principal = D.create('div');
+        div_principal.classList.add('formu-chikito');
         div_principal.classList.add('subBloque');
         div_principal.classList.add('datos-estudiante');
         div_principal.classList.add('bloque');

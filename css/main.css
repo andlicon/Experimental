@@ -1607,28 +1607,16 @@ p {
   transition: 0.3s;
 }
 
-html {
-  background-color: white !important;
-}
-
-body {
-  background-color: inherit !important;
-}
-
 .bloque {
   background-color: #1170A8;
 }
 
 .div--seleccionado:hover .titulo--bienvenida {
-  color: #2691d9;
+  color: #CDA434;
 }
 
-.div--seleccionado:hover .formu--titulo {
-  border-bottom: 1px solid #2691d9;
-}
-
-.body-login {
-  background-color: inherit !important;
+.div--seleccionado:hover .formu--titulo:first {
+  border-bottom: 1px solid yellow;
 }
 
 .titulo--bienvenida {
@@ -1645,4 +1633,23 @@ ol li {
 
 .contenido-login p, .contenido-login li {
   font-size: 1.3em;
+}
+
+.formu-mediano {
+  width: 70%;
+  padding: 1em;
+}
+
+.formu-chikito {
+  width: 60%;
+  padding: 1em;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.formu-chikito a, .formu-chikito #masEstudiantes {
+  width: calc(100% + 2em);
+}
+
+img {
+  border-radius: 4em;
 }
