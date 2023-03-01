@@ -1832,3 +1832,7 @@ body {
   width: 95%;
   position: relative;
 }
+
+.corecciontitu {
+  width: calc(100% + 0.5em);
+}
