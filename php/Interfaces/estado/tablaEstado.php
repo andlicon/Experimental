@@ -17,7 +17,6 @@
                         <th class=\"tabla__td tabla__th\">Estudiante</th>
                         <th class=\"tabla__td tabla__th\">Días de retraso</th>
                         <th class=\"tabla__td tabla__th\">Monto inicial</th>
-                        <th class=\"tabla__td tabla__th\">Monto pagado</th>
                         <th class=\"tabla__td tabla__th\">Monto faltante</th>
                     </tr>
                 </thead>
@@ -52,7 +51,6 @@
                             <td class=\"tabla__td\" style=\"position:relative;\">$popOver</td>
                             <td class=\"tabla__td\">$fechaRetraso</td>
                             <td class=\"tabla__td tabla__td--deuda\">$montoInicial</td>
-                            <td class=\"tabla__td\ tabla__td--ingresos\">$montoEstado</td>
                             <td class=\"tabla__td $claseDeuda\">$debe</td>
                         </tr>";
     
@@ -76,7 +74,7 @@
                 </tbody>
                 <tfoot>
                     <tr class=\"tabla__tr\">
-                        <td colspan=\"4\"></td>
+                        <td colspan=\"3\"></td>
                         <td class=\"tabla__td\">Deuda total: <span class=\"$claseDeuda\">$deudaTotal</span></td>
                     </tr>
                 </tfoot>
