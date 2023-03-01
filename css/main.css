@@ -1865,3 +1865,7 @@ ul {
 .contenido-login .comunicar {
   text-align: initial;
 }
+
+.mas-informacion {
+  gap: 2em;
+}

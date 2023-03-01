@@ -99,7 +99,7 @@
                     </div>
                     <div class="ubicacion subBloque div--seleccionado" style="border-radius:3em;">
                         <h2 class="formu--titulo titulo--bienvenida">Ubicación</h2>
-                        <p class="pad">C. Guaraguao, Puerto La Cruz 6023, Anzoátegui</p>
+                        <p class="pad comunicar">C. Guaraguao, Puerto La Cruz 6023, Anzoátegui</p>
                         <iframe class="imagen-login" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15705.763964089569!2d-64.6296116!3d10.2259722!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xa0ac7244980e91e3!2sU.E.%20Instituto%20Experimental!5e0!3m2!1ses!2sve!4v1675441074261!5m2!1ses!2sve" width="400" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
