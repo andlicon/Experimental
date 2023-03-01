@@ -1653,3 +1653,54 @@ ol li {
 img {
   border-radius: 4em;
 }
+
+.ultimo {
+  background-color: white;
+  border-radius: 2em;
+  border: solid 0.4em #1170A8;
+}
+.ultimo td, .ultimo col {
+  border: solid 1px #1170A8;
+}
+
+.padding {
+  padding: 1em;
+  background-color: #1693DB;
+  border-radius: 2em;
+  color: black;
+  margin: 1em;
+}
+.padding td, .padding th {
+  font-weight: 600;
+  text-align: center;
+}
+.padding thead {
+  font-weight: 900;
+  font-size: 1.2em;
+}
+.padding table {
+  border-radius: 1em;
+  border: 2px #179AE8 solid;
+}
+.padding thead {
+  border-bottom: 1px #179AE8 solid;
+  font-size: 1.3em;
+  padding: 1em;
+}
+.padding thead th {
+  padding-bottom: 0.3em;
+}
+.padding .tabla__th {
+  font-size: 1.2em;
+}
+.padding .noPadding {
+  padding: 0;
+}
+.padding td .modificable, .padding th .modificable {
+  width: 100%;
+}
+
+#tablaCuenta .padding td, #tablaCuenta .padding th {
+  font-weight: 600;
+  text-align: start;
+}

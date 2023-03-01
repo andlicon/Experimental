@@ -14,8 +14,8 @@
         $cedula = $_POST['cedula'];
 
         $tabla = "
-        <div class=\"tabla\">
-            <h2 class=\"tabla__titulo\">Movimientos</h2>
+        <div class=\"tabla div--seleccionado padding\">
+            <h2 class=\"tabla__titulo titulo--bienvenida formu--titulo\">Movimientos</h2>
             <table class=\"tabla__table\">
                 <thead>
                     <tr class=\"tabla__tr\">

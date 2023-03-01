@@ -27,8 +27,8 @@
         }
 
         echo "
-            <div class=\"tabla\">
-                <h2 class=\"tabla__titulo\">Cuenta virtual</h2>
+            <div class=\"tabla div--seleccionado padding\">
+                <h2 class=\"tabla__titulo titulo--bienvenida formu--titulo\">Cuenta virtual</h2>
                 <table class=\"tabla__table\">
                     <tr class=\"tabla__tr\">
                         <td class=\"tabla__td tabla__th\">Cedula</td>
