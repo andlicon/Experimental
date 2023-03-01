@@ -112,8 +112,8 @@
                                 <p class=\"popOver__elemento\"><span class=\"negrita\">Clase inscrito:</span> $estudianteClaseNombre</p>
                                 <p class=\"popOver__elemento\"><span class=\"negrita\">Cédula representante:</span> $estudianteCedulaRep</p>
                             </div>
-                            <td class=\"tabla__td--deuda\">$montoInicial</td>
-                            <td class=\"tabla__td--deuda\">$deficit</td>
+                            <td class=\"tabla__td--deuda\"><div>$montoInicial</div></td>
+                            <td class=\"tabla__td--deuda\"><div>$deficit</div></td>
                         </tr>";
 
                         $deudaTotalRep = $deudaTotalRep + $montoInicial;
@@ -150,29 +150,31 @@
                                             </div>";
 
                         $classDeficit = $deficitTotal<0 ? "tabla__td--deuda" : "tabla__td--ingresos";
-                        $tablaAux = "<table class=\"tabla__table\">
-                                        </thead>
-                                            <caption>
-                                                $representanteAux
-                                            </caption>
-                                            <tr class=\"tabla__tr\">
-                                                <th class=\"tabla__td tabla__th\">Estudiante</th>
-                                                <th class=\"tabla__td tabla__th\">Deuda generada</th>
-                                                <th class=\"tabla__td tabla__th\">Deficit</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>".
-                                        $estudianteRow
-                                        ."  
-                                        </tbody>
-                                        <tfoot>
-                                            <tr>
-                                                <td>TOTAL</td>
-                                                <td class=\"tabla__td--deuda\">$deudaTotalRep</td>
-                                                <td class=\"$classDeficit\">$deficitTotal</td>
-                                            </tr>
-                                        </tfoot>
-                                    </table><>";
+                        $tablaAux = "<div class=\"div--seleccionado padding\">
+                                        <table class=\"tabla__table\">
+                                            </thead>
+                                                <caption>
+                                                    <h2 class=\"tabla__titulo titulo--bienvenida formu--titulo\">$representanteAux</h4>
+                                                </caption>
+                                                <tr class=\"tabla__tr\">
+                                                    <th class=\"tabla__td tabla__th\">Estudiante</th>
+                                                    <th class=\"tabla__td tabla__th\">Deuda generada</th>
+                                                    <th class=\"tabla__td tabla__th\">Deficit</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>".
+                                                $estudianteRow
+                                            ."  
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <td><div>TOTAL</div></td>
+                                                    <td class=\"tabla__td--deuda\"><div>$deudaTotalRep</div></td>
+                                                    <td class=\"$classDeficit\"><div>$deficitTotal</div></td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>";
                     }
 
                     $html = $html.$tablaAux;
