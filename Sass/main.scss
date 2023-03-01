@@ -333,3 +333,35 @@ body {
 .corecciontitu {
     width: calc(100% + 1em);
 }
+
+.body-login {
+    background-color: inherit;
+}
+
+// tabla div--seleccionado padding
+
+.bienvenida {
+    background-color: white;
+}
+
+.body-login .div--seleccionado {
+    padding: 0;
+}  
+
+.formu__titulo--recto {
+    border-radius: 0;
+}
+
+.pad {
+    padding: 1em;
+    padding-top: 0.2em;
+}
+
+ul {
+  padding-left: 5em;  
+}
+
+.contenido-login .comunicar {
+    text-align: initial;
+}
+// bloque div--seleccionado div--seleccionado div--seleccionado padding

@@ -53,18 +53,18 @@
 
         <main>
             <div class="informacion contenido-login visibilidad mainCentrado" id="bienvenida">
-                <div class="bienvenida bloque">
+                <div class="bienvenida bloque" style="border-radius:3em; padding:0;">
                     <div class="div--seleccionado">
                         <h2 class="titulo--bienvenida formu--titulo" style="font-size:2.5em;">Unidad Educativa Instituto Experimental</h2>
-                        <p>
+                        <p class="pad">
                             Somos una Institución con 45 años de trayectoria, enfocados en la excelencia educativa.
                             Nuestra prioridad: la Educación en Valores.
                         </p>
                         <img src="../../../img/interfaz/login/experimental.jpg" alt="" class="imagen-login">
                     </div>
                     <div class="div--seleccionado">
-                        <h2 class="titulo--bienvenida formu--titulo">Historia</h2>
-                        <p>
+                        <h2 class="titulo--bienvenida formu--titulo formu__titulo--recto">Historia</h2>
+                        <p class="pad">
                             El colegio fue fundado en el año 1973 con el nombre de “Centro Experimental de Enseñanza Preescolar”, en su inicio únicamente se impartían clases de nivel preescolar y primaria, 
                             y a partir de 1984 se empezó a impartir también las clases de nivel bachillerato.
                             En el año 1986 cambia de nombre al ya conocido Unidad Educativa Instituto Experimental.
@@ -76,30 +76,30 @@
                         </figure>
                     </div>
                     <div class="div--seleccionado">
-                        <h2 class="titulo--bienvenida formu--titulo">Misión</h2>
-                        <p>Ser una institución enmarcada en una educación de calidad y excelencia, caracterizada por el trabajo planificado y participativo (personal directivo, docente, alumno, padres y representantes), un sólido y armonioso clima organizacional y por el desarrollo intelectual, físico, emocional y social de cada uno de los actores que integran la institución.</p>
+                        <h2 class="titulo--bienvenida formu--titulo formu__titulo--recto">Misión</h2>
+                        <p class="pad">Ser una institución enmarcada en una educación de calidad y excelencia, caracterizada por el trabajo planificado y participativo (personal directivo, docente, alumno, padres y representantes), un sólido y armonioso clima organizacional y por el desarrollo intelectual, físico, emocional y social de cada uno de los actores que integran la institución.</p>
                     </div>
                     <div class="div--seleccionado">
-                        <h2 class="titulo--bienvenida formu--titulo">Visión</h2>
-                        <p>La institución persigue, además de lo que señala la Ley, suministrar a los alumnos, niños y jóvenes venezolanos, una formación ciudadana integral y permanente fundamentada en una base sólida de valores y virtudes, para hacer de ellos personas de elevado nivel académico, cultural y laboral, con capacidad crítica e investigadora capaces de contribuir al mejoramiento de la sociedad y al desarrollo de su entorno socio comunitario.</p>
+                        <h2 class="titulo--bienvenida formu--titulo formu__titulo--recto">Visión</h2>
+                        <p class="pad">La institución persigue, además de lo que señala la Ley, suministrar a los alumnos, niños y jóvenes venezolanos, una formación ciudadana integral y permanente fundamentada en una base sólida de valores y virtudes, para hacer de ellos personas de elevado nivel académico, cultural y laboral, con capacidad crítica e investigadora capaces de contribuir al mejoramiento de la sociedad y al desarrollo de su entorno socio comunitario.</p>
                     </div>
                 </div>
 
                 <div class="mas-informacion bloque">
-                    <div class="info subBloque">
+                    <div class="info subBloque" style="border-radius:3em;">
                         <div class="div--seleccionado">
                             <h2 class="formu--titulo titulo--bienvenida">Medios de comunicación</h2>
-                            <p class="comunicar"><span class="contacto">Correo de contacto:</span> UEIExperimental@hotmail.com</p>
-                            <p class="comunicar"><span class="contacto">Telefono de contacto:</span> 0426-6883542</p>
+                            <p class="comunicar pad"><span class="contacto" style="text-align: start !important;">Correo de contacto:</span> UEIExperimental@hotmail.com</p>
+                            <p class="comunicar pad"><span class="contacto">Telefono de contacto:</span> 0426-6883542</p>
                         </div>
                         <div class="div--seleccionado">
-                            <h2 class="formu--titulo titulo--bienvenida">Redes sociales</h2>
+                            <h2 class="formu--titulo titulo--bienvenida formu__titulo--recto">Redes sociales</h2>
                             <a href="https://www.instagram.com/ueiexperimental/" target="_blank"><img src="../../../img/interfaz/login/instagram.png" alt="Instagram" class="red-social"></a>
                         </div>
                     </div>
-                    <div class="ubicacion subBloque div--seleccionado">
+                    <div class="ubicacion subBloque div--seleccionado" style="border-radius:3em;">
                         <h2 class="formu--titulo titulo--bienvenida">Ubicación</h2>
-                        <p>C. Guaraguao, Puerto La Cruz 6023, Anzoátegui</p>
+                        <p class="pad">C. Guaraguao, Puerto La Cruz 6023, Anzoátegui</p>
                         <iframe class="imagen-login" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15705.763964089569!2d-64.6296116!3d10.2259722!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xa0ac7244980e91e3!2sU.E.%20Instituto%20Experimental!5e0!3m2!1ses!2sve!4v1675441074261!5m2!1ses!2sve" width="400" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
@@ -107,9 +107,9 @@
         
             <div id="inscripcion" class="display--oculto visibilidad contenido-login">
                 <div class="alLado">
-                    <div class="bloque div--seleccionado">
+                    <div class="bloque div--seleccionado div--seleccionado div--seleccionado padding pad">
                         <h2 class="formu--titulo titulo--bienvenida">Proceso de Pre-Inscripción</h2>
-                        <p>
+                        <p class="pad">
                             El proceso de inscripción consta de dos pasos.
                         </p>
                         <ol>
@@ -117,9 +117,9 @@
                             <li>Entrega de recaudos.</li>
                         </ol>
                     </div>
-                    <div class="bloque div--seleccionado" style="height:100%;">
+                    <div class="bloque div--seleccionado div--seleccionado div--seleccionado padding" style="height:100%;">
                         <h2 class="formu--titulo titulo--bienvenida">Recaudos solicitados</h2>
-                        <ul>
+                        <ul class="pad">
                             <li>Copia de la partida de nacimiento</li>
                             <li>copia de la boleta final</li>
                             <li>Certificado de promoción</li>
@@ -128,7 +128,7 @@
                         </ul>
                     </div>
                 </div>
-                <div id="solicitud-ingreso" class="bloque div--seleccionado">
+                <div id="solicitud-ingreso" class="bloque div--seleccionado div--seleccionado div--seleccionado padding">
                     <h2 class="formu--titulo titulo--bienvenida">Solicitud de ingreso</h3>
                     <form action="" method="POST" class="registro" id="registro">
                         <div class="datos-usuario marco-deuda subBloque centrado subBloqueTitulo nacio">
