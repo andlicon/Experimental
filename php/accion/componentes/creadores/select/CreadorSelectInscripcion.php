@@ -34,6 +34,20 @@
             return $html;
         }
 
+        public function crearItemAtributosSeleccionSec($atributos, $id, $seleccion) {
+            $html = "";
+
+            $html = "<div class=\"input__grupo\">
+                        <select $atributos id=\"$id\" name=\"tipoPago\" $atributos>
+                            <option value=\"0\">Por confirmar</option>
+                            <option value=\"1\">Confirmado</option>";
+            $html = $html."
+                        </select>
+                    </div>";
+
+            return $html;
+        }
+
     }
 
 ?>
