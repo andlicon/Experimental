@@ -13,7 +13,6 @@
             $cargador = new CargarPago();
         }
         else if(str_contains($pagina, "estudiante")) {
-            echo 'aaa';
             $cargador = new CargarEstudiante();
         }
         else if(str_contains($pagina, "deuda")) {

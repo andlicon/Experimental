@@ -9,20 +9,17 @@ $(document).on('click', '.boton[id*="cargar"]', function(){
 
     var pagina = window.location.pathname;
 
-    let seguir = confirm("Seguro que desea cargar la deuda ");
 
     //Enviar la informacion a php
-    if(seguir) {
-        $.ajax ( {
-            url : '../../accion/cargar/CargarJs.php',
-            type : 'POST',
-            data : {estudiante: estudiante, motivo: motivo, fecha: fecha, 
-                descripcion: descripcion, monto: monto, select: select, 
-                pagina: pagina},
-            success : function(response) {
-                alert(response);
-                location.reload();
-            }
-        });
-    }
+    $.ajax ( {
+        url : '../../accion/cargar/CargarJs.php',
+        type : 'POST',
+        data : {estudiante: estudiante, motivo: motivo, fecha: fecha, 
+            descripcion: descripcion, monto: monto, select: select, 
+            pagina: pagina},
+        success : function(response) {
+            alert(response);
+            location.reload();
+        }
+    });
 });

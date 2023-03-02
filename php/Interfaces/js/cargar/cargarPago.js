@@ -20,17 +20,15 @@ $(document).on('click', '.boton[id*="cargar"]', function(){
             "Referencia: " + referencia + "\n");
 
     //Enviar la informacion a php
-    if(seguir) {
-        $.ajax ( {
-            url : '../../accion/cargar/CargarJs.php',
-            type : 'POST',
-            data : {idDeuda: idDeuda, fecha: fecha, cedula: cedula,
-                    monto: monto, referencia: referencia, cuenta: cuenta,
-                    tipoPago: tipoPago, valido: valido, pagina: pagina},
-            success : function(response) {
-                alert(response);
-                location.reload();
-            }
-        });
-    }
+    $.ajax ( {
+        url : '../../accion/cargar/CargarJs.php',
+        type : 'POST',
+        data : {idDeuda: idDeuda, fecha: fecha, cedula: cedula,
+                monto: monto, referencia: referencia, cuenta: cuenta,
+                tipoPago: tipoPago, valido: valido, pagina: pagina},
+        success : function(response) {
+            alert(response);
+            location.reload();
+        }
+    });
 });
