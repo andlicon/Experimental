@@ -18,8 +18,8 @@
 
             $html = 
                 "
-                <h2>Cargar Deuda</h2>
-            <div class=\"marco-deuda\">
+            <div class=\"marco-deuda margin--top\">
+                <h4 class=\"popOver__informacion formu--titulo corregir\">Cargar Deuda</h4>
                 <div id=\"papa\" class=\"formu\">
                     <div class=\"input__grupo\">$selectEstudiante</div>
                     <span></span>

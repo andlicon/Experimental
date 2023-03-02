@@ -1894,3 +1894,7 @@ ul {
 .body-login h2 {
   color: white;
 }
+
+.usuario__nickname {
+  color: white !important;
+}
