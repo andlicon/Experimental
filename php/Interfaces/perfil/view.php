@@ -36,58 +36,58 @@
     ?>
     <div class="body-main body-main--perfil">
         <main class="centrado">
-            <h2 class="titulo__pagina">Modificar perfil</h2>
+            <h2 class="titulo__pagina" style="margin-top:0;">Modificar perfil</h2>
             <?php
                 //Realiziar query de persona, usuario y contacto.
             ?>
             <form action="" method="POST" class="bloque perfil">
-                <div class="contenido subBloque centrado">
-                    <h3 class="contenido__titulo">
+                <div class="contenido subBloque centrado div--seleccionado" style="border-radius:2em; width:90%; margin:auto;">
+                    <h4 class="titulo--bienvenida formu--titulo">
                         datos de persona
-                    </h3>
+                    </h4>
                     <div class="contenido__bloque">
-                        <label for="nombre-input">Nombre</label>
-                        <input type="text" class="espaciado" id="nombre-input" disabled>
+                        <label for="nombre-input" style="color:black;">Nombre</label>
                     </div>
+                    <input type="text" class="espaciado" style="border:1px solid black;" id="nombre-input" disabled>
                     <div class="contenido__bloque">
-                        <label for="apellido-input">Apellido</label>
-                        <input type="text" class="espaciado" id="apellido-input" disabled>
+                        <label for="apellido-input" style="color:black;">Apellido</label>
                     </div>
+                    <input type="text" class="espaciado" style="border:1px solid black;" id="apellido-input" disabled>
                 </div>
-                <div class="contenido subBloque centrado">
-                    <h3 class="contenido__titulo">
+                <div class="contenido subBloque centrado div--seleccionado" style="border-radius:2em; width:90%; margin:auto; margin-bottom:1px;">
+                    <h3 class="tabla__titulo titulo--bienvenida formu--titulo">
                         datos de contacto
                     </h3>
                     <div class="contenido__bloque">
-                        <label for="correo-input">Correo</label>
-                        <input type="text" class="espaciado" id="correo-input">
+                        <label for="correo-input" style="color:black;">Correo</label>
                     </div>
+                    <input type="text" class="espaciado" style="border:1px solid black;" id="correo-input">
                     <div class="contenido__bloque">
-                        <label for="telefono-input">Telefono</label>
-                        <input type="text" class="espaciado" id="telefono-input">
+                        <label for="telefono-input" style="color:black;">Telefono</label>
                     </div>
+                    <input type="text" class="espaciado" style="border:1px solid black;" id="telefono-input">
                 </div>
-                <div class="contenido subBloque centrado">
-                    <h3 class="contenido__titulo">
+                <div class="contenido subBloque centrado div--seleccionado" style="border-radius:2em; width:90%; margin:auto;">
+                    <h3 class="titulo--bienvenida formu--titulo">
                         datos de usuario
                     </h3>
                     <div class="contenido__bloque">
-                        <label for="nickname-input">Nickname</label>
-                        <input type="text" class="espaciado" id="nickname-input">
+                        <label for="nickname-input" style="color:black;">Nickname</label>
                     </div>
+                    <input type="text" class="espaciado" style="border:1px solid black;" id="nickname-input">
                     <div class="contenido__bloque">
-                        <label for="contrasena1-input">Nueva contraseña</label>
-                        <input type="password" class="espaciado" id="contrasena1-input">
+                        <label for="contrasena1-input" style="color:black;">Nueva contraseña</label>
                     </div>
+                    <input type="password" class="espaciado" style="border:1px solid black;" id="contrasena1-input">
                     <div class="contenido__bloque">
-                        <label for="contrasena2-input">Repetir contraseña</label>
-                        <input type="password" class="espaciado" id="contrasena2-input">
+                        <label for="contrasena2-input" style="color:black;">Repetir contraseña</label>
                     </div>
+                    <input type="password" class="espaciado" style="border:1px solid black;" id="contrasena2-input">
                 </div>
                 <div class="contenidocentrado">
                     <div class="contenido__bloque subBloque--botones">
-                        <input type="button" class="boton" id="enviar" value="Enviar">
-                        <input type="button" class="boton" id="reestablecer" value="Reestablecer">
+                        <input type="button" class="boton btn" style="display:flex; flex-flow:column; justify-content:center;" id="enviar" value="Enviar">
+                        <input type="button" class="boton btn" style="display:flex; flex-flow:column; justify-content:center;" id="reestablecer" value="Reestablecer">
                     </div>
                 </div>
             </form>

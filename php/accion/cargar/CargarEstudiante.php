@@ -5,21 +5,23 @@
 
     class CargarEstudiante {
         public function cargar() {
+            echo 'a';
 
             if( isset($_POST['nombre']) && 
                 isset($_POST['apellido']) && isset($_POST['fecha']) && 
-                isset($_POST['clase']) && isset($_POST['cedula'])
+                isset($_POST['clase']) && isset($_POST['cedula']) && isset($_POST['lugarNacimiento'])
             ) {
                 $nombre = $_POST['nombre'];
                 $apellido = $_POST['apellido'];
                 $fecha = $_POST['fecha'];
                 $clase = $_POST['clase'];
                 $cedula = $_POST['cedula'];
+                $lugarNacimentio = $_POST['lugarNacimiento'];
 
                 //Falta algo para validar los datos
             
                 $estudianteDAO = new EstudianteDAO(BaseDeDatos::getInstancia());
-                $estudianteDAO->cargar(array($nombre, $apellido, $fecha, $clase, $cedula));
+                $estudianteDAO->cargar(array($nombre, $apellido, $fecha, $cedula, $lugarNacimentio));
 
                 echo 'se ha cargado correctamente el estudiante.';
             }
