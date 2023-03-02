@@ -404,3 +404,16 @@ ul {
 .perfil div {
     margin-bottom: 1em;
 }
+
+.input__grupo {
+    background-color: white;
+    padding: 0.5em;
+    border-radius: 1em;
+    margin-bottom: 1em;
+
+    .input__grupo {
+        padding: 0;
+        border-radius: 0;
+        margin-bottom: 0;
+    }
+}
