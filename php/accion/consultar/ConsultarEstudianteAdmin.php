@@ -23,41 +23,33 @@
 
             $registros = null;
 
-            if(str_contains($representante, "todos")) {
-                if(str_contains($clase, "todas")) { 
-                    if(str_contains($validez, "todas")) {
-                        $registros = $this->dao->getTodos();
-                    }
-                    else {
-                        $registros = $this->dao->getTodosValidez(array($validez));
-                    }
-                }
-                else {
-                    if(str_contains($validez, "todas")) {
-                        $registros = $this->dao->getTodosClase(array($clase));
-                    }
-                    else {
-                        $registros = $this->dao->getTodosClaseValidez(array($clase, $validez));
-                    }
-                }
+            $areTodosRepresentantes = str_contains($representante, "todos");
+            $areTodasClases = str_contains($clase, "todas");
+            $areTodasValidez = str_contains($validez, "todas");
+
+            if( $areTodosRepresentantes  && $areTodasClases && $areTodasValidez ) {
+                $registros = $this->dao->getTodos();
             }
-            else { 
-                if(str_contains($clase, "todas")) {
-                    if(str_contains($validez, "todas")) {
-                        $registros = $this->dao->getInstanciaCedula(array($representante));
-                    }
-                    else {
-                        $registros = $this->dao->getInstanciaCedulaValidez(array($representante, $validez));
-                    }
-                }
-                else {
-                    if(str_contains($validez, "todas")) {
-                        $registros = $this->dao->getInstanciaCedulaClase(array($representante, $clase));
-                    }
-                    else {
-                        $registros = $this->dao->getInstanciaCedulaValidezClase(array($representante, $validez, $clase));
-                    }
-                }
+            if( $areTodosRepresentantes  && $areTodasClases && !$areTodasValidez ) {
+                $registros = $this->dao->getTodosValidez(array($validez));
+            }
+            if( $areTodosRepresentantes  && !$areTodasClases && $areTodasValidez ) {
+                $registros = $this->dao->getTodosClase(array($clase));
+            }
+            if( $areTodosRepresentantes  && !$areTodasClases && !$areTodasValidez ) {
+                $registros = $this->dao->getTodosClaseValidez(array($clase, $validez));
+            }
+            if( !$areTodosRepresentantes  && $areTodasClases && $areTodasValidez ) {
+                $registros = $this->dao->getInstanciaCedula(array($representante));
+            }
+            if( !$areTodosRepresentantes  && $areTodasClases && !$areTodasValidez ) {
+                $registros = $this->dao->getInstanciaCedulaValidez(array($representante, $validez));
+            }
+            if( !$areTodosRepresentantes  && !$areTodasClases && $areTodasValidez ) {
+                $registros = $this->dao->getInstanciaCedulaClase(array($representante, $clase));
+            }
+            if( !$areTodosRepresentantes  && !$areTodasClases && !$areTodasValidez ) {
+                $registros = $this->dao->getInstanciaCedulaValidezClase(array($representante, $validez, $clase));
             }
             
             $html = "";
